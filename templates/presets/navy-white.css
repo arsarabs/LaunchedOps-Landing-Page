@@ -1,0 +1,30 @@
+/*
+ * LaunchedOps Preset: Navy + White
+ * Fonts: Inter (display) + Source Sans 3 (body)
+ * Google Fonts: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;700&display=swap
+ * Best for: Plumbing, HVAC, electrical — clean professional look
+ */
+:root {
+    --dark: #1B2A4A;
+    --dark-secondary: #243556;
+    --dark-tertiary: #2D4068;
+    --gold: #C0C8D8;
+    --gold-hover: #FFFFFF;
+    --gold-dim: rgba(192, 200, 216, 0.15);
+    --green: #34C759;
+    --green-dim: rgba(52, 199, 89, 0.15);
+    --white: #FFFFFF;
+    --gray-100: #EEF1F6;
+    --gray-300: #A8B4C8;
+    --gray-400: #8494AD;
+    --gray-500: #6B7C96;
+    --gray-600: #4A5B75;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 3px rgba(27,42,74,0.25);
+    --shadow-md: 0 4px 12px rgba(27,42,74,0.3);
+    --shadow-lg: 0 8px 24px rgba(27,42,74,0.4);
+    --shadow-xl: 0 16px 48px rgba(27,42,74,0.5);
+    --font-display: 'Inter', sans-serif;
+    --font-body: 'Source Sans 3', sans-serif;
+}

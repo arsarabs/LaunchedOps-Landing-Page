@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thompson's Junk Haulers — Monthly ROI Report — February 2026</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F1419'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-weight='bold' font-size='16' fill='%23E8AA2A' text-anchor='middle'%3ETJH%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { -webkit-text-size-adjust: 100%; }
+
+        :root {
+            --dark: #0F1419;
+            --dark-secondary: #1A1F26;
+            --gold: #E8AA2A;
+            --gold-light: #FFF8E7;
+            --gold-border: #F0D68A;
+            --green: #22863A;
+            --green-bg: #F0FFF4;
+            --green-border: #C6E6CC;
+            --blue: #0366D6;
+            --blue-bg: #F0F7FF;
+            --blue-border: #C8DDF0;
+            --red: #CB2431;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            line-height: 1.3;
+            color: var(--gray-900);
+        }
+
+        /* ===== REPORT LAYOUT ===== */
+        .report {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 48px 40px 64px;
+        }
+
+        /* ===== REPORT HEADER ===== */
+        .report-header {
+            text-align: center;
+            padding-bottom: 36px;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--dark);
+            position: relative;
+        }
+
+        .report-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .report-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .report-logo-mark {
+            width: 44px;
+            height: 44px;
+            background: var(--dark);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 13px;
+            color: var(--gold);
+        }
+
+        .report-logo-text {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .report-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .report-header .report-subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .report-header .report-prepared {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-top: 40px;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--dark);
+            color: var(--gold);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* ===== EXECUTIVE SUMMARY ===== */
+        .executive-summary {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-left: 4px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            padding: 22px 26px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .executive-summary strong {
+            color: var(--dark);
+        }
+
+        /* ===== TABLES ===== */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .data-table thead th {
+            background: var(--dark);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        .data-table thead th:first-child {
+            border-radius: 6px 0 0 0;
+        }
+
+        .data-table thead th:last-child {
+            border-radius: 0 6px 0 0;
+            text-align: right;
+        }
+
+        .data-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        .data-table tbody td:last-child {
+            text-align: right;
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .data-table .metric-name {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .data-table .highlight-row {
+            background: var(--gold-light) !important;
+        }
+
+        .data-table .highlight-row td {
+            font-weight: 700;
+            color: var(--dark);
+            border-bottom-color: var(--gold-border);
+        }
+
+        /* ===== TRAFFIC SOURCE BARS ===== */
+        .traffic-bars {
+            margin-bottom: 10px;
+        }
+
+        .traffic-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .traffic-bar-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .traffic-bar-label {
+            width: 80px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-700);
+            flex-shrink: 0;
+        }
+
+        .traffic-bar-track {
+            flex: 1;
+            height: 24px;
+            background: var(--gray-100);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .traffic-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .traffic-bar-fill.organic { background: var(--dark); width: 62%; }
+        .traffic-bar-fill.direct { background: var(--blue); width: 18%; }
+        .traffic-bar-fill.maps { background: var(--green); width: 12%; }
+        .traffic-bar-fill.social { background: #7C3AED; width: 5%; min-width: 30px; }
+        .traffic-bar-fill.referral { background: var(--gold); width: 3%; min-width: 30px; }
+
+        .traffic-bar-value {
+            width: 80px;
+            font-size: 14px;
+            color: var(--gray-600);
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .traffic-bar-value strong {
+            color: var(--dark);
+        }
+
+        /* ===== REVIEWS SECTION ===== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .review-stat {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+
+        .review-stat-value {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .review-stat-value.gold {
+            color: var(--gold);
+        }
+
+        .review-stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+
+        /* ===== ROI BOX ===== */
+        .roi-box {
+            background: var(--dark);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin: 24px 0 10px;
+            color: var(--white);
+        }
+
+        .roi-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gray-400);
+            margin-bottom: 20px;
+        }
+
+        .roi-formula {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .roi-item {
+            text-align: center;
+        }
+
+        .roi-item-value {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .roi-item-label {
+            font-size: 11px;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        .roi-operator {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--gray-500);
+        }
+
+        .roi-result {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .roi-result-value {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .roi-result-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== RECOMMENDATIONS ===== */
+        .recommendations {
+            list-style: none;
+            counter-reset: rec;
+        }
+
+        .recommendations li {
+            counter-increment: rec;
+            padding: 18px 20px 18px 60px;
+            margin-bottom: 14px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray-700);
+        }
+
+        .recommendations li:last-child {
+            margin-bottom: 0;
+        }
+
+        .recommendations li::before {
+            content: counter(rec);
+            position: absolute;
+            left: 18px;
+            top: 18px;
+            width: 28px;
+            height: 28px;
+            background: var(--dark);
+            color: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .recommendations li strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+
+        /* ===== REPORT FOOTER ===== */
+        .report-footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 2px solid var(--gray-200);
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 13px;
+        }
+
+        .report-footer strong {
+            color: var(--gray-600);
+        }
+
+        .report-footer .footer-logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--dark);
+            margin-top: 8px;
+        }
+
+        .report-footer .footer-logo span {
+            color: var(--gold);
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            @page {
+                size: letter;
+                margin: 0.6in 0.75in;
+            }
+
+            body {
+                font-size: 12px;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            .report {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .report-header {
+                margin-bottom: 28px;
+                padding-bottom: 24px;
+            }
+
+            .report-header h1 {
+                font-size: 22px;
+            }
+
+            .section-header {
+                margin-top: 28px;
+                margin-bottom: 14px;
+                font-size: 15px;
+                break-after: avoid;
+            }
+
+            .executive-summary {
+                padding: 16px 20px;
+                font-size: 13px;
+            }
+
+            .data-table {
+                font-size: 12px;
+            }
+
+            .data-table thead th {
+                padding: 8px 12px;
+                font-size: 10px;
+            }
+
+            .data-table tbody td {
+                padding: 8px 12px;
+            }
+
+            .reviews-grid {
+                gap: 10px;
+            }
+
+            .review-stat {
+                padding: 12px 10px;
+            }
+
+            .review-stat-value {
+                font-size: 22px;
+            }
+
+            .roi-box {
+                padding: 24px;
+                margin: 16px 0 10px;
+            }
+
+            .roi-result-value {
+                font-size: 40px;
+            }
+
+            .recommendations li {
+                padding: 14px 16px 14px 50px;
+                margin-bottom: 10px;
+                font-size: 13px;
+                break-inside: avoid;
+            }
+
+            .report-footer {
+                margin-top: 32px;
+            }
+
+            /* Page break hints */
+            .section-header { break-after: avoid; }
+            .data-table { break-inside: avoid; }
+            .roi-box { break-inside: avoid; }
+            .reviews-grid { break-inside: avoid; }
+            .traffic-bars { break-inside: avoid; }
+        }
+
+        /* ===== RESPONSIVE (SCREEN) ===== */
+        @media screen and (max-width: 768px) {
+            .report {
+                padding: 28px 20px 48px;
+            }
+
+            .report-header h1 {
+                font-size: 22px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roi-formula {
+                gap: 10px;
+            }
+
+            .roi-item-value {
+                font-size: 18px;
+            }
+
+            .roi-result-value {
+                font-size: 38px;
+            }
+
+            .traffic-bar-label {
+                width: 60px;
+                font-size: 12px;
+            }
+
+            .traffic-bar-value {
+                width: 60px;
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .report {
+                padding: 20px 16px 40px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .recommendations li {
+                padding-left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="report" role="main">
+        <!-- REPORT HEADER -->
+        <header class="report-header">
+            <div class="report-logo">
+                <div class="report-logo-mark">TJH</div>
+                <span class="report-logo-text">Thompson's Junk Haulers</span>
+            </div>
+            <h1>Monthly ROI Report</h1>
+            <div class="report-subtitle">February 2026</div>
+            <div class="report-prepared">Prepared by LaunchedOps</div>
+        </header>
+
+        <!-- 1. EXECUTIVE SUMMARY -->
+        <h2 class="section-header"><span class="section-number">1</span> Executive Summary</h2>
+        <div class="executive-summary">
+            Thompson's Junk Haulers had an outstanding February. Website traffic grew <strong>12% month-over-month to 847 visits</strong>, with organic search driving the majority of sessions. The site generated <strong>46 total leads</strong> (34 phone calls + 12 form submissions) at a cost per lead of just <strong>$1.63</strong>. Google review momentum continues to build with <strong>3 new reviews</strong> bringing the total to 14 at a <strong>4.8-star rating</strong>. The QR code review stand is working &mdash; 8 scans were recorded this month. Overall, the website delivered an estimated <strong>$13,800 in revenue</strong> against a $75 monthly cost, representing an exceptional return on investment.
+        </div>
+
+        <!-- 2. KEY METRICS -->
+        <h2 class="section-header"><span class="section-number">2</span> Key Performance Metrics</h2>
+        <table class="data-table" aria-label="Key performance metrics for February 2026">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="metric-name">Total Website Visits</td>
+                    <td>847</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Unique Visitors</td>
+                    <td>623</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Phone Calls</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Form Submissions</td>
+                    <td>12</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td class="metric-name">Total Leads</td>
+                    <td>46</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Conversion Rate</td>
+                    <td>5.4%</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Cost per Lead</td>
+                    <td>$1.63</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td class="metric-name">Estimated Revenue</td>
+                    <td>$13,800</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 3. TRAFFIC BREAKDOWN -->
+        <h2 class="section-header"><span class="section-number">3</span> Traffic Sources</h2>
+        <div class="traffic-bars">
+            <div class="traffic-bar-row">
+                <span class="traffic-bar-label">Organic</span>
+                <div class="traffic-bar-track">
+                    <div class="traffic-bar-fill organic">62%</div>
+                </div>
+                <span class="traffic-bar-value"><strong>525</strong> visits</span>
+            </div>
+            <div class="traffic-bar-row">
+                <span class="traffic-bar-label">Direct</span>
+                <div class="traffic-bar-track">
+                    <div class="traffic-bar-fill direct">18%</div>
+                </div>
+                <span class="traffic-bar-value"><strong>152</strong> visits</span>
+            </div>
+            <div class="traffic-bar-row">
+                <span class="traffic-bar-label">Maps</span>
+                <div class="traffic-bar-track">
+                    <div class="traffic-bar-fill maps">12%</div>
+                </div>
+                <span class="traffic-bar-value"><strong>102</strong> visits</span>
+            </div>
+            <div class="traffic-bar-row">
+                <span class="traffic-bar-label">Social</span>
+                <div class="traffic-bar-track">
+                    <div class="traffic-bar-fill social">5%</div>
+                </div>
+                <span class="traffic-bar-value"><strong>42</strong> visits</span>
+            </div>
+            <div class="traffic-bar-row">
+                <span class="traffic-bar-label">Referral</span>
+                <div class="traffic-bar-track">
+                    <div class="traffic-bar-fill referral">3%</div>
+                </div>
+                <span class="traffic-bar-value"><strong>26</strong> visits</span>
+            </div>
+        </div>
+
+        <!-- 4. TOP PAGES -->
+        <h2 class="section-header"><span class="section-number">4</span> Top Pages</h2>
+        <table class="data-table" aria-label="Top pages by pageviews">
+            <thead>
+                <tr>
+                    <th>Page</th>
+                    <th>Pageviews</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="metric-name">Homepage</td>
+                    <td>412</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Full Property Cleanouts</td>
+                    <td>98</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Hot Tub Removal</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Tempe Service Area</td>
+                    <td>64</td>
+                </tr>
+                <tr>
+                    <td class="metric-name">Chandler Service Area</td>
+                    <td>52</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 5. GOOGLE REVIEWS -->
+        <h2 class="section-header"><span class="section-number">5</span> Google Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-stat">
+                <div class="stars" aria-label="4.8 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div class="review-stat-value gold">4.8</div>
+                <div class="review-stat-label">Avg Rating</div>
+            </div>
+            <div class="review-stat">
+                <div class="review-stat-value">14</div>
+                <div class="review-stat-label">Total Reviews</div>
+            </div>
+            <div class="review-stat">
+                <div class="review-stat-value" style="color: var(--green);">+3</div>
+                <div class="review-stat-label">New This Month</div>
+            </div>
+            <div class="review-stat">
+                <div class="review-stat-value">8</div>
+                <div class="review-stat-label">QR Code Scans</div>
+            </div>
+        </div>
+
+        <!-- 6. ROI CALCULATION -->
+        <h2 class="section-header"><span class="section-number">6</span> Return on Investment</h2>
+        <div class="roi-box">
+            <h3>Monthly ROI Calculation</h3>
+            <div class="roi-formula">
+                <div class="roi-item">
+                    <div class="roi-item-value">$13,800</div>
+                    <div class="roi-item-label">Est. Revenue</div>
+                </div>
+                <span class="roi-operator">&minus;</span>
+                <div class="roi-item">
+                    <div class="roi-item-value">$75</div>
+                    <div class="roi-item-label">Monthly Cost</div>
+                </div>
+                <span class="roi-operator">=</span>
+                <div class="roi-item">
+                    <div class="roi-item-value">$13,725</div>
+                    <div class="roi-item-label">Net Profit</div>
+                </div>
+            </div>
+            <div class="roi-formula" style="margin-bottom: 24px;">
+                <div class="roi-item">
+                    <div class="roi-item-value">46</div>
+                    <div class="roi-item-label">Total Leads</div>
+                </div>
+                <span class="roi-operator">&times;</span>
+                <div class="roi-item">
+                    <div class="roi-item-value">$300</div>
+                    <div class="roi-item-label">Avg Job Value</div>
+                </div>
+                <span class="roi-operator">=</span>
+                <div class="roi-item">
+                    <div class="roi-item-value">$13,800</div>
+                    <div class="roi-item-label">Est. Revenue</div>
+                </div>
+            </div>
+            <div class="roi-result">
+                <div class="roi-result-value">18,300% ROI</div>
+                <div class="roi-result-label">Return on Investment</div>
+            </div>
+        </div>
+
+        <!-- 7. RECOMMENDATIONS -->
+        <h2 class="section-header"><span class="section-number">7</span> Recommendations</h2>
+        <ol class="recommendations">
+            <li>
+                <strong>Add Scottsdale and Mesa Service Area Pages</strong>
+                Tempe and Chandler pages are already generating strong traffic (64 and 52 visits respectively). Expanding to neighboring Scottsdale and Mesa with dedicated service area pages will capture additional local search volume and further increase organic traffic by an estimated 15-20%.
+            </li>
+            <li>
+                <strong>Push for 25 Google Reviews by End of Q1</strong>
+                With 14 reviews and a 4.8-star rating, Thompson's is building strong social proof. Increasing the QR code placement frequency and sending a follow-up text after each completed job should help reach the 25-review milestone, which is a key threshold for improved Google Maps visibility.
+            </li>
+            <li>
+                <strong>Add Before/After Photo Gallery for Property Cleanouts</strong>
+                The Full Property Cleanouts page is the second most visited page at 98 views but currently lacks visual proof of work. Adding 4-6 high-quality before/after photos will increase time on page, improve conversion rates, and provide shareable content for social media.
+            </li>
+        </ol>
+
+        <!-- REPORT FOOTER -->
+        <footer class="report-footer">
+            <p>This report covers the period of <strong>February 1 &ndash; February 18, 2026</strong>.</p>
+            <p>Revenue estimates are based on average job value and lead-to-close ratios.</p>
+            <div class="footer-logo">Generated by <span>Launched</span>Ops</div>
+        </footer>
+    </main>
+</body>
+</html>

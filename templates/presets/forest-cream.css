@@ -1,0 +1,30 @@
+/*
+ * LaunchedOps Preset: Forest + Cream
+ * Fonts: Playfair Display (display) + Lato (body)
+ * Google Fonts: https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap
+ * Best for: Landscaping, tree service, fencing — earthy natural feel
+ */
+:root {
+    --dark: #1A2E12;
+    --dark-secondary: #243A1A;
+    --dark-tertiary: #2E4622;
+    --gold: #F5E6C8;
+    --gold-hover: #FFF3DC;
+    --gold-dim: rgba(245, 230, 200, 0.15);
+    --green: #5CB85C;
+    --green-dim: rgba(92, 184, 92, 0.15);
+    --white: #FFFEF8;
+    --gray-100: #F2EFE8;
+    --gray-300: #B5B0A5;
+    --gray-400: #938E82;
+    --gray-500: #716C60;
+    --gray-600: #524E44;
+    --radius: 8px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 3px rgba(26,46,18,0.2);
+    --shadow-md: 0 4px 12px rgba(26,46,18,0.25);
+    --shadow-lg: 0 8px 24px rgba(26,46,18,0.35);
+    --shadow-xl: 0 16px 48px rgba(26,46,18,0.45);
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}

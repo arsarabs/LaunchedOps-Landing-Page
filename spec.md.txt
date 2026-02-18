@@ -1,0 +1,235 @@
+# LAUNCHEDOPS BUILD SPEC — Thompson's Junk Haulers
+
+## Instructions for Claude Code
+
+Read the demo template file (`demo-template.html` or whatever the HTML template file is named in this folder) as your foundation. That file contains the complete working structure — layout, CSS, JavaScript, schema, and all interactive features.
+
+Your job: **produce a production-ready `index.html`** for the client below. Hardcode ALL client data directly into the HTML. Do NOT rely on URL parameters for personalization — this is a production build, not a demo. Remove or disable the URL parameter JavaScript personalization block entirely.
+
+Reference the `launchedops-master-build-reference.txt` for the full quality checklist. At minimum, hit every item in the **"Must Change (Every Build)"** and **"Should Change"** sections of the Per-Client Customization Guide (Section 6).
+
+Also generate: `sitemap.xml`, `robots.txt`.
+
+---
+
+## Client Information
+
+| Field | Value |
+|---|---|
+| **Business Name** | Thompson's Junk Haulers |
+| **Owner** | Marcus Thompson |
+| **Phone** | (480) 555-1234 |
+| **Phone (raw)** | 4805551234 |
+| **City** | Mesa, AZ |
+| **State** | Arizona |
+| **Service Areas** | Mesa, Tempe, Chandler, Gilbert, Scottsdale, Apache Junction, Queen Creek |
+| **Years in Business** | 4 years |
+| **Crew Size** | 2 trucks, 3-person team |
+| **Business Hours** | Mon-Sat: 6AM - 7PM |
+| **Google Rating** | 4.8 |
+| **Google Review Count** | 14 |
+| **Jobs Completed** | 500+ |
+
+---
+
+## Services (customize the 6 service cards)
+
+Keep 6 cards. Replace/reorder to match Marcus's actual services. His #1 money-maker should be visually emphasized.
+
+| Priority | Service | Description | Notes |
+|---|---|---|---|
+| **★ HERO** | Full Property Cleanouts | Estate cleanouts, hoarder houses, foreclosure cleanups. Complete top-to-bottom property clearing. | **This is his bread and butter — $800-$2,000 jobs. Feature this FIRST in service cards and emphasize in hero copy.** |
+| 2 | Hot Tub & Spa Removal | Complete hot tub disconnection, demolition, and hauling. We handle the heavy lifting so you don't have to. | **His niche differentiator. Replaces one of the generic cards.** |
+| 3 | Furniture Removal | Sofas, beds, tables, dressers — single items or entire rooms cleared fast. | Keep from template |
+| 4 | Appliance Removal | Refrigerators, washers, dryers, water heaters. We handle disconnection and eco-friendly disposal. | Keep from template |
+| 5 | Yard Waste & Debris | Branches, brush, dirt, landscaping debris, and storm cleanup. | Keep from template |
+| 6 | Construction Debris | Drywall, lumber, tiles, concrete, and renovation waste from remodels and builds. | Keep from template |
+
+---
+
+## Pricing (update the 3 tiers)
+
+| Tier | Label | Price Range | Description | Examples |
+|---|---|---|---|---|
+| Small | Single Items | $100 - $350 | A few items — one piece of furniture, an appliance, or a small pile. | Single couch or mattress, Old water heater, Small garage corner |
+| **Popular** | Half Cleanout | $350 - $800 | Multiple rooms, partial garage, or moderate-size jobs. Most common for homeowners. | Garage half-cleanout, Multiple furniture pieces, Hot tub removal |
+| Large | Full Property Cleanout | $800 - $2,000+ | Entire property clearing — estates, foreclosures, hoarder houses, full garage/basement. | Estate cleanout, Foreclosure property, Full garage + basement |
+
+---
+
+## Hero Section
+
+**Badge:** "Same-Day Service Available" (keep as-is)
+
+**Headline:**  
+`Mesa's Trusted Team for`  
+`Full Property Cleanouts &`  
+`Junk Removal`
+
+**Subheadline:**  
+"From single-item pickups to complete estate cleanouts — we've cleared 500+ properties across the East Valley. Licensed, insured, and done right the first time."
+
+**Stat cards:**
+- "500+" / "Properties Cleared"
+- "4.8" / "Google Rating"  
+- "Same Day" / "Service Available"
+
+---
+
+## Reviews (3 cards)
+
+Write realistic reviews that sound like actual homeowners in Mesa, AZ. Reference specific services Marcus actually does. These are placeholders until Marcus provides his real Google reviews.
+
+**Review 1:**
+- Name: **Carlos M.**
+- Rating: 5 stars
+- Text: "Had a foreclosure property in Gilbert that needed to be completely cleared out. These guys showed up on time with two trucks and had the entire house empty by lunch. Fair price, no surprises, and they swept up before they left. Already referred them to my property manager."
+
+**Review 2:**
+- Name: **Jennifer H.**  
+- Rating: 5 stars
+- Text: "Called on a Monday, they were at my house in Tempe by Wednesday morning. Took out an old hot tub I've been staring at for three years. The crew was super professional and careful with my patio. Best money I've spent on the house all year."
+
+**Review 3:**
+- Name: **Ray P.**
+- Rating: 5 stars
+- Text: "My mom passed and we needed her house in Mesa cleared for sale. Marcus and his team handled everything with respect — donated what they could, recycled the rest. Made a painful process so much easier. Can't recommend them enough."
+
+---
+
+## FAQ Section (customize all 6)
+
+1. **What do you haul away?**  
+"Everything from single furniture pieces to full property cleanouts. We handle furniture, appliances, hot tubs, yard waste, construction debris, estate cleanouts, foreclosure clearing, and general junk. If it needs to go, we can move it."
+
+2. **How does your pricing work?**  
+"We price based on how much space your items take up in our truck — no hidden fees, no hourly charges. Single items start around $100, most homeowner jobs run $350-$800, and full property cleanouts are quoted individually. You'll know the price before we start."
+
+3. **Do you offer same-day service?**  
+"Yes — if we have availability, we can often be there the same day you call. We cover all of East Valley including Mesa, Tempe, Chandler, Gilbert, Scottsdale, and Apache Junction. Next-day is almost always available."
+
+4. **Can you remove a hot tub?**  
+"Absolutely — hot tub removal is one of our specialties. We handle disconnection, demolition, and complete hauling. Most hot tub jobs are done in 2-3 hours. Just call us for a quote."
+
+5. **Do you handle estate and foreclosure cleanouts?**  
+"Yes, this is our specialty. We've cleared hundreds of estate, foreclosure, and hoarder properties across the East Valley. We bring the right crew size and equipment for the job, and we donate usable items whenever possible."
+
+6. **Do you recycle or donate items?**  
+"Whenever possible, yes. We partner with local charities in the Mesa area to donate usable furniture, clothing, and household items. Metals, electronics, and recyclable materials go to certified facilities. We keep as much out of the landfill as we can."
+
+---
+
+## Service Area Section
+
+**Area pills (in order):** Mesa, Tempe, Chandler, Gilbert, Scottsdale, Apache Junction, Queen Creek
+
+**Map embed:** Center on Mesa, AZ. Use this embed URL:  
+`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Mesa,Arizona&zoom=10`
+
+**Area description:**  
+"We proudly serve Mesa and the entire East Valley. From Scottsdale to Apache Junction, if you're in the area, we've got you covered. Call to confirm service in your location."
+
+---
+
+## Stats Section (Numbers That Speak)
+
+| Stat | Value | Label |
+|---|---|---|
+| 1 | 500+ | Properties Cleared |
+| 2 | 4.8 | Google Rating |
+| 3 | Same Day | Service Available |
+| 4 | 100% | Satisfaction Guaranteed |
+
+---
+
+## Why Choose Us Section
+
+**Headline:** "Why Choose Thompson's Junk Haulers?"
+
+**Description:** "We're not a franchise. We're a local crew that's been clearing properties across the East Valley for 4 years. Two trucks, three guys, and a reputation we've earned one job at a time."
+
+**4 Features:**
+1. **Licensed & Insured** — "Fully licensed and insured in Arizona. You're protected on every job."
+2. **Upfront Pricing** — "We quote before we start. No surprises, no hidden fees, no hourly rates."
+3. **Same-Day Service** — "Call in the morning, we're there by afternoon. East Valley coverage every day."
+4. **Cleanout Specialists** — "Estates, foreclosures, hoarder houses. We bring the right crew and equipment for jobs other companies won't touch."
+
+---
+
+## Footer
+
+**Description:** "Mesa's trusted junk removal team. Full property cleanouts, single-item pickups, and everything in between. Serving the East Valley for 4 years."
+
+**Contact info:**
+- Phone: (480) 555-1234
+- Location: Mesa, AZ
+- Hours: Mon-Sat: 6AM - 7PM
+- Same-Day Available
+
+**Social links:** Keep placeholder `#` hrefs (Marcus will provide real URLs later)
+
+---
+
+## Schema Updates
+
+Update ALL structured data to reflect Marcus's actual info:
+- Business name: Thompson's Junk Haulers
+- Phone: (480) 555-1234
+- City: Mesa, Region: AZ
+- Rating: 4.8, Review count: 14
+- Hours: Mo-Sa 06:00-19:00
+- Area served: Mesa, Tempe, Chandler, Gilbert, Scottsdale, Apache Junction, Queen Creek
+- Service types: Add "Hot Tub Removal", "Estate Cleanouts", "Foreclosure Cleanouts" to the service list
+- Reviews: Use the 3 reviews from above
+- Breadcrumb: "Junk Removal in Mesa AZ"
+
+---
+
+## Meta & SEO
+
+- **Title tag:** "Thompson's Junk Haulers — Junk Removal & Cleanouts in Mesa, AZ | Same-Day Service"
+- **Meta description:** "Thompson's Junk Haulers offers fast, affordable junk removal and full property cleanouts in Mesa, AZ and the East Valley. Hot tub removal, estate cleanouts, and same-day service. Call (480) 555-1234 for a free quote."
+- **Canonical:** `https://thompsonsjunkhaulers.com/` (placeholder until real domain)
+- **OG title:** "Thompson's Junk Haulers — Junk Removal & Cleanouts in Mesa, AZ"
+- **OG description:** "Full property cleanouts, hot tub removal, and same-day junk hauling across the East Valley. Call for a free quote."
+
+---
+
+## Social Proof Notification
+
+Update the rotating notification to use East Valley city names:  
+"🎉 **[Name]** from **[Mesa/Tempe/Chandler/Gilbert]** just booked a pickup!"
+
+---
+
+## Images (Placeholder Strategy)
+
+Use the SAME Unsplash images from the demo template for now. The client will provide real photos later and we'll swap them in. Update alt text on every image to reference "Mesa" and "Thompson's Junk Haulers" for SEO.
+
+For the two NEW service cards:
+- **Full Property Cleanouts:** Use `https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&auto=format&q=80` (empty room after cleanout)
+- **Hot Tub Removal:** Use `https://images.unsplash.com/photo-1572731024710-a05c2d018b3c?w=400&auto=format&q=80` (outdoor backyard/patio — closest to hot tub context)
+
+---
+
+## Files to Generate
+
+1. **`index.html`** — Complete production-ready site with all client data hardcoded
+2. **`sitemap.xml`** — Single-page sitemap pointing to `https://thompsonsjunkhaulers.com/`
+3. **`robots.txt`** — Standard allow-all with sitemap reference
+
+---
+
+## Quality Checklist (verify before output)
+
+- [ ] Zero instances of "Your City", "Your Junk Removal Co", "Nearby Town", or any placeholder text
+- [ ] Phone number (480) 555-1234 appears in: header, hero (if applicable), CTA section, footer, mobile sticky bar, schema, SMS links
+- [ ] "Mesa" appears in: hero headline, service area section, footer, schema, meta tags, breadcrumb, image alt text, review text
+- [ ] "Thompson's Junk Haulers" appears in: header logo, hero (if applicable), Why Choose Us headline, footer brand, footer copyright, schema, meta tags, OG tags
+- [ ] All 7 service area cities appear in the area pills
+- [ ] Service cards reflect Marcus's actual services (cleanouts first, hot tub included)
+- [ ] Pricing reflects his actual ranges
+- [ ] FAQ answers are specific to his business
+- [ ] All schema validates (LocalBusiness, AggregateRating, Review, FAQPage, BreadcrumbList)
+- [ ] Copyright year is dynamic (JavaScript)
+- [ ] URL parameter personalization block is REMOVED (this is production, not demo)

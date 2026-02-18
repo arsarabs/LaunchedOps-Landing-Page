@@ -1,0 +1,31 @@
+/*
+ * LaunchedOps Preset: Light + Blue
+ * Fonts: Poppins (display) + Open Sans (body)
+ * Google Fonts: https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;700&display=swap
+ * Best for: Cleaning services, pressure washing, painting — bright clean feel
+ * NOTE: This is a LIGHT theme. Text colors are inverted from the dark themes.
+ */
+:root {
+    --dark: #FFFFFF;
+    --dark-secondary: #F4F6F8;
+    --dark-tertiary: #E8ECF0;
+    --gold: #2563EB;
+    --gold-hover: #1D4FD7;
+    --gold-dim: rgba(37, 99, 235, 0.1);
+    --green: #16A34A;
+    --green-dim: rgba(22, 163, 74, 0.1);
+    --white: #111827;
+    --gray-100: #1F2937;
+    --gray-300: #4B5563;
+    --gray-400: #6B7280;
+    --gray-500: #9CA3AF;
+    --gray-600: #D1D5DB;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    --shadow-xl: 0 16px 48px rgba(0,0,0,0.15);
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}

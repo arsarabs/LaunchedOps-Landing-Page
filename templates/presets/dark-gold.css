@@ -1,0 +1,30 @@
+/*
+ * LaunchedOps Preset: Dark + Gold (Default)
+ * Fonts: Plus Jakarta Sans (display) + DM Sans (body)
+ * Google Fonts: https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap
+ * Best for: Junk removal, hauling, construction, trades with a premium feel
+ */
+:root {
+    --dark: #0F1419;
+    --dark-secondary: #1A1F26;
+    --dark-tertiary: #242B33;
+    --gold: #E8AA2A;
+    --gold-hover: #F0BC4A;
+    --gold-dim: rgba(232, 170, 42, 0.15);
+    --green: #34C759;
+    --green-dim: rgba(52, 199, 89, 0.15);
+    --white: #FFFFFF;
+    --gray-100: #F0F0F0;
+    --gray-300: #B0B8C1;
+    --gray-400: #8A929A;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+    --shadow-xl: 0 16px 48px rgba(0,0,0,0.6);
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+}

@@ -1,0 +1,671 @@
+LAUNCHEDOPS
+
+CONTRACTOR WEBSITE
+
+MASTER BUILD REFERENCE
+
+The definitive checklist for building, scoring, and delivering contractor websites. Reference this document before every build. No exceptions.
+
+Version 1.0 • February 2026
+
+Current Template Score: 78/100 • Target: 98/100
+
+TABLE OF CONTENTS
+
+1. Scoring Overview — Where the template stands and what each tier means
+
+2. What You Have (78 Points) — Everything already built and working
+
+3. What's Missing (22 Points) — Every gap costing you points
+
+4. The Upgrade Roadmap — Exact sequence from 78 to 98
+
+5. Pre-Build Checklist — Run through before every client build
+
+6. Per-Client Customization Guide — What to change for each contractor
+
+7. File & Deployment Checklist — Production launch requirements
+
+8. Quality Assurance — Testing before delivery
+
+9. Post-Delivery Roadmap — Month 2-3 upgrades for $75/mo value
+
+1. SCORING OVERVIEW
+
+The current template scores 78/100. This is already better than what most agencies deliver at $2-3K. The gaps are quantifiable and closeable. Here's how the 100 points break down:
+
+  ---------------------------- --------- ------------------------------------
+  CATEGORY                     POINTS    STATUS
+
+  Technical SEO & Schema       /25       Earning ~20 — strong foundation
+
+  Performance & Speed          /15       Earning ~9 — external dependencies
+
+  Design & UX                  /20       Earning ~16 — polished, one theme
+
+  Conversion Features          /15       Earning ~13 — multiple CTAs
+
+  Content Quality              /10       Earning ~5 — generic copy
+
+  Architecture & Scale         /10       Earning ~3 — single page only
+
+  Tracking & Analytics         /5        Earning ~0 — nothing installed
+  ---------------------------- --------- ------------------------------------
+
+Score Tiers
+
+  --------- ---------------------- --------------------------------------------------------
+  SCORE     TIER                   WHAT IT MEANS
+
+  78        Current Template       Strong demo closer. Weak as a 12-month product.
+
+  85        Launch-Ready           Good enough to deliver and retain clients.
+
+  90        Multi-Page SEO         Each site targets 5+ keyword clusters.
+
+  93        Unique Identity        No two client sites look the same.
+
+  95        Performance Elite      PageSpeed 98+. Faster than 99% of competitors.
+
+  97        Interactive            Sliders, calculators, carousels. Feels custom.
+
+  99        Full System            Forms, tracking, QR, analytics. Not a site — a system.
+
+  100       Agency-Grade           Unique copy, real photos, storytelling. $5-8K value.
+  --------- ---------------------- --------------------------------------------------------
+
+2. WHAT YOU HAVE (EARNING 78 POINTS)
+
+These are confirmed, working features in the current template. Do not rebuild these — they're done.
+
+Technical SEO & Schema (~20/25)
+
+  ✅ LocalBusiness schema with address, phone, hours, services, area served
+
+  ✅ AggregateRating schema with review count and score
+
+  ✅ Individual Review schema with author names, dates, ratings, review text
+
+  ✅ FAQPage schema triggering potential rich snippets in Google
+
+  ✅ BreadcrumbList schema for navigation structure
+
+  ✅ Open Graph tags for Facebook/iMessage link previews
+
+  ✅ Twitter Card tags for X/Twitter previews
+
+  ✅ Meta description tag customized per client via JS
+
+  ✅ Canonical URL preventing duplicate content
+
+  ✅ Geo meta tags (geo.region, geo.placename)
+
+  ✅ Robots meta tag (index, follow)
+
+  ✅ Semantic HTML with proper heading hierarchy (h1 → h2 → h3)
+
+  ✅ ARIA labels on interactive elements
+
+  ✅ Role attributes on landmarks (banner, complementary, contentinfo, region)
+
+  ✅ Alt text on every image with city keyword injection
+
+  ✅ URL parameter personalization (name, city, phone, reviews, rating)
+
+  ✅ Schema dynamically updates via JS to match URL params
+
+Performance (~9/15)
+
+  ✅ Preconnect to Google Fonts for faster loading
+
+  ✅ Preload on hero image with fetchpriority="high"
+
+  ✅ Lazy loading on below-fold images
+
+  ✅ Width/height attributes on images preventing layout shift
+
+  ✅ prefers-reduced-motion media query
+
+  ✅ IntersectionObserver for scroll reveals (no scroll listeners)
+
+  ✅ Single-file architecture — zero external JS dependencies
+
+Design & UX (~16/20)
+
+  ✅ Fixed header with scroll-triggered background and shrink + backdrop blur
+
+  ✅ Full-viewport hero with radial gradient backgrounds
+
+  ✅ Animated pulse dot on availability badge
+
+  ✅ Floating stat cards with infinite float animation
+
+  ✅ Responsive grid layout (mobile-first, 3 breakpoints)
+
+  ✅ Service cards with image zoom on hover + gradient overlays
+
+  ✅ Step connector line between how-it-works steps
+
+  ✅ FAQ accordion with smooth max-height transitions + rotating icon
+
+  ✅ Social proof pop-up notification with auto-dismiss
+
+  ✅ Mobile sticky CTA bar with call/text/quote + safe area inset
+
+  ✅ Form success state with animated check icon
+
+  ✅ Pricing cards with SVG truck fill visuals
+
+  ✅ Before/after section with overlay labels
+
+  ✅ QR code section with phone mockup
+
+  ✅ Trust bar, "Find Us On" badges, Google badge on reviews
+
+  ✅ Review avatars with dynamic initials from names
+
+  ✅ CTA section with diagonal stripe background pattern
+
+  ✅ Footer with 3-column grid, social links, service list
+
+Conversion Features (~13/15)
+
+  ✅ Phone number in header, hero, CTA, footer, and mobile bar
+
+  ✅ SMS deep links with pre-filled body text
+
+  ✅ Scroll-to-contact on CTA buttons
+
+  ✅ Social proof notifications creating urgency
+
+  ✅ "Same-Day Service Available" badge with pulse animation
+
+  ✅ Form with job type dropdown for lead qualification
+
+  ✅ Honeypot spam protection on contact form
+
+  ✅ Success state encouraging immediate call
+
+3. WHAT'S MISSING (COSTING 22 POINTS)
+
+Every item below is a specific, closeable gap. Organized by priority — highest-impact items first.
+
+Technical Gaps
+
+Critical (Fix Before First Client)
+
+  ☐ JS rendering risk — Google may index "Your City" placeholders instead of real content. Fix: static site generation during build, or server-side rendering
+
+  ☐ No sitemap.xml — Google has no map of your pages
+
+  ☐ No robots.txt — no crawl directives for search engines
+
+Important (Fix Within First Month)
+
+  ☐ No GTM container — no conversion tracking infrastructure
+
+  ☐ No click-to-call tracking — can't prove ROI to contractor
+
+  ☐ Google Fonts loaded from CDN — adds ~200ms latency. Self-host instead
+
+  ☐ Images from Unsplash CDN — not self-hosted, not WebP, not optimized
+
+  ☐ No custom OG image — placeholder path doesn't resolve
+
+  ☐ No favicon from client brand — using truck emoji
+
+  ☐ No Service schema — individual services not structured for Google
+
+  ☐ No Offer/PriceSpecification schema — pricing invisible to Google
+
+Nice-to-Have (Month 2-3)
+
+  ☐ No 404 page — broken links hit dead end (critical once multi-page)
+
+  ☐ No security headers — no CSP, X-Frame-Options, HSTS
+
+  ☐ No service worker — no offline caching for repeat visits
+
+  ☐ No critical CSS extraction — everything loads at once
+
+  ☐ No hreflang — no multilingual signal (relevant for Spanish-speaking markets)
+
+  ☐ CSS not separately inlined — entire stylesheet in head blocks render
+
+Design Gaps
+
+High Priority
+
+  ☐ One color scheme only — every client looks the same. Need 3-4 presets
+
+  ☐ Stock photography — no real photos of the actual business
+
+  ☐ Before/after is two static images — no interactive slider
+
+  ☐ No animated counters on stats section
+
+  ☐ Map uses generic coordinates — needs real business location
+
+  ☐ Area pill towns are placeholder — "Nearby Town 1" through 7
+
+Lower Priority
+
+  ☐ No work portfolio/gallery section with real job photos
+
+  ☐ No team/about section with owner's face and story
+
+  ☐ Review carousel is static — no rotation or "load more"
+
+  ☐ No video anywhere — even a 15-second clip adds trust
+
+  ☐ No cost calculator or interactive pricing tool
+
+  ☐ No "text us a photo for instant quote" feature
+
+  ☐ No blog structure for future SEO growth
+
+  ☐ No dark/light theme toggle
+
+Content Gaps
+
+  ☐ Generic copy — "We haul it all" could be any company in any city
+
+  ☐ Reviews are placeholder text, not pulled from real Google reviews
+
+  ☐ FAQ answers are generic, not specific to contractor's actual policies
+
+  ☐ No unique selling proposition differentiating this specific contractor
+
+  ☐ Service descriptions are one-line generic summaries
+
+  ☐ No "About the Owner" storytelling content
+
+  ☐ No specific neighborhood or community references
+
+  ☐ Footer description is boilerplate
+
+4. THE UPGRADE ROADMAP (78 → 98)
+
+Follow this exact sequence. Do NOT skip ahead. Each tier builds on the last.
+
+Tier 1: Score 85 — Launch-Ready
+
+Do this before delivering to your first paying client.
+
+  ☐ Fix JS rendering risk — hardcode client data during build instead of URL params
+
+  ☐ Add sitemap.xml and robots.txt
+
+  ☐ Replace placeholder area towns with real nearby cities
+
+  ☐ Replace placeholder review text with client's real Google reviews (or realistic ones they approve)
+
+  ☐ Set real Google Maps coordinates for client's service area
+
+  ☐ Replace Unsplash stock photos with niche-appropriate images (even better stock)
+
+  ☐ Add GTM container (empty, ready for future use)
+
+  ☐ Create custom favicon from client's brand/initials
+
+Tier 2: Score 90 — Multi-Page SEO
+
+Add after first 3-5 clients. Biggest single SEO jump.
+
+  ☐ Build dedicated service pages: /garage-cleanout-[city], /furniture-removal-[city]
+
+  ☐ Build city/area pages: /junk-removal-[nearby-city]
+
+  ☐ Each page gets unique h1, meta description, schema, and content
+
+  ☐ Auto-generate sitemap.xml from all pages
+
+  ☐ Add canonical URL per page
+
+  ☐ Add internal linking between pages
+
+  ☐ Add 404 page routing back to homepage/contact
+
+Tier 3: Score 93 — Unique Visual Identity
+
+Kill the "template" concern forever.
+
+  ☐ Build 3-4 color/typography presets (dark+gold, navy+white, forest+cream, light+blue)
+
+  ☐ Different font pairings per preset
+
+  ☐ Light theme option
+
+  ☐ Per-client OG image generation (business name + phone + city on branded template)
+
+  ☐ When contractors compare sites, no two look the same
+
+Tier 4: Score 95 — Performance Elite
+
+Screenshot this PageSpeed score and use it in your sales pitch.
+
+  ☐ Self-host Google Fonts — eliminate external CDN dependency
+
+  ☐ Convert all images to optimized WebP
+
+  ☐ Inline critical CSS
+
+  ☐ Preload self-hosted font files and hero image
+
+  ☐ Target: PageSpeed 98-100 on mobile (most contractor sites score 40-60)
+
+  ☐ Add security headers (CSP, X-Frame-Options, HSTS)
+
+  ☐ Add service worker for offline caching
+
+Tier 5: Score 97 — Interactive Elements
+
+Small touches that make the site feel custom-built, not templated.
+
+  ☐ Real before/after slider (drag to compare)
+
+  ☐ Animated cost calculator (visual truck fill → estimated price range)
+
+  ☐ Review carousel that auto-rotates with "load more"
+
+  ☐ Animated counters on stats section
+
+  ☐ "Text us a photo for instant quote" feature
+
+Tier 6: Score 99 — Backend Integration
+
+Now you're selling a system, not a website.
+
+  ☐ Form submissions → email + SMS notification to contractor (Twilio)
+
+  ☐ QR review system — 4-5 stars routes to Google, 1-3 stars routes to private feedback
+
+  ☐ Click-to-call tracking with Google forwarding numbers or UTM params
+
+  ☐ Simple analytics dashboard contractor can check
+
+  ☐ Monthly ROI report: "Your website generated X calls this month"
+
+Tier 7: Score 100 — Agency-Grade Content
+
+The final 1%. Requires client participation.
+
+  ☐ Unique, keyword-rich copy per client (interview the contractor, write like a journalist)
+
+  ☐ Real photos of their crew, trucks, and completed jobs
+
+  ☐ Specific neighborhood and community references in copy
+
+  ☐ "About the Owner" storytelling section
+
+  ☐ Service descriptions that reflect their actual specialties and policies
+
+  ☐ FAQ answers specific to their business, not generic
+
+5. PRE-BUILD CHECKLIST
+
+Run through this BEFORE starting every client build. Gather all info upfront.
+
+Client Information to Collect
+
+  ☐ Business name (exact spelling/capitalization they want)
+
+  ☐ Phone number
+
+  ☐ City + state
+
+  ☐ Service area — list of nearby towns/cities they serve
+
+  ☐ Services offered (which of the 6 categories apply?)
+
+  ☐ Pricing ranges (or confirm they want generic ranges)
+
+  ☐ Google review link (for QR system)
+
+  ☐ Top 3-5 real Google reviews to feature
+
+  ☐ Google Maps Place ID or exact address for map embed
+
+  ☐ Business hours
+
+  ☐ Logo file (or confirm you'll create initials-based favicon)
+
+  ☐ Any real photos of crew/trucks/jobs (optional but valuable)
+
+  ☐ Facebook/Instagram/Google Business URLs
+
+  ☐ Preferred color scheme (or let you choose)
+
+  ☐ Any specific USP or differentiator they want highlighted
+
+6. PER-CLIENT CUSTOMIZATION GUIDE
+
+Everything that changes from one client build to the next.
+
+Must Change (Every Build)
+
+  ☐ Business name — all .business-name elements + schema + meta tags + OG tags
+
+  ☐ Phone number — all tel: links, SMS links, schema, display text
+
+  ☐ City name — all .city-name elements + schema + meta + alt text + breadcrumb
+
+  ☐ Service area towns — replace "Nearby Town 1-7" with real cities
+
+  ☐ Google Maps embed — real coordinates or Place ID
+
+  ☐ Reviewer names — real names from their Google reviews
+
+  ☐ Review text — real review content (or client-approved realistic copy)
+
+  ☐ Rating + review count — match their actual Google rating
+
+  ☐ Favicon — from their logo or custom initials
+
+  ☐ Social media links — their actual Facebook/Instagram/Google Business
+
+  ☐ Canonical URL — their actual domain
+
+  ☐ OG image — custom branded image for social shares
+
+Should Change (If Info Available)
+
+  ☐ Hero image — niche-specific or real crew photo
+
+  ☐ Service card images — relevant to their actual services
+
+  ☐ Pricing ranges — their actual pricing if provided
+
+  ☐ Business hours — their actual schedule
+
+  ☐ Service list — remove services they don't offer, add any missing
+
+  ☐ FAQ answers — customize to their actual policies
+
+  ☐ Color scheme — from preset library to match their brand
+
+  ☐ About/USP copy — anything that differentiates them
+
+URL Parameter Reference (for demos only)
+
+These params personalize the demo link before the client pays:
+
+?name=Business Name
+
+&city=City Name
+
+&phone=10-digit phone (auto-formatted)
+
+&r1=&r2=&r3=Reviewer names
+
+&rating=Google rating (e.g., 4.9)
+
+&reviews=Review count (e.g., 150)
+
+&jobs=Jobs completed stat
+
+Example: demo.launchedops.com/?name=Big%20Tex%20Junk&city=Arlington&phone=8175551234&rating=4.8&reviews=150
+
+7. FILE & DEPLOYMENT CHECKLIST
+
+Every file and config needed for a production launch.
+
+Required Files
+
+  ☐ index.html — main site file with all client data hardcoded
+
+  ☐ sitemap.xml — list of all pages for Google
+
+  ☐ robots.txt — crawl directives pointing to sitemap
+
+  ☐ favicon.ico or favicon.svg — client brand icon
+
+  ☐ og-image.jpg — branded social share image (1200x630px)
+
+  ☐ /fonts/ — self-hosted Google Fonts (woff2 format)
+
+  ☐ /images/ — all images in WebP format, optimized
+
+DNS & Hosting
+
+  ☐ Domain registered or subdomain configured
+
+  ☐ SSL certificate active (HTTPS)
+
+  ☐ DNS propagation confirmed
+
+  ☐ Site loads on both www and non-www (redirect configured)
+
+Google Setup
+
+  ☐ Google Search Console — verify domain ownership
+
+  ☐ Submit sitemap.xml to Search Console
+
+  ☐ Google Analytics or GTM installed
+
+  ☐ Google Business Profile — link website URL
+
+8. QUALITY ASSURANCE
+
+Test every item before delivering to the client.
+
+Functionality
+
+  ☐ All phone links dial correct number on mobile
+
+  ☐ All SMS links open messaging with pre-filled text
+
+  ☐ Contact form submits successfully (test on phone + desktop)
+
+  ☐ FAQ accordion opens/closes correctly
+
+  ☐ Smooth scroll works for all anchor links
+
+  ☐ Social proof notification appears and dismisses
+
+  ☐ Google Maps embed loads correct location
+
+  ☐ All external links open in new tab
+
+Responsiveness
+
+  ☐ Test on iPhone (Safari) — check mobile CTA bar, safe area
+
+  ☐ Test on Android (Chrome)
+
+  ☐ Test on iPad/tablet
+
+  ☐ Test on desktop (1440px+)
+
+  ☐ Hero section fills viewport on all devices
+
+  ☐ No horizontal scroll on any device
+
+  ☐ Images don't overflow containers
+
+  ☐ Text is readable without zooming on mobile
+
+SEO Validation
+
+  ☐ Run Google Rich Results Test — all schema validates
+
+  ☐ Run PageSpeed Insights — document the score
+
+  ☐ Check meta title displays correctly in browser tab
+
+  ☐ Check OG tags with Facebook Sharing Debugger
+
+  ☐ Verify canonical URL points to production domain
+
+  ☐ Verify sitemap.xml is accessible at /sitemap.xml
+
+  ☐ Verify robots.txt is accessible at /robots.txt
+
+  ☐ View page source — confirm no "Your City" or placeholder text remains
+
+Content Review
+
+  ☐ Business name spelled correctly everywhere
+
+  ☐ Phone number correct everywhere (header, hero, CTA, footer, mobile bar, schema)
+
+  ☐ City name correct everywhere
+
+  ☐ No lorem ipsum or placeholder text anywhere
+
+  ☐ Review text matches real reviews or is client-approved
+
+  ☐ Pricing ranges are accurate or client-approved
+
+  ☐ Service list matches what they actually offer
+
+9. POST-DELIVERY ROADMAP
+
+These upgrades justify the $75/mo and build toward the AI automation upsell.
+
+Month 1: Stabilize
+
+  ☐ Monitor Google Search Console for indexing issues
+
+  ☐ Confirm all schema validates in Rich Results Test
+
+  ☐ Check PageSpeed score and optimize if below 90
+
+  ☐ Follow up: "How many calls have you gotten from the site?"
+
+  ☐ Ask for real job photos for future updates
+
+Month 2: Expand
+
+  ☐ Add 2-3 service pages targeting long-tail keywords
+
+  ☐ Add 1-2 city pages for nearby service areas
+
+  ☐ Update sitemap with new pages
+
+  ☐ Add any new Google reviews to the site
+
+  ☐ Send first ROI report: calls tracked, search impressions
+
+Month 3: Upsell Prep
+
+  ☐ Implement QR review system if not done at launch
+
+  ☐ Set up click-to-call tracking for concrete ROI data
+
+  ☐ Compile ROI report showing measurable results
+
+  ☐ Begin AI automation conversation: "Your site is generating leads. Want to never miss one?"
+
+  ☐ Present LaunchedOps full system as natural next step
+
+REMEMBER
+
+The template at 78 already closes $999 deals.
+
+Don't build to 100 before client #1.
+
+One paying client validates the entire approach.
+
+Go get it.
