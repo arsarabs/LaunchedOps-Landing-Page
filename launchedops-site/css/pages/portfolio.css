@@ -1,0 +1,225 @@
+/* ==============================================
+   PORTFOLIO.CSS — Portfolio Page Styles
+   ============================================== */
+
+/* --- Portfolio Grid --- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.portfolio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+  position: relative;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  border-color: var(--border-light);
+}
+
+/* Mockup area */
+.portfolio-mockup {
+  position: relative;
+  height: 240px;
+  background: #0d0d0d;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+.portfolio-mockup-laptop {
+  width: 260px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.portfolio-mockup-topbar {
+  display: flex;
+  gap: 4px;
+  padding: 5px 8px;
+  background: #111;
+}
+
+.portfolio-mockup-topbar span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.portfolio-mockup-screen {
+  height: 140px;
+  background: #0a0a0a;
+  padding: 8px;
+  overflow: hidden;
+}
+
+/* Mini site content variations */
+.portfolio-site-header {
+  height: 6px;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  width: 55%;
+}
+
+.portfolio-site-line {
+  height: 3px;
+  background: #222;
+  border-radius: 2px;
+  margin-bottom: 3px;
+}
+
+.portfolio-site-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin-top: 6px;
+}
+
+.portfolio-site-block {
+  height: 30px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  border: 1px solid #222;
+}
+
+.portfolio-mockup-base {
+  width: 290px;
+  height: 8px;
+  background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+  border-radius: 0 0 4px 4px;
+  margin: 0 auto;
+}
+
+/* Phone preview (beside laptop) */
+.portfolio-mockup-phone {
+  position: absolute;
+  right: var(--space-lg);
+  bottom: var(--space-md);
+  width: 70px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.portfolio-phone-screen {
+  height: 100px;
+  background: #0a0a0a;
+  padding: 4px;
+}
+
+.portfolio-phone-header {
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+  width: 70%;
+}
+
+.portfolio-phone-line {
+  height: 2px;
+  background: #222;
+  border-radius: 1px;
+  margin-bottom: 2px;
+}
+
+.portfolio-phone-btn {
+  height: 10px;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+/* Hover overlay */
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.portfolio-overlay-text {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border: 2px solid var(--accent-orange);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-card:hover .portfolio-overlay-text {
+  background: var(--accent-orange);
+}
+
+/* Card info */
+.portfolio-info {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.portfolio-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.portfolio-trade {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.portfolio-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-orange);
+  background: var(--accent-orange-dim);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* --- Stats Bar (specific to portfolio) --- */
+.portfolio-stats {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-mockup {
+    height: 200px;
+  }
+
+  .portfolio-mockup-phone {
+    display: none;
+  }
+}

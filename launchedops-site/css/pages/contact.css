@@ -1,0 +1,39 @@
+/* ==============================================
+   CONTACT.CSS — Get Started Page Styles (Typeform Embed)
+   ============================================== */
+
+/* --- Typeform Embed Wrapper --- */
+.typeform-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  overflow: hidden;
+}
+
+.typeform-wrapper [data-tf-live] {
+  border-radius: var(--radius-md);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .typeform-wrapper {
+    padding: var(--space-md);
+  }
+
+  .typeform-wrapper [data-tf-live] {
+    height: 500px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .typeform-wrapper {
+    padding: var(--space-sm);
+  }
+
+  .typeform-wrapper [data-tf-live] {
+    height: 450px !important;
+  }
+}

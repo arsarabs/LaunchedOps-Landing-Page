@@ -1,0 +1,342 @@
+/* ==============================================
+   ROCKET-INTRO.CSS — Full-Size SVG Rocket Intro
+   Full-viewport rocket → zoom into hull → site reveals
+   ============================================== */
+
+/* --- Overlay --- */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #050508;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* --- Body lock during intro --- */
+body.intro-active {
+  overflow: hidden;
+}
+
+body.intro-active .navbar {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.intro-active .section-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Navbar reveal after intro --- */
+body:not(.intro-active) .navbar {
+  transform: translateY(0);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+}
+
+body:not(.intro-active) .section-nav {
+  transition: opacity 0.6s 0.3s ease;
+  opacity: 1;
+}
+
+/* --- Hide overlay after intro --- */
+body:not(.intro-active) .intro-overlay {
+  display: none;
+}
+
+/* ==============================================
+   STARFIELD (JS-generated stars)
+   ============================================== */
+.intro-starfield {
+  position: absolute;
+  inset: 0;
+}
+
+.intro-star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  width: var(--star-size);
+  height: var(--star-size);
+  left: var(--star-x);
+  top: var(--star-y);
+  opacity: var(--star-opacity, 0.6);
+  animation: starTwinkle var(--star-duration, 3s) var(--star-delay, 0s) ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes starTwinkle {
+  0% { opacity: var(--star-opacity-min, 0.2); }
+  100% { opacity: var(--star-opacity, 0.8); }
+}
+
+/* ==============================================
+   SVG ROCKET SIZING & FLOAT
+   ============================================== */
+.intro-rocket {
+  position: relative;
+  z-index: 2;
+  transform-origin: center 54%;
+  transition: none;
+  will-change: transform;
+}
+
+.intro-rocket-svg {
+  display: block;
+  height: 75vh;
+  max-height: 600px;
+  min-height: 350px;
+  width: auto;
+  animation: rocketFloat 4s ease-in-out infinite;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@keyframes rocketFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* --- Flame flicker --- */
+.flame-outer-shape {
+  animation: flameFlickerOuter 0.15s ease-in-out infinite alternate;
+  transform-origin: center top;
+}
+
+.flame-inner-shape {
+  animation: flameFlickerInner 0.12s ease-in-out infinite alternate;
+  transform-origin: center top;
+}
+
+@keyframes flameFlickerOuter {
+  0% { transform: scaleY(1) scaleX(1); opacity: 0.9; }
+  50% { transform: scaleY(1.08) scaleX(0.95); opacity: 1; }
+  100% { transform: scaleY(0.94) scaleX(1.04); opacity: 0.85; }
+}
+
+@keyframes flameFlickerInner {
+  0% { transform: scaleY(1) scaleX(1); opacity: 0.95; }
+  50% { transform: scaleY(1.1) scaleX(0.92); opacity: 1; }
+  100% { transform: scaleY(0.92) scaleX(1.06); opacity: 0.9; }
+}
+
+/* --- CTA Text --- */
+.intro-cta {
+  position: relative;
+  z-index: 2;
+  margin-top: 32px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: ctaPulse 2s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes ctaPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* --- Skip Button --- */
+.intro-skip {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10001;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.intro-skip:hover,
+.intro-skip:focus-visible {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+/* ==============================================
+   ZOOM ANIMATION — scale(28) into mid-fuselage
+   ============================================== */
+
+/* Zoom the rocket wrapper (transform-origin at mid-fuselage) */
+.intro-overlay.intro-zooming .intro-rocket {
+  animation: introZoomRocket 1.4s cubic-bezier(0.32, 0, 0, 1) forwards;
+}
+
+/* Stop float + flicker during zoom */
+.intro-overlay.intro-zooming .intro-rocket-svg {
+  animation: none;
+}
+
+.intro-overlay.intro-zooming .flame-outer-shape,
+.intro-overlay.intro-zooming .flame-inner-shape {
+  animation: none;
+}
+
+/* Fade CTA + Skip immediately */
+.intro-overlay.intro-zooming .intro-cta,
+.intro-overlay.intro-zooming .intro-skip {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+/* Stars fade quickly */
+.intro-overlay.intro-zooming .intro-starfield {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Overlay fades out in the final portion */
+.intro-overlay.intro-zooming {
+  animation: introOverlayFade 1.4s cubic-bezier(0.32, 0, 0, 1) forwards;
+}
+
+/* Orange-white flash at peak zoom (78%) */
+.intro-overlay.intro-zooming::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 107, 43, 0.5) 40%,
+    transparent 70%
+  );
+  animation: introFlash 1.4s cubic-bezier(0.32, 0, 0, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes introZoomRocket {
+  0% {
+    transform: scale(1);
+  }
+  /* Tension hold — slight pull-back before launch */
+  30% {
+    transform: scale(0.97);
+  }
+  /* Rapid acceleration into hull */
+  100% {
+    transform: scale(28);
+  }
+}
+
+@keyframes introOverlayFade {
+  0% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes introFlash {
+  0% { opacity: 0; }
+  70% { opacity: 0; }
+  78% { opacity: 0.7; }
+  88% { opacity: 0.3; }
+  100% { opacity: 0; }
+}
+
+/* ==============================================
+   SKIP ANIMATION (quick fade)
+   ============================================== */
+.intro-overlay.intro-skipping {
+  animation: introSkipFade 0.3s ease forwards;
+}
+
+.intro-overlay.intro-skipping .intro-cta,
+.intro-overlay.intro-skipping .intro-skip,
+.intro-overlay.intro-skipping .intro-rocket {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+@keyframes introSkipFade {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+@media (max-width: 1024px) {
+  .intro-rocket-svg {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-rocket-svg {
+    height: 55vh;
+    min-height: 280px;
+  }
+
+  /* Disable SVG filter on mobile for performance */
+  #rocketBodyGroup {
+    filter: none;
+  }
+
+  .intro-cta {
+    margin-top: 24px;
+    font-size: 0.8rem;
+  }
+
+  .intro-skip {
+    bottom: 16px;
+    right: 16px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-rocket-svg {
+    height: 50vh;
+    min-height: 250px;
+  }
+
+  .intro-cta {
+    margin-top: 20px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ==============================================
+   REDUCED MOTION — Skip intro entirely
+   ============================================== */
+@media (prefers-reduced-motion: reduce) {
+  .intro-overlay {
+    display: none !important;
+  }
+
+  body.intro-active {
+    overflow: auto;
+  }
+
+  body.intro-active .navbar {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.intro-active .section-nav {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

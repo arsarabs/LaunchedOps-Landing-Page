@@ -1,0 +1,175 @@
+/* ==============================================
+   ROCKET-THEME.CSS — Immersive Rocket Experience
+   Scroll snap, ambient bg, hull texture, section
+   dividers, side rocket nav, cursor glow, reduced motion
+   ============================================== */
+
+/* --- Scroll Snap (Homepage only — scoped via .rocket-hull on main) --- */
+html:has(.rocket-hull) {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: var(--nav-height);
+}
+
+.rocket-section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* Proximity snap on mobile — avoids trapping */
+@media (max-width: 768px) {
+  html:has(.rocket-hull) {
+    scroll-snap-type: y proximity;
+  }
+}
+
+/* --- Ambient Background (scroll-linked gradient) --- */
+.rocket-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* Default static fallback — JS overrides with scroll-linked gradient */
+  background: linear-gradient(
+    180deg,
+    hsl(220, 40%, 6%) 0%,
+    hsl(200, 30%, 7%) 25%,
+    hsl(30, 25%, 7%) 75%,
+    hsl(15, 35%, 8%) 100%
+  );
+  transition: none;
+}
+
+/* --- Hull Panel Texture --- */
+.rocket-hull::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 149px,
+      rgba(255, 255, 255, 0.02) 149px,
+      rgba(255, 255, 255, 0.02) 150px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 199px,
+      rgba(255, 255, 255, 0.02) 199px,
+      rgba(255, 255, 255, 0.02) 200px
+    );
+}
+
+.rocket-hull {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Section Dividers (metallic joints) ---
+   Uses box-shadow for the metallic line to avoid ::before conflicts
+   (e.g. .cta-section::before has its own radial glow) */
+.rocket-section + .rocket-section {
+  box-shadow: inset 0 3px 0 0 rgba(255, 255, 255, 0.04),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+              inset 0 -1px 3px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* Rivet dots overlay */
+.rocket-section + .rocket-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 3;
+  background: repeating-radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 80px
+  );
+  background-size: 80px 4px;
+  pointer-events: none;
+}
+
+/* --- Cursor Glow (Desktop only) --- */
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 43, 0.04) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cursor-glow.visible {
+  opacity: 1;
+}
+
+/* Hide cursor glow on touch devices (JS also handles this) */
+@media (hover: none) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* --- Static Ambient for Other Pages --- */
+.rocket-ambient-static {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    hsl(220, 40%, 6%) 0%,
+    hsl(200, 30%, 7%) 40%,
+    hsl(30, 25%, 7%) 80%,
+    hsl(15, 35%, 8%) 100%
+  );
+}
+
+/* --- Reduced Motion / Accessibility --- */
+@media (prefers-reduced-motion: reduce) {
+  html:has(.rocket-hull) {
+    scroll-snap-type: none !important;
+  }
+
+  .rocket-section {
+    scroll-snap-align: none;
+  }
+
+  .rocket-ambient {
+    background: linear-gradient(
+      180deg,
+      hsl(220, 40%, 6%) 0%,
+      hsl(200, 30%, 7%) 25%,
+      hsl(30, 25%, 7%) 75%,
+      hsl(15, 35%, 8%) 100%
+    ) !important;
+  }
+
+  .cursor-glow {
+    display: none !important;
+  }
+
+  .rocket-section + .rocket-section::after {
+    /* Keep dividers but static */
+    animation: none;
+  }
+}

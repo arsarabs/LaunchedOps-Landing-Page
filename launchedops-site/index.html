@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaunchedOps — Websites That Make Contractors Money</title>
+  <meta name="description" content="LaunchedOps builds production-quality, SEO-optimized websites for home service contractors. Custom design. 36-hour delivery. You love it or you don't pay.">
+  <meta property="og:title" content="LaunchedOps — Websites That Make Contractors Money">
+  <meta property="og:description" content="Custom websites for contractors. Show up on Google. Look professional. Make your phone ring. 36-hour delivery.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://launchedops.com">
+  <link rel="canonical" href="https://launchedops.com">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+  <link rel="stylesheet" href="css/pages/rocket-world.css">
+
+  <!-- Schema: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "LaunchedOps",
+    "description": "Premium website design for home service contractors. Custom-built, SEO-optimized sites delivered in 36 hours.",
+    "url": "https://launchedops.com",
+    "serviceType": ["Web Design", "SEO", "Website Development"],
+    "areaServed": "United States"
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://launchedops.com"
+    }]
+  }
+  </script>
+</head>
+<body class="spatial-mode">
+
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="LaunchedOps Home">Launched<span>Ops</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="examples.html">Examples</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary btn-sm">Book a Call</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="examples.html">Examples</a>
+    <a href="about.html">About</a>
+    <a href="get-started.html">Get Started</a>
+    <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary" style="margin-top: 12px;">Book a Call</a>
+  </div>
+
+  <!-- Section Nav (Waypoint Dots) -->
+  <nav class="section-nav" role="navigation" aria-label="Section navigation">
+    <div class="section-nav-track" aria-hidden="true"></div>
+    <button class="section-nav-item active" data-waypoint="0" aria-label="Navigate to Overview">
+      <span class="section-nav-dot"></span>
+      <span class="section-nav-label">Overview</span>
+    </button>
+    <button class="section-nav-item" data-waypoint="1" aria-label="Navigate to Launch section">
+      <span class="section-nav-dot"></span>
+      <span class="section-nav-label">Launch</span>
+    </button>
+    <button class="section-nav-item" data-waypoint="2" aria-label="Navigate to The Problem section">
+      <span class="section-nav-dot"></span>
+      <span class="section-nav-label">The Problem</span>
+    </button>
+    <button class="section-nav-item" data-waypoint="3" aria-label="Navigate to Cargo Bay section">
+      <span class="section-nav-dot"></span>
+      <span class="section-nav-label">Cargo Bay</span>
+    </button>
+    <button class="section-nav-item" data-waypoint="4" aria-label="Navigate to Our Work section">
+      <span class="section-nav-dot"></span>
+      <span class="section-nav-label">Our Work</span>
+    </button>
+    <button class="section-nav-item" data-waypoint="5" aria-label="Navigate to Engine Room section">
+      <span class="section-nav-dot"></span>
+      <span class="section-nav-label">Engine Room</span>
+    </button>
+    <button class="section-nav-item" data-waypoint="6" aria-label="Navigate to Ignition section">
+      <span class="section-nav-dot"></span>
+      <span class="section-nav-label">Ignition</span>
+    </button>
+  </nav>
+
+  <!-- ========== SPATIAL ROCKET WORLD ========== -->
+  <main id="main">
+    <div class="rocket-world-container">
+      <div class="rocket-starfield" aria-hidden="true"></div>
+
+      <div class="rocket-camera">
+
+        <!-- SVG Rocket (centered at world origin 0,0) -->
+        <div class="world-rocket" aria-hidden="true">
+          <svg viewBox="0 0 200 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Nose cone gradient -->
+              <linearGradient id="noseGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2a2a2a"/>
+                <stop offset="45%" stop-color="#1a1a1a"/>
+                <stop offset="100%" stop-color="#0f0f0f"/>
+              </linearGradient>
+              <!-- Fuselage gradient -->
+              <linearGradient id="fuselageGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#1a1a1a"/>
+                <stop offset="50%" stop-color="#111"/>
+                <stop offset="100%" stop-color="#0a0a0a"/>
+              </linearGradient>
+              <!-- Orange stripe gradient -->
+              <linearGradient id="stripeGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FF6B2B" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#FF8F5E" stop-opacity="0.3"/>
+              </linearGradient>
+              <!-- Porthole glow -->
+              <radialGradient id="portholeGlow">
+                <stop offset="0%" stop-color="#60A5FA"/>
+                <stop offset="60%" stop-color="#3B82F6"/>
+                <stop offset="100%" stop-color="#1E40AF" stop-opacity="0"/>
+              </radialGradient>
+              <!-- Porthole glass -->
+              <radialGradient id="portholeGlass">
+                <stop offset="0%" stop-color="#93C5FD"/>
+                <stop offset="50%" stop-color="#60A5FA"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
+              </radialGradient>
+              <!-- Flame outer gradient -->
+              <radialGradient id="flameOuterGrad" cx="50%" cy="0%" r="100%">
+                <stop offset="0%" stop-color="#FF6B2B"/>
+                <stop offset="60%" stop-color="#FF4500"/>
+                <stop offset="100%" stop-color="#FF4500" stop-opacity="0"/>
+              </radialGradient>
+              <!-- Flame inner gradient -->
+              <radialGradient id="flameInnerGrad" cx="50%" cy="0%" r="80%">
+                <stop offset="0%" stop-color="#FFFBEA"/>
+                <stop offset="40%" stop-color="#FFD700"/>
+                <stop offset="100%" stop-color="#FF8C00" stop-opacity="0"/>
+              </radialGradient>
+              <!-- Engine gradient -->
+              <linearGradient id="engineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#222"/>
+                <stop offset="50%" stop-color="#1a1a1a"/>
+                <stop offset="100%" stop-color="#111"/>
+              </linearGradient>
+              <!-- Hull grid pattern -->
+              <pattern id="hullGrid" x="0" y="0" width="20" height="15" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="14.9" x2="20" y2="14.9" stroke="rgba(255,255,255,0.03)" stroke-width="0.15"/>
+                <line x1="19.9" y1="0" x2="19.9" y2="15" stroke="rgba(255,255,255,0.03)" stroke-width="0.15"/>
+              </pattern>
+              <!-- Edge glow filter -->
+              <filter id="edgeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                <feFlood flood-color="#FF6B2B" flood-opacity="0.15" result="color"/>
+                <feComposite in="color" in2="blur" operator="in" result="glow"/>
+                <feMerge>
+                  <feMergeNode in="glow"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Rocket body group (with edge glow) -->
+            <g id="rocketBodyGroup" filter="url(#edgeGlow)">
+              <!-- NOSE CONE (y:40-120) -->
+              <polygon points="100,40 130,120 70,120" fill="url(#noseGrad)"/>
+              <line x1="100" y1="42" x2="70" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+              <circle cx="100" cy="48" r="2.5" fill="#FF6B2B" opacity="0.8"/>
+
+              <!-- UPPER FUSELAGE (y:120-250) -->
+              <rect x="70" y="120" width="60" height="130" fill="url(#fuselageGrad)"/>
+              <line x1="70" y1="160" x2="130" y2="160" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
+              <line x1="70" y1="200" x2="130" y2="200" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
+              <!-- Portholes -->
+              <circle cx="100" cy="150" r="10" fill="url(#portholeGlow)" opacity="0.3"/>
+              <circle cx="100" cy="150" r="6" fill="url(#portholeGlass)" opacity="0.9"/>
+              <circle cx="100" cy="150" r="7" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+              <circle cx="100" cy="190" r="10" fill="url(#portholeGlow)" opacity="0.3"/>
+              <circle cx="100" cy="190" r="6" fill="url(#portholeGlass)" opacity="0.9"/>
+              <circle cx="100" cy="190" r="7" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+              <circle cx="100" cy="230" r="10" fill="url(#portholeGlow)" opacity="0.3"/>
+              <circle cx="100" cy="230" r="6" fill="url(#portholeGlass)" opacity="0.9"/>
+              <circle cx="100" cy="230" r="7" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+
+              <!-- MID FUSELAGE (y:250-400) -->
+              <rect x="70" y="250" width="60" height="150" fill="#0a0a0a"/>
+              <rect x="70" y="250" width="60" height="150" fill="url(#hullGrid)"/>
+              <line x1="70" y1="290" x2="130" y2="290" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
+              <line x1="70" y1="330" x2="130" y2="330" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
+              <line x1="70" y1="370" x2="130" y2="370" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
+              <!-- Rivet rows -->
+              <g fill="rgba(255,255,255,0.06)">
+                <circle cx="75" cy="260" r="0.8"/><circle cx="85" cy="260" r="0.8"/><circle cx="95" cy="260" r="0.8"/><circle cx="105" cy="260" r="0.8"/><circle cx="115" cy="260" r="0.8"/><circle cx="125" cy="260" r="0.8"/>
+                <circle cx="75" cy="300" r="0.8"/><circle cx="85" cy="300" r="0.8"/><circle cx="95" cy="300" r="0.8"/><circle cx="105" cy="300" r="0.8"/><circle cx="115" cy="300" r="0.8"/><circle cx="125" cy="300" r="0.8"/>
+                <circle cx="75" cy="340" r="0.8"/><circle cx="85" cy="340" r="0.8"/><circle cx="95" cy="340" r="0.8"/><circle cx="105" cy="340" r="0.8"/><circle cx="115" cy="340" r="0.8"/><circle cx="125" cy="340" r="0.8"/>
+                <circle cx="75" cy="380" r="0.8"/><circle cx="85" cy="380" r="0.8"/><circle cx="95" cy="380" r="0.8"/><circle cx="105" cy="380" r="0.8"/><circle cx="115" cy="380" r="0.8"/><circle cx="125" cy="380" r="0.8"/>
+              </g>
+
+              <!-- ORANGE CENTER STRIPE (y:120-400) -->
+              <rect x="98" y="120" width="4" height="280" fill="url(#stripeGrad)"/>
+
+              <!-- LOWER FUSELAGE (y:400-470) -->
+              <polygon points="70,400 130,400 120,470 80,470" fill="url(#fuselageGrad)"/>
+              <line x1="85" y1="400" x2="82" y2="470" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+              <line x1="115" y1="400" x2="118" y2="470" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+
+              <!-- FINS (y:400-470) -->
+              <polygon points="70,400 30,465 70,450" fill="#1a3a6e" opacity="0.9"/>
+              <polygon points="130,400 170,465 130,450" fill="#1a3a6e" opacity="0.9"/>
+              <line x1="70" y1="400" x2="30" y2="465" stroke="rgba(100,150,220,0.3)" stroke-width="0.5"/>
+              <line x1="130" y1="400" x2="170" y2="465" stroke="rgba(100,150,220,0.3)" stroke-width="0.5"/>
+
+              <!-- ENGINE BELL (y:470-510) -->
+              <path d="M80,470 Q78,490 72,510 L128,510 Q122,490 120,470 Z" fill="url(#engineGrad)"/>
+              <ellipse cx="100" cy="510" rx="28" ry="4" fill="#1a1a1a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            </g>
+
+            <!-- EXHAUST FLAME (y:510-580) -->
+            <ellipse class="flame-outer-shape" cx="100" cy="550" rx="22" ry="35" fill="url(#flameOuterGrad)">
+              <animate attributeName="ry" values="35;38;33;36;35" dur="0.3s" repeatCount="indefinite"/>
+              <animate attributeName="rx" values="22;20;23;21;22" dur="0.25s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.9;1;0.85;0.95;0.9" dur="0.2s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse class="flame-inner-shape" cx="100" cy="545" rx="12" ry="25" fill="url(#flameInnerGrad)">
+              <animate attributeName="ry" values="25;27;23;26;25" dur="0.22s" repeatCount="indefinite"/>
+              <animate attributeName="rx" values="12;11;13;12;12" dur="0.18s" repeatCount="indefinite"/>
+            </ellipse>
+          </svg>
+        </div>
+
+        <!-- ========== HERO (nose cone) ========== -->
+        <div class="world-section" id="ws-hero" data-wy="-1320" data-side="right">
+          <section id="hero" class="hero section">
+            <div class="container">
+              <div class="hero-content">
+                <h1>Websites That Make Contractors Money.</h1>
+                <p class="section-subtitle">Most contractor websites look like they were built in 2012. Yours doesn't have to. We build sites that show up on Google, look professional, and make your phone ring.</p>
+                <div class="btn-group">
+                  <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary btn-lg">See a Free Preview</a>
+                  <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-secondary btn-lg">Book a Call</a>
+                </div>
+                <p class="trust-line">No commitment. No upfront cost. If you don't love it, you don't pay.</p>
+              </div>
+              <div class="hero-visual" aria-hidden="true">
+                <div class="hero-mockup">
+                  <!-- Laptop Mockup -->
+                  <div class="mockup-laptop">
+                    <div class="mockup-laptop-topbar">
+                      <span class="mockup-dot red"></span>
+                      <span class="mockup-dot yellow"></span>
+                      <span class="mockup-dot green"></span>
+                      <span class="mockup-url">bayareajunkpros.com</span>
+                    </div>
+                    <div class="mockup-laptop-screen">
+                      <div class="mini-site-hero">
+                        <div class="mini-site-badge">Licensed &amp; Insured</div>
+                        <div class="mini-site-title">Bay Area's #1 Junk<br>Removal Service</div>
+                        <div class="mini-site-sub">Fast, affordable, eco-friendly junk hauling</div>
+                        <span class="mini-site-cta">Call Now - Free Estimate</span>
+                      </div>
+                      <div class="mini-site-cards">
+                        <div class="mini-card">
+                          <div class="mini-card-icon"></div>
+                          <div class="mini-card-text">Residential</div>
+                        </div>
+                        <div class="mini-card">
+                          <div class="mini-card-icon"></div>
+                          <div class="mini-card-text">Commercial</div>
+                        </div>
+                        <div class="mini-card">
+                          <div class="mini-card-icon"></div>
+                          <div class="mini-card-text">Construction</div>
+                        </div>
+                      </div>
+                      <div class="mini-site-reviews">
+                        <span class="mini-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        <span class="mini-review-text">4.9 from 200+ reviews</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mockup-laptop-base"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== PROBLEM (upper fuselage) ========== -->
+        <div class="world-section" id="ws-problem" data-wy="-690" data-side="left">
+          <section id="problem" class="section problem-section">
+            <div class="container">
+              <div class="section-header">
+                <span class="section-label">The Problem</span>
+                <h2 class="section-title">Here's Why You're Losing Jobs Right Now</h2>
+              </div>
+              <div class="problem-grid">
+                <div class="problem-card">
+                  <h3>You're Invisible on Google</h3>
+                  <p>When someone searches "your trade near me," your competitors show up. You don't. That's money walking out the door every day.</p>
+                </div>
+                <div class="problem-card">
+                  <h3>Your Website Looks Like 2012</h3>
+                  <p>Customers judge your business in 3 seconds. If your site looks outdated — or you don't have one at all — they're calling someone else.</p>
+                </div>
+                <div class="problem-card">
+                  <h3>No Reviews, No Trust</h3>
+                  <p>90% of customers check reviews before calling. If you don't have a system collecting 5-star reviews automatically, you're losing to contractors who do.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== CARGO BAY (mid fuselage) ========== -->
+        <div class="world-section" id="ws-cargo" data-wy="150" data-side="right">
+          <section id="cargo" class="section">
+            <div class="container">
+              <div class="section-header">
+                <span class="section-label">What You Get</span>
+                <h2 class="section-title">What Your New Website Does For You</h2>
+              </div>
+              <div class="benefits-grid">
+                <div class="benefit-card">
+                  <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  </div>
+                  <h3>Show Up When Customers Search For You</h3>
+                  <p>We build your site so Google actually finds it. When someone in your city searches for what you do, you show up.</p>
+                </div>
+                <div class="benefit-card">
+                  <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                  </div>
+                  <h3>Look Like a $10K Operation</h3>
+                  <p>Your site will look so clean, so fast, so professional that customers assume you're the biggest company in town.</p>
+                </div>
+                <div class="benefit-card">
+                  <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                  <h3>Collect 5-Star Reviews on Autopilot</h3>
+                  <p>We set up a system where your happy customers leave reviews with one tap. More reviews = more trust = more calls.</p>
+                </div>
+                <div class="benefit-card">
+                  <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <h3>Your Phone Number, Everywhere</h3>
+                  <p>Click-to-call on every page. Sticky call button on mobile. We make it embarrassingly easy for customers to reach you.</p>
+                </div>
+                <div class="benefit-card">
+                  <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  </div>
+                  <h3>Lightning Fast, On Every Device</h3>
+                  <p>Your site loads in under 2 seconds on phones, tablets, and desktops. Slow sites lose customers. Yours won't be slow.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== EXAMPLES (lower fuselage + fins) ========== -->
+        <div class="world-section" id="ws-examples" data-wy="810" data-side="left">
+          <section id="examples" class="section">
+            <div class="container">
+              <div class="section-header">
+                <span class="section-label">Our Work</span>
+                <h2 class="section-title">See What's Possible</h2>
+              </div>
+
+              <!-- Stats Bar -->
+              <div class="stats-bar">
+                <div class="stat-item">
+                  <div class="stat-value" data-count="98" data-suffix="+">0+</div>
+                  <div class="stat-label">PageSpeed Scores</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" data-count="36">0</div>
+                  <div class="stat-label">Hour Delivery</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" data-prefix="$" data-count="0">$0</div>
+                  <div class="stat-label">Upfront Cost</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">Unlimited</div>
+                  <div class="stat-label">Revisions</div>
+                </div>
+              </div>
+
+              <div class="portfolio-preview-grid">
+                <!-- Card 1 -->
+                <div class="preview-card">
+                  <div class="preview-mockup">
+                    <div class="preview-mockup-bar">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="preview-site-content">
+                      <div class="preview-site-header"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-blocks">
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="preview-info">
+                    <div class="preview-name">Bay Area Junk Pros</div>
+                    <div class="preview-trade">Junk Removal - San Francisco, CA</div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="preview-card">
+                  <div class="preview-mockup">
+                    <div class="preview-mockup-bar">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="preview-site-content" style="--accent-orange: #2ECC71;">
+                      <div class="preview-site-header" style="background: linear-gradient(90deg, #2ECC71, transparent);"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-blocks">
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="preview-info">
+                    <div class="preview-name">Thompson's Tree Service</div>
+                    <div class="preview-trade">Tree Service - Portland, OR</div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="preview-card">
+                  <div class="preview-mockup">
+                    <div class="preview-mockup-bar">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="preview-site-content">
+                      <div class="preview-site-header" style="background: linear-gradient(90deg, #3B82F6, transparent);"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-blocks">
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="preview-info">
+                    <div class="preview-name">Ironside Fencing Co.</div>
+                    <div class="preview-trade">Fencing - Austin, TX</div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="preview-card">
+                  <div class="preview-mockup">
+                    <div class="preview-mockup-bar">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="preview-site-content">
+                      <div class="preview-site-header" style="background: linear-gradient(90deg, #F59E0B, transparent);"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-line"></div>
+                      <div class="preview-site-blocks">
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                        <div class="preview-site-block"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="preview-info">
+                    <div class="preview-name">Mike's Concrete &amp; Masonry</div>
+                    <div class="preview-trade">Concrete - Denver, CO</div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="examples.html" class="portfolio-link">
+                View All Examples
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== ENGINE ROOM (engine bell) ========== -->
+        <div class="world-section" id="ws-engine" data-wy="1140" data-side="right">
+          <section id="engine" class="section">
+            <div class="container">
+              <div class="section-header center">
+                <span class="section-label">The Process</span>
+                <h2 class="section-title">How It Works</h2>
+              </div>
+              <div class="steps-grid">
+                <div class="step-card">
+                  <div class="step-number">1</div>
+                  <h3>Tell Us About Your Business</h3>
+                  <p>Fill out a quick form or hop on a 15-minute call. We ask about your services, your city, and what makes you different.</p>
+                </div>
+                <div class="step-card">
+                  <div class="step-number">2</div>
+                  <h3>We Build Your Site in 36 Hours</h3>
+                  <p>Not a template. Not a cookie-cutter page. A custom site built specifically for your business with your name, your services, your area.</p>
+                </div>
+                <div class="step-card">
+                  <div class="step-number">3</div>
+                  <h3>You Love It or You Don't Pay</h3>
+                  <p>We send you a preview link. You look at it. If you love it, it's yours. If you don't, no hard feelings and no charge.</p>
+                </div>
+              </div>
+              <div style="text-align: center;">
+                <a href="how-it-works.html" class="steps-link">
+                  See the full process
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== IGNITION / FINAL CTA (exhaust flame) ========== -->
+        <div class="world-section" id="ws-ignition" data-wy="1470" data-side="left">
+          <section id="ignition" class="section cta-section">
+            <div class="container">
+              <div>
+                <h2 class="section-title">Ready to See What Your Business Looks Like Online?</h2>
+                <p class="section-subtitle">Free preview. No commitment. No upfront cost.</p>
+                <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary btn-lg">Get My Free Preview</a>
+                <a href="https://form.typeform.com/to/xveu1l1q" class="cta-secondary-link">or book a 15-minute call</a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== FOOTER ========== -->
+        <div class="world-footer" data-wy="1600">
+          <footer class="footer">
+            <div class="container">
+              <div class="footer-logo">Launched<span>Ops</span></div>
+              <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="examples.html">Examples</a>
+                <a href="about.html">About</a>
+                <a href="get-started.html">Get Started</a>
+              </nav>
+              <p class="footer-tagline">Built for contractors who want to win online.</p>
+              <p class="footer-copy">&copy; 2026 LaunchedOps. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
+
+      </div><!-- /.rocket-camera -->
+    </div><!-- /.rocket-world-container -->
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/spatial-engine.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/rocket-experience.js"></script>
+</body>
+</html>
