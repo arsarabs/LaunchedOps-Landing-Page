@@ -26,6 +26,17 @@ var LaunchedOpsSpatial = (function() {
 
   if (!container || !camera) return null;
 
+  /* --- Bail: mobile devices (use normal scroll layout) --- */
+  if (window.innerWidth < 768) {
+    document.body.classList.remove('spatial-mode');
+    worldSections.forEach(function(sec) {
+      sec.classList.add('ws-visible', 'ws-interactive');
+    });
+    if (worldFooter) worldFooter.classList.add('ws-visible');
+    if (sectionNav) sectionNav.style.display = 'none';
+    return null;
+  }
+
   /* --- Constants --- */
   var ANIM_DURATION = 900;
   var INTRO_ZOOM_DUR = 1500;
