@@ -1,0 +1,176 @@
+You are updating an existing Next.js contractor website. Your job is to integrate 6 photos into the site while maintaining the existing design system exactly. Do not change any colors, fonts, spacing, or components that are not explicitly mentioned in this prompt.
+
+ABSOLUTE RULES — READ BEFORE TOUCHING ANYTHING
+Do NOT change:
+
+Any existing color tokens or CSS variables
+Cabinet Grotesk or Switzer font declarations
+The Marquee, NumberTicker, or SpotlightCard components
+The radial orange glow in the hero
+Any section that is not explicitly mentioned below
+
+Do NOT do any of the following with images:
+
+Use raw <img> tags
+Set objectFit: 'contain' — always use 'cover'
+Default objectPosition to center on portrait photos — use 'top center'
+Stretch or distort any image to fill a container
+Display an image wider than its natural resolution allows
+Skip the dark overlay on any image used as a section background
+Use placeholder or stock image URLs — only use the filenames listed below
+
+
+IMAGES AVAILABLE IN /public
+/job1_before.jpg   — driveway debris pile (800x600)
+/job1_after.jpg    — clean driveway (800x600)
+/job2_before.jpg   — mattress and furniture pile (800x600)
+/job2_after.jpg    — clean backyard (800x600)
+/crew.jpg          — crew of 5 standing in front of orange truck (1200x675)
+/founder.jpg       — founder walking next to truck, portrait crop (600x900)
+
+CHANGE 1 — BEFORE/AFTER SECTION
+Find the existing before/after section. Replace the CSS-only text cards with real photo cards. Keep the section background, label, and headline exactly as they are. Only replace the cards themselves.
+Build two cards side by side on desktop (grid-cols-2), stacked on mobile (grid-cols-1). Each card has a before photo on top, an orange divider, and an after photo on bottom.
+Use this exact structure for both cards:
+tsx<div className="rounded-2xl overflow-hidden border border-neutral-800">
+
+  {/* BEFORE PHOTO */}
+  <div className="relative w-full h-64">
+    <Image
+      src="/job1_before.jpg"
+      alt="Before junk removal — driveway debris"
+      fill
+      sizes="(max-width: 768px) 100vw, 50vw"
+      style={{ objectFit: 'cover', objectPosition: 'center' }}
+    />
+    <div className="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-sm px-3 py-1 rounded-full">
+      <span
+        className="text-xs font-medium tracking-widest uppercase text-neutral-400"
+        style={{ fontFamily: 'Switzer, sans-serif' }}
+      >
+        Before
+      </span>
+    </div>
+  </div>
+
+  {/* ORANGE DIVIDER */}
+  <div className="w-full h-0.5 bg-orange-500" />
+
+  {/* AFTER PHOTO */}
+  <div className="relative w-full h-64">
+    <Image
+      src="/job1_after.jpg"
+      alt="After junk removal — clean driveway"
+      fill
+      sizes="(max-width: 768px) 100vw, 50vw"
+      style={{ objectFit: 'cover', objectPosition: 'center' }}
+    />
+    <div className="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-sm px-3 py-1 rounded-full">
+      <span
+        className="text-xs font-medium tracking-widest uppercase text-orange-500"
+        style={{ fontFamily: 'Switzer, sans-serif' }}
+      >
+        After
+      </span>
+    </div>
+  </div>
+
+</div>
+Card 1: use /job1_before.jpg and /job1_after.jpg
+Card 2: use /job2_before.jpg and /job2_after.jpg — alt text: "Before — mattress and furniture pile" / "After — clean backyard"
+
+CHANGE 2 — CREW SECTION
+Add a new section between the Stats section and the Testimonials section. Do not move or modify either of those sections — just insert this between them.
+tsx<section className="relative w-full h-[500px] overflow-hidden">
+
+  {/* PHOTO LAYER */}
+  <Image
+    src="/crew.jpg"
+    alt="The Junk Moose crew in front of the truck"
+    fill
+    sizes="100vw"
+    style={{ objectFit: 'cover', objectPosition: 'center top' }}
+  />
+
+  {/* DARK OVERLAY — always required on background photos */}
+  <div className="absolute inset-0 bg-black/60" />
+
+  {/* TEXT LAYER */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
+    <span
+      className="text-xs font-medium tracking-widest uppercase mb-4"
+      style={{ fontFamily: 'Switzer, sans-serif', color: '#F97316' }}
+    >
+      The Team
+    </span>
+    <h2
+      className="text-5xl md:text-6xl font-black leading-none"
+      style={{ fontFamily: 'Cabinet Grotesk, sans-serif', color: '#F5F0E8' }}
+    >
+      Real people. Real work.
+    </h2>
+    <p
+      className="mt-4 text-lg max-w-lg"
+      style={{ fontFamily: 'Switzer, sans-serif', color: '#9CA3AF' }}
+    >
+      Every job is handled by our own crew — not subcontractors, not day labor. 
+      We show up on time and we don't leave until it's clean.
+    </p>
+  </div>
+
+</section>
+
+CHANGE 3 — TESTIMONIALS SECTION
+Find the existing testimonials section. Keep every style, card, quote, and color exactly as is. Only change the layout to add the founder photo on the left.
+Wrap the existing testimonial cards in this new grid:
+tsx<div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mt-16">
+
+  {/* FOUNDER PHOTO — desktop only */}
+  <div className="relative w-full h-[520px] rounded-2xl overflow-hidden hidden md:block border border-neutral-800">
+    <Image
+      src="/founder.jpg"
+      alt="Marcus, founder of The Junk Moose"
+      fill
+      sizes="33vw"
+      style={{ objectFit: 'cover', objectPosition: 'top center' }}
+    />
+    {/* Subtle gradient fade at bottom */}
+    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-neutral-900 to-transparent" />
+    {/* Name tag */}
+    <div className="absolute bottom-4 left-4">
+      <p
+        className="text-base font-bold"
+        style={{ fontFamily: 'Cabinet Grotesk, sans-serif', color: '#F5F0E8' }}
+      >
+        Marcus
+      </p>
+      <p
+        className="text-sm"
+        style={{ fontFamily: 'Switzer, sans-serif', color: '#F97316' }}
+      >
+        Founder, The Junk Moose
+      </p>
+    </div>
+  </div>
+
+  {/* TESTIMONIAL CARDS — take remaining 2 columns */}
+  <div className="md:col-span-2 flex flex-col gap-6">
+    {/* paste existing testimonial card 1 here exactly as is */}
+    {/* paste existing testimonial card 2 here exactly as is */}
+  </div>
+
+</div>
+
+GLOBAL IMAGE QUALITY CHECKS
+After making all three changes, do a full pass and confirm every single one of these is true:
+
+ Every <Image> has a sizes prop defined
+ Every <Image> uses fill with a relative parent container that has an explicit height
+ Every portrait image (founder.jpg) uses objectPosition: 'top center'
+ Every background image has a dark overlay div directly after it
+ No raw <img> tags exist anywhere in the file
+ No image is displayed in a container with no defined height
+ The priority prop is on the hero image only
+ All other images do NOT have priority — Next.js lazy loads them by default
+
+If any of these checks fail, fix them before finishing.

@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -sL -o .claude/skills/frontend-design/SKILL.md \"https://raw.githubusercontent.com/anthropics/claude-code/main/plugins/frontend-design/skills/frontend-design/SKILL.md\")",
+      "Bash(mkdir -p .claude/skills/seo && curl -sL -o .claude/skills/seo/SKILL.md \"https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/skills/seo-local-seo/SKILL.md\")",
+      "Bash(curl -sL \"https://api.github.com/repos/AgriciDaniel/claude-seo/contents/\" | python3 -c \"import sys,json; [print\\(f['path']\\) for f in json.loads\\(sys.stdin.read\\(\\)\\)]\" 2>/dev/null || curl -sL \"https://api.github.com/repos/AgriciDaniel/claude-seo/contents/\")",
+      "Bash(curl -sL \"https://api.github.com/repos/AgriciDaniel/claude-seo/contents/skills\" | python3 -c \"import sys,json; [print\\(f['path']\\) for f in json.loads\\(sys.stdin.read\\(\\)\\)]\")",
+      "Bash(curl -sL \"https://api.github.com/repos/AgriciDaniel/claude-seo/contents/skills\" | node -e \"const d=[];process.stdin.on\\('data',c=>d.push\\(c\\)\\);process.stdin.on\\('end',\\(\\)=>{JSON.parse\\(d.join\\(''\\)\\).forEach\\(f=>console.log\\(f.path\\)\\)}\\)\")",
+      "Bash(mkdir -p .claude/skills/cro && curl -sL -o .claude/skills/cro/SKILL.md \"https://raw.githubusercontent.com/coreyhaines31/marketingskills/main/skills/page-cro/SKILL.md\")",
+      "Bash(mkdir -p .claude/skills/react-performance && curl -sL -o .claude/skills/react-performance/SKILL.md \"https://raw.githubusercontent.com/vercel-labs/agent-skills/main/skills/react-best-practices/SKILL.md\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/frontend-design\" \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/seo\" \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/cro\" \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/react-performance\" && cp \".claude/skills/frontend-design/SKILL.md\" \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/frontend-design/SKILL.md\" && cp \".claude/skills/seo/SKILL.md\" \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/seo/SKILL.md\" && cp \".claude/skills/cro/SKILL.md\" \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/cro/SKILL.md\" && cp \".claude/skills/react-performance/SKILL.md\" \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\.claude/skills/react-performance/SKILL.md\")",
+      "Bash(rm -rf \".claude/skills\")",
+      "Read(//c/Users/acade/Downloads/LaunchedOps/.claude/skills/**)",
+      "Bash(cd \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\clients\\\\the-junk-moose\" && npx next build 2>&1 | tail -20)",
+      "Bash(cd \"C:\\\\Users\\\\acade\\\\Downloads\\\\LaunchedOps\\\\clients\\\\the-junk-moose\" && npx next build 2>&1 | tail -15)",
+      "Bash(cd \"C:/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose\" && npx next build 2>&1 | tail -40)",
+      "Bash(cd \"C:/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose\" && npx next build 2>&1 | tail -30)",
+      "Bash(cd \"C:/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose\" && npm run dev 2>&1)",
+      "Bash(timeout 8 cat \"C:/Users/acade/AppData/Local/Temp/claude/C--Users-acade-Downloads-LaunchedOps-clients-the-junk-moose/tasks/btc978oyr.output\" 2>/dev/null || true)",
+      "Bash(cd \"C:/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose/public\" && mv \"stock before and after.jpg\" \"before-after-1.jpg\" && mv \"stock before and after 2.jpg\" \"before-after-2.jpg\" && mv \"stock crew.jpg\" \"crew.jpg\" && mv \"stock founder.jpg\" \"founder.jpg\" && ls -la)",
+      "Bash(cd \"C:/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose\" && curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/crew.jpg && echo \"\" && curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/founder.jpg)"
+    ]
+  }
+}

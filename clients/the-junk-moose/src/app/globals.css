@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #080808;
+  --bg-warm-gray: #111110;
+  --bg-elevated: #1a1917;
+  --accent-gold: #C8A44E;
+  --accent-gold-light: #E8D5A0;
+  --accent-gold-dim: rgba(200, 164, 78, 0.08);
+  --text-primary: #A8A29E;
+  --text-muted: #6B6660;
+  --border-subtle: rgba(200, 164, 78, 0.12);
+  --border-dark: rgba(255, 255, 255, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg-dark);
+  font-family: "Satoshi", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Film grain overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Gold selection */
+::selection {
+  background: var(--accent-gold);
+  color: var(--bg-dark);
+}
+
+/* Refined scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 2px;
+}
+
+/* Horizontal scroll for process section */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Form input styles */
+.form-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #A8A29E;
+  font-family: "Satoshi", sans-serif;
+  font-size: 15px;
+  padding: 14px 18px;
+  width: 100%;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  outline: none;
+}
+.form-input:focus {
+  border-color: rgba(200, 164, 78, 0.4);
+  background: rgba(200, 164, 78, 0.03);
+}
+.form-input::placeholder {
+  color: rgba(107, 102, 96, 0.6);
+}
+.form-input option {
+  background: #111110;
+  color: #A8A29E;
+}
+
+/* Magnetic button hover effect */
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+}
+.btn-magnetic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200, 164, 78, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.btn-magnetic:hover::before {
+  opacity: 1;
+}
+
+/* Line reveal animation */
+@keyframes lineReveal {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.line-reveal {
+  animation: lineReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: left;
+}
+
+/* Pulse glow for CTA */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 164, 78, 0); }
+  50% { box-shadow: 0 0 40px 4px rgba(200, 164, 78, 0.1); }
+}
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}

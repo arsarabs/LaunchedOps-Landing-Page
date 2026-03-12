@@ -1,0 +1,251 @@
+THE JUNK MOOSE — FULL WEBSITE STRUCTURE
+=======================================
+
+OVERVIEW
+--------
+Single-page marketing website for "The Junk Moose," a junk removal company serving Portland, OR and the surrounding metro area. Built with Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, and Framer Motion for animations. It's a scroll-driven, section-based landing page designed to convert visitors into leads.
+
+TECH STACK
+----------
+- Framework: Next.js 14.2 (App Router, static export capable)
+- Language: TypeScript
+- Styling: Tailwind CSS 3.4 + CSS custom properties
+- Animations: Framer Motion 12
+- Fonts: Cabinet Grotesk (headings, bold/extrabold) + Switzer (body, medium/regular) via Fontshare
+- Utility: clsx + tailwind-merge for conditional class merging
+- Images: Next.js Image component (optimized, lazy-loaded)
+
+FILE STRUCTURE
+--------------
+src/
+  app/
+    layout.tsx        — Root HTML layout, metadata, SEO, Schema.org JSON-LD, font imports
+    page.tsx          — Main page: all sections composed as React components
+    globals.css       — CSS reset, Tailwind directives, CSS custom properties
+    favicon.ico       — Site icon
+    fonts/            — GeistVF.woff, GeistMonoVF.woff (local fallback fonts)
+  components/ui/
+    marquee.tsx       — Infinite horizontal/vertical scrolling marquee component
+    number-ticker.tsx — Animated number counter (springs into view on scroll)
+    section-wrapper.tsx — Scroll-triggered fade-in wrapper (Framer Motion)
+    spotlight-card.tsx  — Card with mouse-following radial gradient spotlight effect
+  lib/
+    utils.ts          — cn() helper: merges clsx + tailwind-merge
+
+Config files:
+  tailwind.config.ts  — Custom fonts, marquee keyframe animations, content paths
+  postcss.config.mjs  — PostCSS with Tailwind plugin
+  next.config.mjs     — Next.js config
+  tsconfig.json       — TypeScript config
+  package.json        — Dependencies and scripts
+
+DESIGN SYSTEM / BRAND
+---------------------
+Colors (defined as CSS custom properties in globals.css):
+  --bg-primary:      #FFFFFF (white backgrounds)
+  --bg-section-alt:  #F5F5F5 (light gray alternate sections)
+  --bg-section-gold: #92700C (gold/amber accent sections)
+  --brand-blue:      #3B82F6 (primary brand blue — CTAs, links, accents)
+  --brand-gold:      #92700C (secondary accent — stats section, quote marks)
+  --text-primary:    #1A1A1A (near-black headings/body)
+  --text-muted:      #6B7280 (gray secondary text)
+  --footer-bg:       #1A1A1A (dark footer)
+
+Typography:
+  - Headings: font-cabinet (Cabinet Grotesk), extrabold/bold, sizes up to 96px
+  - Body: font-switzer (Switzer), regular/medium, typically 16-22px
+  - Both loaded from Fontshare CDN
+
+General patterns:
+  - Rounded-full buttons (pill shape)
+  - rounded-2xl cards with subtle border and shadow-sm
+  - Uppercase tracking-wide label text above section headings
+  - Smooth scroll between sections (scroll-behavior: smooth)
+  - Every section fades in on scroll via SectionWrapper
+
+PAGE SECTIONS (in order, top to bottom)
+----------------------------------------
+
+1. NAV (sticky top bar)
+   - Sticky, white/translucent with backdrop blur
+   - Left: moose emoji + "The Junk Moose" brand text
+   - Right: "Get a Free Quote" blue pill button linking to #quote
+   - z-50, border-bottom
+
+2. HERO (full viewport)
+   - Full min-h-screen, white background with subtle blue radial gradient
+   - Staggered fade-in animations (Framer Motion, 4 elements delayed 0/0.15/0.3/0.45s)
+   - Subhead: "Portland's #1 Junk Removal" (blue, uppercase, tracked)
+   - Main headline: "We Haul It All." (up to 96px)
+   - Description: "Same-day junk removal across Portland and the Metro Area..."
+   - Two CTA buttons: "Get a Free Quote" (blue filled) + "See Our Work" (outlined)
+
+3. TRUST BAR (service area marquee)
+   - Light gray bar with auto-scrolling marquee
+   - Lists service areas: Portland OR, Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro, Vancouver WA, Tualatin, Milwaukie, Oregon City
+   - Repeats 4x for seamless infinite scroll
+   - Blue dot separators between items
+
+4. CREW STRIP (full-bleed team photo)
+   - Full-width image section (320-500px tall depending on breakpoint)
+   - Image: "/crew by the truck.jpg" — team photo, object-cover, bottom-aligned
+   - Gradient overlay (white from top and bottom)
+   - Overlaid text at bottom: "Real crew. Real work. Every day."
+
+5. PAIN AGITATOR (full viewport, blue background)
+   - Full min-h-screen, brand blue (#3B82F6) background
+   - Centered large headline: "Your junk isn't going to haul itself."
+   - Subtext: "Every day it sits there costs you space, time, and stress."
+   - Emotional/urgency-driven copywriting section
+
+6. SERVICES (white background, 2-column grid)
+   - Section label: "What We Haul"
+   - Heading: "If it fits in a truck, we take it."
+   - 6 service cards in a 2-column grid (1-col on mobile):
+     a. Furniture & Appliances — "Couches, fridges, washers, mattresses"
+     b. Construction Debris — "Drywall, lumber, concrete, tile"
+     c. Yard Waste — "Branches, soil, stumps, clippings"
+     d. Hoarding Cleanouts — "Full property cleanouts, no judgment"
+     e. Commercial Hauls — "Offices, retail, warehouses"
+     f. Same-Day Service — "Call before noon, gone by 5pm"
+   - Each card uses SpotlightCard (mouse-following blue radial glow on hover)
+   - Cards have emoji icon, title, description
+
+7. OUR WORK / BEFORE & AFTER (light gray background)
+   - Section label: "The Work"
+   - Heading: "Before we showed up. After we left."
+   - 2-column layout:
+     Left: Large before/after photo ("/before and after 2.jpg") with gradient overlay and "Before & After" badge
+     Right: Two stacked text cards, each with a Before (gray bg) and After (white bg) description:
+       Card 1: Garage cleanout story
+       Card 2: Overgrown yard cleanout story
+   - Blue divider line between Before/After in each text card
+
+8. STATS (full viewport, gold background)
+   - Full min-h-screen, gold/amber (#92700C) background
+   - Heading: "The numbers don't lie."
+   - Three animated number tickers in a row:
+     a. 500+ Jobs Completed
+     b. 4.9 Google Rating
+     c. 3 Years Serving Portland
+   - NumberTicker component uses Framer Motion spring physics, triggers on scroll into view
+   - Large display numbers (up to 96px)
+
+9. MEET THE OWNER (white background, 2-column split)
+   - Section label: "The Moose Behind It All"
+   - Heading: "Built by hand. Run with pride."
+   - Left: Owner portrait photo ("/owner.jpg"), rounded card with gradient overlay
+   - Right: Two paragraphs of founder story copy + "Get a Free Quote" CTA button
+   - Copy emphasizes: started with one truck, 500+ jobs, local crew, fair pricing
+
+10. CUSTOMER SCENE (full-bleed cinematic photo break)
+    - Full-width image (300-400px tall)
+    - Image: "/demo.jpg" — crew working with customer
+    - Gradient overlay fading to light gray at bottom
+    - Overlaid text: "On-site estimates. Upfront pricing. No surprises."
+
+11. TESTIMONIALS (light gray background, 2-column)
+    - Section label: "Their Words"
+    - Two testimonial cards side by side:
+      a. Mike T., Portland OR — about same-day garage clearout
+      b. Sarah K., Beaverton OR — about handling tough debris
+    - Each card: large gold open-quote mark, quote text, name, location
+    - White cards with border and subtle shadow
+
+12. FAQ (white background, accordion)
+    - Section label: "Questions"
+    - Heading: "Everything you need to know."
+    - 6 expandable FAQ items (click to toggle):
+      a. "How much does junk removal cost?" — $250-$500 per truck load
+      b. "Do you serve my area?" — lists all service areas
+      c. "How fast can you show up?" — same-day for before-noon calls
+      d. "What items do you NOT take?" — hazardous materials excluded
+      e. "Do I need to be home during pickup?" — no, photo confirmation sent
+      f. "How do I get a quote?" — call/text (503) 555-0100 or form
+    - Animated expand/collapse with Framer Motion (height + opacity)
+    - Blue +/- toggle indicator
+
+13. FINAL CTA (full viewport, blue background)
+    - id="quote" — this is where all "Get a Free Quote" links scroll to
+    - Full min-h-screen, brand blue background
+    - Heading: "Ready to clear it out?"
+    - Subtext: "Call or text us. Same-day slots go fast."
+    - Large clickable phone number: (503) 555-0100 (tel: link)
+    - Secondary CTA: "Or get a free quote online" (outlined white button)
+
+14. FOOTER (dark background)
+    - Dark (#1A1A1A) background
+    - Three items in a row: brand name, copyright "2025 The Junk Moose - Portland, OR", "Built by LaunchedOps"
+
+REUSABLE UI COMPONENTS
+-----------------------
+
+Marquee (marquee.tsx):
+  - Infinite horizontal or vertical scrolling container
+  - Props: reverse, pauseOnHover, vertical, repeat (default 4), className
+  - Uses CSS animation defined in tailwind.config.ts (translateX keyframes)
+  - Duplicates children N times for seamless loop
+
+NumberTicker (number-ticker.tsx):
+  - Animated counter that springs from 0 to target value
+  - Props: value, direction (up/down), delay, decimalPlaces, className
+  - Uses Framer Motion useSpring (damping: 60, stiffness: 100)
+  - Triggers once when scrolled into view (useInView)
+  - Updates DOM directly via ref for performance
+
+SectionWrapper (section-wrapper.tsx):
+  - Wraps any section with scroll-triggered fade-in animation
+  - Props: children, className, id
+  - Framer Motion: opacity 0->1, y 20->0, triggers once, -100px viewport margin
+  - 0.6s duration, easeOut
+
+SpotlightCard (spotlight-card.tsx):
+  - Card with mouse-tracking radial gradient spotlight effect
+  - Props: children, className, spotlightColor (default blue at 15% opacity)
+  - Tracks mouse position relative to card, shows/hides gradient on hover
+  - 600px radial gradient follows cursor
+
+SEO & STRUCTURED DATA
+----------------------
+- HTML lang="en"
+- Meta title: "The Junk Moose | Portland's #1 Junk Removal"
+- Meta description with keywords
+- OpenGraph tags (title, description, type: website)
+- Schema.org JSON-LD (LocalBusiness):
+  - Business name, description, phone
+  - Address: Portland, OR
+  - 10 service areas listed
+  - Aggregate rating: 4.9 / 127 reviews
+  - Price range: $$
+
+IMAGES USED (in /public/)
+--------------------------
+- /crew by the truck.jpg — Team photo for Crew Strip section
+- /before and after 2.jpg — Before/after cleanup photo
+- /owner.jpg — Owner portrait
+- /demo.jpg — On-site customer interaction scene
+
+RESPONSIVE BREAKPOINTS
+-----------------------
+Follows Tailwind defaults:
+  - sm: 640px
+  - md: 768px
+  - lg: 1024px
+Mobile-first: base styles are mobile, scaling up at breakpoints.
+Key responsive changes:
+  - Hero headline: 5xl -> 7xl -> 96px
+  - Service grid: 1 col -> 2 col at md
+  - Before/after grid: 1 col -> 2 col at lg
+  - Owner section: stacked -> side-by-side at lg
+  - Stats: stacked -> row at sm
+  - Crew strip height: 320px -> 420px -> 500px
+
+INTERACTION PATTERNS
+--------------------
+- Smooth scroll to #quote, #work, #services via anchor links
+- FAQ accordion: click to expand/collapse, one open at a time
+- SpotlightCard: mouse-following gradient on hover
+- NumberTicker: spring animation on scroll into view
+- All sections: fade-in-up on scroll via SectionWrapper
+- Nav CTA: hover color transition
+- Phone number in Final CTA: clickable tel: link for mobile
