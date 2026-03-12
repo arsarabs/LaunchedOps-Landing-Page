@@ -22,8 +22,10 @@ const contactPointSchema = {
   url: BUSINESS.url,
   address: {
     "@type": "PostalAddress",
+    streetAddress: BUSINESS.street,
     addressLocality: BUSINESS.city,
     addressRegion: BUSINESS.state,
+    postalCode: BUSINESS.zip,
     addressCountry: "US",
   },
   openingHoursSpecification: {
@@ -151,8 +153,9 @@ export default function ContactPage() {
                   <p className="font-clash font-bold text-stone text-lg">
                     {BUSINESS.name}
                   </p>
+                  <p>{BUSINESS.street}</p>
                   <p>
-                    {BUSINESS.city}, {BUSINESS.state}
+                    {BUSINESS.city}, {BUSINESS.state} {BUSINESS.zip}
                   </p>
                   <p>
                     <a
@@ -211,14 +214,18 @@ export default function ContactPage() {
                 />
               </div>
 
-              {/* Google Maps Placeholder */}
-              <div className="border border-white/[0.04] bg-warm-gray p-6 text-center">
-                {/* // TODO: requires Maps API key in server-side route */}
-                <div className="h-48 flex items-center justify-center">
-                  <p className="font-satoshi text-stone-dim/30 text-sm">
-                    Google Maps embed coming soon
-                  </p>
-                </div>
+              {/* Google Maps Embed */}
+              <div className="border border-white/[0.04] bg-warm-gray overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178840.29886498798!2d-122.7964858!3d45.5428372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="The Junk Moose service area — Portland OR metro"
+                />
               </div>
             </div>
           </div>

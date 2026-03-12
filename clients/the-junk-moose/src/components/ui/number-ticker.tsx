@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export function NumberTicker({
@@ -18,30 +17,76 @@ export function NumberTicker({
   decimalPlaces?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const motionValue = useMotionValue(direction === "down" ? value : 0);
-  const springValue = useSpring(motionValue, { damping: 60, stiffness: 100 });
-  const isInView = useInView(ref, { once: true, margin: "0px" });
+  const [hasStarted, setHasStarted] = useState(false);
 
+  // Intersection Observer — trigger once when in view
   useEffect(() => {
-    if (isInView) {
-      setTimeout(() => {
-        motionValue.set(direction === "down" ? 0 : value);
-      }, delay * 1000);
-    }
-  }, [motionValue, isInView, delay, value, direction]);
+    const el = ref.current;
+    if (!el) return;
 
-  useEffect(
-    () =>
-      springValue.on("change", (latest) => {
-        if (ref.current) {
-          ref.current.textContent = Intl.NumberFormat("en-US", {
-            minimumFractionDigits: decimalPlaces,
-            maximumFractionDigits: decimalPlaces,
-          }).format(Number(latest.toFixed(decimalPlaces)));
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          observer.unobserve(el);
+          setTimeout(() => setHasStarted(true), delay * 1000);
         }
-      }),
-    [springValue, decimalPlaces]
-  );
+      },
+      { rootMargin: "0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [delay]);
+
+  // Spring-like animation using requestAnimationFrame
+  useEffect(() => {
+    if (!hasStarted || !ref.current) return;
+
+    const startValue = direction === "down" ? value : 0;
+    const endValue = direction === "down" ? 0 : value;
+
+    let current = startValue;
+    let velocity = 0;
+    const stiffness = 100;
+    const damping = 60;
+    let animationId: number;
+
+    const formatter = new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: decimalPlaces,
+      maximumFractionDigits: decimalPlaces,
+    });
+
+    const step = () => {
+      const displacement = endValue - current;
+      const springForce = stiffness * displacement;
+      const dampingForce = damping * velocity;
+      const acceleration = springForce - dampingForce;
+
+      // Using a fixed time step for stability
+      const dt = 1 / 60;
+      velocity += acceleration * dt;
+      current += velocity * dt;
+
+      if (ref.current) {
+        ref.current.textContent = formatter.format(
+          Number(current.toFixed(decimalPlaces))
+        );
+      }
+
+      // Stop when close enough and velocity is negligible
+      if (Math.abs(displacement) < 0.01 && Math.abs(velocity) < 0.01) {
+        if (ref.current) {
+          ref.current.textContent = formatter.format(endValue);
+        }
+        return;
+      }
+
+      animationId = requestAnimationFrame(step);
+    };
+
+    animationId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationId);
+  }, [hasStarted, value, direction, decimalPlaces]);
 
   return (
     <span

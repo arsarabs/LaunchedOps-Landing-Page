@@ -55,13 +55,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to font CDN */}
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap"
-          rel="stylesheet"
-        />
+        {/* Self-hosted font preloads */}
+        <link rel="preload" href="/fonts/ClashDisplay-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <meta name="theme-color" content="#C8A44E" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -81,10 +77,10 @@ export default function RootLayout({
               priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "",
+                streetAddress: "1234 NW Burnside St",
                 addressLocality: "Portland",
                 addressRegion: "OR",
-                postalCode: "97201",
+                postalCode: "97209",
                 addressCountry: "US",
               },
               geo: {

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export function FAQAccordion({ faqs }: { faqs: { q: string; a: string }[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -22,29 +21,21 @@ export function FAQAccordion({ faqs }: { faqs: { q: string; a: string }[] }) {
                 {faq.q}
               </span>
             </div>
-            <motion.span
-              animate={{ rotate: openIndex === i ? 45 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="font-clash font-bold text-gold/30 text-xl shrink-0 group-hover:text-gold/60 transition-colors duration-300"
+            <span
+              className={`font-clash font-bold text-gold/30 text-xl shrink-0 group-hover:text-gold/60 transition-all duration-300 inline-block ${openIndex === i ? "rotate-45" : "rotate-0"}`}
             >
               +
-            </motion.span>
+            </span>
           </button>
-          <AnimatePresence initial={false}>
-            {openIndex === i && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden"
-              >
-                <p className="font-satoshi text-stone-dim text-base pb-7 pl-10 leading-relaxed max-w-xl">
-                  {faq.a}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div
+            className={`grid transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${openIndex === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+          >
+            <div className="overflow-hidden">
+              <p className="font-satoshi text-stone-dim text-base pb-7 pl-10 leading-relaxed max-w-xl">
+                {faq.a}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
     </div>

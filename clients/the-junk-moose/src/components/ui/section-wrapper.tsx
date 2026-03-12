@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export function SectionWrapper({
   children,
@@ -12,16 +11,33 @@ export function SectionWrapper({
   className?: string;
   id?: string;
 }) {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("visible");
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: "-100px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.section
+    <section
+      ref={ref}
       id={id}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={className}
+      className={`section-reveal ${className ?? ""}`}
     >
       {children}
-    </motion.section>
+    </section>
   );
 }

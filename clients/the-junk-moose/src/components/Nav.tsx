@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { SERVICES, LOCATIONS, BUSINESS } from "@/lib/data";
 
@@ -62,36 +61,28 @@ export function Nav() {
                   <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-              <AnimatePresence>
-                {activeDropdown === "services" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-64 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl"
+              <div
+                className={`absolute top-full left-0 mt-2 w-64 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl transition-all duration-200 ${activeDropdown === "services" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+              >
+                <div className="py-2">
+                  <Link
+                    href="/services"
+                    className="block px-5 py-2.5 font-satoshi text-gold/70 text-xs uppercase tracking-[0.15em] hover:text-gold transition-colors"
                   >
-                    <div className="py-2">
-                      <Link
-                        href="/services"
-                        className="block px-5 py-2.5 font-satoshi text-gold/70 text-xs uppercase tracking-[0.15em] hover:text-gold transition-colors"
-                      >
-                        All Services
-                      </Link>
-                      <div className="h-px bg-white/[0.04] mx-4" />
-                      {SERVICES.map((s) => (
-                        <Link
-                          key={s.slug}
-                          href={`/services/${s.slug}`}
-                          className="block px-5 py-2.5 font-satoshi text-stone-dim text-sm hover:text-gold hover:bg-white/[0.02] transition-colors duration-200"
-                        >
-                          {s.shortName}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    All Services
+                  </Link>
+                  <div className="h-px bg-white/[0.04] mx-4" />
+                  {SERVICES.map((s) => (
+                    <Link
+                      key={s.slug}
+                      href={`/services/${s.slug}`}
+                      className="block px-5 py-2.5 font-satoshi text-stone-dim text-sm hover:text-gold hover:bg-white/[0.02] transition-colors duration-200"
+                    >
+                      {s.shortName}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Locations dropdown */}
@@ -109,36 +100,28 @@ export function Nav() {
                   <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-              <AnimatePresence>
-                {activeDropdown === "locations" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-56 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl"
+              <div
+                className={`absolute top-full left-0 mt-2 w-56 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl transition-all duration-200 ${activeDropdown === "locations" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+              >
+                <div className="py-2">
+                  <Link
+                    href="/locations"
+                    className="block px-5 py-2.5 font-satoshi text-gold/70 text-xs uppercase tracking-[0.15em] hover:text-gold transition-colors"
                   >
-                    <div className="py-2">
-                      <Link
-                        href="/locations"
-                        className="block px-5 py-2.5 font-satoshi text-gold/70 text-xs uppercase tracking-[0.15em] hover:text-gold transition-colors"
-                      >
-                        All Locations
-                      </Link>
-                      <div className="h-px bg-white/[0.04] mx-4" />
-                      {LOCATIONS.map((l) => (
-                        <Link
-                          key={l.slug}
-                          href={`/locations/${l.slug}`}
-                          className="block px-5 py-2.5 font-satoshi text-stone-dim text-sm hover:text-gold hover:bg-white/[0.02] transition-colors duration-200"
-                        >
-                          {l.city}, {l.state}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    All Locations
+                  </Link>
+                  <div className="h-px bg-white/[0.04] mx-4" />
+                  {LOCATIONS.map((l) => (
+                    <Link
+                      key={l.slug}
+                      href={`/locations/${l.slug}`}
+                      className="block px-5 py-2.5 font-satoshi text-stone-dim text-sm hover:text-gold hover:bg-white/[0.02] transition-colors duration-200"
+                    >
+                      {l.city}, {l.state}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <Link
@@ -176,17 +159,14 @@ export function Nav() {
               className="lg:hidden flex flex-col gap-1.5 p-1"
               aria-label="Menu"
             >
-              <motion.span
-                animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6 : 0 }}
-                className="block w-5 h-px bg-stone"
+              <span
+                className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[6px]" : ""}`}
               />
-              <motion.span
-                animate={{ opacity: menuOpen ? 0 : 1 }}
-                className="block w-5 h-px bg-stone"
+              <span
+                className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`}
               />
-              <motion.span
-                animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6 : 0 }}
-                className="block w-5 h-px bg-stone"
+              <span
+                className={`block w-5 h-px bg-stone transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[6px]" : ""}`}
               />
             </button>
           </div>
@@ -194,52 +174,41 @@ export function Nav() {
       </nav>
 
       {/* Mobile menu overlay */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-dark/98 backdrop-blur-2xl flex items-center justify-center"
-          >
-            <nav className="flex flex-col items-center gap-6">
-              {[
-                { label: "Services", href: "/services" },
-                { label: "Locations", href: "/locations" },
-                { label: "About", href: "/about" },
-                { label: "Reviews", href: "/reviews" },
-                { label: "Contact", href: "/contact" },
-              ].map((link, i) => (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="font-clash font-bold text-3xl text-stone hover:text-gold transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.a
-                href={`tel:${BUSINESS.phoneRaw}`}
+      <div
+        className={`fixed inset-0 z-40 bg-dark/98 backdrop-blur-2xl flex items-center justify-center transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      >
+        <nav className="flex flex-col items-center gap-6">
+          {[
+            { label: "Services", href: "/services" },
+            { label: "Locations", href: "/locations" },
+            { label: "About", href: "/about" },
+            { label: "Reviews", href: "/reviews" },
+            { label: "Contact", href: "/contact" },
+          ].map((link, i) => (
+            <div
+              key={link.label}
+              className={`${menuOpen ? "animate-fadeInUp" : ""}`}
+              style={{ animationDelay: `${i * 0.08}s` }}
+            >
+              <Link
+                href={link.href}
                 onClick={() => setMenuOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45 }}
-                className="font-satoshi text-gold text-lg mt-4"
+                className="font-clash font-bold text-3xl text-stone hover:text-gold transition-colors"
               >
-                {BUSINESS.phone}
-              </motion.a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                {link.label}
+              </Link>
+            </div>
+          ))}
+          <a
+            href={`tel:${BUSINESS.phoneRaw}`}
+            onClick={() => setMenuOpen(false)}
+            className={`font-satoshi text-gold text-lg mt-4 ${menuOpen ? "animate-fadeInUp" : ""}`}
+            style={{ animationDelay: "0.45s" }}
+          >
+            {BUSINESS.phone}
+          </a>
+        </nav>
+      </div>
     </>
   );
 }

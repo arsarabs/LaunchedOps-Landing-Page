@@ -40,8 +40,10 @@ function localBusinessSchema(location: (typeof LOCATIONS)[number]) {
     telephone: BUSINESS.phone,
     address: {
       "@type": "PostalAddress",
+      streetAddress: BUSINESS.street,
       addressLocality: location.city,
       addressRegion: location.state,
+      postalCode: BUSINESS.zip,
       addressCountry: "US",
     },
     openingHoursSpecification: [

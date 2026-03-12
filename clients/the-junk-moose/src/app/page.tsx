@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -33,34 +32,25 @@ function Hero() {
       </div>
 
       {/* Decorative vertical line */}
-      <motion.div
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        transition={{ duration: 1.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute right-[15%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/10 to-transparent origin-top hidden lg:block"
+      <div
+        className="absolute right-[15%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/10 to-transparent origin-top hidden lg:block animate-scaleY"
+        style={{ animationDelay: "0.8s" }}
       />
 
       {/* Decorative corner mark */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute top-28 right-[15%] hidden lg:block"
+      <div
+        className="absolute top-28 right-[15%] hidden lg:block animate-fadeIn"
+        style={{ animationDelay: "1.2s", animationDuration: "0.8s" }}
       >
         <div className="w-16 h-16 border-t border-r border-gold/10" />
-      </motion.div>
+      </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-20 lg:pb-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
           {/* Main content — left 8 columns */}
           <div className="lg:col-span-8">
             {/* Social proof badge */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0 }}
-              className="inline-flex items-center gap-4 mb-10"
-            >
+            <div className="inline-flex items-center gap-4 mb-10 animate-fadeInLeft">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#C8A44E" aria-hidden="true">
@@ -72,58 +62,48 @@ function Hero() {
               <span className="text-stone-dim font-satoshi text-xs font-medium tracking-wide">
                 4.9 rating · 500+ jobs completed
               </span>
-            </motion.div>
+            </div>
 
             {/* Headline */}
             <h1 className="font-clash font-bold text-[clamp(3.5rem,11vw,10rem)] leading-[0.88] tracking-[-0.03em]">
               <div className="overflow-hidden mb-4">
-                <motion.span
-                  initial={{ y: "100%", display: "block" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="block text-gold"
+                <span
+                  className="block text-gold animate-heroText"
+                  style={{ animationDelay: "0.15s" }}
                 >
                   Your junk.
-                </motion.span>
+                </span>
               </div>
               <div className="overflow-hidden mb-10">
-                <motion.span
-                  initial={{ y: "100%", display: "block" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                  className="block text-stone/80"
+                <span
+                  className="block text-stone/80 animate-heroText"
+                  style={{ animationDelay: "0.25s" }}
                 >
                   Gone today.
-                </motion.span>
+                </span>
               </div>
             </h1>
 
             {/* Horizontal gold line */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="w-20 h-px bg-gold/40 origin-left mb-8"
+            <div
+              className="w-20 h-px bg-gold/40 origin-left mb-8 animate-scaleX"
+              style={{ animationDelay: "0.5s" }}
             />
 
             {/* Sub copy */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="font-satoshi text-stone-dim text-lg sm:text-xl max-w-lg leading-relaxed mb-10"
+            <p
+              className="font-satoshi text-stone-dim text-lg sm:text-xl max-w-lg leading-relaxed mb-10 animate-fadeInUp"
+              style={{ animationDelay: "0.55s" }}
             >
               Same-day junk removal across Portland &amp; the Metro Area.
               Upfront pricing. No surprises. Just an empty space where your
               junk used to be.
-            </motion.p>
+            </p>
 
             {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4"
+            <div
+              className="flex flex-col sm:flex-row gap-4 animate-fadeInUp"
+              style={{ animationDelay: "0.7s" }}
             >
               <a
                 href="#quote"
@@ -138,15 +118,13 @@ function Hero() {
                 <span className="w-2 h-2 rounded-full bg-emerald-500/80 group-hover:bg-emerald-400 transition-colors" />
                 Call Now — (503) 555-0100
               </a>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right column — stats sidebar */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="lg:col-span-4 hidden lg:flex flex-col gap-8 border-l border-white/[0.04] pl-10"
+          <div
+            className="lg:col-span-4 hidden lg:flex flex-col gap-8 border-l border-white/[0.04] pl-10 animate-fadeInUp"
+            style={{ animationDelay: "0.9s" }}
           >
             {[
               { num: "500+", label: "Jobs Completed" },
@@ -162,7 +140,7 @@ function Hero() {
                 </p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -569,52 +547,42 @@ function BeforeAfter() {
       </SectionWrapper>
 
       {/* Fullscreen lightbox */}
-      <AnimatePresence>
-        {lightboxSrc && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 cursor-zoom-out"
+      {lightboxSrc && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 cursor-zoom-out animate-fadeIn"
+          onClick={() => setLightboxSrc(null)}
+        >
+          {/* Close button */}
+          <button
             onClick={() => setLightboxSrc(null)}
+            className="absolute top-6 right-6 z-10 text-stone-dim hover:text-gold transition-colors"
+            aria-label="Close"
           >
-            {/* Close button */}
-            <button
-              onClick={() => setLightboxSrc(null)}
-              className="absolute top-6 right-6 z-10 text-stone-dim hover:text-gold transition-colors"
-              aria-label="Close"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
 
-            {/* Hint text */}
-            <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-satoshi text-stone-dim/30 text-xs uppercase tracking-[0.15em]">
-              Tap anywhere to close
-            </p>
+          {/* Hint text */}
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-satoshi text-stone-dim/30 text-xs uppercase tracking-[0.15em]">
+            Tap anywhere to close
+          </p>
 
-            {/* Full-size image — scrollable on overflow */}
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="max-w-[95vw] max-h-[90vh] overflow-auto hide-scrollbar cursor-default"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={lightboxSrc}
-                alt="Before and after — full size"
-                className="w-auto h-auto max-w-none max-h-[85vh] object-contain"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          {/* Full-size image — scrollable on overflow */}
+          <div
+            className="max-w-[95vw] max-h-[90vh] overflow-auto hide-scrollbar cursor-default animate-zoomFadeIn"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={lightboxSrc}
+              alt="Before and after — full size"
+              className="w-auto h-auto max-w-none max-h-[85vh] object-contain"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
@@ -992,29 +960,21 @@ function FAQ() {
                       {faq.q}
                     </span>
                   </div>
-                  <motion.span
-                    animate={{ rotate: openIndex === i ? 45 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="font-clash font-bold text-gold/30 text-xl shrink-0 group-hover:text-gold/60 transition-colors duration-300"
+                  <span
+                    className={`font-clash font-bold text-gold/30 text-xl shrink-0 group-hover:text-gold/60 transition-all duration-300 inline-block ${openIndex === i ? "rotate-45" : "rotate-0"}`}
                   >
                     +
-                  </motion.span>
+                  </span>
                 </button>
-                <AnimatePresence initial={false}>
-                  {openIndex === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="font-satoshi text-stone-dim text-base pb-7 pl-10 leading-relaxed max-w-xl">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div
+                  className={`grid transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${openIndex === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="font-satoshi text-stone-dim text-base pb-7 pl-10 leading-relaxed max-w-xl">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -1095,14 +1055,10 @@ function QuoteForm() {
 
           {/* Right — Form */}
           <div className="lg:col-span-7">
-            <AnimatePresence mode="wait">
-              {!submitted ? (
-                <motion.form
+            {!submitted ? (
+                <form
                   ref={formRef}
                   onSubmit={handleSubmit}
-                  key="form"
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0, y: -10 }}
                   className="bg-dark border border-white/[0.04] p-8 lg:p-12"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
@@ -1205,14 +1161,9 @@ function QuoteForm() {
                   <p className="font-satoshi text-stone-dim/30 text-xs text-center mt-5">
                     No spam, no obligation. We typically respond within 15 minutes.
                   </p>
-                </motion.form>
+                </form>
               ) : (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="bg-dark border border-gold/20 p-12 lg:p-16 text-center"
-                >
+                <div className="bg-dark border border-gold/20 p-12 lg:p-16 text-center animate-fadeInUp">
                   <div className="w-16 h-16 border border-gold/30 flex items-center justify-center mx-auto mb-8">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="20 6 9 17 4 12" />
@@ -1230,9 +1181,8 @@ function QuoteForm() {
                   >
                     Can&apos;t wait? Call (503) 555-0100
                   </a>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
           </div>
         </div>
       </div>
