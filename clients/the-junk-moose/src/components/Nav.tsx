@@ -27,6 +27,12 @@ export function Nav() {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-gold focus:text-dark focus:px-4 focus:py-2 focus:font-satoshi focus:font-bold focus:text-sm"
+      >
+        Skip to main content
+      </a>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-white/[0.03]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
           {/* Brand */}

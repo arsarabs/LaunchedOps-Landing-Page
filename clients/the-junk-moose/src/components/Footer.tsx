@@ -103,7 +103,7 @@ export function Footer() {
         </div>
 
         {/* SEO keyword paragraph */}
-        <p className="font-satoshi text-stone-dim/[0.12] text-[10px] leading-relaxed mb-6 max-w-3xl">
+        <p className="font-satoshi text-stone-dim/40 text-xs leading-relaxed mb-6 max-w-3xl">
           The Junk Moose is a Portland OR junk removal company offering same-day junk hauling,
           affordable furniture removal, construction debris removal, and yard waste cleanup.
           Proudly serving Portland, Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro,

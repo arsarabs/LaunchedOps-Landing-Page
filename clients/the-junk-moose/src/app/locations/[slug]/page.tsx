@@ -126,7 +126,7 @@ export default function LocationPage({
         subtitle={`Same-day junk removal for homes and businesses across ${location.city}. Upfront pricing, no hidden fees.`}
       />
 
-      <section className="bg-dark px-6 lg:px-10 py-16 sm:py-20 lg:py-28">
+      <section id="main-content" className="bg-dark px-6 lg:px-10 py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto">
           <Breadcrumb items={crumbs} />
 
@@ -227,6 +227,18 @@ export default function LocationPage({
               className="font-satoshi text-gold/60 text-sm hover:text-gold transition-colors duration-300"
             >
               All Locations
+            </Link>
+            <Link
+              href="/about"
+              className="font-satoshi text-gold/60 text-sm hover:text-gold transition-colors duration-300"
+            >
+              Learn about our team
+            </Link>
+            <Link
+              href="/reviews"
+              className="font-satoshi text-gold/60 text-sm hover:text-gold transition-colors duration-300"
+            >
+              See customer reviews
             </Link>
           </div>
         </div>

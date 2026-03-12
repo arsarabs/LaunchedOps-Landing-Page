@@ -14,44 +14,6 @@ export const metadata = makeMetadata({
 
 const breadcrumbItems = [{ label: "Locations", href: "/locations" }];
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: BUSINESS.name,
-  telephone: BUSINESS.phone,
-  url: BUSINESS.url,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: BUSINESS.city,
-    addressRegion: BUSINESS.state,
-    addressCountry: "US",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: BUSINESS.rating,
-    reviewCount: BUSINESS.reviewCount,
-    bestRating: "5",
-    worstRating: "1",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ],
-    opens: "07:00",
-    closes: "19:00",
-  },
-  areaServed: LOCATIONS.map((loc) => ({
-    "@type": "City",
-    name: `${loc.city}, ${loc.state}`,
-  })),
-};
-
 export default function LocationsPage() {
   return (
     <>
@@ -61,20 +23,13 @@ export default function LocationsPage() {
           __html: JSON.stringify(breadcrumbSchema(breadcrumbItems)),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
-        }}
-      />
-
       <PageHero
         label="Service Areas"
         title="Junk Removal Near You"
         subtitle="We serve the entire Portland metro area — 10 cities, same-day service, upfront pricing. Find your city below."
       />
 
-      <section className="bg-dark px-6 lg:px-10 py-16 sm:py-20 lg:py-28">
+      <section id="main-content" className="bg-dark px-6 lg:px-10 py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto">
           <Breadcrumb items={breadcrumbItems} />
 
@@ -101,8 +56,20 @@ export default function LocationsPage() {
               businesses trust {BUSINESS.name} to get the job done right. We are licensed, insured,
               and committed to eco-friendly disposal — donating usable items to local charities and
               recycling materials whenever possible. Select your city below to learn more about our
-              service in your area.
+              service in your area.{" "}
+              <Link href="/reviews" className="text-gold hover:text-gold-light transition-colors">
+                Read customer reviews
+              </Link>.
             </p>
+          </div>
+
+          <div className="mb-14 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+            <Link href="/services" className="text-gold hover:text-gold-light transition-colors">
+              View our full list of services &rarr;
+            </Link>
+            <Link href="/about" className="text-gold hover:text-gold-light transition-colors">
+              Meet the crew &rarr;
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

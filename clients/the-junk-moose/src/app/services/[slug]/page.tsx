@@ -77,7 +77,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const breadcrumbJsonLd = breadcrumbSchema(crumbs);
 
   return (
-    <main className="bg-dark min-h-screen">
+    <main id="main-content" className="bg-dark min-h-screen">
       {/* JSON-LD */}
       <script
         type="application/ld+json"
@@ -124,7 +124,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               About This Service
             </h2>
             <p className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed">
-              {service.longDescription}
+              {service.longDescription}{" "}
+              <Link href="/about" className="text-gold hover:text-gold-light transition-colors">
+                Learn about our crew
+              </Link> and why Portland trusts us to get the job done right.
             </p>
 
             {/* Link to locations */}
@@ -132,15 +135,26 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <p className="font-satoshi text-stone-dim/60 text-sm mb-3">
                 We offer {service.name.toLowerCase()} across the Portland metro area.
               </p>
-              <Link
-                href="/locations"
-                className="font-satoshi text-gold text-sm hover:text-gold-light transition-colors inline-flex items-center gap-2"
-              >
-                View all service areas
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                <Link
+                  href="/locations"
+                  className="font-satoshi text-gold text-sm hover:text-gold-light transition-colors inline-flex items-center gap-2"
+                >
+                  View all service areas
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/reviews"
+                  className="font-satoshi text-gold text-sm hover:text-gold-light transition-colors inline-flex items-center gap-2"
+                >
+                  Read customer reviews
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
 

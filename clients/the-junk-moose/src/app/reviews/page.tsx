@@ -137,7 +137,7 @@ export default function ReviewsPage() {
         subtitle={`${BUSINESS.rating}-star rating from ${BUSINESS.reviewCount}+ verified reviews. We let our work speak for itself.`}
       />
 
-      <div className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
+      <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
         <div className="max-w-5xl mx-auto">
           <Breadcrumb items={breadcrumbItems} />
 
@@ -177,6 +177,18 @@ export default function ReviewsPage() {
               </p>
             </div>
           </section>
+
+          {/* ── Before/After Photo ── */}
+          <div className="mb-16 lg:mb-20">
+            <img
+              src="/before-after-1.jpg"
+              alt="Before and after junk removal job — garage cleanout in Portland OR by The Junk Moose"
+              className="w-full h-auto"
+              width={1200}
+              height={800}
+              loading="lazy"
+            />
+          </div>
 
           {/* ── Testimonials ── */}
           <section className="mb-20 lg:mb-28">
@@ -227,6 +239,19 @@ export default function ReviewsPage() {
               </p>
             </div>
           </section>
+
+          {/* ── Cross-links ── */}
+          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+            <Link href="/services" className="text-gold hover:text-gold-light transition-colors">
+              View our services &rarr;
+            </Link>
+            <Link href="/locations" className="text-gold hover:text-gold-light transition-colors">
+              Find junk removal near you &rarr;
+            </Link>
+            <Link href="/about" className="text-gold hover:text-gold-light transition-colors">
+              Meet the crew &rarr;
+            </Link>
+          </div>
 
           {/* ── CTA ── */}
           <section className="text-center">

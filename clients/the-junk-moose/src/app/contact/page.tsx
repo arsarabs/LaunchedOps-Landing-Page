@@ -75,7 +75,7 @@ export default function ContactPage() {
         ctaHref={`tel:${BUSINESS.phoneRaw}`}
       />
 
-      <div className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
+      <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
         <div className="max-w-5xl mx-auto">
           <Breadcrumb items={breadcrumbItems} />
 
@@ -112,8 +112,19 @@ export default function ContactPage() {
                 we take care of the rest. We sweep up when we are done and send you a photo
                 confirmation once the job is complete. The entire process, from your first call to
                 a clean space, is designed to be as fast and painless as possible. That is the{" "}
-                {BUSINESS.name} difference.
+                {BUSINESS.name} difference.{" "}
+                <Link href="/about" className="text-gold hover:text-gold-light transition-colors">
+                  Learn about our team
+                </Link>.
               </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+              <Link href="/reviews" className="text-gold hover:text-gold-light transition-colors">
+                Read customer reviews &rarr;
+              </Link>
+              <Link href="/locations" className="text-gold hover:text-gold-light transition-colors">
+                View service areas &rarr;
+              </Link>
             </div>
           </section>
 
@@ -186,6 +197,18 @@ export default function ContactPage() {
                     </span>
                   ))}
                 </div>
+              </div>
+
+              {/* Crew Photo */}
+              <div>
+                <img
+                  src="/our-junk-removal-team.jpg"
+                  alt="The Junk Moose junk removal crew — call for a free quote in Portland OR"
+                  className="w-full h-auto"
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                />
               </div>
 
               {/* Google Maps Placeholder */}

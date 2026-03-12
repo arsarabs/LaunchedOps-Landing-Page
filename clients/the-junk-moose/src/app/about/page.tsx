@@ -72,7 +72,7 @@ export default function AboutPage() {
         subtitle="One truck, one crew, one mission — make junk disappear without the hassle or the hidden fees."
       />
 
-      <div className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
+      <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
         <div className="max-w-5xl mx-auto">
           <Breadcrumb items={breadcrumbItems} />
 
@@ -106,6 +106,16 @@ export default function AboutPage() {
                 upsells, no surprises on the invoice.
               </p>
             </div>
+            <div className="mt-10">
+              <img
+                src="/founder.jpg"
+                alt="Marcus, founder of The Junk Moose — Portland OR junk removal"
+                className="w-full h-auto"
+                width={1200}
+                height={800}
+                loading="lazy"
+              />
+            </div>
           </section>
 
           {/* ── Our Crew ── */}
@@ -132,6 +142,16 @@ export default function AboutPage() {
                   the job is done. That&apos;s not a sales pitch. That&apos;s
                   just how we operate.
                 </p>
+              </div>
+              <div className="mt-8">
+                <img
+                  src="/our-junk-removal-team.jpg"
+                  alt="The Junk Moose crew — Portland's trusted junk removal team"
+                  className="w-full h-auto"
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                />
               </div>
             </div>
           </section>
@@ -211,6 +231,16 @@ export default function AboutPage() {
               ))}
             </div>
           </section>
+
+          {/* ── Cross-links ── */}
+          <div className="mb-20 lg:mb-28 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+            <Link href="/locations" className="text-gold hover:text-gold-light transition-colors">
+              See all the cities we serve &rarr;
+            </Link>
+            <Link href="/reviews" className="text-gold hover:text-gold-light transition-colors">
+              Read what our customers say &rarr;
+            </Link>
+          </div>
 
           {/* ── CTA ── */}
           <section className="text-center">

@@ -63,7 +63,7 @@ function Hero() {
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#C8A44E">
+                  <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#C8A44E" aria-hidden="true">
                     <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z"/>
                   </svg>
                 ))}
@@ -183,6 +183,11 @@ const serviceAreas = [
 function ServiceAreas() {
   return (
     <section className="bg-dark border-b border-white/[0.03]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6">
+        <h2 className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-0 text-center">
+          Serving the Portland Metro Area
+        </h2>
+      </div>
       <Link href="/locations" className="block hover:bg-white/[0.01] transition-colors duration-300">
         <Marquee className="py-5">
           {serviceAreas.map((area) => (
@@ -437,6 +442,7 @@ function Services() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                     className="text-stone-dim/0 group-hover:text-gold/50 transition-all duration-500 translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0"
                   >
                     <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
@@ -541,7 +547,7 @@ function BeforeAfter() {
                   </div>
                   {/* Expand icon */}
                   <div className="absolute bottom-3 right-3 bg-dark/80 backdrop-blur-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="15 3 21 3 21 9" />
                       <polyline points="9 21 3 21 3 15" />
                       <line x1="21" y1="3" x2="14" y2="10" />
@@ -579,7 +585,7 @@ function BeforeAfter() {
               className="absolute top-6 right-6 z-10 text-stone-dim hover:text-gold transition-colors"
               aria-label="Close"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
@@ -628,9 +634,9 @@ function Stats() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-16 lg:mb-24 text-center">
+        <h2 className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-16 lg:mb-24 text-center">
           By The Numbers
-        </p>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-16 sm:gap-0">
           {/* Stat 1 */}
           <div className="text-center relative">
@@ -795,14 +801,17 @@ function Promise() {
         }}
       />
       <div className="max-w-5xl mx-auto text-center relative z-10">
+        <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+          Our Promise
+        </p>
         <div className="w-8 h-px bg-gold/30 mx-auto mb-12" />
-        <p className="font-clash font-bold text-4xl sm:text-6xl lg:text-[80px] tracking-[-0.03em] leading-[0.9]">
+        <h2 className="font-clash font-bold text-4xl sm:text-6xl lg:text-[80px] tracking-[-0.03em] leading-[0.9]">
           <span className="text-stone">On-site estimates.</span>
           <br />
           <span className="text-gold">Upfront pricing.</span>
           <br />
           <span className="text-stone-dim/30">No surprises.</span>
-        </p>
+        </h2>
         <div className="w-8 h-px bg-gold/30 mx-auto mt-12" />
       </div>
     </SectionWrapper>
@@ -831,9 +840,9 @@ function Testimonials() {
   return (
     <SectionWrapper className="bg-warm-gray py-24 sm:py-32 lg:py-44 px-6 lg:px-10 border-y border-white/[0.03]">
       <div className="max-w-7xl mx-auto">
-        <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-16 lg:mb-20">
-          What They Say
-        </p>
+        <h2 className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-16 lg:mb-20">
+          What Our Customers Say
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Founder photo — desktop only */}
@@ -1061,7 +1070,7 @@ function QuoteForm() {
               className="group flex items-center gap-4 mb-8"
             >
               <div className="w-12 h-12 border border-gold/20 flex items-center justify-center group-hover:border-gold/50 transition-colors duration-500">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="text-gold">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
@@ -1205,7 +1214,7 @@ function QuoteForm() {
                   className="bg-dark border border-gold/20 p-12 lg:p-16 text-center"
                 >
                   <div className="w-16 h-16 border border-gold/30 flex items-center justify-center mx-auto mb-8">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
@@ -1284,7 +1293,7 @@ function FinalCTA() {
    ═══════════════════════════════════════════════════════════════ */
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <Hero />
       <ServiceAreas />
       <Process />

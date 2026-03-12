@@ -3,6 +3,7 @@ import { makeMetadata } from "@/lib/metadata";
 import { Breadcrumb, breadcrumbSchema } from "@/components/Breadcrumb";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
+import Link from "next/link";
 
 export const metadata = makeMetadata({
   title: `Junk Removal Services Portland OR | ${BUSINESS.name}`,
@@ -11,47 +12,6 @@ export const metadata = makeMetadata({
 });
 
 const breadcrumbItems = [{ label: "Services", href: "/services" }];
-
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: BUSINESS.name,
-  telephone: BUSINESS.phone,
-  url: BUSINESS.url,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: BUSINESS.city,
-    addressRegion: BUSINESS.state,
-    addressCountry: "US",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: BUSINESS.rating,
-    reviewCount: BUSINESS.reviewCount,
-    bestRating: "5",
-    worstRating: "1",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Junk Removal Services",
-    itemListElement: SERVICES.map((service) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: service.name,
-        description: service.description,
-        areaServed: {
-          "@type": "City",
-          name: `${BUSINESS.city}, ${BUSINESS.state}`,
-        },
-        provider: {
-          "@type": "LocalBusiness",
-          name: BUSINESS.name,
-        },
-      },
-    })),
-  },
-};
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -96,17 +56,11 @@ export default function ServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqSchema),
         }}
       />
 
-      <main className="bg-dark min-h-screen">
+      <main id="main-content" className="bg-dark min-h-screen">
         <PageHero
           label="Our Services"
           title="What We Haul"
@@ -143,11 +97,38 @@ export default function ServicesPage() {
                 to local Portland charities, recyclable materials are sorted and sent to proper
                 facilities, and we dispose of everything else responsibly. From furniture and
                 appliances to construction debris, yard waste, and commercial junk, {BUSINESS.name}{" "}
-                is the only call you need to make. Available Monday through Saturday, 7am to 7pm.
+                is the only call you need to make. Available Monday through Saturday, 7am to 7pm.{" "}
+                <Link href="/about" className="text-gold hover:text-gold-light transition-colors">
+                  Meet the team behind every job
+                </Link>.
               </p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-sm">
+              <Link href="/reviews" className="text-gold hover:text-gold-light transition-colors">
+                See what our customers say &rarr;
+              </Link>
+              <Link href="/locations" className="text-gold hover:text-gold-light transition-colors">
+                View all service areas &rarr;
+              </Link>
             </div>
           </div>
         </section>
+
+        {/* Crew Photo */}
+        <div className="bg-dark px-6 lg:px-10 pb-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-16">
+              <img
+                src="/our-junk-removal-team.jpg"
+                alt="The Junk Moose junk removal crew ready for service in Portland OR"
+                className="w-full h-auto"
+                width={1200}
+                height={800}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
 
         {/* Services Grid */}
         <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28">
