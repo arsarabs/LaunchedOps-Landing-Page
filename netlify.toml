@@ -1,0 +1,4 @@
+[build]
+  base = "clients/the-junk-moose"
+  command = "npm run build"
+  publish = "out"
