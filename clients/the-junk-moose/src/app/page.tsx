@@ -244,14 +244,14 @@ function Hero() {
                 href="#quote"
                 className="btn-magnetic bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300 text-center pulse-glow"
               >
-                Get a Free Quote
+                Get My Free Quote
               </a>
               <a
                 href="tel:+15035550100"
                 className="group border border-white/[0.08] text-stone font-satoshi font-medium text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-all duration-500 text-center flex items-center justify-center gap-3"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500/80 group-hover:bg-emerald-400 transition-colors" />
-                Call (503) 555-0100
+                Call Now — (503) 555-0100
               </a>
             </motion.div>
           </div>
@@ -572,12 +572,12 @@ function Services() {
 const beforeAfterPhotos = [
   {
     src: "/before-after-1.jpg",
-    alt: "Before and after junk removal — mattress and furniture pile cleared",
+    alt: "Before and after junk removal — garage cleanout Portland OR by The Junk Moose",
     detail: "Single-family home · Portland, OR · 1 truck load",
   },
   {
     src: "/before-after-2.jpg",
-    alt: "Before and after junk removal — property debris cleared",
+    alt: "Before and after property debris removal — estate cleanout Beaverton OR by The Junk Moose",
     detail: "Estate cleanout · Beaverton, OR · 2 truck loads",
   },
 ];
@@ -783,7 +783,7 @@ function CrewPhoto() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/our-junk-removal-team.jpg"
-        alt="The Junk Moose crew in front of the truck"
+        alt="The Junk Moose junk removal crew in front of truck — Portland OR"
         className="w-full h-auto block"
       />
       <div className="absolute inset-0 bg-black/60" />
@@ -926,7 +926,7 @@ function Testimonials() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/founder.jpg"
-              alt="Marcus, founder of The Junk Moose"
+              alt="Marcus, founder of The Junk Moose junk removal crew Portland OR"
               className="absolute inset-0 w-full h-full object-cover object-[center_top]"
             />
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-dark to-transparent" />
@@ -1167,22 +1167,28 @@ function QuoteForm() {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                     <div>
-                      <label className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+                      <label htmlFor="quote-name" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                         Your Name
                       </label>
                       <input
+                        id="quote-name"
+                        name="name"
                         type="text"
+                        autoComplete="name"
                         placeholder="John Smith"
                         required
                         className="form-input"
                       />
                     </div>
                     <div>
-                      <label className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+                      <label htmlFor="quote-phone" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                         Phone Number
                       </label>
                       <input
+                        id="quote-phone"
+                        name="phone"
                         type="tel"
+                        autoComplete="tel"
                         placeholder="(503) 555-1234"
                         required
                         className="form-input"
@@ -1192,20 +1198,23 @@ function QuoteForm() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                     <div>
-                      <label className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+                      <label htmlFor="quote-email" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                         Email (Optional)
                       </label>
                       <input
+                        id="quote-email"
+                        name="email"
                         type="email"
+                        autoComplete="email"
                         placeholder="john@email.com"
                         className="form-input"
                       />
                     </div>
                     <div>
-                      <label className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+                      <label htmlFor="quote-service" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                         Service Type
                       </label>
-                      <select className="form-input" defaultValue="">
+                      <select id="quote-service" name="service" className="form-input" defaultValue="">
                         <option value="" disabled>Select a service</option>
                         <option>Furniture & Appliances</option>
                         <option>Construction Debris</option>
@@ -1217,22 +1226,40 @@ function QuoteForm() {
                     </div>
                   </div>
 
-                  <div className="mb-8">
-                    <label className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
+                  <div className="mb-6">
+                    <label htmlFor="quote-message" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
                       Tell Us About Your Job
                     </label>
                     <textarea
+                      id="quote-message"
+                      name="message"
                       placeholder="What do you need hauled? Any details help us quote faster."
                       rows={4}
                       className="form-input resize-none"
                     />
                   </div>
 
+                  {/* Trust badges */}
+                  <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-white/[0.04]">
+                    {[
+                      { icon: "✓", text: "Licensed & Insured" },
+                      { icon: "✓", text: "No Obligation" },
+                      { icon: "✓", text: "Response in 15 min" },
+                    ].map((badge) => (
+                      <div key={badge.text} className="flex items-center gap-2">
+                        <span className="text-gold text-xs">{badge.icon}</span>
+                        <span className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.1em]">
+                          {badge.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
                   <button
                     type="submit"
                     className="btn-magnetic w-full bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.18em] py-4 hover:bg-gold-light transition-colors duration-300 pulse-glow"
                   >
-                    Request Free Quote
+                    Get My Free Quote
                   </button>
 
                   <p className="font-satoshi text-stone-dim/30 text-xs text-center mt-5">
@@ -1344,16 +1371,20 @@ function Footer() {
             </p>
           </div>
 
-          {/* Service areas summary */}
-          <div className="sm:text-center">
-            <p className="font-satoshi text-stone-dim/25 text-xs leading-relaxed">
-              Portland · Beaverton · Gresham · Lake Oswego
-              <br />
-              Tigard · Hillsboro · Vancouver WA
+          {/* NAP Address — critical for local SEO */}
+          <address className="sm:text-center not-italic">
+            <p className="font-satoshi text-stone-dim/30 text-xs font-medium">
+              The Junk Moose
             </p>
-          </div>
+            <p className="font-satoshi text-stone-dim/25 text-xs leading-relaxed">
+              Portland, OR · Serving the Metro Area
+            </p>
+            <a href="tel:+15035550100" className="font-satoshi text-gold/40 text-xs hover:text-gold/70 transition-colors">
+              (503) 555-0100
+            </a>
+          </address>
 
-          {/* Contact */}
+          {/* Contact / Hours */}
           <div className="sm:text-right">
             <a href="tel:+15035550100" className="font-satoshi text-gold/40 text-sm hover:text-gold/70 transition-colors">
               (503) 555-0100
@@ -1363,6 +1394,14 @@ function Footer() {
             </p>
           </div>
         </div>
+
+        {/* SEO keyword paragraph — visually subtle but crawlable */}
+        <p className="font-satoshi text-stone-dim/[0.12] text-[10px] leading-relaxed mb-6 max-w-3xl">
+          The Junk Moose is a Portland OR junk removal company offering same-day junk hauling,
+          affordable furniture removal, construction debris removal, and yard waste cleanup.
+          Proudly serving Portland, Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro,
+          Vancouver WA, Tualatin, Milwaukie, and Oregon City.
+        </p>
 
         <div className="h-px bg-white/[0.03] mb-6" />
 
