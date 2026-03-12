@@ -7,125 +7,6 @@ import { NumberTicker } from "@/components/ui/number-ticker";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { useState, useRef, FormEvent } from "react";
 
-/* ═══════════════════════════════════════════════════════════════
-   NAVIGATION — refined with mobile overlay
-   ═══════════════════════════════════════════════════════════════ */
-function Nav() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const navLinks = [
-    { label: "Services", href: "#services" },
-    { label: "Our Work", href: "#work" },
-    { label: "About", href: "#about" },
-    { label: "FAQ", href: "#faq" },
-  ];
-
-  return (
-    <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-white/[0.03]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
-          {/* Brand */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 border border-gold/30 flex items-center justify-center group-hover:border-gold/60 transition-colors duration-500">
-              <span className="font-clash font-bold text-gold text-xs">JM</span>
-            </div>
-            <span className="font-clash font-bold text-sm text-stone tracking-tight hidden sm:block">
-              THE JUNK MOOSE
-            </span>
-          </a>
-
-          {/* Desktop links */}
-          <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="font-satoshi text-stone-dim text-[13px] uppercase tracking-[0.15em] hover:text-gold transition-colors duration-300"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Right side */}
-          <div className="flex items-center gap-5">
-            <a
-              href="tel:+15035550100"
-              className="hidden md:flex items-center gap-2 text-stone-dim font-satoshi font-medium text-[13px] tracking-wide hover:text-gold transition-colors duration-300"
-            >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              (503) 555-0100
-            </a>
-            <a
-              href="#quote"
-              className="btn-magnetic bg-gold text-dark font-satoshi font-bold text-[11px] uppercase tracking-[0.18em] px-6 py-2.5 hover:bg-gold-light transition-colors duration-300"
-            >
-              Free Quote
-            </a>
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden flex flex-col gap-1.5 p-1"
-              aria-label="Menu"
-            >
-              <motion.span
-                animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6 : 0 }}
-                className="block w-5 h-px bg-stone"
-              />
-              <motion.span
-                animate={{ opacity: menuOpen ? 0 : 1 }}
-                className="block w-5 h-px bg-stone"
-              />
-              <motion.span
-                animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6 : 0 }}
-                className="block w-5 h-px bg-stone"
-              />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile menu overlay */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-dark/98 backdrop-blur-2xl flex items-center justify-center"
-          >
-            <nav className="flex flex-col items-center gap-8">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                  className="font-clash font-bold text-3xl text-stone hover:text-gold transition-colors"
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-              <motion.a
-                href="tel:+15035550100"
-                onClick={() => setMenuOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 }}
-                className="font-satoshi text-gold text-lg mt-4"
-              >
-                (503) 555-0100
-              </motion.a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════
    HERO — cinematic, editorial, asymmetric
@@ -1349,85 +1230,11 @@ function FinalCTA() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FOOTER — refined with more detail
-   ═══════════════════════════════════════════════════════════════ */
-function Footer() {
-  return (
-    <footer className="bg-dark border-t border-white/[0.03] py-12 px-6 lg:px-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 items-start sm:items-center mb-10">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-6 h-6 border border-gold/20 flex items-center justify-center">
-                <span className="font-clash font-bold text-gold text-[8px]">JM</span>
-              </div>
-              <span className="font-clash font-bold text-stone/30 text-sm tracking-tight">
-                THE JUNK MOOSE
-              </span>
-            </div>
-            <p className="font-satoshi text-stone-dim/25 text-xs">
-              Portland&apos;s trusted junk removal crew.
-            </p>
-          </div>
-
-          {/* NAP Address — critical for local SEO */}
-          <address className="sm:text-center not-italic">
-            <p className="font-satoshi text-stone-dim/30 text-xs font-medium">
-              The Junk Moose
-            </p>
-            <p className="font-satoshi text-stone-dim/25 text-xs leading-relaxed">
-              Portland, OR · Serving the Metro Area
-            </p>
-            <a href="tel:+15035550100" className="font-satoshi text-gold/40 text-xs hover:text-gold/70 transition-colors">
-              (503) 555-0100
-            </a>
-          </address>
-
-          {/* Contact / Hours */}
-          <div className="sm:text-right">
-            <a href="tel:+15035550100" className="font-satoshi text-gold/40 text-sm hover:text-gold/70 transition-colors">
-              (503) 555-0100
-            </a>
-            <p className="font-satoshi text-stone-dim/25 text-xs mt-1">
-              Mon–Sat · 7am–7pm
-            </p>
-          </div>
-        </div>
-
-        {/* SEO keyword paragraph — visually subtle but crawlable */}
-        <p className="font-satoshi text-stone-dim/[0.12] text-[10px] leading-relaxed mb-6 max-w-3xl">
-          The Junk Moose is a Portland OR junk removal company offering same-day junk hauling,
-          affordable furniture removal, construction debris removal, and yard waste cleanup.
-          Proudly serving Portland, Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro,
-          Vancouver WA, Tualatin, Milwaukie, and Oregon City.
-        </p>
-
-        <div className="h-px bg-white/[0.03] mb-6" />
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="font-satoshi text-stone-dim/20 text-xs tracking-wide">
-            &copy; 2025 The Junk Moose · Portland, OR
-          </span>
-          <span className="font-satoshi text-stone-dim/20 text-xs tracking-wide">
-            Built by{" "}
-            <span className="text-gold/25 hover:text-gold/50 transition-colors cursor-pointer">
-              LaunchedOps
-            </span>
-          </span>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
    PAGE COMPOSITION
    ═══════════════════════════════════════════════════════════════ */
 export default function Home() {
   return (
     <main>
-      <Nav />
       <Hero />
       <ServiceAreas />
       <Process />
@@ -1442,7 +1249,6 @@ export default function Home() {
       <FAQ />
       <QuoteForm />
       <FinalCTA />
-      <Footer />
     </main>
   );
 }

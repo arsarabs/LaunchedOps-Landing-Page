@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 const siteUrl = "https://demo.launchedops.com";
@@ -269,7 +271,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-satoshi antialiased grain">{children}</body>
+      <body className="font-satoshi antialiased grain">
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
