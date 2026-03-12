@@ -567,99 +567,148 @@ function Services() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BEFORE & AFTER — editorial cards with large index
+   BEFORE & AFTER — photo cards with fullscreen lightbox
    ═══════════════════════════════════════════════════════════════ */
+const beforeAfterPhotos = [
+  {
+    src: "/before-after-1.jpg",
+    alt: "Before and after junk removal — mattress and furniture pile cleared",
+    detail: "Single-family home · Portland, OR · 1 truck load",
+  },
+  {
+    src: "/before-after-2.jpg",
+    alt: "Before and after junk removal — property debris cleared",
+    detail: "Estate cleanout · Beaverton, OR · 2 truck loads",
+  },
+];
+
 function BeforeAfter() {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
   return (
-    <SectionWrapper id="work" className="bg-warm-gray py-24 sm:py-32 lg:py-40 px-6 lg:px-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 mb-16 lg:mb-24">
-          <div className="lg:col-span-7">
-            <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
-              The Work
-            </p>
-            <h2 className="font-clash font-bold text-4xl sm:text-5xl lg:text-[64px] leading-[0.92] tracking-tight">
-              <span className="text-stone">Before we showed up.</span>
-              <br />
-              <span className="text-gold">After we left.</span>
-            </h2>
-          </div>
-          <div className="lg:col-span-5 lg:flex lg:items-end">
-            <p className="font-satoshi text-stone-dim/60 text-[15px] leading-relaxed max-w-sm">
-              Every job tells a story. Here are two of our favorites — from chaos to clean in hours.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Card 1 — Mattress & furniture before/after */}
-          <div className="overflow-hidden border border-white/[0.06] group hover:border-gold/10 transition-colors duration-500">
-            <div className="relative w-full h-[320px] sm:h-[380px]">
-              <Image
-                src="/before-after-1.jpg"
-                alt="Before and after junk removal — mattress and furniture pile cleared"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: "cover", objectPosition: "center" }}
-              />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
-              <div className="absolute top-3 left-3 flex gap-2">
-                <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
-                  <span className="font-satoshi text-xs font-medium tracking-widest uppercase text-stone-dim">
-                    Before
-                  </span>
-                </div>
-                <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
-                  <span className="font-satoshi text-xs font-medium tracking-widest uppercase text-gold">
-                    After
-                  </span>
-                </div>
-              </div>
+    <>
+      <SectionWrapper id="work" className="bg-warm-gray py-24 sm:py-32 lg:py-40 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 mb-16 lg:mb-24">
+            <div className="lg:col-span-7">
+              <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
+                The Work
+              </p>
+              <h2 className="font-clash font-bold text-4xl sm:text-5xl lg:text-[64px] leading-[0.92] tracking-tight">
+                <span className="text-stone">Before we showed up.</span>
+                <br />
+                <span className="text-gold">After we left.</span>
+              </h2>
             </div>
-            <div className="w-full h-0.5 bg-gold/40" />
-            <div className="bg-dark p-5 flex items-center gap-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold/30" />
-              <p className="font-satoshi text-stone-dim/30 text-xs uppercase tracking-[0.15em]">
-                Single-family home · Portland, OR · 1 truck load
+            <div className="lg:col-span-5 lg:flex lg:items-end">
+              <p className="font-satoshi text-stone-dim/60 text-[15px] leading-relaxed max-w-sm">
+                Every job tells a story. Here are two of our favorites — from chaos to clean in hours.
+                <span className="block mt-2 text-gold/40 text-xs uppercase tracking-[0.15em]">
+                  Tap a photo to view full size
+                </span>
               </p>
             </div>
           </div>
 
-          {/* Card 2 — Property cleanout before/after */}
-          <div className="overflow-hidden border border-white/[0.06] group hover:border-gold/10 transition-colors duration-500">
-            <div className="relative w-full h-[320px] sm:h-[380px]">
-              <Image
-                src="/before-after-2.jpg"
-                alt="Before and after junk removal — property debris cleared"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: "cover", objectPosition: "center" }}
-              />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
-              <div className="absolute top-3 left-3 flex gap-2">
-                <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
-                  <span className="font-satoshi text-xs font-medium tracking-widest uppercase text-stone-dim">
-                    Before
-                  </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {beforeAfterPhotos.map((photo) => (
+              <div
+                key={photo.src}
+                className="overflow-hidden border border-white/[0.06] group hover:border-gold/10 transition-colors duration-500 cursor-pointer"
+                onClick={() => setLightboxSrc(photo.src)}
+              >
+                <div className="relative w-full h-[320px] sm:h-[380px]">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500" />
+                  <div className="absolute top-3 left-3 flex gap-2">
+                    <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
+                      <span className="font-satoshi text-xs font-medium tracking-widest uppercase text-stone-dim">
+                        Before
+                      </span>
+                    </div>
+                    <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
+                      <span className="font-satoshi text-xs font-medium tracking-widest uppercase text-gold">
+                        After
+                      </span>
+                    </div>
+                  </div>
+                  {/* Expand icon */}
+                  <div className="absolute bottom-3 right-3 bg-dark/80 backdrop-blur-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 3 21 3 21 9" />
+                      <polyline points="9 21 3 21 3 15" />
+                      <line x1="21" y1="3" x2="14" y2="10" />
+                      <line x1="3" y1="21" x2="10" y2="14" />
+                    </svg>
+                  </div>
                 </div>
-                <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
-                  <span className="font-satoshi text-xs font-medium tracking-widest uppercase text-gold">
-                    After
-                  </span>
+                <div className="w-full h-0.5 bg-gold/40" />
+                <div className="bg-dark p-5 flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gold/30" />
+                  <p className="font-satoshi text-stone-dim/30 text-xs uppercase tracking-[0.15em]">
+                    {photo.detail}
+                  </p>
                 </div>
               </div>
-            </div>
-            <div className="w-full h-0.5 bg-gold/40" />
-            <div className="bg-dark p-5 flex items-center gap-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold/30" />
-              <p className="font-satoshi text-stone-dim/30 text-xs uppercase tracking-[0.15em]">
-                Estate cleanout · Beaverton, OR · 2 truck loads
-              </p>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
-    </SectionWrapper>
+      </SectionWrapper>
+
+      {/* Fullscreen lightbox */}
+      <AnimatePresence>
+        {lightboxSrc && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 cursor-zoom-out"
+            onClick={() => setLightboxSrc(null)}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setLightboxSrc(null)}
+              className="absolute top-6 right-6 z-10 text-stone-dim hover:text-gold transition-colors"
+              aria-label="Close"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
+            {/* Hint text */}
+            <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-satoshi text-stone-dim/30 text-xs uppercase tracking-[0.15em]">
+              Tap anywhere to close
+            </p>
+
+            {/* Full-size image — scrollable on overflow */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="max-w-[95vw] max-h-[90vh] overflow-auto hide-scrollbar cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={lightboxSrc}
+                alt="Before and after — full size"
+                className="w-auto h-auto max-w-none max-h-[85vh] object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
