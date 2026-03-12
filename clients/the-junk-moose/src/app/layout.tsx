@@ -63,6 +63,8 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <meta name="theme-color" content="#C8A44E" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
 
         {/* JSON-LD: LocalBusiness with AggregateRating & Reviews */}
         <script

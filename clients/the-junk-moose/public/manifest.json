@@ -1,0 +1,11 @@
+{
+  "name": "The Junk Moose",
+  "short_name": "Junk Moose",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#C8A44E",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
+  ]
+}

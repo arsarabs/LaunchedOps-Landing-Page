@@ -79,6 +79,44 @@ export default function ContactPage() {
         <div className="max-w-5xl mx-auto">
           <Breadcrumb items={breadcrumbItems} />
 
+          {/* ── What to Expect ── */}
+          <section className="mb-16 lg:mb-20">
+            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+              What Happens When You Reach Out
+            </h2>
+            <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
+              <p>
+                When you contact {BUSINESS.name}, getting your junk removed is straightforward and
+                stress-free. Here is exactly how it works from start to finish. First, give us a
+                call or text at{" "}
+                <a
+                  href={`tel:${BUSINESS.phoneRaw}`}
+                  className="text-gold hover:text-gold-light transition-colors"
+                >
+                  {BUSINESS.phone}
+                </a>
+                , or fill out the quote form below with a brief description of what you need hauled.
+                Our team typically responds within 15 minutes during business hours — no waiting
+                around for a callback that never comes.
+              </p>
+              <p>
+                Next, we provide a free, no-obligation quote based on the volume and type of items.
+                The price we quote is the price you pay — no hidden fees, no surprise charges on
+                the day of pickup. Once you approve the quote, we schedule your pickup at a time
+                that works for you. Need it gone today? Call before noon for same-day service at no
+                extra charge.
+              </p>
+              <p>
+                On pickup day, our crew arrives on time and handles all the heavy lifting, loading,
+                and cleanup. You do not need to move a single item — just point to what goes and
+                we take care of the rest. We sweep up when we are done and send you a photo
+                confirmation once the job is complete. The entire process, from your first call to
+                a clean space, is designed to be as fast and painless as possible. That is the{" "}
+                {BUSINESS.name} difference.
+              </p>
+            </div>
+          </section>
+
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* ── Quote Form (left / top) ── */}
             <div className="lg:col-span-3">

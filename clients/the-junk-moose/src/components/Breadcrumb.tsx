@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BUSINESS } from "@/lib/data";
 
 interface BreadcrumbItem {
   label: string;
@@ -29,7 +30,7 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
 }
 
 export function breadcrumbSchema(items: BreadcrumbItem[]) {
-  const allItems = [{ label: "Home", href: "https://demo.launchedops.com" }, ...items];
+  const allItems = [{ label: "Home", href: BUSINESS.url }, ...items];
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -37,7 +38,7 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
       "@type": "ListItem",
       position: i + 1,
       name: item.label,
-      item: item.href.startsWith("http") ? item.href : `https://demo.launchedops.com${item.href}`,
+      item: item.href.startsWith("http") ? item.href : `${BUSINESS.url}${item.href}`,
     })),
   };
 }

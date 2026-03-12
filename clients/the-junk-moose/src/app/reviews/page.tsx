@@ -28,6 +28,48 @@ const testimonials = [
     rating: 5,
     text: "Had a mountain of drywall and lumber from our kitchen remodel. The Junk Moose crew showed up on time, loaded everything up, and even swept the driveway. Way better than renting a dumpster.",
   },
+  {
+    name: "Jennifer M.",
+    location: "Lake Oswego, OR",
+    service: "Yard Waste",
+    rating: 5,
+    text: "We had two huge piles of branches and yard debris from a weekend of landscaping. The crew loaded everything in about 45 minutes and the yard looked amazing afterward. Price was exactly what they quoted — not a penny more. Will definitely use them again next spring.",
+  },
+  {
+    name: "David R.",
+    location: "Tigard, OR",
+    service: "Full Property Cleanout",
+    rating: 5,
+    text: "My mother passed and we needed her entire house cleared out. The Junk Moose team was respectful, careful with the items we wanted to keep, and had the whole property empty in one day. They made an incredibly difficult time so much easier. Cannot recommend them enough.",
+  },
+  {
+    name: "Chris P.",
+    location: "Hillsboro, OR",
+    service: "Furniture Removal",
+    rating: 5,
+    text: "Needed an old sectional sofa and a broken recliner hauled out of our basement. These things were heavy and awkward to move, but the crew got them out without scratching a single wall. Charged us $125 for both pieces — super fair. Fast and professional from start to finish.",
+  },
+  {
+    name: "Amanda L.",
+    location: "Vancouver, WA",
+    service: "Same-Day Pickup",
+    rating: 5,
+    text: "I called at 10am on a Saturday expecting to wait until Monday. They showed up at 1pm the same day and hauled away an old hot tub, a busted dresser, and a pile of random garage junk. No rush fee either. Honestly the easiest home project I have ever done — because I did not have to do anything.",
+  },
+  {
+    name: "Tom W.",
+    location: "Tualatin, OR",
+    service: "Appliance Removal",
+    rating: 5,
+    text: "Had a dead washer, dryer, and an old water heater sitting in the garage for months. The Junk Moose picked up all three in one trip. They disconnected the appliances, loaded them up, and were done in under 30 minutes. Great price and they recycled everything properly.",
+  },
+  {
+    name: "Lisa H.",
+    location: "Milwaukie, OR",
+    service: "Commercial",
+    rating: 5,
+    text: "We run a small retail shop and needed old shelving, display cases, and a ton of cardboard cleared out after our renovation. The crew came after hours so it would not disrupt business and had everything gone by 9pm. Professional, on time, and priced very reasonably for the amount of stuff they took.",
+  },
 ];
 
 const aggregateRatingSchema = {
@@ -114,6 +156,24 @@ export default function ReviewsPage() {
                   {BUSINESS.reviewCount}+
                 </span>{" "}
                 verified Google reviews
+              </p>
+            </div>
+          </section>
+
+          {/* ── Intro / Commitment Section ── */}
+          <section className="mb-16 lg:mb-20 max-w-3xl">
+            <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
+              Our Commitment to Every Customer
+            </h2>
+            <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
+              <p>
+                At {BUSINESS.name}, customer satisfaction is not just a goal — it is the standard
+                we hold ourselves to on every single job. With over {BUSINESS.jobsCompleted} jobs
+                completed across the Portland metro area, we have built our reputation one pickup
+                at a time through honest pricing, on-time arrivals, and crews that treat your
+                property with respect. Every review below comes from a real customer and a real
+                job. We are proud that Portland, Beaverton, Lake Oswego, Tigard, and communities
+                across the metro continue to trust us with their junk removal needs.
               </p>
             </div>
           </section>

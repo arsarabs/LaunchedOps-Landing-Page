@@ -6,6 +6,8 @@ import { Marquee } from "@/components/ui/marquee";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { useState, useRef, FormEvent } from "react";
+import Link from "next/link";
+import { SERVICES } from "@/lib/data";
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -73,26 +75,28 @@ function Hero() {
             </motion.div>
 
             {/* Headline */}
-            <div className="overflow-hidden mb-4">
-              <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="font-clash font-bold text-[clamp(3.5rem,11vw,10rem)] leading-[0.88] tracking-[-0.03em]"
-              >
-                <span className="text-gold">Your junk.</span>
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden mb-10">
-              <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="font-clash font-bold text-[clamp(3.5rem,11vw,10rem)] leading-[0.88] tracking-[-0.03em]"
-              >
-                <span className="text-stone/80">Gone today.</span>
-              </motion.h1>
-            </div>
+            <h1 className="font-clash font-bold text-[clamp(3.5rem,11vw,10rem)] leading-[0.88] tracking-[-0.03em]">
+              <div className="overflow-hidden mb-4">
+                <motion.span
+                  initial={{ y: "100%", display: "block" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-gold"
+                >
+                  Your junk.
+                </motion.span>
+              </div>
+              <div className="overflow-hidden mb-10">
+                <motion.span
+                  initial={{ y: "100%", display: "block" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-stone/80"
+                >
+                  Gone today.
+                </motion.span>
+              </div>
+            </h1>
 
             {/* Horizontal gold line */}
             <motion.div
@@ -179,17 +183,19 @@ const serviceAreas = [
 function ServiceAreas() {
   return (
     <section className="bg-dark border-b border-white/[0.03]">
-      <Marquee className="py-5">
-        {serviceAreas.map((area) => (
-          <span
-            key={area}
-            className="font-satoshi font-medium text-stone-dim/40 uppercase tracking-[0.25em] text-[11px] flex items-center gap-10 whitespace-nowrap"
-          >
-            {area}
-            <span className="text-gold/20 text-[6px]">◆</span>
-          </span>
-        ))}
-      </Marquee>
+      <Link href="/locations" className="block hover:bg-white/[0.01] transition-colors duration-300">
+        <Marquee className="py-5">
+          {serviceAreas.map((area) => (
+            <span
+              key={area}
+              className="font-satoshi font-medium text-stone-dim/40 uppercase tracking-[0.25em] text-[11px] flex items-center gap-10 whitespace-nowrap"
+            >
+              {area}
+              <span className="text-gold/20 text-[6px]">◆</span>
+            </span>
+          ))}
+        </Marquee>
+      </Link>
     </section>
   );
 }
@@ -409,38 +415,52 @@ function Services() {
 
         {/* Service grid — bento style */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.03]">
-          {services.map((service) => (
-            <div
-              key={service.num}
-              className="bg-dark p-8 lg:p-10 group hover:bg-warm-gray transition-all duration-500 relative overflow-hidden"
-            >
-              {/* Hover gold line at top */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gold/0 group-hover:bg-gold/30 transition-colors duration-500" />
+          {services.map((service, i) => {
+            const serviceData = SERVICES[i];
+            return (
+              <Link
+                href={`/services/${serviceData?.slug ?? ""}`}
+                key={service.num}
+                className="bg-dark p-8 lg:p-10 group hover:bg-warm-gray transition-all duration-500 relative overflow-hidden block"
+              >
+                {/* Hover gold line at top */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gold/0 group-hover:bg-gold/30 transition-colors duration-500" />
 
-              <div className="flex items-start justify-between mb-8">
-                <span className="font-clash font-bold text-gold/15 text-sm group-hover:text-gold/40 transition-colors duration-500">
-                  {service.num}
-                </span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="text-stone-dim/0 group-hover:text-gold/50 transition-all duration-500 translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className="font-clash font-bold text-stone text-xl mb-3 group-hover:text-gold transition-colors duration-300">
-                {service.name}
-              </h3>
-              <p className="font-satoshi text-stone-dim/60 text-sm leading-relaxed">
-                {service.desc}
-              </p>
-            </div>
-          ))}
+                <div className="flex items-start justify-between mb-8">
+                  <span className="font-clash font-bold text-gold/15 text-sm group-hover:text-gold/40 transition-colors duration-500">
+                    {service.num}
+                  </span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    className="text-stone-dim/0 group-hover:text-gold/50 transition-all duration-500 translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h3 className="font-clash font-bold text-stone text-xl mb-3 group-hover:text-gold transition-colors duration-300">
+                  {service.name}
+                </h3>
+                <p className="font-satoshi text-stone-dim/60 text-sm leading-relaxed">
+                  {service.desc}
+                </p>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* View All Services link */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/services"
+            className="inline-block font-satoshi font-bold text-gold text-sm uppercase tracking-[0.15em] hover:text-gold-light transition-colors duration-300"
+          >
+            View All Services →
+          </Link>
         </div>
       </div>
     </SectionWrapper>
@@ -648,6 +668,12 @@ function Stats() {
             <p className="font-satoshi text-stone-dim/50 text-xs uppercase tracking-[0.2em]">
               Serving Portland
             </p>
+            <Link
+              href="/locations"
+              className="inline-block mt-3 font-satoshi text-gold/50 text-[11px] uppercase tracking-[0.15em] hover:text-gold transition-colors duration-300"
+            >
+              View All Locations →
+            </Link>
           </div>
         </div>
       </div>
@@ -734,12 +760,20 @@ function MeetTheOwner() {
               ))}
             </div>
 
-            <a
-              href="#quote"
-              className="btn-magnetic inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
-            >
-              Get a Free Quote
-            </a>
+            <div className="flex flex-col sm:flex-row items-start gap-6">
+              <a
+                href="#quote"
+                className="btn-magnetic inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
+              >
+                Get a Free Quote
+              </a>
+              <Link
+                href="/about"
+                className="inline-block font-satoshi font-bold text-gold text-sm uppercase tracking-[0.15em] py-4 hover:text-gold-light transition-colors duration-300"
+              >
+                Learn More About Our Crew →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -852,6 +886,16 @@ function Testimonials() {
                 </div>
               </div>
             ))}
+
+            {/* Read all reviews link */}
+            <div className="text-right mt-2">
+              <Link
+                href="/reviews"
+                className="inline-block font-satoshi font-bold text-gold text-sm uppercase tracking-[0.15em] hover:text-gold-light transition-colors duration-300"
+              >
+                Read All Reviews →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -909,12 +953,18 @@ function FAQ() {
               <span className="text-gold">to know.</span>
             </h2>
             <div className="w-12 h-px bg-gold/20 mb-6" />
-            <p className="font-satoshi text-stone-dim/50 text-sm leading-relaxed max-w-xs">
+            <p className="font-satoshi text-stone-dim/50 text-sm leading-relaxed max-w-xs mb-6">
               Still have questions? Call us at{" "}
               <a href="tel:+15035550100" className="text-gold/70 hover:text-gold transition-colors">
                 (503) 555-0100
               </a>
             </p>
+            <Link
+              href="/contact"
+              className="inline-block font-satoshi font-bold text-gold text-sm uppercase tracking-[0.15em] hover:text-gold-light transition-colors duration-300"
+            >
+              Have More Questions? Contact Us →
+            </Link>
           </div>
 
           {/* Right — accordion */}
@@ -1211,12 +1261,12 @@ function FinalCTA() {
           (503) 555-0100
         </a>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#quote"
+          <Link
+            href="/contact"
             className="btn-magnetic bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
           >
             Get a Free Quote
-          </a>
+          </Link>
           <a
             href="tel:+15035550100"
             className="border border-white/[0.08] text-stone-dim font-satoshi font-medium text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-all duration-500"

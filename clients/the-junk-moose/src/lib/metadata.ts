@@ -28,7 +28,7 @@ export function makeMetadata({
       url,
       siteName: BUSINESS.name,
       type: "website",
-      images: [{ url: image, width: 1600, height: 1067 }],
+      images: [{ url: image, width: 1600, height: 1067, alt: `${title} | The Junk Moose Portland OR` }],
     },
     twitter: {
       card: "summary_large_image",

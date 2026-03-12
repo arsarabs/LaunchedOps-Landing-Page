@@ -7,54 +7,54 @@ export default function sitemap() {
     // Homepage
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 1,
     },
     // Services index
     {
       url: `${baseUrl}/services`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     // Individual service pages
     ...SERVICES.map((s) => ({
       url: `${baseUrl}/services/${s.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
     // Locations index
     {
       url: `${baseUrl}/locations`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     // Individual location pages
     ...LOCATIONS.map((l) => ({
       url: `${baseUrl}/locations/${l.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     // Supporting pages
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/reviews`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-03-12"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
