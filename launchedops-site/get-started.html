@@ -4,22 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Get Started — LaunchedOps</title>
-  <meta name="description" content="Get a free website preview for your contracting business. Fill out our quick form and we'll have a custom preview ready in 36 hours.">
+  <meta name="description" content="Get a free website preview for your contracting business. Tell us about your trade and we'll have a custom preview ready in 36 hours. No commitment, no upfront cost.">
   <meta property="og:title" content="Get Started — LaunchedOps">
-  <meta property="og:description" content="Get a free website preview for your contracting business. 36-hour delivery.">
+  <meta property="og:description" content="Get a free website preview for your contracting business. 36-hour delivery. You love it or you don't pay.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://launchedops.com/get-started">
   <link rel="canonical" href="https://launchedops.com/get-started">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/pages/contact.css">
-  <link rel="stylesheet" href="css/pages/rocket-theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
@@ -31,25 +25,195 @@
     ]
   }
   </script>
+
+  <style>
+    :root {
+      --bg: #060606;
+      --bg-raised: #0e0e0e;
+      --bg-card: #111111;
+      --surface: #1a1a1a;
+      --border: #1e1e1e;
+      --border-light: #2a2a2a;
+      --text: #f5f5f5;
+      --text-secondary: #999999;
+      --text-muted: #5a5a5a;
+      --accent: #FF6B2B;
+      --accent-hover: #FF8347;
+      --accent-glow: rgba(255, 107, 43, 0.15);
+      --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --nav-h: 72px;
+      --max-w: 1140px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-display);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ::selection { background: var(--accent); color: #fff; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .skip-link {
+      position: absolute; top: -100%; left: 16px;
+      background: var(--accent); color: #fff;
+      padding: 8px 16px; border-radius: 6px;
+      font-weight: 600; font-size: 0.875rem; z-index: 10000;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .wrap {
+      width: 100%; max-width: var(--max-w);
+      margin: 0 auto; padding: 0 24px;
+    }
+
+    /* Nav (mirrors index) */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h); z-index: 1000;
+      background: rgba(6, 6, 6, 0.8);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 100%;
+    }
+    .nav-logo {
+      font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta-btn {
+      font-size: 0.875rem; font-weight: 600;
+      padding: 10px 22px; border-radius: 8px;
+      background: var(--accent); color: #fff;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .nav-cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      padding: 8px; cursor: pointer;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-menu {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: var(--bg); z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a {
+      font-size: 1.25rem; font-weight: 600; color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav > .wrap > .nav-cta-btn { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+    }
+
+    /* Page content */
+    .page-hero {
+      padding: calc(var(--nav-h) + 80px) 0 40px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute;
+      top: 10%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .wrap { position: relative; z-index: 1; }
+
+    .label {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 16px; display: inline-block;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .page-hero .sub {
+      font-size: 1.1rem; color: var(--text-secondary);
+      line-height: 1.7; max-width: 540px; margin: 0 auto;
+    }
+
+    .typeform-section { padding: 0 0 80px; }
+    .typeform-wrapper {
+      max-width: 720px; margin: 0 auto;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      min-height: 600px;
+    }
+    .typeform-wrapper > div { min-height: 600px; }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer { padding: 48px 0 32px; text-align: center; }
+    .footer-logo { font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.03em; }
+    .footer-logo span { color: var(--accent); }
+    .footer-nav { display: flex; justify-content: center; gap: 28px; margin-bottom: 16px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--text); }
+    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+    .footer-copy { font-size: 0.75rem; color: var(--text-muted); opacity: 0.6; }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #333; }
+  </style>
 </head>
 <body>
 
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="wrap">
       <a href="index.html" class="nav-logo" aria-label="LaunchedOps Home">Launched<span>Ops</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="examples.html">Examples</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="get-started.html" class="active">Get Started</a></li>
-      </ul>
-      <div class="nav-cta">
-        <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary btn-sm">Book a Call</a>
+      <div class="nav-links">
+        <a href="index.html#problem">Why You Need This</a>
+        <a href="index.html#examples">Examples</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
       </div>
+      <a href="https://form.typeform.com/to/xveu1l1q" class="nav-cta-btn">Get a Free Preview</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -58,59 +222,83 @@
 
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="examples.html">Examples</a>
-    <a href="about.html">About</a>
-    <a href="get-started.html">Get Started</a>
-    <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary" style="margin-top: 12px;">Book a Call</a>
+    <a href="index.html#examples">Examples</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
   </div>
 
-  <!-- Ambient Background (static) -->
-  <div class="rocket-ambient-static" aria-hidden="true"></div>
-
   <main id="main">
-
-    <!-- Hero -->
-    <section class="page-hero" style="padding: calc(var(--nav-height) + var(--space-4xl)) 0 var(--space-2xl); text-align: center; position: relative; overflow: hidden;">
-      <div class="container">
+    <section class="page-hero">
+      <div class="wrap">
         <div class="reveal">
-          <span class="section-label">Get Started</span>
+          <p class="label">Get Started</p>
           <h1>Let's Build Your Website</h1>
-          <p class="section-subtitle" style="margin: 0 auto; max-width: 620px;">Tell us about your business and we'll have a custom preview ready for you within 36 hours. No commitment. No upfront cost.</p>
+          <p class="sub">Tell us about your business and we'll have a custom preview ready within 36 hours. No commitment. No upfront cost.</p>
         </div>
       </div>
     </section>
 
-    <!-- Typeform Embed -->
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
+    <section class="typeform-section">
+      <div class="wrap">
         <div class="typeform-wrapper reveal">
           <div data-tf-live="xveu1l1q" style="width:100%;height:600px;"></div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
+  <footer>
+    <div class="wrap">
       <div class="footer-logo">Launched<span>Ops</span></div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="index.html">Home</a>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="examples.html">Examples</a>
-        <a href="about.html">About</a>
-        <a href="get-started.html">Get Started</a>
+        <a href="index.html#problem">Why You Need This</a>
+        <a href="index.html#examples">Examples</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
       </nav>
       <p class="footer-tagline">Built for contractors who want to win online.</p>
       <p class="footer-copy">&copy; 2026 LaunchedOps. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/interactions.js"></script>
   <script src="//embed.typeform.com/next/embed.js"></script>
+  <script>
+    (function() {
+      'use strict';
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobileMenu');
+      hamburger.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      mobileMenu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        reveals.forEach(function(el) { observer.observe(el); });
+      } else {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      }
+    })();
+  </script>
+
 </body>
 </html>

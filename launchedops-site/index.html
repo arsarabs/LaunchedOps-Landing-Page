@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LaunchedOps — Websites That Make Contractors Money</title>
-  <meta name="description" content="LaunchedOps builds production-quality, SEO-optimized websites for home service contractors. Custom design. 36-hour delivery. You love it or you don't pay.">
+  <meta name="description" content="LaunchedOps builds premium, SEO-optimized websites for home service contractors. Custom design. 36-hour delivery. $999 one-time. You love it or you don't pay.">
   <meta property="og:title" content="LaunchedOps — Websites That Make Contractors Money">
-  <meta property="og:description" content="Custom websites for contractors. Show up on Google. Look professional. Make your phone ring. 36-hour delivery.">
+  <meta property="og:description" content="Custom websites for contractors. Show up on Google. Look professional. Make your phone ring. 36-hour delivery, $999.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://launchedops.com">
   <link rel="canonical" href="https://launchedops.com">
@@ -14,25 +14,60 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/pages/home.css">
-  <link rel="stylesheet" href="css/pages/rocket-world.css">
-
-  <!-- Schema: LocalBusiness -->
+  <!-- Schema: ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "LaunchedOps",
-    "description": "Premium website design for home service contractors. Custom-built, SEO-optimized sites delivered in 36 hours.",
+    "description": "Premium website design and SEO for home service contractors. Custom-built sites delivered in 36 hours for $999.",
     "url": "https://launchedops.com",
+    "founder": { "@type": "Person", "name": "Anthony" },
     "serviceType": ["Web Design", "SEO", "Website Development"],
-    "areaServed": "United States"
+    "areaServed": { "@type": "Country", "name": "United States" },
+    "priceRange": "$999 + $75/mo"
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a LaunchedOps website cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "$999 one-time build fee + $75/month for hosting, maintenance, and unlimited updates. No hidden fees. No contracts." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build my website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "36 hours from our first conversation to your live preview link." }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I don't like the website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You don't pay. We build it on spec because we're confident you'll love it. If you don't, no hard feelings and no charge." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to provide anything?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Just your business info — name, services, service area. We handle everything else. Photos of your work are welcome but not required." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I make changes after the site is live?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Unlimited revisions are included in your monthly plan. Need something changed? We usually turn updates around within 24 hours." }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I already have a website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We'll build you a better one. Compare them side by side — if you prefer what you have, no hard feelings." }
+      }
+    ]
   }
   </script>
 
@@ -49,26 +84,832 @@
     }]
   }
   </script>
-</head>
-<body class="spatial-mode">
 
-  <!-- Skip Link -->
+  <style>
+    /* ==============================================
+       CSS VARIABLES & RESET
+       ============================================== */
+    :root {
+      --bg: #060606;
+      --bg-raised: #0e0e0e;
+      --bg-card: #111111;
+      --bg-card-hover: #161616;
+      --surface: #1a1a1a;
+      --border: #1e1e1e;
+      --border-light: #2a2a2a;
+      --text: #f5f5f5;
+      --text-secondary: #999999;
+      --text-muted: #5a5a5a;
+      --accent: #FF6B2B;
+      --accent-hover: #FF8347;
+      --accent-glow: rgba(255, 107, 43, 0.15);
+      --accent-dim: rgba(255, 107, 43, 0.06);
+      --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --nav-h: 72px;
+      --max-w: 1140px;
+      --radius: 12px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-display);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ::selection { background: var(--accent); color: #fff; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute; top: -100%; left: 16px;
+      background: var(--accent); color: #fff;
+      padding: 8px 16px; border-radius: 6px;
+      font-weight: 600; font-size: 0.875rem; z-index: 10000;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* ==============================================
+       LAYOUT
+       ============================================== */
+    .wrap {
+      width: 100%; max-width: var(--max-w);
+      margin: 0 auto; padding: 0 24px;
+    }
+
+    section { padding: 100px 0; position: relative; }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+    }
+
+    /* ==============================================
+       NAVIGATION
+       ============================================== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h); z-index: 1000;
+      background: rgba(6, 6, 6, 0.8);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .nav.scrolled { border-bottom-color: var(--border); }
+
+    .nav .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 100%;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em;
+      display: flex; align-items: center; gap: 0;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
+      transition: color 0.2s ease; position: relative;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--accent);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta-btn {
+      font-size: 0.875rem; font-weight: 600;
+      padding: 10px 22px; border-radius: 8px;
+      background: var(--accent); color: #fff;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .nav-cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      padding: 8px; cursor: pointer;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: var(--bg); z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a {
+      font-size: 1.25rem; font-weight: 600; color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav > .wrap > .nav-cta-btn { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+    }
+
+    /* ==============================================
+       BUTTONS
+       ============================================== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 1rem;
+      border-radius: 10px; padding: 16px 32px;
+      transition: all 0.25s var(--ease);
+      cursor: pointer; text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 0 0 0 var(--accent-glow);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover); transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--accent-glow);
+    }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border-light);
+    }
+    .btn-secondary:hover {
+      border-color: var(--text-muted); transform: translateY(-2px);
+    }
+
+    /* ==============================================
+       SECTION LABELS
+       ============================================== */
+    .label {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 16px; display: inline-block;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 1.125rem; color: var(--text-secondary);
+      line-height: 1.7; max-width: 560px;
+    }
+
+    .section-header { margin-bottom: 60px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ==============================================
+       REVEAL ANIMATIONS
+       ============================================== */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+
+    /* ==============================================
+       HERO
+       ============================================== */
+    .hero {
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 60px;
+      position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; align-items: center;
+    }
+
+    /* Subtle gradient orb behind hero */
+    .hero::before {
+      content: ''; position: absolute;
+      top: 10%; right: -10%;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(255,107,43,0.07) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.04em; margin-bottom: 24px;
+    }
+    .hero-text h1 .accent { color: var(--accent); }
+
+    .hero-text .subtitle {
+      font-size: 1.15rem; color: var(--text-secondary);
+      line-height: 1.75; margin-bottom: 36px; max-width: 480px;
+    }
+
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+
+    .trust-line {
+      font-size: 0.875rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .trust-line svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+    /* Hero Mockup */
+    .hero-mockup {
+      position: relative;
+      perspective: 1200px;
+    }
+    .mockup-wrapper {
+      position: relative;
+      transform: rotateY(-4deg) rotateX(2deg);
+      transition: transform 0.6s var(--ease);
+    }
+    .hero-mockup:hover .mockup-wrapper {
+      transform: rotateY(0deg) rotateX(0deg);
+    }
+
+    /* Laptop */
+    .laptop {
+      background: #1a1a1a; border-radius: 12px 12px 0 0;
+      border: 1px solid #2a2a2a; overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .laptop-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 14px; background: #111;
+      border-bottom: 1px solid #222;
+    }
+    .laptop-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .laptop-dot.r { background: #ff5f57; }
+    .laptop-dot.y { background: #febc2e; }
+    .laptop-dot.g { background: #28c840; }
+    .laptop-url {
+      font-family: var(--font-mono); font-size: 0.65rem;
+      color: var(--text-muted); margin-left: 10px;
+      background: #0a0a0a; padding: 3px 10px;
+      border-radius: 4px; flex: 1;
+    }
+
+    .laptop-screen {
+      background: #0d1117;
+      padding: 16px; min-height: 280px;
+      position: relative; overflow: hidden;
+    }
+
+    /* Mini contractor site inside mockup */
+    .mini-hero-bar {
+      background: linear-gradient(135deg, #1a3a2e, #0d1f17);
+      border-radius: 6px; padding: 20px;
+      margin-bottom: 12px; position: relative;
+    }
+    .mini-hero-bar::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(46,204,113,0.15), transparent);
+      border-radius: 6px;
+    }
+    .mini-badge {
+      display: inline-block; font-size: 0.4rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #2ECC71; background: rgba(46,204,113,0.12);
+      padding: 2px 8px; border-radius: 3px;
+      margin-bottom: 8px; border: 1px solid rgba(46,204,113,0.2);
+    }
+    .mini-h1 {
+      font-size: 0.85rem; font-weight: 800; color: #fff;
+      line-height: 1.2; margin-bottom: 6px;
+    }
+    .mini-sub {
+      font-size: 0.48rem; color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+    }
+    .mini-cta-btn {
+      display: inline-block; font-size: 0.45rem; font-weight: 700;
+      background: #2ECC71; color: #fff; padding: 5px 14px;
+      border-radius: 4px;
+    }
+    .mini-cards-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 6px; margin-bottom: 12px;
+    }
+    .mini-card {
+      background: #151b22; border-radius: 4px;
+      padding: 10px 6px; text-align: center;
+      border: 1px solid #1e2832;
+    }
+    .mini-card-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: rgba(46,204,113,0.15); margin: 0 auto 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mini-card-dot::after {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: #2ECC71;
+    }
+    .mini-card-label { font-size: 0.38rem; color: rgba(255,255,255,0.5); }
+    .mini-stars {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 10px; background: #151b22;
+      border-radius: 4px; border: 1px solid #1e2832;
+    }
+    .mini-stars-icons { color: #f59e0b; font-size: 0.5rem; letter-spacing: 1px; }
+    .mini-stars-text { font-size: 0.4rem; color: rgba(255,255,255,0.5); }
+
+    .laptop-base {
+      width: 110%; margin-left: -5%;
+      height: 12px; background: linear-gradient(180deg, #1a1a1a, #111);
+      border-radius: 0 0 4px 4px;
+      border-top: 1px solid #2a2a2a;
+    }
+    .laptop-base::after {
+      content: ''; display: block;
+      width: 60px; height: 4px;
+      background: #222; border-radius: 0 0 3px 3px;
+      margin: 0 auto;
+    }
+
+    /* Phone mockup floating beside laptop */
+    .phone-mockup {
+      position: absolute; right: -30px; bottom: 20px;
+      width: 100px; z-index: 10;
+      background: #1a1a1a; border-radius: 14px;
+      border: 1px solid #2a2a2a; overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+      transform: rotate(2deg);
+    }
+    .phone-notch {
+      width: 40px; height: 4px; background: #0a0a0a;
+      border-radius: 0 0 4px 4px; margin: 4px auto 0;
+    }
+    .phone-screen {
+      padding: 6px; min-height: 170px;
+      background: #0d1117;
+      margin: 4px;
+      border-radius: 8px;
+    }
+    .phone-screen .p-bar {
+      height: 6px; border-radius: 2px;
+      margin-bottom: 4px;
+    }
+    .phone-screen .p-bar-accent { background: #2ECC71; width: 60%; }
+    .phone-screen .p-bar-text { background: #1e2832; }
+    .phone-screen .p-bar-text.w80 { width: 80%; }
+    .phone-screen .p-bar-text.w65 { width: 65%; }
+    .phone-screen .p-bar-text.w75 { width: 75%; }
+    .phone-screen .p-cta {
+      background: #2ECC71; height: 14px;
+      border-radius: 4px; margin-top: 8px;
+    }
+    .phone-screen .p-card-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3px; margin: 6px 0;
+    }
+    .phone-screen .p-card-item {
+      background: #151b22; height: 24px;
+      border-radius: 3px; border: 1px solid #1e2832;
+    }
+
+    @media (max-width: 960px) {
+      .hero .wrap { grid-template-columns: 1fr; text-align: center; }
+      .hero-text .subtitle { margin-left: auto; margin-right: auto; }
+      .hero-btns { justify-content: center; }
+      .trust-line { justify-content: center; }
+      .hero-mockup { max-width: 500px; margin: 0 auto; }
+      .phone-mockup { right: -10px; bottom: 10px; width: 80px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: auto; padding-top: calc(var(--nav-h) + 48px); padding-bottom: 40px; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+      .phone-mockup { display: none; }
+    }
+
+    /* ==============================================
+       STATS BAR
+       ============================================== */
+    .stats { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats .wrap {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 32px; text-align: center;
+    }
+    .stat-val {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900; letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+    .stat-val .orange { color: var(--accent); }
+    .stat-label {
+      font-size: 0.8rem; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .stats .wrap { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+
+    /* ==============================================
+       PROBLEM SECTION
+       ============================================== */
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .problem-card {
+      padding: 36px 28px; border-radius: var(--radius);
+      background: var(--bg-card); border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s var(--ease);
+    }
+    .problem-card:hover {
+      border-color: #333; transform: translateY(-4px);
+    }
+    .problem-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--accent); opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .problem-card:hover::before { opacity: 1; }
+
+    .problem-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--accent-dim); display: flex;
+      align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .problem-icon svg { width: 22px; height: 22px; color: var(--accent); }
+
+    .problem-card h3 {
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .problem-card p { font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; }
+
+    @media (max-width: 768px) {
+      .problem-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    /* ==============================================
+       BENEFITS SECTION
+       ============================================== */
+    .benefits-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .benefit-card {
+      padding: 32px 24px; border-radius: var(--radius);
+      background: var(--bg-card); border: 1px solid var(--border);
+      transition: border-color 0.3s ease, transform 0.3s var(--ease);
+    }
+    .benefit-card:hover {
+      border-color: #333; transform: translateY(-3px);
+    }
+    .benefit-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--accent-dim);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .benefit-icon svg { width: 20px; height: 20px; color: var(--accent); }
+    .benefit-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .benefit-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; }
+
+    @media (max-width: 768px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ==============================================
+       EXAMPLES / PORTFOLIO
+       ============================================== */
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .port-card {
+      border-radius: var(--radius); overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border);
+      transition: border-color 0.3s ease, transform 0.3s var(--ease);
+    }
+    .port-card:hover { border-color: #333; transform: translateY(-4px); }
+
+    .port-mockup {
+      background: #0a0c10; padding: 16px 16px 0;
+      position: relative; overflow: hidden; min-height: 200px;
+    }
+    .port-browser {
+      background: #111; border-radius: 8px 8px 0 0;
+      overflow: hidden; border: 1px solid #1e1e1e;
+    }
+    .port-browser-bar {
+      display: flex; align-items: center; gap: 5px;
+      padding: 8px 12px; background: #0a0a0a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .port-browser-dot { width: 6px; height: 6px; border-radius: 50%; background: #333; }
+    .port-browser-url {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      color: var(--text-muted); margin-left: 8px;
+    }
+    .port-site {
+      padding: 12px; min-height: 140px; position: relative;
+    }
+    .port-site-bar {
+      height: 8px; border-radius: 3px;
+      margin-bottom: 8px;
+    }
+    .port-site-heading {
+      height: 10px; border-radius: 2px;
+      width: 75%; margin-bottom: 4px; background: rgba(255,255,255,0.12);
+    }
+    .port-site-heading.sub { width: 55%; height: 6px; background: rgba(255,255,255,0.06); margin-bottom: 10px; }
+    .port-site-cta-bar {
+      height: 16px; width: 40%; border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .port-site-cols {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+    }
+    .port-site-col {
+      height: 40px; border-radius: 4px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .port-info {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 20px;
+    }
+    .port-name { font-size: 1rem; font-weight: 700; }
+    .port-trade { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+    .port-score {
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700;
+      color: #2ECC71; background: rgba(46,204,113,0.1);
+      padding: 4px 10px; border-radius: 6px;
+      border: 1px solid rgba(46,204,113,0.15);
+    }
+
+    @media (max-width: 640px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ==============================================
+       HOW IT WORKS
+       ============================================== */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      position: relative;
+    }
+    /* Connecting line */
+    .steps-grid::before {
+      content: ''; position: absolute;
+      top: 36px; left: 15%; right: 15%;
+      height: 1px; background: var(--border-light);
+    }
+    .step-card { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 2px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700;
+      color: var(--accent); margin: 0 auto 24px;
+      background: var(--bg);
+    }
+    .step-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .step-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; max-width: 300px; margin: 0 auto; }
+
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; gap: 48px; }
+      .steps-grid::before { display: none; }
+    }
+
+    /* ==============================================
+       PRICING
+       ============================================== */
+    .pricing-box {
+      max-width: 560px; margin: 0 auto;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      position: relative;
+    }
+    .pricing-box::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; background: linear-gradient(90deg, var(--accent), #ff9a5c);
+    }
+    .pricing-top {
+      text-align: center; padding: 48px 40px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .price-main {
+      font-size: clamp(3rem, 6vw, 4rem); font-weight: 900;
+      letter-spacing: -0.04em; margin-bottom: 4px;
+    }
+    .price-main .dollar { font-size: 0.5em; vertical-align: top; color: var(--accent); position: relative; top: 0.15em; }
+    .price-sub {
+      font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 8px;
+    }
+    .price-monthly {
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .price-monthly strong { color: var(--text-secondary); font-weight: 600; }
+
+    .pricing-features {
+      padding: 32px 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px;
+    }
+    .pricing-feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.875rem; color: var(--text-secondary);
+    }
+    .pricing-feature svg {
+      width: 16px; height: 16px; color: var(--accent); flex-shrink: 0;
+    }
+
+    .pricing-bottom {
+      padding: 24px 40px 40px; text-align: center;
+    }
+    .pricing-bottom .btn { width: 100%; justify-content: center; }
+    .pricing-guarantee {
+      margin-top: 14px; font-size: 0.8rem; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .pricing-guarantee svg { width: 14px; height: 14px; }
+
+    @media (max-width: 540px) {
+      .pricing-features { grid-template-columns: 1fr; }
+      .pricing-top, .pricing-features, .pricing-bottom { padding-left: 24px; padding-right: 24px; }
+    }
+
+    /* ==============================================
+       ABOUT SECTION
+       ============================================== */
+    .about-content {
+      max-width: 680px; margin: 0 auto; text-align: center;
+    }
+    .about-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #ff9a5c);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: 800; color: #fff;
+      margin: 0 auto 24px;
+    }
+    .about-content p {
+      font-size: 1.05rem; color: var(--text-secondary);
+      line-height: 1.8; margin-bottom: 16px;
+    }
+    .about-content p strong { color: var(--text); font-weight: 700; }
+    .about-highlight {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 32px;
+      margin: 28px 0; font-style: italic;
+      border-left: 3px solid var(--accent);
+    }
+    .about-highlight p { margin: 0; }
+
+    /* ==============================================
+       FAQ
+       ============================================== */
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      padding: 22px 0; display: flex;
+      justify-content: space-between; align-items: center;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--text); cursor: pointer;
+      background: none; border: none;
+      transition: color 0.2s ease;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q svg {
+      width: 20px; height: 20px; flex-shrink: 0;
+      transition: transform 0.3s var(--ease);
+      color: var(--text-muted);
+    }
+    .faq-item.open .faq-q svg { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s var(--ease), padding 0.4s var(--ease);
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a-inner {
+      padding-bottom: 22px;
+      font-size: 0.95rem; color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ==============================================
+       FINAL CTA
+       ============================================== */
+    .final-cta {
+      text-align: center; position: relative; overflow: hidden;
+      background: var(--bg-raised);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .final-cta::before {
+      content: ''; position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta .wrap { position: relative; z-index: 1; }
+    .final-cta .section-heading { max-width: 600px; margin: 0 auto 16px; }
+    .final-cta .section-sub { margin: 0 auto 36px; }
+    .final-cta .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .final-cta .cta-secondary {
+      display: block; margin-top: 18px;
+      font-size: 0.875rem; color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+    .final-cta .cta-secondary:hover { color: var(--text-secondary); }
+
+    /* ==============================================
+       FOOTER
+       ============================================== */
+    footer {
+      padding: 48px 0 32px; text-align: center;
+    }
+    .footer-logo {
+      font-size: 1.2rem; font-weight: 800;
+      margin-bottom: 16px; letter-spacing: -0.03em;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-nav {
+      display: flex; justify-content: center; gap: 28px;
+      margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .footer-nav a {
+      font-size: 0.85rem; color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+    .footer-nav a:hover { color: var(--text); }
+    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+    .footer-copy { font-size: 0.75rem; color: var(--text-muted); opacity: 0.6; }
+
+    /* ==============================================
+       SCROLLBAR
+       ============================================== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #333; }
+
+    /* ==============================================
+       COUNTER ANIMATION
+       ============================================== */
+    .count-up { display: inline-block; }
+
+    /* Divider line accent */
+    .divider {
+      width: 48px; height: 3px; background: var(--accent);
+      border-radius: 2px; margin: 0 auto 20px;
+    }
+  </style>
+</head>
+<body>
+
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Navigation -->
-  <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container">
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="wrap">
       <a href="index.html" class="nav-logo" aria-label="LaunchedOps Home">Launched<span>Ops</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="examples.html">Examples</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="get-started.html">Get Started</a></li>
-      </ul>
-      <div class="nav-cta">
-        <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary btn-sm">Book a Call</a>
+      <div class="nav-links" role="menubar">
+        <a href="#problem" role="menuitem">Why You Need This</a>
+        <a href="#examples" role="menuitem">Examples</a>
+        <a href="#pricing" role="menuitem">Pricing</a>
+        <a href="#faq" role="menuitem">FAQ</a>
       </div>
+      <a href="https://form.typeform.com/to/xveu1l1q" class="nav-cta-btn">Get a Free Preview</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -77,536 +918,663 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="examples.html">Examples</a>
-    <a href="about.html">About</a>
-    <a href="get-started.html">Get Started</a>
-    <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary" style="margin-top: 12px;">Book a Call</a>
+    <a href="#problem">Why You Need This</a>
+    <a href="#examples">Examples</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary" style="margin-top: 12px; font-size: 0.95rem;">Get a Free Preview</a>
   </div>
 
-  <!-- Section Nav (Waypoint Dots) -->
-  <nav class="section-nav" role="navigation" aria-label="Section navigation">
-    <div class="section-nav-track" aria-hidden="true"></div>
-    <button class="section-nav-item active" data-waypoint="0" aria-label="Navigate to Overview">
-      <span class="section-nav-dot"></span>
-      <span class="section-nav-label">Overview</span>
-    </button>
-    <button class="section-nav-item" data-waypoint="1" aria-label="Navigate to Launch section">
-      <span class="section-nav-dot"></span>
-      <span class="section-nav-label">Launch</span>
-    </button>
-    <button class="section-nav-item" data-waypoint="2" aria-label="Navigate to The Problem section">
-      <span class="section-nav-dot"></span>
-      <span class="section-nav-label">The Problem</span>
-    </button>
-    <button class="section-nav-item" data-waypoint="3" aria-label="Navigate to Cargo Bay section">
-      <span class="section-nav-dot"></span>
-      <span class="section-nav-label">Cargo Bay</span>
-    </button>
-    <button class="section-nav-item" data-waypoint="4" aria-label="Navigate to Our Work section">
-      <span class="section-nav-dot"></span>
-      <span class="section-nav-label">Our Work</span>
-    </button>
-    <button class="section-nav-item" data-waypoint="5" aria-label="Navigate to Engine Room section">
-      <span class="section-nav-dot"></span>
-      <span class="section-nav-label">Engine Room</span>
-    </button>
-    <button class="section-nav-item" data-waypoint="6" aria-label="Navigate to Ignition section">
-      <span class="section-nav-dot"></span>
-      <span class="section-nav-label">Ignition</span>
-    </button>
-  </nav>
-
-  <!-- ========== SPATIAL ROCKET WORLD ========== -->
   <main id="main">
-    <div class="rocket-world-container">
-      <div class="rocket-starfield" aria-hidden="true"></div>
 
-      <div class="rocket-camera">
-
-        <!-- SVG Rocket (centered at world origin 0,0) -->
-        <div class="world-rocket" aria-hidden="true">
-          <svg viewBox="0 0 200 600" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <!-- Nose cone gradient -->
-              <linearGradient id="noseGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#2a2a2a"/>
-                <stop offset="45%" stop-color="#1a1a1a"/>
-                <stop offset="100%" stop-color="#0f0f0f"/>
-              </linearGradient>
-              <!-- Fuselage gradient -->
-              <linearGradient id="fuselageGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#1a1a1a"/>
-                <stop offset="50%" stop-color="#111"/>
-                <stop offset="100%" stop-color="#0a0a0a"/>
-              </linearGradient>
-              <!-- Orange stripe gradient -->
-              <linearGradient id="stripeGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FF6B2B" stop-opacity="0.7"/>
-                <stop offset="100%" stop-color="#FF8F5E" stop-opacity="0.3"/>
-              </linearGradient>
-              <!-- Porthole glow -->
-              <radialGradient id="portholeGlow">
-                <stop offset="0%" stop-color="#60A5FA"/>
-                <stop offset="60%" stop-color="#3B82F6"/>
-                <stop offset="100%" stop-color="#1E40AF" stop-opacity="0"/>
-              </radialGradient>
-              <!-- Porthole glass -->
-              <radialGradient id="portholeGlass">
-                <stop offset="0%" stop-color="#93C5FD"/>
-                <stop offset="50%" stop-color="#60A5FA"/>
-                <stop offset="100%" stop-color="#3B82F6"/>
-              </radialGradient>
-              <!-- Flame outer gradient -->
-              <radialGradient id="flameOuterGrad" cx="50%" cy="0%" r="100%">
-                <stop offset="0%" stop-color="#FF6B2B"/>
-                <stop offset="60%" stop-color="#FF4500"/>
-                <stop offset="100%" stop-color="#FF4500" stop-opacity="0"/>
-              </radialGradient>
-              <!-- Flame inner gradient -->
-              <radialGradient id="flameInnerGrad" cx="50%" cy="0%" r="80%">
-                <stop offset="0%" stop-color="#FFFBEA"/>
-                <stop offset="40%" stop-color="#FFD700"/>
-                <stop offset="100%" stop-color="#FF8C00" stop-opacity="0"/>
-              </radialGradient>
-              <!-- Engine gradient -->
-              <linearGradient id="engineGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#222"/>
-                <stop offset="50%" stop-color="#1a1a1a"/>
-                <stop offset="100%" stop-color="#111"/>
-              </linearGradient>
-              <!-- Hull grid pattern -->
-              <pattern id="hullGrid" x="0" y="0" width="20" height="15" patternUnits="userSpaceOnUse">
-                <line x1="0" y1="14.9" x2="20" y2="14.9" stroke="rgba(255,255,255,0.03)" stroke-width="0.15"/>
-                <line x1="19.9" y1="0" x2="19.9" y2="15" stroke="rgba(255,255,255,0.03)" stroke-width="0.15"/>
-              </pattern>
-              <!-- Edge glow filter -->
-              <filter id="edgeGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
-                <feFlood flood-color="#FF6B2B" flood-opacity="0.15" result="color"/>
-                <feComposite in="color" in2="blur" operator="in" result="glow"/>
-                <feMerge>
-                  <feMergeNode in="glow"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-
-            <!-- Rocket body group (with edge glow) -->
-            <g id="rocketBodyGroup" filter="url(#edgeGlow)">
-              <!-- NOSE CONE (y:40-120) -->
-              <polygon points="100,40 130,120 70,120" fill="url(#noseGrad)"/>
-              <line x1="100" y1="42" x2="70" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-              <circle cx="100" cy="48" r="2.5" fill="#FF6B2B" opacity="0.8"/>
-
-              <!-- UPPER FUSELAGE (y:120-250) -->
-              <rect x="70" y="120" width="60" height="130" fill="url(#fuselageGrad)"/>
-              <line x1="70" y1="160" x2="130" y2="160" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
-              <line x1="70" y1="200" x2="130" y2="200" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
-              <!-- Portholes -->
-              <circle cx="100" cy="150" r="10" fill="url(#portholeGlow)" opacity="0.3"/>
-              <circle cx="100" cy="150" r="6" fill="url(#portholeGlass)" opacity="0.9"/>
-              <circle cx="100" cy="150" r="7" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-              <circle cx="100" cy="190" r="10" fill="url(#portholeGlow)" opacity="0.3"/>
-              <circle cx="100" cy="190" r="6" fill="url(#portholeGlass)" opacity="0.9"/>
-              <circle cx="100" cy="190" r="7" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-              <circle cx="100" cy="230" r="10" fill="url(#portholeGlow)" opacity="0.3"/>
-              <circle cx="100" cy="230" r="6" fill="url(#portholeGlass)" opacity="0.9"/>
-              <circle cx="100" cy="230" r="7" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-
-              <!-- MID FUSELAGE (y:250-400) -->
-              <rect x="70" y="250" width="60" height="150" fill="#0a0a0a"/>
-              <rect x="70" y="250" width="60" height="150" fill="url(#hullGrid)"/>
-              <line x1="70" y1="290" x2="130" y2="290" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
-              <line x1="70" y1="330" x2="130" y2="330" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
-              <line x1="70" y1="370" x2="130" y2="370" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
-              <!-- Rivet rows -->
-              <g fill="rgba(255,255,255,0.06)">
-                <circle cx="75" cy="260" r="0.8"/><circle cx="85" cy="260" r="0.8"/><circle cx="95" cy="260" r="0.8"/><circle cx="105" cy="260" r="0.8"/><circle cx="115" cy="260" r="0.8"/><circle cx="125" cy="260" r="0.8"/>
-                <circle cx="75" cy="300" r="0.8"/><circle cx="85" cy="300" r="0.8"/><circle cx="95" cy="300" r="0.8"/><circle cx="105" cy="300" r="0.8"/><circle cx="115" cy="300" r="0.8"/><circle cx="125" cy="300" r="0.8"/>
-                <circle cx="75" cy="340" r="0.8"/><circle cx="85" cy="340" r="0.8"/><circle cx="95" cy="340" r="0.8"/><circle cx="105" cy="340" r="0.8"/><circle cx="115" cy="340" r="0.8"/><circle cx="125" cy="340" r="0.8"/>
-                <circle cx="75" cy="380" r="0.8"/><circle cx="85" cy="380" r="0.8"/><circle cx="95" cy="380" r="0.8"/><circle cx="105" cy="380" r="0.8"/><circle cx="115" cy="380" r="0.8"/><circle cx="125" cy="380" r="0.8"/>
-              </g>
-
-              <!-- ORANGE CENTER STRIPE (y:120-400) -->
-              <rect x="98" y="120" width="4" height="280" fill="url(#stripeGrad)"/>
-
-              <!-- LOWER FUSELAGE (y:400-470) -->
-              <polygon points="70,400 130,400 120,470 80,470" fill="url(#fuselageGrad)"/>
-              <line x1="85" y1="400" x2="82" y2="470" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
-              <line x1="115" y1="400" x2="118" y2="470" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
-
-              <!-- FINS (y:400-470) -->
-              <polygon points="70,400 30,465 70,450" fill="#1a3a6e" opacity="0.9"/>
-              <polygon points="130,400 170,465 130,450" fill="#1a3a6e" opacity="0.9"/>
-              <line x1="70" y1="400" x2="30" y2="465" stroke="rgba(100,150,220,0.3)" stroke-width="0.5"/>
-              <line x1="130" y1="400" x2="170" y2="465" stroke="rgba(100,150,220,0.3)" stroke-width="0.5"/>
-
-              <!-- ENGINE BELL (y:470-510) -->
-              <path d="M80,470 Q78,490 72,510 L128,510 Q122,490 120,470 Z" fill="url(#engineGrad)"/>
-              <ellipse cx="100" cy="510" rx="28" ry="4" fill="#1a1a1a" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
-            </g>
-
-            <!-- EXHAUST FLAME (y:510-580) -->
-            <ellipse class="flame-outer-shape" cx="100" cy="550" rx="22" ry="35" fill="url(#flameOuterGrad)">
-              <animate attributeName="ry" values="35;38;33;36;35" dur="0.3s" repeatCount="indefinite"/>
-              <animate attributeName="rx" values="22;20;23;21;22" dur="0.25s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0.9;1;0.85;0.95;0.9" dur="0.2s" repeatCount="indefinite"/>
-            </ellipse>
-            <ellipse class="flame-inner-shape" cx="100" cy="545" rx="12" ry="25" fill="url(#flameInnerGrad)">
-              <animate attributeName="ry" values="25;27;23;26;25" dur="0.22s" repeatCount="indefinite"/>
-              <animate attributeName="rx" values="12;11;13;12;12" dur="0.18s" repeatCount="indefinite"/>
-            </ellipse>
-          </svg>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="wrap">
+        <div class="hero-text">
+          <div class="reveal">
+            <p class="label">For Contractors Who Want to Win Online</p>
+            <h1>Websites That Make<br>Contractors <span class="accent">Money.</span></h1>
+          </div>
+          <p class="subtitle reveal reveal-d1">Most contractor websites look like they were built in 2012. Yours doesn't have to. We build sites that show up on Google, look professional, and make your phone ring.</p>
+          <div class="hero-btns reveal reveal-d2">
+            <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary">See a Free Preview</a>
+            <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-secondary">Book a Call</a>
+          </div>
+          <p class="trust-line reveal reveal-d3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            No upfront cost. You love it or you don't pay.
+          </p>
         </div>
 
-        <!-- ========== HERO (nose cone) ========== -->
-        <div class="world-section" id="ws-hero" data-wy="-1320" data-side="right">
-          <section id="hero" class="hero section">
-            <div class="container">
-              <div class="hero-content">
-                <h1>Websites That Make Contractors Money.</h1>
-                <p class="section-subtitle">Most contractor websites look like they were built in 2012. Yours doesn't have to. We build sites that show up on Google, look professional, and make your phone ring.</p>
-                <div class="btn-group">
-                  <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary btn-lg">See a Free Preview</a>
-                  <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-secondary btn-lg">Book a Call</a>
-                </div>
-                <p class="trust-line">No commitment. No upfront cost. If you don't love it, you don't pay.</p>
+        <!-- Hero Mockup: Realistic contractor site -->
+        <div class="hero-mockup reveal reveal-d2">
+          <div class="mockup-wrapper">
+            <div class="laptop">
+              <div class="laptop-bar">
+                <span class="laptop-dot r"></span>
+                <span class="laptop-dot y"></span>
+                <span class="laptop-dot g"></span>
+                <span class="laptop-url">bayareajunkpros.com</span>
               </div>
-              <div class="hero-visual" aria-hidden="true">
-                <div class="hero-mockup">
-                  <!-- Laptop Mockup -->
-                  <div class="mockup-laptop">
-                    <div class="mockup-laptop-topbar">
-                      <span class="mockup-dot red"></span>
-                      <span class="mockup-dot yellow"></span>
-                      <span class="mockup-dot green"></span>
-                      <span class="mockup-url">bayareajunkpros.com</span>
-                    </div>
-                    <div class="mockup-laptop-screen">
-                      <div class="mini-site-hero">
-                        <div class="mini-site-badge">Licensed &amp; Insured</div>
-                        <div class="mini-site-title">Bay Area's #1 Junk<br>Removal Service</div>
-                        <div class="mini-site-sub">Fast, affordable, eco-friendly junk hauling</div>
-                        <span class="mini-site-cta">Call Now - Free Estimate</span>
-                      </div>
-                      <div class="mini-site-cards">
-                        <div class="mini-card">
-                          <div class="mini-card-icon"></div>
-                          <div class="mini-card-text">Residential</div>
-                        </div>
-                        <div class="mini-card">
-                          <div class="mini-card-icon"></div>
-                          <div class="mini-card-text">Commercial</div>
-                        </div>
-                        <div class="mini-card">
-                          <div class="mini-card-icon"></div>
-                          <div class="mini-card-text">Construction</div>
-                        </div>
-                      </div>
-                      <div class="mini-site-reviews">
-                        <span class="mini-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                        <span class="mini-review-text">4.9 from 200+ reviews</span>
-                      </div>
-                    </div>
+              <div class="laptop-screen">
+                <div class="mini-hero-bar">
+                  <div class="mini-badge">Licensed &amp; Insured</div>
+                  <div class="mini-h1">Bay Area's #1 Junk<br>Removal Service</div>
+                  <div class="mini-sub">Fast, affordable, eco-friendly junk hauling for the Bay Area</div>
+                  <span class="mini-cta-btn">Call Now — Free Estimate</span>
+                </div>
+                <div class="mini-cards-row">
+                  <div class="mini-card">
+                    <div class="mini-card-dot"></div>
+                    <div class="mini-card-label">Residential</div>
                   </div>
-                  <div class="mockup-laptop-base"></div>
+                  <div class="mini-card">
+                    <div class="mini-card-dot"></div>
+                    <div class="mini-card-label">Commercial</div>
+                  </div>
+                  <div class="mini-card">
+                    <div class="mini-card-dot"></div>
+                    <div class="mini-card-label">Construction</div>
+                  </div>
+                </div>
+                <div class="mini-stars">
+                  <span class="mini-stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <span class="mini-stars-text">4.9 from 200+ reviews</span>
                 </div>
               </div>
             </div>
-          </section>
+            <div class="laptop-base"></div>
+
+            <!-- Floating phone -->
+            <div class="phone-mockup" aria-hidden="true">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="p-bar p-bar-accent"></div>
+                <div class="p-bar p-bar-text w80"></div>
+                <div class="p-bar p-bar-text w65"></div>
+                <div class="p-card-row">
+                  <div class="p-card-item"></div>
+                  <div class="p-card-item"></div>
+                </div>
+                <div class="p-bar p-bar-text w75"></div>
+                <div class="p-bar p-bar-text w80"></div>
+                <div class="p-cta"></div>
+                <div class="p-bar p-bar-text w65" style="margin-top:8px;"></div>
+                <div class="p-bar p-bar-text w75"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- ========== PROBLEM (upper fuselage) ========== -->
-        <div class="world-section" id="ws-problem" data-wy="-690" data-side="left">
-          <section id="problem" class="section problem-section">
-            <div class="container">
-              <div class="section-header">
-                <span class="section-label">The Problem</span>
-                <h2 class="section-title">Here's Why You're Losing Jobs Right Now</h2>
-              </div>
-              <div class="problem-grid">
-                <div class="problem-card">
-                  <h3>You're Invisible on Google</h3>
-                  <p>When someone searches "your trade near me," your competitors show up. You don't. That's money walking out the door every day.</p>
+      </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <section class="stats" aria-label="Key statistics">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="stat-val"><span class="count-up" data-target="98">0</span><span class="orange">+</span></div>
+          <div class="stat-label">PageSpeed Score</div>
+        </div>
+        <div class="reveal reveal-d1">
+          <div class="stat-val"><span class="count-up" data-target="36">0</span>h</div>
+          <div class="stat-label">Delivery</div>
+        </div>
+        <div class="reveal reveal-d2">
+          <div class="stat-val"><span class="orange">$</span>0</div>
+          <div class="stat-label">Upfront Cost</div>
+        </div>
+        <div class="reveal reveal-d3">
+          <div class="stat-val">&infin;</div>
+          <div class="stat-label">Revisions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROBLEM ===== -->
+    <section id="problem">
+      <div class="wrap">
+        <div class="section-header reveal">
+          <p class="label">The Problem</p>
+          <h2 class="section-heading">Here's Why You're Losing<br>Jobs Right Now</h2>
+        </div>
+        <div class="problem-grid">
+          <div class="problem-card reveal">
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            </div>
+            <h3>You're Invisible on Google</h3>
+            <p>When someone searches "junk removal near me" or "best fencing company," your competitors show up. You don't. That's money walking out the door every single day.</p>
+          </div>
+          <div class="problem-card reveal reveal-d1">
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Your Site Looks Like 2012</h3>
+            <p>Customers judge your business in 3 seconds. An outdated site — or no site at all — tells them you don't care about quality. They're calling someone else.</p>
+          </div>
+          <div class="problem-card reveal reveal-d2">
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>No Reviews, No Trust</h3>
+            <p>90% of customers check reviews before calling. Without a system collecting 5-star reviews automatically, you're losing to contractors who have one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT YOU GET ===== -->
+    <section id="benefits">
+      <div class="wrap">
+        <div class="section-header center reveal">
+          <p class="label">What You Get</p>
+          <h2 class="section-heading">Everything Your Business<br>Needs to Win Online</h2>
+          <p class="section-sub">Every site we build comes loaded. This isn't a template with your logo on it — it's a custom-built machine designed to get your phone ringing.</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card reveal">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>Show Up on Google</h3>
+            <p>Built-in SEO, schema markup, and local search optimization so customers in your area actually find you.</p>
+          </div>
+          <div class="benefit-card reveal reveal-d1">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h3>Look Like a $10K Operation</h3>
+            <p>Professional design that makes customers assume you're the biggest company in town. First impressions win jobs.</p>
+          </div>
+          <div class="benefit-card reveal reveal-d2">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>5-Star Reviews on Autopilot</h3>
+            <p>Built-in QR code review system. Happy customers leave reviews with one tap. More reviews = more trust = more calls.</p>
+          </div>
+          <div class="benefit-card reveal">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3>Click-to-Call Everywhere</h3>
+            <p>Your phone number front and center on every section. Sticky call button on mobile. We make it embarrassingly easy to reach you.</p>
+          </div>
+          <div class="benefit-card reveal reveal-d1">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Lightning Fast</h3>
+            <p>Your site loads in under 2 seconds on any device. 98+ PageSpeed scores. Slow sites lose customers — yours won't be slow.</p>
+          </div>
+          <div class="benefit-card reveal reveal-d2">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+            </div>
+            <h3>Perfect on Every Device</h3>
+            <p>Looks flawless on phones, tablets, and desktops. 60%+ of your customers will find you on their phone first.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXAMPLES ===== -->
+    <section id="examples">
+      <div class="wrap">
+        <div class="section-header center reveal">
+          <p class="label">Our Work</p>
+          <h2 class="section-heading">See What's Possible</h2>
+          <p class="section-sub">Every site is custom-built for the business. Different trades, different cities, same quality.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Bay Area Junk Pros -->
+          <div class="port-card reveal">
+            <div class="port-mockup">
+              <div class="port-browser">
+                <div class="port-browser-bar">
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-url">bayareajunkpros.com</span>
                 </div>
-                <div class="problem-card">
-                  <h3>Your Website Looks Like 2012</h3>
-                  <p>Customers judge your business in 3 seconds. If your site looks outdated — or you don't have one at all — they're calling someone else.</p>
-                </div>
-                <div class="problem-card">
-                  <h3>No Reviews, No Trust</h3>
-                  <p>90% of customers check reviews before calling. If you don't have a system collecting 5-star reviews automatically, you're losing to contractors who do.</p>
+                <div class="port-site">
+                  <div class="port-site-bar" style="background: linear-gradient(90deg, #FF6B2B, rgba(255,107,43,0.3));"></div>
+                  <div class="port-site-heading"></div>
+                  <div class="port-site-heading sub"></div>
+                  <div class="port-site-cta-bar" style="background: #FF6B2B;"></div>
+                  <div class="port-site-cols">
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
-        </div>
-
-        <!-- ========== CARGO BAY (mid fuselage) ========== -->
-        <div class="world-section" id="ws-cargo" data-wy="150" data-side="right">
-          <section id="cargo" class="section">
-            <div class="container">
-              <div class="section-header">
-                <span class="section-label">What You Get</span>
-                <h2 class="section-title">What Your New Website Does For You</h2>
-              </div>
-              <div class="benefits-grid">
-                <div class="benefit-card">
-                  <div class="benefit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                  </div>
-                  <h3>Show Up When Customers Search For You</h3>
-                  <p>We build your site so Google actually finds it. When someone in your city searches for what you do, you show up.</p>
-                </div>
-                <div class="benefit-card">
-                  <div class="benefit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-                  </div>
-                  <h3>Look Like a $10K Operation</h3>
-                  <p>Your site will look so clean, so fast, so professional that customers assume you're the biggest company in town.</p>
-                </div>
-                <div class="benefit-card">
-                  <div class="benefit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                  </div>
-                  <h3>Collect 5-Star Reviews on Autopilot</h3>
-                  <p>We set up a system where your happy customers leave reviews with one tap. More reviews = more trust = more calls.</p>
-                </div>
-                <div class="benefit-card">
-                  <div class="benefit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  </div>
-                  <h3>Your Phone Number, Everywhere</h3>
-                  <p>Click-to-call on every page. Sticky call button on mobile. We make it embarrassingly easy for customers to reach you.</p>
-                </div>
-                <div class="benefit-card">
-                  <div class="benefit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                  </div>
-                  <h3>Lightning Fast, On Every Device</h3>
-                  <p>Your site loads in under 2 seconds on phones, tablets, and desktops. Slow sites lose customers. Yours won't be slow.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- ========== EXAMPLES (lower fuselage + fins) ========== -->
-        <div class="world-section" id="ws-examples" data-wy="810" data-side="left">
-          <section id="examples" class="section">
-            <div class="container">
-              <div class="section-header">
-                <span class="section-label">Our Work</span>
-                <h2 class="section-title">See What's Possible</h2>
-              </div>
-
-              <!-- Stats Bar -->
-              <div class="stats-bar">
-                <div class="stat-item">
-                  <div class="stat-value" data-count="98" data-suffix="+">0+</div>
-                  <div class="stat-label">PageSpeed Scores</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value" data-count="36">0</div>
-                  <div class="stat-label">Hour Delivery</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value" data-prefix="$" data-count="0">$0</div>
-                  <div class="stat-label">Upfront Cost</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">Unlimited</div>
-                  <div class="stat-label">Revisions</div>
-                </div>
-              </div>
-
-              <div class="portfolio-preview-grid">
-                <!-- Card 1 -->
-                <div class="preview-card">
-                  <div class="preview-mockup">
-                    <div class="preview-mockup-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="preview-site-content">
-                      <div class="preview-site-header"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-blocks">
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="preview-info">
-                    <div class="preview-name">Bay Area Junk Pros</div>
-                    <div class="preview-trade">Junk Removal - San Francisco, CA</div>
-                  </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="preview-card">
-                  <div class="preview-mockup">
-                    <div class="preview-mockup-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="preview-site-content" style="--accent-orange: #2ECC71;">
-                      <div class="preview-site-header" style="background: linear-gradient(90deg, #2ECC71, transparent);"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-blocks">
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="preview-info">
-                    <div class="preview-name">Thompson's Tree Service</div>
-                    <div class="preview-trade">Tree Service - Portland, OR</div>
-                  </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="preview-card">
-                  <div class="preview-mockup">
-                    <div class="preview-mockup-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="preview-site-content">
-                      <div class="preview-site-header" style="background: linear-gradient(90deg, #3B82F6, transparent);"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-blocks">
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="preview-info">
-                    <div class="preview-name">Ironside Fencing Co.</div>
-                    <div class="preview-trade">Fencing - Austin, TX</div>
-                  </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="preview-card">
-                  <div class="preview-mockup">
-                    <div class="preview-mockup-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="preview-site-content">
-                      <div class="preview-site-header" style="background: linear-gradient(90deg, #F59E0B, transparent);"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-line"></div>
-                      <div class="preview-site-blocks">
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                        <div class="preview-site-block"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="preview-info">
-                    <div class="preview-name">Mike's Concrete &amp; Masonry</div>
-                    <div class="preview-trade">Concrete - Denver, CO</div>
-                  </div>
-                </div>
-              </div>
-
-              <a href="examples.html" class="portfolio-link">
-                View All Examples
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-          </section>
-        </div>
-
-        <!-- ========== ENGINE ROOM (engine bell) ========== -->
-        <div class="world-section" id="ws-engine" data-wy="1140" data-side="right">
-          <section id="engine" class="section">
-            <div class="container">
-              <div class="section-header center">
-                <span class="section-label">The Process</span>
-                <h2 class="section-title">How It Works</h2>
-              </div>
-              <div class="steps-grid">
-                <div class="step-card">
-                  <div class="step-number">1</div>
-                  <h3>Tell Us About Your Business</h3>
-                  <p>Fill out a quick form or hop on a 15-minute call. We ask about your services, your city, and what makes you different.</p>
-                </div>
-                <div class="step-card">
-                  <div class="step-number">2</div>
-                  <h3>We Build Your Site in 36 Hours</h3>
-                  <p>Not a template. Not a cookie-cutter page. A custom site built specifically for your business with your name, your services, your area.</p>
-                </div>
-                <div class="step-card">
-                  <div class="step-number">3</div>
-                  <h3>You Love It or You Don't Pay</h3>
-                  <p>We send you a preview link. You look at it. If you love it, it's yours. If you don't, no hard feelings and no charge.</p>
-                </div>
-              </div>
-              <div style="text-align: center;">
-                <a href="how-it-works.html" class="steps-link">
-                  See the full process
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- ========== IGNITION / FINAL CTA (exhaust flame) ========== -->
-        <div class="world-section" id="ws-ignition" data-wy="1470" data-side="left">
-          <section id="ignition" class="section cta-section">
-            <div class="container">
+            <div class="port-info">
               <div>
-                <h2 class="section-title">Ready to See What Your Business Looks Like Online?</h2>
-                <p class="section-subtitle">Free preview. No commitment. No upfront cost.</p>
-                <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary btn-lg">Get My Free Preview</a>
-                <a href="https://form.typeform.com/to/xveu1l1q" class="cta-secondary-link">or book a 15-minute call</a>
+                <div class="port-name">Bay Area Junk Pros</div>
+                <div class="port-trade">Junk Removal — San Francisco, CA</div>
+              </div>
+              <span class="port-score">99</span>
+            </div>
+          </div>
+
+          <!-- Thompson's Tree Service -->
+          <div class="port-card reveal reveal-d1">
+            <div class="port-mockup">
+              <div class="port-browser">
+                <div class="port-browser-bar">
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-url">thompsonstreeservice.com</span>
+                </div>
+                <div class="port-site">
+                  <div class="port-site-bar" style="background: linear-gradient(90deg, #2ECC71, rgba(46,204,113,0.3));"></div>
+                  <div class="port-site-heading"></div>
+                  <div class="port-site-heading sub"></div>
+                  <div class="port-site-cta-bar" style="background: #2ECC71;"></div>
+                  <div class="port-site-cols">
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                  </div>
+                </div>
               </div>
             </div>
-          </section>
-        </div>
-
-        <!-- ========== FOOTER ========== -->
-        <div class="world-footer" data-wy="1600">
-          <footer class="footer">
-            <div class="container">
-              <div class="footer-logo">Launched<span>Ops</span></div>
-              <nav class="footer-nav" aria-label="Footer navigation">
-                <a href="index.html">Home</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="examples.html">Examples</a>
-                <a href="about.html">About</a>
-                <a href="get-started.html">Get Started</a>
-              </nav>
-              <p class="footer-tagline">Built for contractors who want to win online.</p>
-              <p class="footer-copy">&copy; 2026 LaunchedOps. All rights reserved.</p>
+            <div class="port-info">
+              <div>
+                <div class="port-name">Thompson's Tree Service</div>
+                <div class="port-trade">Tree Service — Portland, OR</div>
+              </div>
+              <span class="port-score">98</span>
             </div>
-          </footer>
+          </div>
+
+          <!-- Ironside Fencing -->
+          <div class="port-card reveal">
+            <div class="port-mockup">
+              <div class="port-browser">
+                <div class="port-browser-bar">
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-url">ironsidefencing.com</span>
+                </div>
+                <div class="port-site">
+                  <div class="port-site-bar" style="background: linear-gradient(90deg, #3B82F6, rgba(59,130,246,0.3));"></div>
+                  <div class="port-site-heading"></div>
+                  <div class="port-site-heading sub"></div>
+                  <div class="port-site-cta-bar" style="background: #3B82F6;"></div>
+                  <div class="port-site-cols">
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-name">Ironside Fencing Co.</div>
+                <div class="port-trade">Fencing — Austin, TX</div>
+              </div>
+              <span class="port-score">97</span>
+            </div>
+          </div>
+
+          <!-- Mike's Concrete -->
+          <div class="port-card reveal reveal-d1">
+            <div class="port-mockup">
+              <div class="port-browser">
+                <div class="port-browser-bar">
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-dot"></span>
+                  <span class="port-browser-url">mikesconcrete.com</span>
+                </div>
+                <div class="port-site">
+                  <div class="port-site-bar" style="background: linear-gradient(90deg, #F59E0B, rgba(245,158,11,0.3));"></div>
+                  <div class="port-site-heading"></div>
+                  <div class="port-site-heading sub"></div>
+                  <div class="port-site-cta-bar" style="background: #F59E0B;"></div>
+                  <div class="port-site-cols">
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                    <div class="port-site-col"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-name">Mike's Concrete &amp; Masonry</div>
+                <div class="port-trade">Concrete — Denver, CO</div>
+              </div>
+              <span class="port-score">98</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section id="process">
+      <div class="wrap">
+        <div class="section-header center reveal">
+          <p class="label">How It Works</p>
+          <h2 class="section-heading">Three Steps. That's It.</h2>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-num">1</div>
+            <h3>Tell Us About Your Business</h3>
+            <p>Fill out a quick form or hop on a 15-minute call. Your trade, your city, what makes you different. No sales pitch.</p>
+          </div>
+          <div class="step-card reveal reveal-d1">
+            <div class="step-num">2</div>
+            <h3>We Build It in 36 Hours</h3>
+            <p>Not a template. A custom site built for your business — your name, your services, your area. Design, copy, SEO, everything.</p>
+          </div>
+          <div class="step-card reveal reveal-d2">
+            <div class="step-num">3</div>
+            <h3>You Love It or Don't Pay</h3>
+            <p>We send a live preview. Show it to your wife, your crew, whoever. Love it? It's yours. Don't? No hard feelings, no charge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-header center reveal">
+          <p class="label">Pricing</p>
+          <h2 class="section-heading">Simple, Transparent Pricing</h2>
+          <p class="section-sub">No hidden fees. No contracts. No surprises. Just a great website that pays for itself.</p>
         </div>
 
-      </div><!-- /.rocket-camera -->
-    </div><!-- /.rocket-world-container -->
+        <div class="pricing-box reveal">
+          <div class="pricing-top">
+            <div class="price-main"><span class="dollar">$</span>999</div>
+            <div class="price-sub">One-time build fee</div>
+            <div class="price-monthly">Then <strong>$75/month</strong> for hosting, maintenance &amp; unlimited updates</div>
+          </div>
+          <div class="pricing-features">
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Custom design &amp; branding</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>SEO &amp; Google optimization</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Mobile-first responsive</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>98+ PageSpeed score</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Review collection system</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Click-to-call buttons</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Your own domain name</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Unlimited revisions</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Contact forms that text you</span>
+            </div>
+            <div class="pricing-feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>36-hour turnaround</span>
+            </div>
+          </div>
+          <div class="pricing-bottom">
+            <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary">Get My Free Preview</a>
+            <p class="pricing-guarantee">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              You love it or you don't pay. Zero risk.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <div class="wrap">
+        <div class="about-content reveal">
+          <div class="about-avatar" aria-hidden="true">A</div>
+          <p class="label">About</p>
+          <h2 class="section-heading">Built by Anthony</h2>
+          <p><strong>I'm a computer science student</strong> who spent three years working in restaurants while building this on the side. I started LaunchedOps because I kept seeing the same thing — contractors doing incredible work but losing jobs because their online presence was terrible.</p>
+          <div class="about-highlight">
+            <p>I build every site myself. Not a big agency with 50 employees. One person who obsesses over every detail — the speed, the SEO, the design, the conversion.</p>
+          </div>
+          <p>Every site I build is something I'd put my name on. I write the code, set up the SEO, and make sure it actually does its job: <strong>making your phone ring.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-header center reveal">
+          <p class="label">FAQ</p>
+          <h2 class="section-heading">Questions? Answers.</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">
+              How much does it cost?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">$999 one-time build fee + $75/month for hosting, maintenance, and unlimited updates. No hidden fees. No contracts. Cancel anytime.</div></div>
+          </div>
+          <div class="faq-item reveal reveal-d1">
+            <button class="faq-q" aria-expanded="false">
+              How long does it take?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">36 hours from our first conversation to your live preview link. Not 36 days. 36 hours.</div></div>
+          </div>
+          <div class="faq-item reveal reveal-d1">
+            <button class="faq-q" aria-expanded="false">
+              What if I don't like it?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">You don't pay. Simple as that. We build it on spec because we're confident you'll love it. If not, no hard feelings.</div></div>
+          </div>
+          <div class="faq-item reveal reveal-d2">
+            <button class="faq-q" aria-expanded="false">
+              Do I need to provide anything?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Just your business info — name, services, city. We handle design, copy, and everything technical. If you have photos of your work, send them over — but it's not required.</div></div>
+          </div>
+          <div class="faq-item reveal reveal-d2">
+            <button class="faq-q" aria-expanded="false">
+              Can I make changes later?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Unlimited revisions are included in your monthly plan. Need a new photo? Different wording? We usually turn around updates within 24 hours.</div></div>
+          </div>
+          <div class="faq-item reveal reveal-d3">
+            <button class="faq-q" aria-expanded="false">
+              What if I already have a website?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">We'll build you a better one. Compare them side by side. If you prefer what you already have, no hard feelings.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta" id="cta">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="label">Let's Go</p>
+          <h2 class="section-heading">Ready to See What Your Business Looks Like Online?</h2>
+          <p class="section-sub">Free preview. No commitment. No upfront cost. If you don't love it, you don't pay.</p>
+        </div>
+        <div class="cta-btns reveal reveal-d1">
+          <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary">Get My Free Preview</a>
+          <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-secondary">Book a 15-Min Call</a>
+        </div>
+        <a href="https://form.typeform.com/to/xveu1l1q" class="cta-secondary reveal reveal-d2">Takes 2 minutes. We'll handle the rest.</a>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Scripts -->
-  <script src="js/spatial-engine.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/rocket-experience.js"></script>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-logo">Launched<span>Ops</span></div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#hero">Home</a>
+        <a href="#problem">Why You Need This</a>
+        <a href="#examples">Examples</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="get-started.html">Get Started</a>
+      </nav>
+      <p class="footer-tagline">Built for contractors who want to win online.</p>
+      <p class="footer-copy">&copy; 2026 LaunchedOps. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ==============================================
+       JAVASCRIPT — Minimal, purposeful
+       ============================================== */
+    (function() {
+      'use strict';
+
+      /* --- Navbar scroll state --- */
+      var nav = document.getElementById('nav');
+      var scrolled = false;
+      window.addEventListener('scroll', function() {
+        var shouldBeScrolled = window.scrollY > 40;
+        if (shouldBeScrolled !== scrolled) {
+          scrolled = shouldBeScrolled;
+          nav.classList.toggle('scrolled', scrolled);
+        }
+      }, { passive: true });
+
+      /* --- Hamburger / Mobile menu --- */
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobileMenu');
+      hamburger.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      // Close on link click
+      mobileMenu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* --- Intersection Observer: reveal on scroll --- */
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        reveals.forEach(function(el) { observer.observe(el); });
+      } else {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      }
+
+      /* --- Count-up animation --- */
+      var counters = document.querySelectorAll('.count-up');
+      if ('IntersectionObserver' in window) {
+        var counterObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              var target = parseInt(el.getAttribute('data-target'));
+              var duration = 1200;
+              var start = performance.now();
+              function tick(now) {
+                var elapsed = now - start;
+                var progress = Math.min(elapsed / duration, 1);
+                var ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(target * ease);
+                if (progress < 1) requestAnimationFrame(tick);
+              }
+              requestAnimationFrame(tick);
+              counterObserver.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        counters.forEach(function(el) { counterObserver.observe(el); });
+      }
+
+      /* --- FAQ Accordion --- */
+      document.querySelectorAll('.faq-q').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = this.closest('.faq-item');
+          var wasOpen = item.classList.contains('open');
+
+          // Close all
+          document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          });
+
+          // Toggle clicked
+          if (!wasOpen) {
+            item.classList.add('open');
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* --- Smooth scroll for anchor links --- */
+      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            var offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+            var top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+
+    })();
+  </script>
+
 </body>
 </html>
