@@ -1,4 +1,4 @@
 [build]
-  base = "clients/the-junk-moose"
-  command = "npm run build"
-  publish = "out"
+  base = "launchedops-site"
+  command = "echo 'Static site, no build needed'"
+  publish = "."
