@@ -30,11 +30,11 @@ export const SERVICES: ServiceData[] = [
     shortName: "Furniture & Appliances",
     description: "Couches, fridges, washers, mattresses — all of it.",
     longDescription:
-      "Got a beat-up couch nobody wants? A fridge that's seen better days? Our team handles all furniture and appliance removal across Portland OR and the surrounding metro area. We'll haul away sofas, recliners, mattresses, bed frames, dressers, tables, refrigerators, washers, dryers, dishwashers, and anything else you need gone. Our crew handles all the heavy lifting — you don't touch a thing. We donate usable items to local Portland charities whenever possible, so your old furniture gets a second life. Most jobs are done in under an hour. Upfront pricing, no hidden fees, and we always sweep up after ourselves.",
+      "Got a beat-up couch nobody wants? A fridge that's seen better days? Our team handles all furniture and appliance removal across the metro area. We'll haul away sofas, recliners, mattresses, bed frames, dressers, tables, refrigerators, washers, dryers, dishwashers, and anything else you need gone. Our crew handles all the heavy lifting — you don't touch a thing. We donate usable items to local charities whenever possible, so your old furniture gets a second life. Most jobs are done in under an hour. Upfront pricing, no hidden fees, and we always sweep up after ourselves.",
     faqs: [
       { q: "Do you remove appliances that are still connected?", a: "Yes — we can disconnect and remove standard appliances like washers, dryers, and refrigerators. We don't handle gas line disconnections, but everything else is fair game." },
       { q: "Can you take my old mattress?", a: "Absolutely. Mattresses, box springs, bed frames — we take them all. We handle mattress disposal properly and recycle materials when possible." },
-      { q: "Do you donate usable furniture?", a: "Yes! We partner with local Portland charities. If your items are in decent shape, we'll make sure they go to someone who needs them." },
+      { q: "Do you donate usable furniture?", a: "Yes! We partner with local charities. If your items are in decent shape, we'll make sure they go to someone who needs them." },
       { q: "How much does furniture removal cost?", a: "Most single-item pickups run $75–$150. A full truckload of furniture is typically $250–$500. We give you an exact quote before we start — no surprises." },
     ],
   },
@@ -44,10 +44,10 @@ export const SERVICES: ServiceData[] = [
     shortName: "Construction Debris",
     description: "Drywall, lumber, concrete, tile. We handle the heavy stuff.",
     longDescription:
-      "Renovation projects create a mess. We specialize in construction debris removal throughout Portland OR and the metro area. We haul drywall, lumber, concrete, tile, roofing materials, insulation, plywood, and mixed demo waste. Whether you're a homeowner finishing a kitchen remodel or a contractor clearing a job site, we show up on time and get it done fast. Our trucks handle heavy loads and our crew is experienced with construction waste. We sort materials for proper disposal and recycle what we can. Same-day service available for calls before noon. Licensed, insured, and trusted by Portland contractors.",
+      "Renovation projects create a mess. We specialize in construction debris removal throughout the metro area. We haul drywall, lumber, concrete, tile, roofing materials, insulation, plywood, and mixed demo waste. Whether you're a homeowner finishing a kitchen remodel or a contractor clearing a job site, we show up on time and get it done fast. Our trucks handle heavy loads and our crew is experienced with construction waste. We sort materials for proper disposal and recycle what we can. Same-day service available for calls before noon. Licensed, insured, and trusted by local contractors.",
     faqs: [
       { q: "Can you handle heavy materials like concrete?", a: "Yes — concrete, brick, tile, stone, we haul it all. Heavy loads may require additional pricing, but we'll quote you upfront." },
-      { q: "Do you work with contractors?", a: "Absolutely. We work with contractors across Portland regularly. We can set up recurring pickups or one-time cleanouts around your project schedule." },
+      { q: "Do you work with contractors?", a: "Absolutely. We work with contractors regularly. We can set up recurring pickups or one-time cleanouts around your project schedule." },
       { q: "Do you sort construction debris for recycling?", a: "Yes, we separate recyclable materials like metal, wood, and concrete wherever possible. We're committed to responsible disposal." },
     ],
   },
@@ -57,7 +57,7 @@ export const SERVICES: ServiceData[] = [
     shortName: "Yard Waste",
     description: "Branches, soil, stumps, clippings. Cleared in a single trip.",
     longDescription:
-      "Portland's lush greenery means yards can get overgrown fast. We provide yard waste removal across Portland OR, Beaverton, Lake Oswego, and the entire metro area. We haul branches, tree limbs, stumps, root balls, soil, gravel, leaves, grass clippings, and landscaping debris. Whether you've just finished a major landscaping project or need seasonal cleanup, we'll have your yard cleared in a single trip. Our crew handles the loading — no need to bag anything. We dispose of all yard waste at proper composting and green waste facilities. Same-day service available.",
+      "Yards can get overgrown fast. We provide yard waste removal across the entire metro area. We haul branches, tree limbs, stumps, root balls, soil, gravel, leaves, grass clippings, and landscaping debris. Whether you've just finished a major landscaping project or need seasonal cleanup, we'll have your yard cleared in a single trip. Our crew handles the loading — no need to bag anything. We dispose of all yard waste at proper composting and green waste facilities. Same-day service available.",
     faqs: [
       { q: "Do I need to bag the yard waste first?", a: "Nope. Pile it up and point — we'll handle all the loading. Bags, loose piles, it doesn't matter." },
       { q: "Can you remove tree stumps?", a: "We can haul away stumps that have already been cut and dug out. We don't do stump grinding, but we'll take the stump away once it's out of the ground." },
@@ -70,10 +70,10 @@ export const SERVICES: ServiceData[] = [
     shortName: "Full Cleanouts",
     description: "Hoarding, estate, foreclosure. Entire properties, no judgment.",
     longDescription:
-      "Full property cleanouts require a special kind of crew — one that works hard, moves fast, and treats every situation with respect. We provide complete property cleanout services across Portland OR for estates, foreclosures, rental turnovers, hoarding situations, and move-outs. We clear everything: furniture, appliances, clothing, personal items, garage contents, basement junk, and yard debris. Our team works room by room, floor to ceiling, until the property is completely empty and broom-swept. We handle sorting, hauling, and disposal so you don't have to. Sensitive situations are handled with care and discretion. Licensed and insured.",
+      "Full property cleanouts require a special kind of crew — one that works hard, moves fast, and treats every situation with respect. We provide complete property cleanout services across the area for estates, foreclosures, rental turnovers, hoarding situations, and move-outs. We clear everything: furniture, appliances, clothing, personal items, garage contents, basement junk, and yard debris. Our team works room by room, floor to ceiling, until the property is completely empty and broom-swept. We handle sorting, hauling, and disposal so you don't have to. Sensitive situations are handled with care and discretion. Licensed and insured.",
     faqs: [
       { q: "How long does a full cleanout take?", a: "Most single-family homes take 4–8 hours depending on the amount of stuff. Multi-story or heavily packed properties may take a full day. We'll give you a time estimate with your quote." },
-      { q: "Do you handle hoarding situations?", a: "Yes, with care and zero judgment. We've done dozens of hoarding cleanouts across Portland. We work at whatever pace is comfortable and handle everything discreetly." },
+      { q: "Do you handle hoarding situations?", a: "Yes, with care and zero judgment. We've done dozens of hoarding cleanouts in the area. We work at whatever pace is comfortable and handle everything discreetly." },
       { q: "Can you handle estate cleanouts?", a: "Absolutely. We work with families, attorneys, and property managers on estate cleanouts. We can set aside valuables or specific items you want to keep." },
       { q: "Do you clean after the cleanout?", a: "We broom-sweep every room and leave the property clean and empty. For deep cleaning, we can recommend trusted local partners." },
     ],
@@ -84,7 +84,7 @@ export const SERVICES: ServiceData[] = [
     shortName: "Commercial",
     description: "Offices, retail spaces, warehouses. We work around your schedule.",
     longDescription:
-      "Portland businesses trust our team for fast, reliable commercial junk removal. We service offices, retail stores, restaurants, warehouses, and industrial spaces across Portland OR and the metro area. We remove old office furniture, electronics, fixtures, inventory, pallets, shelving, and general business waste. Our team works around your schedule — evenings, weekends, whatever keeps your business running. We handle everything from single-item pickups to complete commercial space cleanouts. Recurring service available for businesses with ongoing disposal needs. Licensed, insured, and OSHA-compliant.",
+      "Local businesses trust our team for fast, reliable commercial junk removal. We service offices, retail stores, restaurants, warehouses, and industrial spaces across the metro area. We remove old office furniture, electronics, fixtures, inventory, pallets, shelving, and general business waste. Our team works around your schedule — evenings, weekends, whatever keeps your business running. We handle everything from single-item pickups to complete commercial space cleanouts. Recurring service available for businesses with ongoing disposal needs. Licensed, insured, and OSHA-compliant.",
     faqs: [
       { q: "Can you work after business hours?", a: "Yes — we offer evening and weekend scheduling for commercial clients. We'll work around your operations so there's zero disruption." },
       { q: "Do you handle e-waste and electronics?", a: "Yes, we remove computers, monitors, printers, servers, and other electronics. We ensure proper e-waste disposal and recycling." },
@@ -97,7 +97,7 @@ export const SERVICES: ServiceData[] = [
     shortName: "Same-Day Pickup",
     description: "Call before noon. We'll be there by end of day.",
     longDescription:
-      "Need it gone today? We offer same-day junk removal across Portland OR and the surrounding metro area. Call or text us before noon and we'll have a crew at your door by end of day. No waiting around for a scheduled appointment days out — when you want it gone, we make it happen. Same-day service covers everything: furniture, appliances, yard waste, construction debris, and full cleanouts. Pricing is the same as our standard rates — no rush fees, no premiums. Upfront quote before we start, and we handle all the loading. Portland's fastest, most reliable junk removal crew.",
+      "Need it gone today? We offer same-day junk removal across the metro area. Call or text us before noon and we'll have a crew at your door by end of day. No waiting around for a scheduled appointment days out — when you want it gone, we make it happen. Same-day service covers everything: furniture, appliances, yard waste, construction debris, and full cleanouts. Pricing is the same as our standard rates — no rush fees, no premiums. Upfront quote before we start, and we handle all the loading. The fastest, most reliable junk removal crew in the area.",
     faqs: [
       { q: "Is there an extra charge for same-day service?", a: "Nope — same prices as scheduled pickups. No rush fees, no premiums." },
       { q: "How late in the day can you come?", a: "Our last same-day pickups typically happen between 5–7pm. Call before noon to guarantee same-day availability." },
@@ -255,7 +255,7 @@ export const HOMEPAGE_FAQS = [
   },
   {
     q: "Do you serve my area?",
-    a: "We cover all of Portland and the surrounding Metro Area including Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro, Tualatin, Milwaukie, Oregon City, and Vancouver WA.",
+    a: "We cover a wide service area including the city and surrounding metro. If you're nearby, we can get to you.",
   },
   {
     q: "How fast can you show up?",
