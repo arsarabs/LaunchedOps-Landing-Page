@@ -2,9 +2,12 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { SERVICES, LOCATIONS, BUSINESS } from "@/lib/data";
+import { SERVICES, LOCATIONS } from "@/lib/data";
+import { usePersonalization } from "@/lib/personalization";
 
 export function Nav() {
+  const biz = usePersonalization();
+  const initials = biz.name.split(" ").filter(w => !["the","a","an"].includes(w.toLowerCase())).slice(0, 2).map(w => w[0]).join("").toUpperCase();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout>>();
@@ -37,10 +40,10 @@ export function Nav() {
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-8 h-8 border border-gold/30 flex items-center justify-center group-hover:border-gold/60 transition-colors duration-500">
-              <span className="font-clash font-bold text-gold text-xs">JM</span>
+              <span className="font-clash font-bold text-gold text-xs">{initials}</span>
             </div>
             <span className="font-clash font-bold text-sm text-stone tracking-tight hidden sm:block">
-              THE JUNK MOOSE
+              {biz.name.toUpperCase()}
             </span>
           </Link>
 
@@ -141,11 +144,11 @@ export function Nav() {
           {/* Right side */}
           <div className="flex items-center gap-5">
             <a
-              href={`tel:${BUSINESS.phoneRaw}`}
+              href={`tel:${biz.phoneRaw}`}
               className="hidden md:flex items-center gap-2 text-stone-dim font-satoshi font-medium text-[13px] tracking-wide hover:text-gold transition-colors duration-300"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              {BUSINESS.phone}
+              {biz.phone}
             </a>
             <Link
               href="/contact"
@@ -200,12 +203,12 @@ export function Nav() {
             </div>
           ))}
           <a
-            href={`tel:${BUSINESS.phoneRaw}`}
+            href={`tel:${biz.phoneRaw}`}
             onClick={() => setMenuOpen(false)}
             className={`font-satoshi text-gold text-lg mt-4 ${menuOpen ? "animate-fadeInUp" : ""}`}
             style={{ animationDelay: "0.45s" }}
           >
-            {BUSINESS.phone}
+            {biz.phone}
           </a>
         </nav>
       </div>

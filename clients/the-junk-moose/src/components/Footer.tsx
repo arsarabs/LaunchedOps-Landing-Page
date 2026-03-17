@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { SERVICES, LOCATIONS, BUSINESS } from "@/lib/data";
+import { usePersonalization } from "@/lib/personalization";
 
 export function Footer() {
+  const biz = usePersonalization();
+  const initials = biz.name.split(" ").filter(w => !["the","a","an"].includes(w.toLowerCase())).slice(0, 2).map(w => w[0]).join("").toUpperCase();
   return (
     <footer className="bg-dark border-t border-white/[0.03] py-12 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
@@ -11,27 +16,27 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-6 h-6 border border-gold/20 flex items-center justify-center">
-                <span className="font-clash font-bold text-gold text-[8px]">JM</span>
+                <span className="font-clash font-bold text-gold text-[8px]">{initials}</span>
               </div>
               <span className="font-clash font-bold text-stone/30 text-sm tracking-tight">
-                THE JUNK MOOSE
+                {biz.name.toUpperCase()}
               </span>
             </div>
             <p className="font-satoshi text-stone-dim/25 text-xs mb-4">
-              Portland&apos;s trusted junk removal crew.
+              {biz.city}&apos;s trusted junk removal crew.
             </p>
             <address className="not-italic">
               <p className="font-satoshi text-stone-dim/30 text-xs">
-                {BUSINESS.name}
+                {biz.name}
               </p>
               <p className="font-satoshi text-stone-dim/25 text-xs leading-relaxed">
-                {BUSINESS.city}, {BUSINESS.state} &middot; Serving the Metro Area
+                {biz.city}, {biz.state} &middot; Serving the Metro Area
               </p>
               <a
-                href={`tel:${BUSINESS.phoneRaw}`}
+                href={`tel:${biz.phoneRaw}`}
                 className="font-satoshi text-gold/40 text-xs hover:text-gold/70 transition-colors"
               >
-                {BUSINESS.phone}
+                {biz.phone}
               </a>
             </address>
           </div>
@@ -104,9 +109,9 @@ export function Footer() {
 
         {/* SEO keyword paragraph */}
         <p className="font-satoshi text-stone-dim/40 text-xs leading-relaxed mb-6 max-w-3xl">
-          The Junk Moose is a Portland OR junk removal company offering same-day junk hauling,
+          {biz.name} is a {biz.city} {biz.state} junk removal company offering same-day junk hauling,
           affordable furniture removal, construction debris removal, and yard waste cleanup.
-          Proudly serving Portland, Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro,
+          Proudly serving {biz.city}, Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro,
           Vancouver WA, Tualatin, Milwaukie, and Oregon City.
         </p>
 
@@ -115,7 +120,7 @@ export function Footer() {
         {/* Legal row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-satoshi text-stone-dim/20 text-xs tracking-wide">
-            &copy; 2025 The Junk Moose &middot; Portland, OR
+            &copy; 2025 {biz.name} &middot; {biz.city}, {biz.state}
           </span>
           <span className="font-satoshi text-stone-dim/20 text-xs tracking-wide">
             Built by{" "}

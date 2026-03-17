@@ -1,0 +1,126 @@
+MAGIC DEMO LINK — How It Works
+===============================
+
+The magic demo link is our closer. While you're on the phone with a prospect, you text them a URL that shows a fully built website with THEIR business name and city already on it. They open it, see their name in the hero, their city in the headlines, and a site that makes their current Wix/GoDaddy page look like garbage. The demo sells itself.
+
+
+HOW IT WORKS
+------------
+
+One template per niche. No custom builds per prospect. URL parameters swap in their info everywhere on the page — business name, city, phone number. Same site, infinite personalized demos.
+
+Example: You're calling "Timber Creek Tree Service" in Austin, TX.
+
+You text them this link:
+
+  https://demo.launchedops.com/tree-service?name=Timber%20Creek%20Tree%20Service&city=Austin&phone=5125551234
+
+They open it on their phone. The hero says "Timber Creek Tree Service." The headline says "Everything your Austin trees need." The footer, the CTA buttons, the FAQ — all say Austin. It looks like you spent 3 days building a site just for them.
+
+You didn't. You spent 0 seconds. The URL did it.
+
+
+URL PARAMETERS
+--------------
+
+These go after the ? in the URL. Separate each one with &.
+
+  name     Business name (shows everywhere — hero, footer, copyright, etc.)
+  city     Their city (headings, FAQ, form section, footer)
+  phone    Their phone number, 10 digits no dashes (all call buttons + footer)
+  rating   Google rating, e.g. 4.8 (hero badge + reviews section)
+  reviews  Review count, e.g. 150+ (hero badge + reviews heading)
+  jobs     Jobs completed stat, e.g. 5,000+ (hero sidebar)
+  r1       First reviewer name, e.g. Mike R.
+  r2       Second reviewer name
+  r3       Third reviewer name
+
+Minimum for a cold call demo: name and city. That's it. Phone is a nice bonus.
+
+Example with just the essentials:
+
+  ?name=Portland%20Tree%20Pros&city=Portland
+
+Example with everything:
+
+  ?name=Timber%20Creek%20Tree%20Service&city=Austin&phone=5125551234&rating=4.9&reviews=85&jobs=2,000%2B&r1=Tom%20H.&r2=Karen%20S.&r3=Miguel%20R.
+
+
+ENCODING RULES
+--------------
+
+Spaces become %20 in URLs. So "Big Oak Tree Service" becomes Big%20Oak%20Tree%20Service.
+
+The + sign in things like "500+" needs to be encoded as %2B.
+
+Commas in numbers like "2,000" need to be %2C or you can just write them without commas.
+
+Most phones and browsers handle this automatically if you type it into a URL shortener.
+
+
+THE COLD CALL FLOW
+------------------
+
+1. You're on the phone. You've already pointed out their slow load time, missing mobile CTA, or no Google reviews showing up.
+
+2. You say: "Hey, I actually mocked something up for you — can I text you a link real quick? It's just a demo, not a finished site, but I want you to see what this could look like."
+
+3. While they say yes, you're building the URL in your head (or a saved template with their name pre-filled).
+
+4. Text the link. Stay on the phone.
+
+5. They open it. They see their name. They see their city. They see a site that's faster, cleaner, and more professional than anything they've ever had.
+
+6. Now you're not selling. You're just answering questions about something they can already see.
+
+
+WHAT THE DEMO INCLUDES
+-----------------------
+
+- Their business name in the hero, nav, footer, copyright, form section
+- Their city in headlines, FAQ questions, service descriptions, footer
+- Their phone number on all call buttons and the sticky mobile CTA (if provided)
+- Professional hero with full-bleed photo and dark overlay
+- 7 service cards (tree removal, trimming, stump grinding, emergency, lot clearing, hedge trimming, cabling)
+- Before/after gallery
+- 3 testimonials (generic — no company names, works for anyone)
+- Stats section (trees removed, Google rating, years serving)
+- FAQ accordion with 6 questions
+- Contact form with service dropdown
+- Emergency 24/7 banner
+- Seasonal smart banner (changes messaging based on time of year)
+- Sticky mobile CTA bar (call + estimate buttons)
+- Full SEO schema markup
+- 98+ PageSpeed target
+
+
+WHAT'S INTENTIONALLY NOT IN THE DEMO
+-------------------------------------
+
+- No crew/team photos (would look fake with stock photos of random people)
+- No company timeline/history (fake founding dates break the illusion)
+- No social proof toasts ("Someone just requested a quote!" — feels scammy)
+- No company-specific testimonial names (reviews say "they" not the company name)
+
+These sections get added when someone actually pays and we build the real site with their actual photos, actual team, actual reviews.
+
+
+PRO TIPS
+--------
+
+- Use a URL shortener (bit.ly, short.io) so the text message doesn't look like a wall of code
+- Pre-build links for your top 10-15 calls before you start dialing
+- If you know their Google rating, include it — seeing their real rating on the demo is a killer detail
+- The site is mobile-first. Most prospects will open on their phone. That's by design.
+- If they ask "is this my site?" — say "this is a demo of what yours would look like. If you want to move forward, we customize everything — your real photos, your real reviews, your colors."
+
+
+AVAILABLE NICHE TEMPLATES
+--------------------------
+
+  /tree-service    Tree removal, trimming, stump grinding, emergency storm
+  /junk-removal    Junk hauling, cleanouts, appliance removal (master template)
+  /concrete        Driveways, patios, stamped concrete, flatwork (coming soon)
+  /fencing         Wood, vinyl, chain link, ornamental iron (coming soon)
+
+Each niche has its own template with industry-specific services, copy, and imagery. Same URL parameter system across all of them.

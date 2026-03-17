@@ -7,12 +7,14 @@ import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { useState, useRef, FormEvent } from "react";
 import Link from "next/link";
 import { SERVICES } from "@/lib/data";
+import { usePersonalization } from "@/lib/personalization";
 
 
 /* ═══════════════════════════════════════════════════════════════
    HERO — cinematic, editorial, asymmetric
    ═══════════════════════════════════════════════════════════════ */
 function Hero() {
+  const biz = usePersonalization();
   return (
     <section className="relative min-h-screen flex items-end bg-dark overflow-hidden pt-20">
       {/* Atmospheric gradients */}
@@ -60,7 +62,7 @@ function Hero() {
               </div>
               <div className="w-px h-4 bg-gold/20" />
               <span className="text-stone-dim font-satoshi text-xs font-medium tracking-wide">
-                4.9 rating · 500+ jobs completed
+                {biz.rating} rating · {biz.jobsCompleted} jobs completed
               </span>
             </div>
 
@@ -95,7 +97,7 @@ function Hero() {
               className="font-satoshi text-stone-dim text-lg sm:text-xl max-w-lg leading-relaxed mb-10 animate-fadeInUp"
               style={{ animationDelay: "0.55s" }}
             >
-              Same-day junk removal across Portland &amp; the Metro Area.
+              Same-day junk removal across {biz.city} &amp; the surrounding area.
               Upfront pricing. No surprises. Just an empty space where your
               junk used to be.
             </p>
@@ -112,11 +114,11 @@ function Hero() {
                 Get My Free Quote
               </a>
               <a
-                href="tel:+15035550100"
+                href={`tel:${biz.phoneRaw}`}
                 className="group border border-white/[0.08] text-stone font-satoshi font-medium text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-all duration-500 text-center flex items-center justify-center gap-3"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500/80 group-hover:bg-emerald-400 transition-colors" />
-                Call Now — (503) 555-0100
+                Call Now — {biz.phone}
               </a>
             </div>
           </div>
@@ -127,8 +129,8 @@ function Hero() {
             style={{ animationDelay: "0.9s" }}
           >
             {[
-              { num: "500+", label: "Jobs Completed" },
-              { num: "4.9", label: "Google Rating" },
+              { num: biz.jobsCompleted, label: "Jobs Completed" },
+              { num: biz.rating, label: "Google Rating" },
               { num: "Same Day", label: "Service Available" },
             ].map((stat) => (
               <div key={stat.label}>
@@ -159,11 +161,12 @@ const serviceAreas = [
 ];
 
 function ServiceAreas() {
+  const biz = usePersonalization();
   return (
     <section className="bg-dark border-b border-white/[0.03]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6">
         <h2 className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-0 text-center">
-          Serving the Portland Metro Area
+          Serving the {biz.city} Metro Area
         </h2>
       </div>
       <Link href="/locations" className="block hover:bg-white/[0.01] transition-colors duration-300">
@@ -591,6 +594,7 @@ function BeforeAfter() {
    STATS — full-width dramatic numbers
    ═══════════════════════════════════════════════════════════════ */
 function Stats() {
+  const biz = usePersonalization();
   return (
     <SectionWrapper className="bg-dark py-24 sm:py-32 lg:py-40 px-6 lg:px-10 border-y border-white/[0.03] relative overflow-hidden">
       {/* Background decoration */}
@@ -640,7 +644,7 @@ function Stats() {
             </div>
             <div className="w-8 h-px bg-gold/20 mx-auto my-5" />
             <p className="font-satoshi text-stone-dim/50 text-xs uppercase tracking-[0.2em]">
-              Serving Portland
+              Serving {biz.city}
             </p>
             <Link
               href="/locations"
@@ -688,6 +692,7 @@ function CrewPhoto() {
    MEET THE OWNER — editorial magazine layout
    ═══════════════════════════════════════════════════════════════ */
 function MeetTheOwner() {
+  const biz = usePersonalization();
   return (
     <SectionWrapper id="about" className="bg-warm-gray py-24 sm:py-32 lg:py-44 px-6 lg:px-10 border-b border-white/[0.03]">
       <div className="max-w-7xl mx-auto">
@@ -709,12 +714,12 @@ function MeetTheOwner() {
           <div className="lg:col-span-7 lg:pt-4">
             <div className="space-y-6 mb-12">
               <p className="font-satoshi text-stone-dim text-lg leading-[1.8]">
-                The Junk Moose started with one truck and a simple idea: show up on
+                {biz.name} started with one truck and a simple idea: show up on
                 time, charge a fair price, and leave the place cleaner than you
                 found it.
               </p>
               <p className="font-satoshi text-stone-dim text-lg leading-[1.8]">
-                Three years and 500+ jobs later, we&apos;re still doing exactly
+                Three years and {biz.jobsCompleted} jobs later, we&apos;re still doing exactly
                 that. No call centers, no runaround — just a local crew that gives
                 a damn.
               </p>
@@ -797,7 +802,7 @@ const testimonials = [
     detail: "Garage Cleanout",
   },
   {
-    quote: "No other company would touch the pile of debris we had. The Junk Moose handled it without blinking.",
+    quote: "No other company would touch the pile of debris we had. The team handled it without blinking.",
     name: "Sarah K.",
     location: "Beaverton, OR",
     detail: "Construction Debris",
@@ -805,6 +810,7 @@ const testimonials = [
 ];
 
 function Testimonials() {
+  const biz = usePersonalization();
   return (
     <SectionWrapper className="bg-warm-gray py-24 sm:py-32 lg:py-44 px-6 lg:px-10 border-y border-white/[0.03]">
       <div className="max-w-7xl mx-auto">
@@ -827,7 +833,7 @@ function Testimonials() {
                 Marcus
               </p>
               <p className="font-satoshi text-sm text-gold">
-                Founder, The Junk Moose
+                Founder, {biz.name}
               </p>
             </div>
           </div>
@@ -883,35 +889,36 @@ function Testimonials() {
 /* ═══════════════════════════════════════════════════════════════
    FAQ — refined dark accordion
    ═══════════════════════════════════════════════════════════════ */
-const faqs = [
-  {
-    q: "How much does junk removal cost?",
-    a: "Pricing depends on the volume and type of items. We give free, no-obligation quotes upfront — what we quote is what you pay. Most single-truck loads run between $250–$500.",
-  },
-  {
-    q: "Do you serve my area?",
-    a: "We cover all of Portland and the surrounding Metro Area including Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro, Tualatin, Milwaukie, Oregon City, and Vancouver WA.",
-  },
-  {
-    q: "How fast can you show up?",
-    a: "We offer same-day service for calls placed before noon. Most pickups are completed within 2–4 hours of booking. Need it faster? Just ask — we'll do our best.",
-  },
-  {
-    q: "What items do you NOT take?",
-    a: "We can't haul hazardous materials like paint, chemicals, asbestos, or medical waste. Pretty much everything else is fair game. When in doubt, give us a call.",
-  },
-  {
-    q: "Do I need to be home during pickup?",
-    a: "Nope. As long as we can access the items and you've approved the quote, we'll get it done. We'll send a photo confirmation when the job's complete.",
-  },
-  {
-    q: "How do I get a quote?",
-    a: "Call or text us at (503) 555-0100, or fill out the form on this page. We typically respond within 15 minutes during business hours.",
-  },
-];
-
 function FAQ() {
+  const biz = usePersonalization();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "How much does junk removal cost?",
+      a: "Pricing depends on the volume and type of items. We give free, no-obligation quotes upfront — what we quote is what you pay. Most single-truck loads run between $250–$500.",
+    },
+    {
+      q: "Do you serve my area?",
+      a: `We cover all of ${biz.city} and the surrounding Metro Area including Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro, Tualatin, Milwaukie, Oregon City, and Vancouver WA.`,
+    },
+    {
+      q: "How fast can you show up?",
+      a: "We offer same-day service for calls placed before noon. Most pickups are completed within 2–4 hours of booking. Need it faster? Just ask — we'll do our best.",
+    },
+    {
+      q: "What items do you NOT take?",
+      a: "We can't haul hazardous materials like paint, chemicals, asbestos, or medical waste. Pretty much everything else is fair game. When in doubt, give us a call.",
+    },
+    {
+      q: "Do I need to be home during pickup?",
+      a: "Nope. As long as we can access the items and you've approved the quote, we'll get it done. We'll send a photo confirmation when the job's complete.",
+    },
+    {
+      q: "How do I get a quote?",
+      a: `Call or text us at ${biz.phone}, or fill out the form on this page. We typically respond within 15 minutes during business hours.`,
+    },
+  ];
 
   return (
     <SectionWrapper id="faq" className="bg-dark py-24 sm:py-32 lg:py-40 px-6 lg:px-10">
@@ -932,8 +939,8 @@ function FAQ() {
             <div className="w-12 h-px bg-gold/20 mb-6" />
             <p className="font-satoshi text-stone-dim/50 text-sm leading-relaxed max-w-xs mb-6">
               Still have questions? Call us at{" "}
-              <a href="tel:+15035550100" className="text-gold/70 hover:text-gold transition-colors">
-                (503) 555-0100
+              <a href={`tel:${biz.phoneRaw}`} className="text-gold/70 hover:text-gold transition-colors">
+                {biz.phone}
               </a>
             </p>
             <Link
@@ -988,6 +995,7 @@ function FAQ() {
    QUOTE FORM — proper contact form
    ═══════════════════════════════════════════════════════════════ */
 function QuoteForm() {
+  const biz = usePersonalization();
   const [submitted, setSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -1026,7 +1034,7 @@ function QuoteForm() {
 
             {/* Phone CTA */}
             <a
-              href="tel:+15035550100"
+              href={`tel:${biz.phoneRaw}`}
               className="group flex items-center gap-4 mb-8"
             >
               <div className="w-12 h-12 border border-gold/20 flex items-center justify-center group-hover:border-gold/50 transition-colors duration-500">
@@ -1036,7 +1044,7 @@ function QuoteForm() {
               </div>
               <div>
                 <p className="font-clash font-bold text-gold text-xl group-hover:text-gold-light transition-colors">
-                  (503) 555-0100
+                  {biz.phone}
                 </p>
                 <p className="font-satoshi text-stone-dim/40 text-xs uppercase tracking-[0.1em]">
                   Call or text anytime
@@ -1176,10 +1184,10 @@ function QuoteForm() {
                     We&apos;ll be in touch within 15 minutes during business hours. Talk soon.
                   </p>
                   <a
-                    href="tel:+15035550100"
+                    href={`tel:${biz.phoneRaw}`}
                     className="font-satoshi text-gold/60 text-sm hover:text-gold transition-colors"
                   >
-                    Can&apos;t wait? Call (503) 555-0100
+                    Can&apos;t wait? Call {biz.phone}
                   </a>
                 </div>
               )}
@@ -1194,6 +1202,7 @@ function QuoteForm() {
    FINAL CTA — dramatic last push
    ═══════════════════════════════════════════════════════════════ */
 function FinalCTA() {
+  const biz = usePersonalization();
   return (
     <SectionWrapper className="relative py-32 sm:py-40 lg:py-52 bg-dark overflow-hidden px-6">
       {/* Atmospheric glow */}
@@ -1214,10 +1223,10 @@ function FinalCTA() {
           One call. Same-day service. Gone before dinner.
         </p>
         <a
-          href="tel:+15035550100"
+          href={`tel:${biz.phoneRaw}`}
           className="block font-clash font-bold text-gold text-4xl sm:text-6xl lg:text-[88px] tracking-tight mb-12 hover:text-gold-light transition-colors duration-500"
         >
-          (503) 555-0100
+          {biz.phone}
         </a>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
@@ -1227,7 +1236,7 @@ function FinalCTA() {
             Get a Free Quote
           </Link>
           <a
-            href="tel:+15035550100"
+            href={`tel:${biz.phoneRaw}`}
             className="border border-white/[0.08] text-stone-dim font-satoshi font-medium text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-all duration-500"
           >
             Call Now

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { PersonalizationProvider } from "@/lib/personalization";
 import "./globals.css";
 
 const siteUrl = "https://demo.launchedops.com";
@@ -270,9 +272,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-satoshi antialiased grain">
-        <Nav />
-        {children}
-        <Footer />
+        <Suspense fallback={null}>
+          <PersonalizationProvider>
+            <Nav />
+            {children}
+            <Footer />
+          </PersonalizationProvider>
+        </Suspense>
       </body>
     </html>
   );
