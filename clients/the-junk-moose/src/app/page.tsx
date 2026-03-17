@@ -155,13 +155,16 @@ function Hero() {
 /* ═══════════════════════════════════════════════════════════════
    SERVICE AREAS — refined marquee
    ═══════════════════════════════════════════════════════════════ */
-const serviceAreas = [
+const defaultAreas = [
   "Portland", "Beaverton", "Gresham", "Lake Oswego", "Tigard",
   "Hillsboro", "Vancouver WA", "Tualatin", "Milwaukie", "Oregon City",
 ];
 
 function ServiceAreas() {
   const biz = usePersonalization();
+  const areas = biz.city === "Portland"
+    ? defaultAreas
+    : [`${biz.city}`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`, `Downtown ${biz.city}`, `Greater ${biz.city}`, `${biz.city} Metro`];
   return (
     <section className="bg-dark border-b border-white/[0.03]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6">
@@ -171,7 +174,7 @@ function ServiceAreas() {
       </div>
       <Link href="/locations" className="block hover:bg-white/[0.01] transition-colors duration-300">
         <Marquee className="py-5">
-          {serviceAreas.map((area) => (
+          {areas.map((area) => (
             <span
               key={area}
               className="font-satoshi font-medium text-stone-dim/40 uppercase tracking-[0.25em] text-[11px] flex items-center gap-10 whitespace-nowrap"
@@ -794,23 +797,22 @@ function Promise() {
 /* ═══════════════════════════════════════════════════════════════
    TESTIMONIALS — large editorial pull-quotes
    ═══════════════════════════════════════════════════════════════ */
-const testimonials = [
-  {
-    quote: "They showed up same day, cleared out my entire garage in under two hours. Price was exactly what they quoted.",
-    name: "Mike T.",
-    location: "Portland, OR",
-    detail: "Garage Cleanout",
-  },
-  {
-    quote: "No other company would touch the pile of debris we had. The team handled it without blinking.",
-    name: "Sarah K.",
-    location: "Beaverton, OR",
-    detail: "Construction Debris",
-  },
-];
-
 function Testimonials() {
   const biz = usePersonalization();
+  const testimonials = [
+    {
+      quote: "They showed up same day, cleared out my entire garage in under two hours. Price was exactly what they quoted.",
+      name: "Mike T.",
+      location: `${biz.city}, ${biz.state}`,
+      detail: "Garage Cleanout",
+    },
+    {
+      quote: "No other company would touch the pile of debris we had. The team handled it without blinking.",
+      name: "Sarah K.",
+      location: `${biz.city}, ${biz.state}`,
+      detail: "Construction Debris",
+    },
+  ];
   return (
     <SectionWrapper className="bg-warm-gray py-24 sm:py-32 lg:py-44 px-6 lg:px-10 border-y border-white/[0.03]">
       <div className="max-w-7xl mx-auto">
@@ -900,7 +902,7 @@ function FAQ() {
     },
     {
       q: "Do you serve my area?",
-      a: `We cover all of ${biz.city} and the surrounding Metro Area including Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro, Tualatin, Milwaukie, Oregon City, and Vancouver WA.`,
+      a: `We cover all of ${biz.city} and the surrounding metro area. If you're nearby, we can get to you.`,
     },
     {
       q: "How fast can you show up?",

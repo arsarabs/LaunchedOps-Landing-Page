@@ -38,10 +38,9 @@ export default function LocationsPage() {
           <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed max-w-4xl mb-14 space-y-4">
             <p>
               {biz.name} provides professional junk removal across the greater {biz.city}
-              {" "}metropolitan area, covering 10 cities with the same fast, reliable service and
-              honest upfront pricing. Our crew serves Portland, Beaverton, Gresham, Lake Oswego,
-              Tigard, Hillsboro, Vancouver WA, Tualatin, Milwaukie, and Oregon City — handling
-              everything from single-item furniture pickups to complete property cleanouts.
+              {" "}metropolitan area with the same fast, reliable service and
+              honest upfront pricing. We handle everything from single-item furniture
+              pickups to complete property cleanouts across {biz.city} and the surrounding area.
             </p>
             <p>
               No matter where you are in the {biz.city} metro, same-day junk removal is available

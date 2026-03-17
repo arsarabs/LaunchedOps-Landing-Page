@@ -111,8 +111,7 @@ export function Footer() {
         <p className="font-satoshi text-stone-dim/40 text-xs leading-relaxed mb-6 max-w-3xl">
           {biz.name} is a {biz.city} {biz.state} junk removal company offering same-day junk hauling,
           affordable furniture removal, construction debris removal, and yard waste cleanup.
-          Proudly serving {biz.city}, Beaverton, Gresham, Lake Oswego, Tigard, Hillsboro,
-          Vancouver WA, Tualatin, Milwaukie, and Oregon City.
+          Proudly serving {biz.city} and the surrounding metro area.
         </p>
 
         <div className="h-px bg-white/[0.03] mb-6" />
