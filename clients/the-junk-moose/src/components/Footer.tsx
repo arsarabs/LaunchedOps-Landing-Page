@@ -8,7 +8,7 @@ export function Footer() {
   const biz = usePersonalization();
   const initials = biz.name.split(" ").filter(w => !["the","a","an"].includes(w.toLowerCase())).slice(0, 2).map(w => w[0]).join("").toUpperCase();
   return (
-    <footer className="bg-dark border-t border-white/[0.03] py-12 px-6 lg:px-10">
+    <footer className="bg-dark border-t border-white/[0.03] py-12 pb-24 lg:pb-12 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Top section: Brand + Service Links + Location Links + Contact */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
@@ -63,19 +63,27 @@ export function Footer() {
           {/* Locations Links */}
           <div>
             <p className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] mb-4">
-              Locations
+              {biz.isDemo ? "Service Area" : "Locations"}
             </p>
             <ul className="space-y-2">
-              {LOCATIONS.map((l) => (
-                <li key={l.slug}>
-                  <Link
-                    href={`/locations/${l.slug}`}
-                    className="font-satoshi text-stone-dim/40 text-xs hover:text-gold/70 transition-colors duration-200"
-                  >
-                    {l.city}, {l.state}
-                  </Link>
-                </li>
-              ))}
+              {biz.isDemo ? (
+                [`${biz.city} Metro`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`].map((area) => (
+                  <li key={area}>
+                    <span className="font-satoshi text-stone-dim/40 text-xs">{area}</span>
+                  </li>
+                ))
+              ) : (
+                LOCATIONS.map((l) => (
+                  <li key={l.slug}>
+                    <Link
+                      href={`/locations/${l.slug}`}
+                      className="font-satoshi text-stone-dim/40 text-xs hover:text-gold/70 transition-colors duration-200"
+                    >
+                      {l.city}, {l.state}
+                    </Link>
+                  </li>
+                ))
+              )}
             </ul>
           </div>
 
@@ -103,6 +111,11 @@ export function Footer() {
               <li>
                 <Link href="/privacy" className="font-satoshi text-stone-dim/40 text-xs hover:text-gold/70 transition-colors duration-200">
                   Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="font-satoshi text-stone-dim/40 text-xs hover:text-gold/70 transition-colors duration-200">
+                  Terms of Service
                 </Link>
               </li>
             </ul>

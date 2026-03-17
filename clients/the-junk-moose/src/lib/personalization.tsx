@@ -13,6 +13,7 @@ interface PersonalizedBusiness {
   rating: string;
   reviewCount: string;
   jobsCompleted: string;
+  isDemo: boolean;
 }
 
 const PersonalizationContext = createContext<PersonalizedBusiness>({
@@ -24,6 +25,7 @@ const PersonalizationContext = createContext<PersonalizedBusiness>({
   rating: BUSINESS.rating,
   reviewCount: BUSINESS.reviewCount,
   jobsCompleted: BUSINESS.jobsCompleted,
+  isDemo: false,
 });
 
 const STORAGE_KEY = "launchedops_demo";
@@ -52,6 +54,7 @@ export function PersonalizationProvider({ children }: { children: React.ReactNod
 
     const nameParam = searchParams.get("name") || stored.name;
     const cityParam = searchParams.get("city") || stored.city;
+    const stateParam = searchParams.get("state") || stored.state;
     const phoneParam = searchParams.get("phone") || stored.phone;
     const ratingParam = searchParams.get("rating") || stored.rating;
     const reviewsParam = searchParams.get("reviews") || stored.reviews;
@@ -59,18 +62,20 @@ export function PersonalizationProvider({ children }: { children: React.ReactNod
 
     const phoneRaw = phoneParam ? `+1${phoneParam.replace(/\D/g, "")}` : BUSINESS.phoneRaw;
     const phoneDisplay = phoneParam ? formatPhone(phoneParam) : BUSINESS.phone;
+    const isDemo = !!(nameParam || cityParam || stored.name || stored.city);
 
     return {
       name: nameParam || BUSINESS.name,
       phone: phoneDisplay,
       phoneRaw,
       city: cityParam || BUSINESS.city,
-      state: BUSINESS.state,
+      state: stateParam || BUSINESS.state,
       rating: ratingParam || BUSINESS.rating,
       reviewCount: reviewsParam || BUSINESS.reviewCount,
       jobsCompleted: jobsParam || BUSINESS.jobsCompleted,
+      isDemo,
       // keep raw params for storage
-      _raw: { name: nameParam, city: cityParam, phone: phoneParam, rating: ratingParam, reviews: reviewsParam, jobs: jobsParam },
+      _raw: { name: nameParam, city: cityParam, state: stateParam, phone: phoneParam, rating: ratingParam, reviews: reviewsParam, jobs: jobsParam },
     };
   }, [searchParams]);
 

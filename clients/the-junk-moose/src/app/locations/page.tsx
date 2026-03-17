@@ -26,9 +26,12 @@ export default function LocationsPage() {
         }}
       />
       <PageHero
-        label="Service Areas"
-        title="Junk Removal Near You"
-        subtitle={`We serve the entire ${biz.city} metro area — 10 cities, same-day service, upfront pricing. Find your city below.`}
+        label="Service Area"
+        title={biz.isDemo ? `Serving ${biz.city} & Beyond` : "Junk Removal Near You"}
+        subtitle={biz.isDemo
+          ? `${biz.name} provides fast, reliable junk removal across ${biz.city}, ${biz.state} and the surrounding metro area. Same-day service, upfront pricing.`
+          : `We serve the entire ${biz.city} metro area — 10 cities, same-day service, upfront pricing. Find your city below.`
+        }
       />
 
       <section id="main-content" className="bg-dark px-6 lg:px-10 py-16 sm:py-20 lg:py-28">
@@ -56,8 +59,7 @@ export default function LocationsPage() {
               rating from {biz.reviewCount}+ verified reviews, {biz.city} metro residents and
               businesses trust {biz.name} to get the job done right. We are licensed, insured,
               and committed to eco-friendly disposal — donating usable items to local charities and
-              recycling materials whenever possible. Select your city below to learn more about our
-              service in your area.{" "}
+              recycling materials whenever possible.{" "}
               <Link href="/reviews" className="text-gold hover:text-gold-light transition-colors">
                 Read customer reviews
               </Link>.
@@ -73,16 +75,26 @@ export default function LocationsPage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {LOCATIONS.map((loc) => (
-              <LocationCard
-                key={loc.slug}
-                city={loc.city}
-                state={loc.state}
-                slug={loc.slug}
-              />
-            ))}
-          </div>
+          {biz.isDemo ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {[`Downtown ${biz.city}`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`, `Greater ${biz.city}`, `${biz.city} Metro`, `${biz.city} Suburbs`].map((area) => (
+                <div key={area} className="bg-warm-gray border border-white/[0.04] px-5 py-4 font-satoshi text-stone-dim text-sm">
+                  {area}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {LOCATIONS.map((loc) => (
+                <LocationCard
+                  key={loc.slug}
+                  city={loc.city}
+                  state={loc.state}
+                  slug={loc.slug}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

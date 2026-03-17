@@ -88,44 +88,53 @@ export function Nav() {
               </div>
             </div>
 
-            {/* Locations dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleMouseEnter("locations")}
-              onMouseLeave={handleMouseLeave}
-            >
+            {/* Locations — full dropdown for default, simple link for demo */}
+            {biz.isDemo ? (
               <Link
                 href="/locations"
-                className="font-satoshi text-stone-dim text-[13px] uppercase tracking-[0.15em] hover:text-gold transition-colors duration-300 flex items-center gap-1"
+                className="font-satoshi text-stone-dim text-[13px] uppercase tracking-[0.15em] hover:text-gold transition-colors duration-300"
               >
-                Locations
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                Service Area
               </Link>
+            ) : (
               <div
-                className={`absolute top-full left-0 mt-2 w-56 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl transition-all duration-200 ${activeDropdown === "locations" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter("locations")}
+                onMouseLeave={handleMouseLeave}
               >
-                <div className="py-2">
-                  <Link
-                    href="/locations"
-                    className="block px-5 py-2.5 font-satoshi text-gold/70 text-xs uppercase tracking-[0.15em] hover:text-gold transition-colors"
-                  >
-                    All Locations
-                  </Link>
-                  <div className="h-px bg-white/[0.04] mx-4" />
-                  {LOCATIONS.map((l) => (
+                <Link
+                  href="/locations"
+                  className="font-satoshi text-stone-dim text-[13px] uppercase tracking-[0.15em] hover:text-gold transition-colors duration-300 flex items-center gap-1"
+                >
+                  Locations
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+                <div
+                  className={`absolute top-full left-0 mt-2 w-56 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl transition-all duration-200 ${activeDropdown === "locations" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+                >
+                  <div className="py-2">
                     <Link
-                      key={l.slug}
-                      href={`/locations/${l.slug}`}
-                      className="block px-5 py-2.5 font-satoshi text-stone-dim text-sm hover:text-gold hover:bg-white/[0.02] transition-colors duration-200"
+                      href="/locations"
+                      className="block px-5 py-2.5 font-satoshi text-gold/70 text-xs uppercase tracking-[0.15em] hover:text-gold transition-colors"
                     >
-                      {l.city}, {l.state}
+                      All Locations
                     </Link>
-                  ))}
+                    <div className="h-px bg-white/[0.04] mx-4" />
+                    {LOCATIONS.map((l) => (
+                      <Link
+                        key={l.slug}
+                        href={`/locations/${l.slug}`}
+                        className="block px-5 py-2.5 font-satoshi text-stone-dim text-sm hover:text-gold hover:bg-white/[0.02] transition-colors duration-200"
+                      >
+                        {l.city}, {l.state}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             <Link
               href="/about"
@@ -183,7 +192,7 @@ export function Nav() {
         <nav className="flex flex-col items-center gap-6">
           {[
             { label: "Services", href: "/services" },
-            { label: "Locations", href: "/locations" },
+            ...(biz.isDemo ? [{ label: "Service Area", href: "/locations" }] : [{ label: "Locations", href: "/locations" }]),
             { label: "About", href: "/about" },
             { label: "Reviews", href: "/reviews" },
             { label: "Contact", href: "/contact" },
