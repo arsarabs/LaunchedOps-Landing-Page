@@ -1,44 +1,31 @@
-const BUSINESS_NAME = "The Junk Moose";
-const PHONE = "(503) 555-0100";
-const URL = "https://demo.launchedops.com";
-const CITY = "Portland";
-const STATE = "OR";
-const LAT = 45.5152;
-const LNG = -122.6784;
+import { BUSINESS, LOCATIONS } from "./data";
 
-const SERVICE_AREAS = [
-  "Portland",
-  "Beaverton",
-  "Gresham",
-  "Lake Oswego",
-  "Tigard",
-  "Hillsboro",
-  "Vancouver WA",
-  "Tualatin",
-  "Milwaukie",
-  "Oregon City",
-];
+const SERVICE_AREAS = LOCATIONS.map((loc) =>
+  loc.state === "WA" ? `${loc.city} ${loc.state}` : loc.city
+);
 
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${URL}/#localbusiness`,
-    name: BUSINESS_NAME,
+    "@id": `${BUSINESS.url}/#localbusiness`,
+    name: BUSINESS.name,
     description:
-      "Professional junk removal services in Portland, OR and surrounding areas. Fast, affordable, and eco-friendly hauling for residential and commercial customers.",
-    url: URL,
-    telephone: PHONE,
+      `Professional junk removal services in ${BUSINESS.city}, ${BUSINESS.state} and surrounding areas. Fast, affordable, and eco-friendly hauling for residential and commercial customers.`,
+    url: BUSINESS.url,
+    telephone: BUSINESS.phone,
     address: {
       "@type": "PostalAddress",
-      addressLocality: CITY,
-      addressRegion: STATE,
+      streetAddress: BUSINESS.street,
+      addressLocality: BUSINESS.city,
+      addressRegion: BUSINESS.state,
+      postalCode: BUSINESS.zip,
       addressCountry: "US",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: LAT,
-      longitude: LNG,
+      latitude: 45.5152,
+      longitude: -122.6784,
     },
     openingHoursSpecification: [
       {
@@ -61,16 +48,11 @@ export function getLocalBusinessSchema() {
       name: area,
     })),
     image: "/our-junk-removal-team.jpg",
-    sameAs: [
-      "https://www.facebook.com/thejunkmoose",
-      "https://www.instagram.com/thejunkmoose",
-      "https://www.yelp.com/biz/the-junk-moose-portland",
-      "https://www.google.com/maps/place/The+Junk+Moose",
-    ],
+    sameAs: [],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "500",
+      ratingValue: BUSINESS.rating,
+      reviewCount: BUSINESS.reviewCount,
       bestRating: "5",
       worstRating: "1",
     },
@@ -87,14 +69,14 @@ export function getLocalBusinessSchema() {
           bestRating: "5",
         },
         reviewBody:
-          "The Junk Moose team cleared out our entire garage in under two hours. Fair price, friendly crew, and they even swept up after. Best junk removal experience in Portland!",
+          `The ${BUSINESS.name} team cleared out our entire garage in under two hours. Fair price, friendly crew, and they even swept up after. Best junk removal experience in ${BUSINESS.city}!`,
         datePublished: "2025-11-15",
         locationCreated: {
           "@type": "Place",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Portland",
-            addressRegion: "OR",
+            addressLocality: BUSINESS.city,
+            addressRegion: BUSINESS.state,
           },
         },
       },
@@ -110,7 +92,7 @@ export function getLocalBusinessSchema() {
           bestRating: "5",
         },
         reviewBody:
-          "Had a ton of construction debris from a kitchen remodel. The Junk Moose gave us a quote on the spot and had everything hauled away the same day. Highly recommend for anyone in Beaverton!",
+          `Had a ton of construction debris from a kitchen remodel. ${BUSINESS.name} gave us a quote on the spot and had everything hauled away the same day. Highly recommend!`,
         datePublished: "2025-12-03",
         locationCreated: {
           "@type": "Place",
@@ -173,8 +155,8 @@ export function getServiceSchemas() {
     serviceType: service.serviceType,
     provider: {
       "@type": "LocalBusiness",
-      "@id": `${URL}/#localbusiness`,
-      name: BUSINESS_NAME,
+      "@id": `${BUSINESS.url}/#localbusiness`,
+      name: BUSINESS.name,
     },
     areaServed: SERVICE_AREAS.map((area) => ({
       "@type": "Place",
@@ -192,7 +174,7 @@ export function getFAQSchema() {
     },
     {
       question: "Do you serve my area?",
-      answer: `Yes! We proudly serve ${SERVICE_AREAS.join(", ")} and surrounding communities throughout the greater Portland metro area.`,
+      answer: `Yes! We proudly serve ${SERVICE_AREAS.join(", ")} and surrounding communities throughout the greater ${BUSINESS.city} metro area.`,
     },
     {
       question: "How fast can you show up?",
@@ -211,7 +193,7 @@ export function getFAQSchema() {
     },
     {
       question: "How do I get a quote?",
-      answer: `Getting a quote is easy! Call or text us at ${PHONE}, or fill out the contact form on our website. We'll get back to you within minutes during business hours with a free, no-obligation estimate.`,
+      answer: `Getting a quote is easy! Call or text us at ${BUSINESS.phone}, or fill out the contact form on our website. We'll get back to you within minutes during business hours with a free, no-obligation estimate.`,
     },
   ];
 
@@ -238,7 +220,7 @@ export function getBreadcrumbSchema() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: URL,
+        item: BUSINESS.url,
       },
     ],
   };

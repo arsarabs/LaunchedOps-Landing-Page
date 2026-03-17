@@ -146,7 +146,7 @@ export default function RootLayout({
                   author: { "@type": "Person", name: "Sarah K." },
                   datePublished: "2025-10-02",
                   reviewBody:
-                    "No other company would touch the pile of debris we had. The Junk Moose handled it without blinking.",
+                    "No other company would touch the pile of debris we had. These guys handled it without blinking.",
                   reviewRating: {
                     "@type": "Rating",
                     ratingValue: "5",

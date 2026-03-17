@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { BUSINESS } from "@/lib/data";
+import { usePersonalization } from "@/lib/personalization";
 
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
+  const biz = usePersonalization();
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
@@ -125,10 +126,10 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
             We&apos;ll be in touch within 15 minutes during business hours.
           </p>
           <a
-            href={`tel:${BUSINESS.phoneRaw}`}
+            href={`tel:${biz.phoneRaw}`}
             className="font-satoshi text-gold/60 text-sm hover:text-gold transition-colors"
           >
-            Can&apos;t wait? Call {BUSINESS.phone}
+            Can&apos;t wait? Call {biz.phone}
           </a>
         </div>
       )}

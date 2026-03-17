@@ -1,15 +1,11 @@
+"use client";
+
 import { BUSINESS } from "@/lib/data";
-import { makeMetadata } from "@/lib/metadata";
+import { usePersonalization } from "@/lib/personalization";
 import { Breadcrumb, breadcrumbSchema } from "@/components/Breadcrumb";
 import { PageHero } from "@/components/PageHero";
 import Link from "next/link";
-
-export const metadata = makeMetadata({
-  title: "Customer Reviews | The Junk Moose Portland Junk Removal",
-  description:
-    "See what Portland homeowners say about The Junk Moose. 4.9-star rating from 500+ verified reviews. Read real testimonials from our junk removal customers.",
-  path: "/reviews",
-});
+import { useEffect } from "react";
 
 const breadcrumbItems = [{ label: "Reviews", href: "/reviews" }];
 
@@ -26,7 +22,7 @@ const testimonials = [
     location: "Beaverton, OR",
     service: "Construction Debris",
     rating: 5,
-    text: "Had a mountain of drywall and lumber from our kitchen remodel. The Junk Moose crew showed up on time, loaded everything up, and even swept the driveway. Way better than renting a dumpster.",
+    text: "Had a mountain of drywall and lumber from our kitchen remodel. The crew showed up on time, loaded everything up, and even swept the driveway. Way better than renting a dumpster.",
   },
   {
     name: "Jennifer M.",
@@ -40,7 +36,7 @@ const testimonials = [
     location: "Tigard, OR",
     service: "Full Property Cleanout",
     rating: 5,
-    text: "My mother passed and we needed her entire house cleared out. The Junk Moose team was respectful, careful with the items we wanted to keep, and had the whole property empty in one day. They made an incredibly difficult time so much easier. Cannot recommend them enough.",
+    text: "My mother passed and we needed her entire house cleared out. The team was respectful, careful with the items we wanted to keep, and had the whole property empty in one day. They made an incredibly difficult time so much easier. Cannot recommend them enough.",
   },
   {
     name: "Chris P.",
@@ -61,7 +57,7 @@ const testimonials = [
     location: "Tualatin, OR",
     service: "Appliance Removal",
     rating: 5,
-    text: "Had a dead washer, dryer, and an old water heater sitting in the garage for months. The Junk Moose picked up all three in one trip. They disconnected the appliances, loaded them up, and were done in under 30 minutes. Great price and they recycled everything properly.",
+    text: "Had a dead washer, dryer, and an old water heater sitting in the garage for months. The team picked up all three in one trip. They disconnected the appliances, loaded them up, and were done in under 30 minutes. Great price and they recycled everything properly.",
   },
   {
     name: "Lisa H.",
@@ -71,31 +67,6 @@ const testimonials = [
     text: "We run a small retail shop and needed old shelving, display cases, and a ton of cardboard cleared out after our renovation. The crew came after hours so it would not disrupt business and had everything gone by 9pm. Professional, on time, and priced very reasonably for the amount of stuff they took.",
   },
 ];
-
-const aggregateRatingSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: BUSINESS.name,
-  telephone: BUSINESS.phone,
-  url: BUSINESS.url,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: BUSINESS.rating,
-    reviewCount: BUSINESS.reviewCount,
-    bestRating: "5",
-    worstRating: "1",
-  },
-  review: testimonials.map((t) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: t.name },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: t.rating,
-      bestRating: "5",
-    },
-    reviewBody: t.text,
-  })),
-};
 
 function Stars({ count }: { count: number }) {
   return (
@@ -116,6 +87,37 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function ReviewsPage() {
+  const biz = usePersonalization();
+
+  useEffect(() => {
+    document.title = `Customer Reviews | ${biz.name} ${biz.city} Junk Removal`;
+  }, [biz.name, biz.city]);
+
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: biz.name,
+    telephone: biz.phone,
+    url: BUSINESS.url,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: biz.rating,
+      reviewCount: biz.reviewCount,
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: testimonials.map((t) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: t.name },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: t.rating,
+        bestRating: "5",
+      },
+      reviewBody: t.text,
+    })),
+  };
+
   return (
     <>
       <script
@@ -133,8 +135,8 @@ export default function ReviewsPage() {
 
       <PageHero
         label="Customer Reviews"
-        title="What Portland Says About Us"
-        subtitle={`${BUSINESS.rating}-star rating from ${BUSINESS.reviewCount}+ verified reviews. We let our work speak for itself.`}
+        title={`What ${biz.city} Says About Us`}
+        subtitle={`${biz.rating}-star rating from ${biz.reviewCount}+ verified reviews. We let our work speak for itself.`}
       />
 
       <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
@@ -145,7 +147,7 @@ export default function ReviewsPage() {
           <section className="mb-16 lg:mb-20 text-center">
             <div className="border border-white/[0.04] bg-warm-gray p-8 lg:p-12 inline-block w-full max-w-md mx-auto">
               <p className="font-clash font-bold text-gold text-5xl sm:text-6xl mb-2">
-                {BUSINESS.rating}
+                {biz.rating}
               </p>
               <div className="flex justify-center mb-3">
                 <Stars count={5} />
@@ -153,7 +155,7 @@ export default function ReviewsPage() {
               <p className="font-satoshi text-stone-dim text-sm">
                 Based on{" "}
                 <span className="text-stone font-medium">
-                  {BUSINESS.reviewCount}+
+                  {biz.reviewCount}+
                 </span>{" "}
                 verified Google reviews
               </p>
@@ -167,12 +169,12 @@ export default function ReviewsPage() {
             </h2>
             <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
               <p>
-                At {BUSINESS.name}, customer satisfaction is not just a goal — it is the standard
-                we hold ourselves to on every single job. With over {BUSINESS.jobsCompleted} jobs
-                completed across the Portland metro area, we have built our reputation one pickup
+                At {biz.name}, customer satisfaction is not just a goal — it is the standard
+                we hold ourselves to on every single job. With over {biz.jobsCompleted} jobs
+                completed across the {biz.city} metro area, we have built our reputation one pickup
                 at a time through honest pricing, on-time arrivals, and crews that treat your
                 property with respect. Every review below comes from a real customer and a real
-                job. We are proud that Portland, Beaverton, Lake Oswego, Tigard, and communities
+                job. We are proud that communities
                 across the metro continue to trust us with their junk removal needs.
               </p>
             </div>
@@ -182,7 +184,7 @@ export default function ReviewsPage() {
           <div className="mb-16 lg:mb-20">
             <img
               src="/before-after-1.jpg"
-              alt="Before and after junk removal job — garage cleanout in Portland OR by The Junk Moose"
+              alt="Before and after junk removal job — garage cleanout"
               className="w-full h-auto"
               width={1200}
               height={800}
@@ -229,8 +231,8 @@ export default function ReviewsPage() {
                 Leave Us a Review
               </h2>
               <p className="font-satoshi text-stone-dim text-base leading-relaxed max-w-lg mx-auto mb-6">
-                Had a great experience with {BUSINESS.name}? We&apos;d love to
-                hear about it. Your review helps other Portland homeowners find
+                Had a great experience with {biz.name}? We&apos;d love to
+                hear about it. Your review helps other {biz.city} homeowners find
                 reliable junk removal.
               </p>
               {/* // TODO: embed Google Reviews widget — requires Google Places API key in server-side API route only */}
@@ -256,10 +258,10 @@ export default function ReviewsPage() {
           {/* ── CTA ── */}
           <section className="text-center">
             <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-4">
-              See Why Portland Trusts The Moose
+              See Why {biz.city} Trusts {biz.name}
             </h2>
             <p className="font-satoshi text-stone-dim text-base mb-8 max-w-xl mx-auto">
-              {BUSINESS.jobsCompleted} jobs done. {BUSINESS.rating}-star rating.
+              {biz.jobsCompleted} jobs done. {biz.rating}-star rating.
               Get your free quote and see the difference.
             </p>
             <Link

@@ -1,176 +1,173 @@
-You are updating an existing Next.js contractor website. Your job is to integrate 6 photos into the site while maintaining the existing design system exactly. Do not change any colors, fonts, spacing, or components that are not explicitly mentioned in this prompt.
+You have access to the following skills: frontend-design, cro, react-performance, seo, simplify.
 
-ABSOLUTE RULES — READ BEFORE TOUCHING ANYTHING
-Do NOT change:
+Start by reading each skill file:
+- /skills/frontend-design/SKILL.md
+- /skills/cro/SKILL.md
+- /skills/react-performance/SKILL.md
+- /skills/seo/SKILL.md
+- /skills/simplify/SKILL.md
 
-Any existing color tokens or CSS variables
-Cabinet Grotesk or Switzer font declarations
-The Marquee, NumberTicker, or SpotlightCard components
-The radial orange glow in the hero
-Any section that is not explicitly mentioned below
+This is a follow-up to a previous SEO optimization pass on a Next.js/Tailwind junk removal website (The Junk Moose, demo.launchedops.com). The homepage is already optimized. Now expand the site into a full multi-page architecture to dramatically increase organic keyword surface area and local SEO authority.
 
-Do NOT do any of the following with images:
+Do NOT hardcode any API keys. Do NOT put any secrets in client-side code.
 
-Use raw <img> tags
-Set objectFit: 'contain' — always use 'cover'
-Default objectPosition to center on portrait photos — use 'top center'
-Stretch or distort any image to fill a container
-Display an image wider than its natural resolution allows
-Skip the dark overlay on any image used as a section background
-Use placeholder or stock image URLs — only use the filenames listed below
+---
 
+## GOAL
+Transform this single-page site into a multi-page Next.js app with dedicated routes for services, locations, and supporting pages. Each page gets its own metadata, schema, and keyword targeting.
 
-IMAGES AVAILABLE IN /public
-/job1_before.jpg   — driveway debris pile (800x600)
-/job1_after.jpg    — clean driveway (800x600)
-/job2_before.jpg   — mattress and furniture pile (800x600)
-/job2_after.jpg    — clean backyard (800x600)
-/crew.jpg          — crew of 5 standing in front of orange truck (1200x675)
-/founder.jpg       — founder walking next to truck, portrait crop (600x900)
+---
 
-CHANGE 1 — BEFORE/AFTER SECTION
-Find the existing before/after section. Replace the CSS-only text cards with real photo cards. Keep the section background, label, and headline exactly as they are. Only replace the cards themselves.
-Build two cards side by side on desktop (grid-cols-2), stacked on mobile (grid-cols-1). Each card has a before photo on top, an orange divider, and an after photo on bottom.
-Use this exact structure for both cards:
-tsx<div className="rounded-2xl overflow-hidden border border-neutral-800">
+## PAGE ARCHITECTURE TO BUILD
 
-  {/* BEFORE PHOTO */}
-  <div className="relative w-full h-64">
-    <Image
-      src="/job1_before.jpg"
-      alt="Before junk removal — driveway debris"
-      fill
-      sizes="(max-width: 768px) 100vw, 50vw"
-      style={{ objectFit: 'cover', objectPosition: 'center' }}
-    />
-    <div className="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-sm px-3 py-1 rounded-full">
-      <span
-        className="text-xs font-medium tracking-widest uppercase text-neutral-400"
-        style={{ fontFamily: 'Switzer, sans-serif' }}
-      >
-        Before
-      </span>
-    </div>
-  </div>
+### 1. Service Pages — `/services/[slug]`
 
-  {/* ORANGE DIVIDER */}
-  <div className="w-full h-0.5 bg-orange-500" />
+Create a dynamic route at `/app/services/[slug]/page.tsx`.
 
-  {/* AFTER PHOTO */}
-  <div className="relative w-full h-64">
-    <Image
-      src="/job1_after.jpg"
-      alt="After junk removal — clean driveway"
-      fill
-      sizes="(max-width: 768px) 100vw, 50vw"
-      style={{ objectFit: 'cover', objectPosition: 'center' }}
-    />
-    <div className="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-sm px-3 py-1 rounded-full">
-      <span
-        className="text-xs font-medium tracking-widest uppercase text-orange-500"
-        style={{ fontFamily: 'Switzer, sans-serif' }}
-      >
-        After
-      </span>
-    </div>
-  </div>
+Build individual pages for each service:
+- `/services/furniture-appliance-removal`
+- `/services/construction-debris-removal`
+- `/services/yard-waste-removal`
+- `/services/full-property-cleanouts`
+- `/services/commercial-junk-removal`
+- `/services/same-day-junk-removal`
 
-</div>
-Card 1: use /job1_before.jpg and /job1_after.jpg
-Card 2: use /job2_before.jpg and /job2_after.jpg — alt text: "Before — mattress and furniture pile" / "After — clean backyard"
+Each service page must include:
+- Unique `<title>` and `<meta description>` targeting that service + "Portland OR"
+- H1 with the service name + location (e.g. "Furniture & Appliance Removal in Portland OR")
+- 150-200 words of unique body copy describing the service, what's included, and why locals choose The Junk Moose
+- A relevant FAQ section (3-5 questions specific to that service) with FAQPage schema
+- Service schema (matching what was built in the SEO pass)
+- A sticky CTA ("Get a Free Quote") throughout
+- Breadcrumb nav: Home > Services > [Service Name] with BreadcrumbList schema
+- Link back to homepage and to the locations hub
 
-CHANGE 2 — CREW SECTION
-Add a new section between the Stats section and the Testimonials section. Do not move or modify either of those sections — just insert this between them.
-tsx<section className="relative w-full h-[500px] overflow-hidden">
+Build a `/services` index page at `/app/services/page.tsx` that:
+- Lists all 6 services as cards with links
+- Has its own title/meta: "Junk Removal Services Portland OR | The Junk Moose"
+- Includes a short intro paragraph
 
-  {/* PHOTO LAYER */}
-  <Image
-    src="/crew.jpg"
-    alt="The Junk Moose crew in front of the truck"
-    fill
-    sizes="100vw"
-    style={{ objectFit: 'cover', objectPosition: 'center top' }}
-  />
+---
 
-  {/* DARK OVERLAY — always required on background photos */}
-  <div className="absolute inset-0 bg-black/60" />
+### 2. Location Pages — `/locations/[slug]`
 
-  {/* TEXT LAYER */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-    <span
-      className="text-xs font-medium tracking-widest uppercase mb-4"
-      style={{ fontFamily: 'Switzer, sans-serif', color: '#F97316' }}
-    >
-      The Team
-    </span>
-    <h2
-      className="text-5xl md:text-6xl font-black leading-none"
-      style={{ fontFamily: 'Cabinet Grotesk, sans-serif', color: '#F5F0E8' }}
-    >
-      Real people. Real work.
-    </h2>
-    <p
-      className="mt-4 text-lg max-w-lg"
-      style={{ fontFamily: 'Switzer, sans-serif', color: '#9CA3AF' }}
-    >
-      Every job is handled by our own crew — not subcontractors, not day labor. 
-      We show up on time and we don't leave until it's clean.
-    </p>
-  </div>
+Create a dynamic route at `/app/locations/[slug]/page.tsx`.
 
-</section>
+Build individual pages for each service city:
+- `/locations/portland`
+- `/locations/beaverton`
+- `/locations/gresham`
+- `/locations/lake-oswego`
+- `/locations/tigard`
+- `/locations/hillsboro`
+- `/locations/vancouver-wa`
+- `/locations/tualatin`
+- `/locations/milwaukie`
+- `/locations/oregon-city`
 
-CHANGE 3 — TESTIMONIALS SECTION
-Find the existing testimonials section. Keep every style, card, quote, and color exactly as is. Only change the layout to add the founder photo on the left.
-Wrap the existing testimonial cards in this new grid:
-tsx<div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mt-16">
+Each location page must include:
+- Unique `<title>`: "[City] Junk Removal | Same-Day Service | The Junk Moose"
+- Unique `<meta description>` mentioning the city specifically
+- H1: "Junk Removal in [City]"
+- 150-200 words of unique body copy — mention the city by name at least 4 times naturally, reference local landmarks or neighborhoods where possible as placeholder text (mark with // TODO: localize)
+- LocalBusiness schema with areaServed scoped to that specific city
+- A 3-5 question FAQ specific to that location (response times, coverage area, etc.)
+- List of all services offered in that location (linking to service pages)
+- Breadcrumb: Home > Locations > [City] with schema
+- CTA form (can be a simplified version of the homepage form)
 
-  {/* FOUNDER PHOTO — desktop only */}
-  <div className="relative w-full h-[520px] rounded-2xl overflow-hidden hidden md:block border border-neutral-800">
-    <Image
-      src="/founder.jpg"
-      alt="Marcus, founder of The Junk Moose"
-      fill
-      sizes="33vw"
-      style={{ objectFit: 'cover', objectPosition: 'top center' }}
-    />
-    {/* Subtle gradient fade at bottom */}
-    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-neutral-900 to-transparent" />
-    {/* Name tag */}
-    <div className="absolute bottom-4 left-4">
-      <p
-        className="text-base font-bold"
-        style={{ fontFamily: 'Cabinet Grotesk, sans-serif', color: '#F5F0E8' }}
-      >
-        Marcus
-      </p>
-      <p
-        className="text-sm"
-        style={{ fontFamily: 'Switzer, sans-serif', color: '#F97316' }}
-      >
-        Founder, The Junk Moose
-      </p>
-    </div>
-  </div>
+Build a `/locations` index page at `/app/locations/page.tsx` that:
+- Lists all 10 cities as a grid of cards
+- Title/meta: "Junk Removal Near Me | Portland Metro Area | The Junk Moose"
 
-  {/* TESTIMONIAL CARDS — take remaining 2 columns */}
-  <div className="md:col-span-2 flex flex-col gap-6">
-    {/* paste existing testimonial card 1 here exactly as is */}
-    {/* paste existing testimonial card 2 here exactly as is */}
-  </div>
+---
 
-</div>
+### 3. Supporting Pages
 
-GLOBAL IMAGE QUALITY CHECKS
-After making all three changes, do a full pass and confirm every single one of these is true:
+**`/about`**
+- Title: "About The Junk Moose | Portland's Local Junk Removal Crew"
+- Expand the homepage "Built by hand. Run with pride." section into a full page
+- Include: founder story, crew info, licensing/insurance, eco-friendly disposal practices
+- Add Person schema for Marcus (founder)
+- Add Organization schema
 
- Every <Image> has a sizes prop defined
- Every <Image> uses fill with a relative parent container that has an explicit height
- Every portrait image (founder.jpg) uses objectPosition: 'top center'
- Every background image has a dark overlay div directly after it
- No raw <img> tags exist anywhere in the file
- No image is displayed in a container with no defined height
- The priority prop is on the hero image only
- All other images do NOT have priority — Next.js lazy loads them by default
+**`/reviews`**
+- Title: "Customer Reviews | The Junk Moose Portland Junk Removal"
+- Pull in all testimonials from the homepage
+- Add a section for a Google Reviews embed placeholder (mark with // TODO: embed Google Reviews widget — requires Google Places API key in server-side API route only)
+- Add AggregateRating and individual Review schema for each testimonial
+- Add a QR code section: "Leave us a review" with a placeholder QR image and copy explaining it routes to Google Reviews
 
-If any of these checks fail, fix them before finishing.
+**`/contact`**
+- Title: "Contact The Junk Moose | Free Junk Removal Quote Portland OR"
+- Full contact form (name, phone, email, service type, message)
+- NAP block with address tag
+- Embedded Google Maps placeholder (mark with // TODO: requires Maps API key in server-side route)
+- Business hours
+- ContactPoint schema
+
+---
+
+## NAVIGATION
+
+Update the site header to include:
+- Services (dropdown linking to all 6 service pages + /services index)
+- Locations (dropdown linking to all 10 city pages + /locations index)
+- About
+- Reviews
+- Contact
+- Keep existing CTA button ("Free Quote" → links to /contact)
+
+Update the footer to include:
+- Two columns: Services links + Location links
+- Legal row: © 2025 The Junk Moose · Privacy Policy (placeholder) · Terms (placeholder)
+
+---
+
+## INTERNAL LINKING STRATEGY
+
+- Homepage should link to all service pages and the locations hub
+- Every service page links to all location pages ("We offer [service] in [city], [city], and [city]")
+- Every location page links to all service pages
+- About, Reviews, Contact all link back to homepage and /contact
+- This creates a full internal link mesh — critical for passing PageRank across the site
+
+---
+
+## SITEMAP UPDATE
+
+Update `/app/sitemap.ts` to include all new routes:
+- /services and all 6 service slugs (priority: 0.9)
+- /locations and all 10 location slugs (priority: 0.8)
+- /about, /reviews, /contact (priority: 0.7)
+
+---
+
+## SHARED COMPONENTS TO BUILD
+
+Create reusable components in `/components/`:
+- `<ServiceCard />` — used on /services index and homepage
+- `<LocationCard />` — used on /locations index
+- `<QuoteForm />` — shared across homepage, /contact, and location pages
+- `<Breadcrumb />` — used on all inner pages, accepts array of {label, href}
+- `<PageHero />` — shared hero banner for inner pages (title, subtitle, CTA)
+- `<FAQAccordion />` — already exists on homepage, extract into reusable component
+
+---
+
+## SIMPLIFY PASS
+
+After all pages are built, use the simplify skill to:
+- Consolidate all schema-building into `/lib/schema.ts` with typed builder functions
+- Consolidate all page metadata generation into `/lib/metadata.ts`
+- Consolidate all static data (services list, locations list, FAQs) into `/lib/data.ts`
+- Remove any duplicate code across page files
+- Confirm zero hardcoded API keys anywhere
+
+---
+
+After completing all phases, output:
+1. Full file tree of every new file created
+2. Any // TODO items that require manual action or API keys
+3. Estimated total indexable pages added (should be 20+)
+4. Recommended order to submit URLs to Google Search Console

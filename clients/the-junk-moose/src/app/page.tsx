@@ -460,13 +460,13 @@ function Services() {
 const beforeAfterPhotos = [
   {
     src: "/before-after-1.jpg",
-    alt: "Before and after junk removal — garage cleanout Portland OR by The Junk Moose",
-    detail: "Single-family home · Portland, OR · 1 truck load",
+    alt: "Before and after junk removal — garage cleanout",
+    detail: "Single-family home · 1 truck load",
   },
   {
     src: "/before-after-2.jpg",
-    alt: "Before and after property debris removal — estate cleanout Beaverton OR by The Junk Moose",
-    detail: "Estate cleanout · Beaverton, OR · 2 truck loads",
+    alt: "Before and after property debris removal — estate cleanout",
+    detail: "Estate cleanout · 2 truck loads",
   },
 ];
 
@@ -668,7 +668,7 @@ function CrewPhoto() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/our-junk-removal-team.jpg"
-        alt="The Junk Moose junk removal crew in front of truck — Portland OR"
+        alt="Junk removal crew in front of truck"
         className="w-full h-auto block"
       />
       <div className="absolute inset-0 bg-black/60" />
@@ -700,7 +700,7 @@ function MeetTheOwner() {
           {/* Left — large editorial headline */}
           <div className="lg:col-span-5">
             <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-6">
-              The Moose Behind It All
+              The Story Behind It All
             </p>
             <h2 className="font-clash font-bold text-4xl sm:text-5xl lg:text-[60px] leading-[0.9] tracking-tight mb-8">
               <span className="text-stone">Built by hand.</span>
@@ -824,7 +824,7 @@ function Testimonials() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/founder.jpg"
-              alt="Marcus, founder of The Junk Moose junk removal crew Portland OR"
+              alt="Founder of the junk removal company"
               className="absolute inset-0 w-full h-full object-cover object-[center_top]"
             />
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-dark to-transparent" />

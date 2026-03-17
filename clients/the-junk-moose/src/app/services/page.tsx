@@ -1,50 +1,53 @@
-import { SERVICES, BUSINESS } from "@/lib/data";
-import { makeMetadata } from "@/lib/metadata";
+"use client";
+
+import { SERVICES } from "@/lib/data";
+import { usePersonalization } from "@/lib/personalization";
 import { Breadcrumb, breadcrumbSchema } from "@/components/Breadcrumb";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
 import Link from "next/link";
-
-export const metadata = makeMetadata({
-  title: `Junk Removal Services Portland OR | ${BUSINESS.name}`,
-  description: `Professional junk removal services in Portland OR. Furniture removal, construction debris, yard waste, full cleanouts, commercial hauling & same-day pickup. Call ${BUSINESS.phone} for a free quote.`,
-  path: "/services",
-});
+import { useEffect } from "react";
 
 const breadcrumbItems = [{ label: "Services", href: "/services" }];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What junk removal services does The Junk Moose offer?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The Junk Moose offers six core services: Furniture & Appliance Removal, Construction Debris Removal, Yard Waste Removal, Full Property Cleanouts, Commercial Junk Removal, and Same-Day Junk Removal across Portland OR and the surrounding metro area.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does The Junk Moose offer same-day junk removal?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Call or text before noon and we will have a crew at your location by end of day. No rush fees or premium charges for same-day service.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How much does junk removal cost in Portland?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Pricing depends on the volume and type of items. Single-item pickups typically run $75-$150, and a full truckload is usually $250-$500. We provide an exact upfront quote before any work begins.",
-      },
-    },
-  ],
-};
-
 export default function ServicesPage() {
+  const biz = usePersonalization();
+
+  useEffect(() => {
+    document.title = `Junk Removal Services ${biz.city} ${biz.state} | ${biz.name}`;
+  }, [biz.name, biz.city, biz.state]);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `What junk removal services does ${biz.name} offer?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `${biz.name} offers six core services: Furniture & Appliance Removal, Construction Debris Removal, Yard Waste Removal, Full Property Cleanouts, Commercial Junk Removal, and Same-Day Junk Removal across ${biz.city} ${biz.state} and the surrounding metro area.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Does ${biz.name} offer same-day junk removal?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Call or text before noon and we will have a crew at your location by end of day. No rush fees or premium charges for same-day service.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: `How much does junk removal cost in ${biz.city}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Pricing depends on the volume and type of items. Single-item pickups typically run $75-$150, and a full truckload is usually $250-$500. We provide an exact upfront quote before any work begins.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -64,7 +67,7 @@ export default function ServicesPage() {
         <PageHero
           label="Our Services"
           title="What We Haul"
-          subtitle={`From a single couch to an entire property — ${BUSINESS.name} handles it all across Portland OR and the surrounding metro area.`}
+          subtitle={`From a single couch to an entire property — ${biz.name} handles it all across ${biz.city} ${biz.state} and the surrounding metro area.`}
         />
 
         {/* Intro Content */}
@@ -72,19 +75,19 @@ export default function ServicesPage() {
           <div className="max-w-4xl mx-auto">
             <Breadcrumb items={breadcrumbItems} />
             <h2 className="font-clash font-bold text-2xl sm:text-3xl text-stone tracking-tight mb-6">
-              Portland&rsquo;s Full-Service Junk Removal Team
+              {biz.city}&rsquo;s Full-Service Junk Removal Team
             </h2>
             <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4">
               <p>
-                {BUSINESS.name} provides comprehensive junk removal services across Portland, Oregon
-                and the entire metro area. Whether you need a single piece of furniture hauled away
+                {biz.name} provides comprehensive junk removal services across {biz.city}, {biz.state}
+                {" "}and the entire metro area. Whether you need a single piece of furniture hauled away
                 or an entire property cleared from top to bottom, our experienced crew handles every
                 job with speed, professionalism, and transparent pricing. We have completed over{" "}
-                {BUSINESS.jobsCompleted} jobs and maintain a {BUSINESS.rating}-star rating from{" "}
-                {BUSINESS.reviewCount}+ verified customer reviews.
+                {biz.jobsCompleted} jobs and maintain a {biz.rating}-star rating from{" "}
+                {biz.reviewCount}+ verified customer reviews.
               </p>
               <p>
-                Portland homeowners and businesses trust {BUSINESS.name} because we do things
+                {biz.city} homeowners and businesses trust {biz.name} because we do things
                 differently. We offer same-day junk removal for calls placed before noon — no
                 waiting days for a scheduled appointment. Every job starts with a free, upfront
                 quote so you know exactly what you will pay before we lift a single item. There are
@@ -94,9 +97,9 @@ export default function ServicesPage() {
               </p>
               <p>
                 We are also committed to eco-friendly disposal practices. Usable items are donated
-                to local Portland charities, recyclable materials are sorted and sent to proper
+                to local charities, recyclable materials are sorted and sent to proper
                 facilities, and we dispose of everything else responsibly. From furniture and
-                appliances to construction debris, yard waste, and commercial junk, {BUSINESS.name}{" "}
+                appliances to construction debris, yard waste, and commercial junk, {biz.name}{" "}
                 is the only call you need to make. Available Monday through Saturday, 7am to 7pm.{" "}
                 <Link href="/about" className="text-gold hover:text-gold-light transition-colors">
                   Meet the team behind every job
@@ -120,7 +123,7 @@ export default function ServicesPage() {
             <div className="mb-16">
               <img
                 src="/our-junk-removal-team.jpg"
-                alt="The Junk Moose junk removal crew ready for service in Portland OR"
+                alt={`Professional junk removal crew ready for service in ${biz.city} ${biz.state}`}
                 className="w-full h-auto"
                 width={1200}
                 height={800}
@@ -159,10 +162,10 @@ export default function ServicesPage() {
             <p className="font-satoshi text-stone-dim text-lg leading-relaxed mb-10">
               Call us at{" "}
               <a
-                href={`tel:${BUSINESS.phoneRaw}`}
+                href={`tel:${biz.phoneRaw}`}
                 className="text-gold hover:text-gold-light transition-colors"
               >
-                {BUSINESS.phone}
+                {biz.phone}
               </a>{" "}
               or fill out our contact form for a fast, no-obligation estimate.
             </p>

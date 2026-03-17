@@ -1,54 +1,56 @@
+"use client";
+
 import { BUSINESS, LOCATIONS } from "@/lib/data";
-import { makeMetadata } from "@/lib/metadata";
+import { usePersonalization } from "@/lib/personalization";
 import { Breadcrumb, breadcrumbSchema } from "@/components/Breadcrumb";
 import { PageHero } from "@/components/PageHero";
 import Link from "next/link";
-
-export const metadata = makeMetadata({
-  title: "About The Junk Moose | Portland's Local Junk Removal Crew",
-  description:
-    "Meet the crew behind The Junk Moose — Portland's trusted local junk removal team. Founded by Marcus, we've completed 500+ jobs across the Portland metro with fair pricing and eco-friendly disposal.",
-  path: "/about",
-});
+import { useEffect } from "react";
 
 const breadcrumbItems = [{ label: "About", href: "/about" }];
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Marcus",
-  jobTitle: "Founder",
-  worksFor: {
-    "@type": "Organization",
-    name: BUSINESS.name,
-  },
-};
+export default function AboutPage() {
+  const biz = usePersonalization();
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: BUSINESS.name,
-  url: BUSINESS.url,
-  telephone: BUSINESS.phone,
-  areaServed: LOCATIONS.map((loc) => ({
-    "@type": "City",
-    name: `${loc.city}, ${loc.state}`,
-  })),
-  founder: {
+  useEffect(() => {
+    document.title = `About ${biz.name} | ${biz.city}'s Local Junk Removal Crew`;
+  }, [biz.name, biz.city]);
+
+  const personSchema = {
+    "@context": "https://schema.org",
     "@type": "Person",
     name: "Marcus",
-  },
-  foundingDate: "2023",
-  description:
-    "Portland's trusted local junk removal crew. Licensed, insured, and eco-friendly.",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: BUSINESS.rating,
-    reviewCount: BUSINESS.reviewCount,
-  },
-};
+    jobTitle: "Founder",
+    worksFor: {
+      "@type": "Organization",
+      name: biz.name,
+    },
+  };
 
-export default function AboutPage() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: biz.name,
+    url: BUSINESS.url,
+    telephone: biz.phone,
+    areaServed: LOCATIONS.map((loc) => ({
+      "@type": "City",
+      name: `${loc.city}, ${loc.state}`,
+    })),
+    founder: {
+      "@type": "Person",
+      name: "Marcus",
+    },
+    foundingDate: "2023",
+    description:
+      `${biz.city}'s trusted local junk removal crew. Licensed, insured, and eco-friendly.`,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: biz.rating,
+      reviewCount: biz.reviewCount,
+    },
+  };
+
   return (
     <>
       <script
@@ -68,7 +70,7 @@ export default function AboutPage() {
 
       <PageHero
         label="About Us"
-        title="Portland's Local Junk Removal Crew"
+        title={`${biz.city}'s Local Junk Removal Crew`}
         subtitle="One truck, one crew, one mission — make junk disappear without the hassle or the hidden fees."
       />
 
@@ -86,18 +88,18 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed max-w-3xl">
               <p>
-                {BUSINESS.name} started the way most good things do — out of
-                necessity. Marcus saw a gap in Portland&apos;s junk removal
+                {biz.name} started the way most good things do — out of
+                necessity. Marcus saw a gap in {biz.city}&apos;s junk removal
                 market: most companies were either overpriced, unreliable, or
                 both. So he bought a truck, printed some cards, and started
                 hauling.
               </p>
               <p>
                 That was {BUSINESS.yearsServing} years ago. Since then,
-                we&apos;ve completed {BUSINESS.jobsCompleted} jobs across the
-                Portland metro area — from single-item pickups in SE Portland to
-                full estate cleanouts in Lake Oswego. What started as one guy
-                with a truck is now a tight-knit local crew that Portland trusts.
+                we&apos;ve completed {biz.jobsCompleted} jobs across the
+                {biz.city} metro area — from single-item pickups to
+                full estate cleanouts. What started as one guy
+                with a truck is now a tight-knit local crew that {biz.city} trusts.
               </p>
               <p>
                 Marcus still answers the phone. He still shows up on jobs. And he
@@ -109,7 +111,7 @@ export default function AboutPage() {
             <div className="mt-10">
               <img
                 src="/founder.jpg"
-                alt="Marcus, founder of The Junk Moose — Portland OR junk removal"
+                alt={`Founder of ${biz.name} — local junk removal crew`}
                 className="w-full h-auto"
                 width={1200}
                 height={800}
@@ -129,7 +131,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-5 font-satoshi text-stone-dim text-base leading-relaxed max-w-3xl">
                 <p>
-                  Every person who shows up at your door works for {BUSINESS.name}{" "}
+                  Every person who shows up at your door works for {biz.name}{" "}
                   directly. We don&apos;t subcontract, we don&apos;t use day
                   labor, and we don&apos;t send strangers to your home. Our crew
                   is trained, background-checked, and knows how to handle
@@ -146,7 +148,7 @@ export default function AboutPage() {
               <div className="mt-8">
                 <img
                   src="/our-junk-removal-team.jpg"
-                  alt="The Junk Moose crew — Portland's trusted junk removal team"
+                  alt="Professional junk removal crew ready for service"
                   className="w-full h-auto"
                   width={1200}
                   height={800}
@@ -173,7 +175,7 @@ export default function AboutPage() {
                 <div className="space-y-4 font-satoshi text-stone-dim text-base leading-relaxed">
                   <p>
                     We carry full general liability insurance and hold all
-                    required business licenses for the Portland metro area. That
+                    required business licenses for the {biz.city} metro area. That
                     means you&apos;re protected from the moment we walk in the
                     door to the moment we drive away.
                   </p>
@@ -199,7 +201,7 @@ export default function AboutPage() {
                   <p>
                     Not everything we haul belongs in a landfill. We sort every
                     load and divert as much as possible to recycling centers,
-                    composting facilities, and local Portland charities.
+                    composting facilities, and local charities.
                   </p>
                   <p>
                     Usable furniture gets donated. Metals get recycled. Yard
@@ -215,10 +217,10 @@ export default function AboutPage() {
           <section className="mb-20 lg:mb-28">
             <div className="border-y border-white/[0.04] py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { value: BUSINESS.jobsCompleted, label: "Jobs Completed" },
-                { value: `${BUSINESS.yearsServing}+`, label: "Years in Portland" },
-                { value: BUSINESS.rating, label: "Google Rating" },
-                { value: `${BUSINESS.reviewCount}+`, label: "Customer Reviews" },
+                { value: biz.jobsCompleted, label: "Jobs Completed" },
+                { value: `${BUSINESS.yearsServing}+`, label: `Years in ${biz.city}` },
+                { value: biz.rating, label: "Google Rating" },
+                { value: `${biz.reviewCount}+`, label: "Customer Reviews" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="font-clash font-bold text-gold text-3xl sm:text-4xl mb-1">
@@ -248,7 +250,7 @@ export default function AboutPage() {
               Ready to Get Rid of the Junk?
             </h2>
             <p className="font-satoshi text-stone-dim text-base mb-8 max-w-xl mx-auto">
-              We serve {LOCATIONS.length} cities across the Portland metro.
+              We serve {LOCATIONS.length} cities across the {biz.city} metro.
               Same-day service available for calls before noon.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

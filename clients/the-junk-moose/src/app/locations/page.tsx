@@ -1,20 +1,22 @@
-import { LOCATIONS, BUSINESS } from "@/lib/data";
-import { makeMetadata } from "@/lib/metadata";
+"use client";
+
+import { LOCATIONS } from "@/lib/data";
+import { usePersonalization } from "@/lib/personalization";
 import { Breadcrumb, breadcrumbSchema } from "@/components/Breadcrumb";
 import { PageHero } from "@/components/PageHero";
 import { LocationCard } from "@/components/LocationCard";
 import Link from "next/link";
-
-export const metadata = makeMetadata({
-  title: "Junk Removal Near Me | Portland Metro Area | The Junk Moose",
-  description:
-    "The Junk Moose serves 10 cities across the Portland metro area. Find fast, affordable junk removal near you — same-day service available in every location.",
-  path: "/locations",
-});
+import { useEffect } from "react";
 
 const breadcrumbItems = [{ label: "Locations", href: "/locations" }];
 
 export default function LocationsPage() {
+  const biz = usePersonalization();
+
+  useEffect(() => {
+    document.title = `Junk Removal Near Me | ${biz.city} Metro Area | ${biz.name}`;
+  }, [biz.name, biz.city]);
+
   return (
     <>
       <script
@@ -26,7 +28,7 @@ export default function LocationsPage() {
       <PageHero
         label="Service Areas"
         title="Junk Removal Near You"
-        subtitle="We serve the entire Portland metro area — 10 cities, same-day service, upfront pricing. Find your city below."
+        subtitle={`We serve the entire ${biz.city} metro area — 10 cities, same-day service, upfront pricing. Find your city below.`}
       />
 
       <section id="main-content" className="bg-dark px-6 lg:px-10 py-16 sm:py-20 lg:py-28">
@@ -35,25 +37,25 @@ export default function LocationsPage() {
 
           <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed max-w-4xl mb-14 space-y-4">
             <p>
-              {BUSINESS.name} provides professional junk removal across the greater Portland
-              metropolitan area, covering 10 cities with the same fast, reliable service and
+              {biz.name} provides professional junk removal across the greater {biz.city}
+              {" "}metropolitan area, covering 10 cities with the same fast, reliable service and
               honest upfront pricing. Our crew serves Portland, Beaverton, Gresham, Lake Oswego,
               Tigard, Hillsboro, Vancouver WA, Tualatin, Milwaukie, and Oregon City — handling
               everything from single-item furniture pickups to complete property cleanouts.
             </p>
             <p>
-              No matter where you are in the Portland metro, same-day junk removal is available
+              No matter where you are in the {biz.city} metro, same-day junk removal is available
               for calls placed before noon. We know these communities inside and out — the
               neighborhoods, the disposal regulations, and the local facilities for recycling and
-              donation. Whether you are in a downtown Portland condo, a Lake Oswego lakefront home,
-              a Hillsboro tech office, or a Gresham rental property, our crew typically arrives
+              donation. Whether you are in a downtown condo, a lakefront home,
+              a tech office, or a rental property, our crew typically arrives
               within two to four hours of your call. We charge the same transparent rates across
               every service area with no travel fees or distance surcharges.
             </p>
             <p>
-              With over {BUSINESS.jobsCompleted} jobs completed and a {BUSINESS.rating}-star
-              rating from {BUSINESS.reviewCount}+ verified reviews, Portland metro residents and
-              businesses trust {BUSINESS.name} to get the job done right. We are licensed, insured,
+              With over {biz.jobsCompleted} jobs completed and a {biz.rating}-star
+              rating from {biz.reviewCount}+ verified reviews, {biz.city} metro residents and
+              businesses trust {biz.name} to get the job done right. We are licensed, insured,
               and committed to eco-friendly disposal — donating usable items to local charities and
               recycling materials whenever possible. Select your city below to learn more about our
               service in your area.{" "}
@@ -97,10 +99,10 @@ export default function LocationsPage() {
           <p className="font-satoshi text-stone-dim text-lg leading-relaxed mb-10">
             We likely serve your area too. Give us a call at{" "}
             <a
-              href={`tel:${BUSINESS.phoneRaw}`}
+              href={`tel:${biz.phoneRaw}`}
               className="text-gold hover:text-gold-light transition-colors"
             >
-              {BUSINESS.phone}
+              {biz.phone}
             </a>{" "}
             or fill out our contact form and we will let you know if we can get a crew to you.
           </p>

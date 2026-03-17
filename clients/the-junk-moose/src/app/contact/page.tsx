@@ -1,59 +1,61 @@
+"use client";
+
 import { BUSINESS, LOCATIONS } from "@/lib/data";
-import { makeMetadata } from "@/lib/metadata";
+import { usePersonalization } from "@/lib/personalization";
 import { Breadcrumb, breadcrumbSchema } from "@/components/Breadcrumb";
 import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 import Link from "next/link";
-
-export const metadata = makeMetadata({
-  title: "Contact The Junk Moose | Free Junk Removal Quote Portland OR",
-  description:
-    "Get a free junk removal quote from The Junk Moose. Call (503) 555-0100 or fill out our form. Same-day service in Portland, Beaverton, Gresham, and the metro area. Mon-Sat 7am-7pm.",
-  path: "/contact",
-});
+import { useEffect } from "react";
 
 const breadcrumbItems = [{ label: "Contact", href: "/contact" }];
 
-const contactPointSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: BUSINESS.name,
-  telephone: BUSINESS.phone,
-  url: BUSINESS.url,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: BUSINESS.street,
-    addressLocality: BUSINESS.city,
-    addressRegion: BUSINESS.state,
-    postalCode: BUSINESS.zip,
-    addressCountry: "US",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ],
-    opens: "07:00",
-    closes: "19:00",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: BUSINESS.phone,
-    contactType: "customer service",
-    availableLanguage: "English",
-    areaServed: LOCATIONS.map((loc) => ({
-      "@type": "City",
-      name: `${loc.city}, ${loc.state}`,
-    })),
-  },
-};
-
 export default function ContactPage() {
+  const biz = usePersonalization();
+
+  useEffect(() => {
+    document.title = `Contact ${biz.name} | Free Junk Removal Quote ${biz.city} ${biz.state}`;
+  }, [biz.name, biz.city, biz.state]);
+
+  const contactPointSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: biz.name,
+    telephone: biz.phone,
+    url: BUSINESS.url,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: BUSINESS.street,
+      addressLocality: biz.city,
+      addressRegion: biz.state,
+      postalCode: BUSINESS.zip,
+      addressCountry: "US",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "07:00",
+      closes: "19:00",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: biz.phone,
+      contactType: "customer service",
+      availableLanguage: "English",
+      areaServed: LOCATIONS.map((loc) => ({
+        "@type": "City",
+        name: `${loc.city}, ${loc.state}`,
+      })),
+    },
+  };
+
   return (
     <>
       <script
@@ -73,8 +75,8 @@ export default function ContactPage() {
         label="Contact Us"
         title="Get Your Free Quote"
         subtitle="Call, text, or fill out the form. We respond within 15 minutes during business hours."
-        ctaText={`Call ${BUSINESS.phone}`}
-        ctaHref={`tel:${BUSINESS.phoneRaw}`}
+        ctaText={`Call ${biz.phone}`}
+        ctaHref={`tel:${biz.phoneRaw}`}
       />
 
       <div id="main-content" className="bg-dark px-6 lg:px-10 py-16 lg:py-24">
@@ -88,14 +90,14 @@ export default function ContactPage() {
             </h2>
             <div className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed space-y-4 max-w-3xl">
               <p>
-                When you contact {BUSINESS.name}, getting your junk removed is straightforward and
+                When you contact {biz.name}, getting your junk removed is straightforward and
                 stress-free. Here is exactly how it works from start to finish. First, give us a
                 call or text at{" "}
                 <a
-                  href={`tel:${BUSINESS.phoneRaw}`}
+                  href={`tel:${biz.phoneRaw}`}
                   className="text-gold hover:text-gold-light transition-colors"
                 >
-                  {BUSINESS.phone}
+                  {biz.phone}
                 </a>
                 , or fill out the quote form below with a brief description of what you need hauled.
                 Our team typically responds within 15 minutes during business hours — no waiting
@@ -114,7 +116,7 @@ export default function ContactPage() {
                 we take care of the rest. We sweep up when we are done and send you a photo
                 confirmation once the job is complete. The entire process, from your first call to
                 a clean space, is designed to be as fast and painless as possible. That is the{" "}
-                {BUSINESS.name} difference.{" "}
+                {biz.name} difference.{" "}
                 <Link href="/about" className="text-gold hover:text-gold-light transition-colors">
                   Learn about our team
                 </Link>.
@@ -151,18 +153,18 @@ export default function ContactPage() {
                 </p>
                 <address className="not-italic space-y-3 font-satoshi text-stone-dim text-base">
                   <p className="font-clash font-bold text-stone text-lg">
-                    {BUSINESS.name}
+                    {biz.name}
                   </p>
                   <p>{BUSINESS.street}</p>
                   <p>
-                    {BUSINESS.city}, {BUSINESS.state} {BUSINESS.zip}
+                    {biz.city}, {biz.state} {BUSINESS.zip}
                   </p>
                   <p>
                     <a
-                      href={`tel:${BUSINESS.phoneRaw}`}
+                      href={`tel:${biz.phoneRaw}`}
                       className="text-gold hover:text-gold-light transition-colors"
                     >
-                      {BUSINESS.phone}
+                      {biz.phone}
                     </a>
                   </p>
                 </address>
@@ -206,7 +208,7 @@ export default function ContactPage() {
               <div>
                 <img
                   src="/our-junk-removal-team.jpg"
-                  alt="The Junk Moose junk removal crew — call for a free quote in Portland OR"
+                  alt="Professional junk removal crew — call for a free quote"
                   className="w-full h-auto"
                   width={1200}
                   height={800}
@@ -224,7 +226,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="The Junk Moose service area — Portland OR metro"
+                  title={`${biz.name} service area — ${biz.city} ${biz.state} metro`}
                 />
               </div>
             </div>
@@ -236,15 +238,15 @@ export default function ContactPage() {
               {[
                 {
                   label: "Call or Text",
-                  value: BUSINESS.phone,
+                  value: biz.phone,
                   description: "Fastest way to get a quote",
-                  href: `tel:${BUSINESS.phoneRaw}`,
+                  href: `tel:${biz.phoneRaw}`,
                 },
                 {
                   label: "Same-Day Service",
                   value: "Before Noon",
                   description: "Call before noon for same-day pickup",
-                  href: `tel:${BUSINESS.phoneRaw}`,
+                  href: `tel:${biz.phoneRaw}`,
                 },
                 {
                   label: "Response Time",
