@@ -1,3 +1,16 @@
 User-agent: *
 Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 Sitemap: https://demo.launchedops.com/sitemap.xml

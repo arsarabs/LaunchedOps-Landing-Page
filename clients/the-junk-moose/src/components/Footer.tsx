@@ -100,6 +100,11 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/privacy" className="font-satoshi text-stone-dim/40 text-xs hover:text-gold/70 transition-colors duration-200">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
             <p className="font-satoshi text-stone-dim/25 text-xs">
               {BUSINESS.hours}
@@ -119,7 +124,7 @@ export function Footer() {
         {/* Legal row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-satoshi text-stone-dim/20 text-xs tracking-wide">
-            &copy; 2025 {biz.name} &middot; {biz.city}, {biz.state}
+            &copy; {new Date().getFullYear()} {biz.name} &middot; {biz.city}, {biz.state}
           </span>
           <span className="font-satoshi text-stone-dim/20 text-xs tracking-wide">
             Built by{" "}

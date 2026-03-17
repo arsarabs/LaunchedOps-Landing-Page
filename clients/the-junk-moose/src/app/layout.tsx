@@ -270,6 +270,21 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* JSON-LD: Speakable */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["h1", "h2", ".hero-sub", ".faq-answer"],
+              },
+            }),
+          }}
+        />
       </head>
       <body className="font-satoshi antialiased grain">
         <Suspense fallback={null}>
