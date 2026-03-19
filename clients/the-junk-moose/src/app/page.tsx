@@ -75,8 +75,8 @@ function Hero() {
             style={{ animationDelay: "0.5s" }}
           >
             <p className="font-satoshi text-stone-dim text-base sm:text-lg leading-relaxed mb-8 max-w-sm">
-              Same-day junk removal in {biz.city}. Upfront pricing, no
-              surprises. Just space where your junk used to be.
+              Same-day junk removal in {biz.city}. We tell you the price
+              before we start, and that&apos;s what you pay.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
@@ -142,22 +142,22 @@ const processSteps = [
   {
     num: "01",
     title: "Call or Text",
-    desc: "Reach out with what you need hauled. Photos help us quote faster.",
+    desc: "Tell us what you need picked up. Send photos if you have them.",
   },
   {
     num: "02",
     title: "Get Your Quote",
-    desc: "Upfront price. What we quote is what you pay.",
+    desc: "We give you a number. That's the number you pay.",
   },
   {
     num: "03",
     title: "We Show Up",
-    desc: "Crew arrives on time. You don't lift a finger.",
+    desc: "Our crew comes to you. Most jobs take a couple hours.",
   },
   {
     num: "04",
     title: "It's Gone",
-    desc: "Hauled, swept, photo confirmation sent.",
+    desc: "We haul it, sweep up, and send you a photo when we're done.",
   },
 ];
 
@@ -200,12 +200,12 @@ function Process() {
    SERVICES — asymmetric bento with featured card
    ═══════════════════════════════════════════════════════════════ */
 const services = [
-  { num: "01", name: "Furniture & Appliances", desc: "Couches, fridges, washers, mattresses — all of it." },
-  { num: "02", name: "Construction Debris", desc: "Drywall, lumber, concrete, tile. We handle the heavy stuff." },
-  { num: "03", name: "Yard Waste", desc: "Branches, soil, stumps, clippings. Cleared in a single trip." },
-  { num: "04", name: "Full Cleanouts", desc: "Hoarding, estate, foreclosure. Entire properties, no judgment." },
-  { num: "05", name: "Commercial", desc: "Offices, retail spaces, warehouses. We work around your schedule." },
-  { num: "06", name: "Same-Day Pickup", desc: "Call before noon. We'll be there by end of day." },
+  { num: "01", name: "Furniture & Appliances", desc: "Couches, fridges, washers, mattresses. If you can sit on it or plug it in, we take it." },
+  { num: "02", name: "Construction Debris", desc: "Drywall, lumber, concrete, tile. The stuff that's too heavy for your trunk." },
+  { num: "03", name: "Yard Waste", desc: "Branches, soil, stumps, clippings. Usually done in one load." },
+  { num: "04", name: "Full Cleanouts", desc: "Hoarding, estate, foreclosure. We clear the whole property." },
+  { num: "05", name: "Commercial", desc: "Offices, retail, warehouses. We schedule around your business hours." },
+  { num: "06", name: "Same-Day Pickup", desc: "Call before noon and we can usually get there today." },
 ];
 
 function Services() {
@@ -215,11 +215,11 @@ function Services() {
         {/* Header — no label, just the headline and a note */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16 lg:mb-24">
           <h2 className="font-clash font-bold text-4xl sm:text-5xl lg:text-7xl leading-[0.88] tracking-[-0.03em] text-stone">
-            If it fits in a truck,<br />
-            <span className="text-gold">it&apos;s gone.</span>
+            We haul pretty much<br />
+            <span className="text-gold">everything.</span>
           </h2>
           <p className="font-satoshi text-stone-dim/50 text-sm max-w-xs leading-relaxed lg:text-right">
-            From a single couch to a full property cleanout. You point, we haul.
+            One couch or a whole house. Here&apos;s what we pick up most.
           </p>
         </div>
 
@@ -444,11 +444,11 @@ function CrewPhoto() {
           The Team
         </span>
         <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold leading-none text-stone">
-          Real people. Real work.
+          Our crew. Our trucks.
         </h2>
         <p className="font-satoshi mt-4 text-lg max-w-lg text-stone-dim">
-          Every job is handled by our own crew — not subcontractors, not day labor.
-          We show up on time and we don&apos;t leave until it&apos;s clean.
+          We don&apos;t hire subcontractors. The people on this page are the
+          same people who show up at your door.
         </p>
       </div>
     </section>
@@ -484,20 +484,18 @@ function MeetTheOwner() {
           {/* Right — story (all-stone headline, breaking gold/stone pattern) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <h2 className="font-clash font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.88] tracking-[-0.03em] mb-10 text-stone">
-              One truck. One idea.<br />
-              Still going.
+              Started with one truck.
             </h2>
 
             <div className="space-y-5 mb-10">
               <p className="font-satoshi text-stone-dim text-lg leading-[1.8]">
-                {biz.name} started with one truck and a simple idea: show up on
-                time, charge a fair price, and leave the place cleaner than you
-                found it.
+                {biz.name} started because Marcus was tired of companies that
+                showed up late, quoted one price, then charged another. So he
+                bought a truck and did it himself.
               </p>
               <p className="font-satoshi text-stone-dim/70 text-base leading-[1.8]">
-                Every job is handled by our in-house team. Never subcontracted.
-                Three years and {biz.jobsCompleted} jobs later, we&apos;re still doing
-                exactly that.
+                Three years and {biz.jobsCompleted} jobs later, it&apos;s still him
+                and his crew doing every job. No call center, no middleman.
               </p>
             </div>
 
@@ -615,9 +613,9 @@ function ReviewRouting() {
                 Get more 5-star reviews.
               </h2>
               <p className="font-satoshi text-stone-dim text-base leading-relaxed mb-6 max-w-lg">
-                Every {biz.name} client gets a custom QR review card. One scan takes
-                customers straight to your Google review page. More reviews, higher
-                rankings, more calls.
+                Every {biz.name} client gets a custom QR review card. Your crew
+                hands it to the customer after a job, they scan it, and it takes them
+                straight to your Google review page.
               </p>
               <div className="flex gap-8">
                 {["Scan", "Review", "Rank"].map((step, i) => (
@@ -657,7 +655,7 @@ function FAQ() {
   const faqs = [
     {
       q: "How much does junk removal cost?",
-      a: "Pricing depends on the volume and type of items. We give free, no-obligation quotes upfront — what we quote is what you pay. Most single-truck loads run between $250–$500.",
+      a: "It depends on how much you have. We come look at it, give you a price, and that's the price. Most single-truck loads run $250 to $500.",
     },
     {
       q: "Do you serve my area?",
@@ -665,15 +663,15 @@ function FAQ() {
     },
     {
       q: "How fast can you show up?",
-      a: "We offer same-day service for calls placed before noon. Most pickups are completed within 2–4 hours of booking.",
+      a: "If you call before noon, we can usually get there the same day. Most pickups take 2 to 4 hours from when you book.",
     },
     {
       q: "What items do you NOT take?",
-      a: "We can't haul hazardous materials like paint, chemicals, asbestos, or medical waste. Pretty much everything else is fair game.",
+      a: "No paint, chemicals, asbestos, or medical waste. Other than that, we'll take pretty much anything.",
     },
     {
       q: "Do I need to be home during pickup?",
-      a: "Nope. As long as we can access the items and you've approved the quote, we'll get it done. We send a photo confirmation when complete.",
+      a: "No. As long as we can get to the stuff and you've said yes to the price, we'll handle it. We text you a photo when it's done.",
     },
     {
       q: "How do I get a quote?",
@@ -764,7 +762,7 @@ function QuoteSection() {
                 Ready?
               </h2>
               <p className="font-satoshi text-stone-dim text-base leading-relaxed mb-10 max-w-sm">
-                Fill out the form or call us directly. Same-day slots go fast.
+                Fill out the form or just call. We usually have same-day openings.
               </p>
             </div>
 
