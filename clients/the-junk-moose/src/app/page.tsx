@@ -184,7 +184,7 @@ function Process() {
             <div
               key={step.num}
               className="group grid grid-cols-12 items-baseline border-b border-white/[0.03] last:border-b-0 py-8 lg:py-10"
-              style={{ paddingLeft: `${i * 3}%` }}
+              style={{ paddingLeft: `${i * 2}%` }}
             >
               <div className="col-span-2 sm:col-span-1">
                 <span className="font-clash font-bold text-gold/[0.07] text-[4rem] sm:text-[5rem] leading-none group-hover:text-gold/[0.15] transition-colors duration-700">
@@ -409,7 +409,7 @@ function Stats() {
             <p className="font-satoshi text-stone-dim/40 text-[11px] uppercase tracking-[0.25em] mb-4">
               Jobs Completed
             </p>
-            <div className="font-clash font-bold text-gold text-[6rem] sm:text-[8rem] lg:text-[12rem] leading-[0.8] tracking-tight">
+            <div className="font-clash font-bold text-gold text-[4.5rem] sm:text-[8rem] lg:text-[12rem] leading-[0.8] tracking-tight">
               <NumberTicker value={500} />
               <span className="text-gold/15">+</span>
             </div>
@@ -419,7 +419,7 @@ function Stats() {
             <p className="font-satoshi text-stone-dim/40 text-[11px] uppercase tracking-[0.25em] mb-4">
               Google Rating
             </p>
-            <div className="font-clash font-bold text-gold text-[5rem] sm:text-[6rem] lg:text-[8rem] leading-[0.8] tracking-tight">
+            <div className="font-clash font-bold text-gold text-[3.5rem] sm:text-[6rem] lg:text-[8rem] leading-[0.8] tracking-tight">
               <NumberTicker value={4.9} decimalPlaces={1} delay={0.2} />
             </div>
             <div className="flex gap-1 mt-4">
@@ -550,7 +550,7 @@ function Testimonials() {
           {testimonials.map((t) => (
             <div key={t.name}>
               <span
-                className="font-clash font-bold text-gold/[0.04] text-[10rem] lg:text-[16rem] leading-none block -mb-20 lg:-mb-32 select-none"
+                className="font-clash font-bold text-gold/[0.04] text-[6rem] sm:text-[10rem] lg:text-[16rem] leading-none block -mb-12 sm:-mb-20 lg:-mb-32 select-none"
                 style={{ mixBlendMode: "screen" }}
               >
                 &ldquo;
