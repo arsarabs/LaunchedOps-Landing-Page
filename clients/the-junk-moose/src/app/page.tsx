@@ -17,7 +17,7 @@ import { usePersonalization } from "@/lib/personalization";
 function Hero() {
   const biz = usePersonalization();
   return (
-    <section className="relative min-h-screen flex flex-col justify-end bg-dark overflow-hidden pt-24 pb-0">
+    <section className="relative flex flex-col justify-end bg-dark overflow-hidden pt-32 lg:pt-40 pb-16 lg:pb-24">
       {/* Background photo */}
       <div className="absolute inset-0">
         <Image
