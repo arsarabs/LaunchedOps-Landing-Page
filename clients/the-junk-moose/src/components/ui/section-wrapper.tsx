@@ -6,16 +6,20 @@ export function SectionWrapper({
   children,
   className,
   id,
+  reveal = "up",
+  stagger = false,
 }: {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  reveal?: "up" | "blur" | "clip" | "scale" | "none";
+  stagger?: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || reveal === "none") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,18 +28,21 @@ export function SectionWrapper({
           observer.unobserve(el);
         }
       },
-      { rootMargin: "-100px" }
+      { rootMargin: "-80px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [reveal]);
+
+  const revealAttr = reveal !== "up" && reveal !== "none" ? reveal : undefined;
 
   return (
     <section
       ref={ref}
       id={id}
-      className={`section-reveal ${className ?? ""}`}
+      data-reveal={revealAttr}
+      className={`${reveal !== "none" ? "section-reveal" : ""} ${stagger ? "stagger-children" : ""} ${className ?? ""}`}
     >
       {children}
     </section>

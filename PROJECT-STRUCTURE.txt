@@ -1,0 +1,212 @@
+LAUNCHEDOPS — FULL PROJECT STRUCTURE
+=====================================
+
+LaunchedOps is a website delivery system for blue-collar contractors. We sell
+production-quality, SEO-optimized single-page websites for $999 one-time +
+$75/mo hosting. Each client site is built from a niche template, personalized
+with their business info, then deployed. Build time target: 3-4 hours per site.
+
+
+ROOT FILES
+----------
+
+CLAUDE.md                  Master project instructions — read every session.
+                           Contains tech stack, niche intelligence, SEO standards,
+                           conversion standards, personalization points, skills catalog.
+
+MAGIC-DEMO-LINK.txt        How the magic demo link works for cold calls.
+                           URL params swap in the prospect's name/city/phone in real time.
+
+README.md                  GitHub project description.
+
+netlify.toml               Netlify build config — points to launchedops-site/ folder.
+
+spec.md.txt                Magic Demo Link system spec.
+
+update-document.txt        Implementation log of the LaunchedOps homepage build.
+
+.gitignore                 Standard ignores (node_modules, .env, .DS_Store, etc.)
+
+PROJECT-STRUCTURE.txt      This file.
+
+
+FOLDER STRUCTURE
+----------------
+
+LaunchedOps/
+│
+├── templates/                 MASTER TEMPLATES (one per niche)
+│   │
+│   ├── junk-removal/          Junk removal master template
+│   │   └── index.html         Single-file static template (152 KB)
+│   │
+│   ├── tree-service/          Tree service master template
+│   │   ├── index.html         Main page (41 KB)
+│   │   ├── styles.css         All styling (47 KB)
+│   │   ├── main.js            JavaScript (12 KB)
+│   │   ├── robots.txt
+│   │   ├── sitemap.xml
+│   │   ├── locations/         8 city landing pages (Portland, Beaverton,
+│   │   │                      Gresham, Lake Oswego, Milwaukie, Oregon City,
+│   │   │                      Tigard, West Linn)
+│   │   └── services/          7 service pages (tree removal, trimming, stump
+│   │                          grinding, emergency, lot clearing, hedge trimming,
+│   │                          cabling & bracing)
+│   │
+│   └── presets/               Color scheme CSS files
+│       ├── dark-gold.css      Dark charcoal + gold (junk removal default)
+│       ├── forest-cream.css   Deep green + earth (tree service default)
+│       ├── light-blue.css     Light + blue accent
+│       └── navy-white.css     Navy + white accent
+│
+├── clients/                   ONE FOLDER PER PAYING CLIENT
+│   │
+│   ├── _example/              Template showing expected client folder structure
+│   │   ├── README.md          Example client brief
+│   │   └── assets/            Client-provided images
+│   │
+│   └── the-junk-moose/        ACTIVE CLIENT — Full Next.js app
+│       ├── package.json       Next.js 14.2.35, Tailwind 3.4.1, clsx, tailwind-merge
+│       ├── next.config.mjs    Static export mode (output: "export")
+│       ├── tailwind.config.ts Custom colors/fonts
+│       ├── tsconfig.json
+│       ├── spec.md.txt        Multi-page expansion spec
+│       ├── website-structure.txt  Site architecture docs
+│       │
+│       ├── public/            Static assets
+│       │   ├── fonts/         ClashDisplay + Satoshi (woff2)
+│       │   ├── before-after-1.jpg, before-after-2.jpg
+│       │   ├── founder.jpg, our-junk-removal-team.jpg
+│       │   ├── manifest.json, robots.txt
+│       │   └── favicon, apple-touch-icon
+│       │
+│       └── src/
+│           ├── app/           Next.js App Router
+│           │   ├── page.tsx       Homepage (hero, services, stats, testimonials, FAQ, CTA)
+│           │   ├── layout.tsx     Root layout (nav, footer, schema JSON-LD)
+│           │   ├── globals.css    Global styles & animations
+│           │   ├── not-found.tsx  404 page
+│           │   ├── sitemap.ts     Dynamic XML sitemap
+│           │   ├── about/         /about page
+│           │   ├── contact/       /contact page
+│           │   ├── reviews/       /reviews page
+│           │   ├── services/      /services index + /services/[slug] dynamic routes
+│           │   └── locations/     /locations index + /locations/[slug] dynamic routes
+│           │
+│           ├── components/    Reusable UI
+│           │   ├── Nav.tsx            Navigation with dropdowns
+│           │   ├── Footer.tsx         Multi-column footer
+│           │   ├── QuoteForm.tsx      Lead capture form
+│           │   ├── PageHero.tsx       Page hero section
+│           │   ├── Breadcrumb.tsx     Breadcrumb navigation
+│           │   ├── FAQAccordion.tsx   Accordion component
+│           │   ├── ServiceCard.tsx    Service card
+│           │   ├── LocationCard.tsx   Location card
+│           │   └── ui/               Custom shadcn-style components
+│           │       ├── marquee.tsx        Scrolling city banner
+│           │       ├── number-ticker.tsx  Animated stat counter
+│           │       ├── section-wrapper.tsx Section container with reveal
+│           │       └── spotlight-card.tsx  Mouse-tracking hover effect
+│           │
+│           └── lib/           Data & utilities
+│               ├── data.ts            All business data (BUSINESS, SERVICES, LOCATIONS, FAQS)
+│               ├── personalization.tsx React context for URL param overrides
+│               ├── metadata.ts        SEO meta tag generation
+│               ├── schema.ts          JSON-LD schema generation
+│               └── utils.ts           Utility functions (cn, etc.)
+│
+├── launchedops-site/          LAUNCHEDOPS COMPANY WEBSITE (launchedops.com)
+│   ├── index.html             Homepage (71 KB)
+│   ├── about.html             About page
+│   ├── how-it-works.html      Process explanation
+│   ├── examples.html          Portfolio
+│   ├── get-started.html       CTA/onboarding
+│   ├── robots.txt, sitemap.xml
+│   ├── css/                   Stylesheets (global, components, animations, page-specific)
+│   ├── js/                    Scripts (main, animations, interactions, rocket experience)
+│   └── assets/                Images, icons, fonts
+│
+├── docs/                      PROJECT DOCUMENTATION
+│   ├── ARCHITECTURE.md            System design overview
+│   ├── BUILD-PROCESS.md           Step-by-step client build checklist
+│   ├── DEPLOYMENT.md              Hosting options (Cloudflare, Netlify, manual)
+│   ├── PERSONALIZATION-GUIDE.md   CSS variables & content replacement guide
+│   ├── CLIENT-INTAKE-CHECKLIST.txt  Pre-build info requirements
+│   ├── COMPANY-OVERVIEW.txt       Business model & positioning
+│   ├── launchedops-master-build-reference.txt  Detailed build reference
+│   └── specs/                     Feature specs (placeholder)
+│
+├── assets/                    SHARED STOCK IMAGES
+│   └── stock/                 Reusable across clients (populate as needed)
+│
+├── scripts/                   UTILITY SCRIPTS (placeholder for future automation)
+│
+└── .claude/                   CLAUDE CODE CONFIG
+    ├── settings.local.json    Permissions whitelist
+    └── skills/                9 named workflow automations
+        ├── new-client/        Intake-to-build pipeline
+        ├── niche-template/    Scaffold new industry template
+        ├── qa/                Pre-delivery quality audit
+        ├── cro/               Conversion rate optimization
+        ├── seo/               SEO analysis
+        ├── frontend-design/   Production-grade UI creation
+        ├── deploy/            Deployment walkthrough
+        ├── competitor-audit/  Competitor analysis
+        └── react-performance/ React/Next.js optimization
+
+
+MAGIC DEMO LINK SYSTEM
+----------------------
+
+Both templates and the Junk Moose client site support URL parameter
+personalization for cold call demos.
+
+URL format (no commas in numbers, + as %2B, spaces as %20):
+
+  https://demo.launchedops.com/?name=Lone%20Star%20Junk%20Removal&city=Dallas&phone=4695557890&rating=4.9&reviews=215&jobs=3500%2B
+
+Parameters:
+  name      Business name
+  city      City of operation
+  phone     10-digit phone number
+  rating    Google rating (e.g. 4.9)
+  reviews   Review count (e.g. 215)
+  jobs      Jobs completed (e.g. 3500%2B)
+  r1/r2/r3  Reviewer names (tree service template only)
+
+demo.launchedops.com points to the junk removal demo (Netlify, deployed from
+arsarabs/sales-demo-final repo). Tree service demo is not yet deployed.
+
+
+DEPLOYMENT MAP
+--------------
+
+  launchedops.com          Netlify → launchedops-site/ folder (this repo)
+  demo.launchedops.com     Netlify → arsarabs/sales-demo-final repo (Junk Moose)
+
+Both auto-deploy on push to their respective repos.
+
+
+AVAILABLE NICHE TEMPLATES
+--------------------------
+
+  Junk Removal    ✅ Built (static HTML + Next.js client site)
+  Tree Service    ✅ Built (static HTML with locations + services)
+  Concrete        ❌ Coming soon
+  Fencing         ❌ Coming soon
+
+
+SKILLS (SLASH COMMANDS)
+-----------------------
+
+  /new-client         Build a site from a client brief
+  /niche-template     Scaffold a new industry template
+  /qa                 Pre-delivery quality audit
+  /cro                Conversion rate optimization
+  /seo                SEO analysis and fixes
+  /frontend-design    Build polished UI components
+  /deploy             Walk through deployment
+  /competitor-audit   Analyze competitor websites
+  /simplify           Review code for quality and efficiency
+
+Typical flow: /new-client → /qa → /cro → /competitor-audit → /deploy

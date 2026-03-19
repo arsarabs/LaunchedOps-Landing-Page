@@ -1,0 +1,78 @@
+CLIENT INTAKE CHECKLIST
+=======================
+What to collect from every client before building their site.
+
+
+MUST-HAVE (Can't Launch Without)
+================================
+
+Business Identity
+-----------------
+- Business name (exact legal/brand name)
+- Phone number (the one they actually answer)
+- Street address (or "service-area only" if no storefront)
+- City, state, zip
+- Business hours (open/close times, which days)
+- Years in business
+- Owner/founder first name
+
+Services
+--------
+- List of services they offer (need 4-6 for the page structure)
+- Which service is their bread and butter (gets homepage emphasis)
+
+Service Area
+------------
+- List of cities/towns they serve (need 8-12 for location pages)
+- Primary city (homepage and SEO focus)
+
+Reviews
+-------
+- Google Business Profile link (to pull real reviews, rating, review count)
+- OR: screenshot their top 6-8 reviews with reviewer first name + last initial
+
+Photos (minimum 4)
+------------------
+- 1 crew/team photo (in front of truck or on a job)
+- 1 owner headshot or candid
+- 2 before/after job photos
+- Tell them: "Text me 4 photos from your phone -- your crew, yourself, and 2 job photos. That's it."
+
+Domain
+------
+- Do they already have a domain? What is it?
+- If not, what do they want? (e.g., smithjunkremoval.com)
+
+
+NICE-TO-HAVE (Makes the Site Better)
+=====================================
+
+- Logo file (any format)
+- Brand colors (if they care -- otherwise we pick)
+- Tagline or slogan
+- License/insurance details (license number, insured amount)
+- Social media links (Facebook, Instagram, Yelp, Google)
+- Specific neighborhoods they mention in their marketing
+- Any awards or certifications
+- "Origin story" -- how they started (2-3 sentences is enough)
+- Additional job photos (the more the better, especially before/afters)
+
+
+WHAT WE DON'T NEED FROM THEM
+=============================
+
+- Copy/text -- we write everything
+- SEO keywords -- we research those
+- Site structure decisions -- we own that
+- Design preferences beyond colors -- we're the expert, that's what they're paying for
+- FAQ answers -- we generate those from industry knowledge
+- Competitor analysis -- we handle that
+
+
+NOTES
+=====
+
+- Photos are always the hardest thing to get. Follow up on photos specifically.
+- Most contractors won't write paragraphs. Keep questions short answer / multiple choice.
+- Get the Google Business Profile link early -- it gives you reviews, rating, hours, address, and photos all in one place.
+- If they don't have a Google Business Profile, flag that. They need one before the site goes live for local SEO to work.

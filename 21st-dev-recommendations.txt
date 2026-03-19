@@ -1,0 +1,122 @@
+21st.dev Component Recommendations for LaunchedOps
+===================================================
+
+Browse these on 21st.dev. When you find one you like, send me
+the code and I'll adapt it to the Junk Moose site.
+
+HIGHEST PRIORITY — Would immediately improve the site
+------------------------------------------------------
+
+Heroes (73 available)
+  Look for: Dark hero with background image + overlay text,
+  split-screen hero with image left / text right, or hero
+  with scroll-triggered text reveal. Skip any with purple
+  gradients or centered-everything layouts.
+
+Testimonials (15 available)
+  Look for: Large pull-quote testimonials, marquee/carousel
+  testimonials, or card-based with photos. Anything that's
+  NOT two cards side by side.
+
+Calls to Action (34 available)
+  Look for: Split CTA (phone left, form right), full-width
+  banner CTA, or floating/sticky CTA bar. The current quote
+  section could use a more creative layout.
+
+Scroll Areas (24 available)
+  Look for: Horizontal scroll sections, parallax scroll
+  effects, or scroll-triggered number counters. These would
+  make the Process or Stats section feel more alive.
+
+Backgrounds (33 available)
+  Look for: Noise/grain textures, mesh gradients, or subtle
+  animated particle fields. Anything that adds depth to the
+  dark sections without being distracting.
+
+
+HIGH PRIORITY — Strong upgrades
+------------------------------------------------------
+
+Accordions (40 available)
+  Look for: Animated accordions with smooth open/close,
+  side-panel accordions, or accordions with icons. The FAQ
+  section is solid but could be more distinctive.
+
+Buttons (130 available)
+  Look for: Magnetic hover buttons, border-draw buttons,
+  shimmer/glow buttons, or buttons with micro-animations.
+  Replace the current CTA button style.
+
+Navigation Menus (11 available)
+  Look for: Dark transparent nav with blur backdrop, mega
+  menu for services, or hamburger menu with full-screen
+  overlay animation.
+
+Comparisons (6 available)
+  Look for: Before/after image slider with drag handle.
+  Would completely transform the Before & After section
+  from static images to an interactive comparison.
+
+Numbers (18 available)
+  Look for: Animated number counters, odometer-style
+  tickers, or large stat displays with labels. Would
+  upgrade the Stats section.
+
+
+MEDIUM PRIORITY — Nice-to-have polish
+------------------------------------------------------
+
+Texts (58 available)
+  Look for: Text reveal animations, gradient text effects,
+  typing/typewriter effects, or split-line text animations.
+  Could spice up the hero headline.
+
+Toasts (2 available)
+  Look for: Anything more creative than the current social
+  proof toast. Even with only 2, check if either fits.
+
+Cards (79 available)
+  Look for: Hover-tilt cards, glass cards, or cards with
+  border-gradient effects. Would improve service cards.
+
+Images (26 available)
+  Look for: Image zoom on hover, tilt/parallax image
+  effects, or image reveal animations. For the Before/After
+  and founder photo sections.
+
+Forms (23 available)
+  Look for: Floating label inputs, animated focus states,
+  or multi-step form wizards. Polish the quote form.
+
+Footers (14 available)
+  Look for: Dark minimal footer, footer with sitemap
+  columns, or footer with newsletter CTA. The current
+  footer is functional but could be more distinctive.
+
+
+SKIP — Not relevant for contractor sites
+------------------------------------------------------
+- AI Chats (30) — not applicable
+- Calendars (34) — not applicable
+- File Trees (2) — not applicable
+- File Uploads (7) — not applicable
+- Sidebars (10) — not applicable
+- Sign Ins / Sign Ups — not applicable
+- Tables (30) — not applicable
+- Tabs (38) — not applicable
+- Sliders (45) — not applicable
+- Paginations (20) — not applicable
+- Shaders (15) — cool but too heavy for PageSpeed 98+
+- Maps (2) — maybe later for service area page
+- Docks (6) — not applicable
+- Pricing Sections (17) — single price point, no tiers needed
+
+
+HOW TO USE THIS LIST
+------------------------------------------------------
+1. Go to 21st.dev
+2. Browse the categories above in priority order
+3. When you find a component you like, copy the code
+4. Send it to me and say "use this for [section name]"
+5. I'll adapt it to match the dark/gold theme and wire
+   up the personalization hooks

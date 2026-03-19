@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { SocialProofToast } from "@/components/SocialProofToast";
 import { PersonalizationProvider } from "@/lib/personalization";
 import "./globals.css";
 
@@ -292,6 +294,8 @@ export default function RootLayout({
             <Nav />
             {children}
             <Footer />
+            <StickyMobileCTA />
+            <SocialProofToast />
           </PersonalizationProvider>
         </Suspense>
       </body>

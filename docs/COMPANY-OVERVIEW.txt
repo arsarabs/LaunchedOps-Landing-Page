@@ -1,0 +1,208 @@
+LAUNCHEDOPS — COMPANY OVERVIEW
+================================
+
+WHAT WE ARE
+-----------
+LaunchedOps is a website delivery service built specifically for blue-collar
+contractors — junk removal, tree service, fencing, concrete, and similar
+trades. We sell production-quality, SEO-optimized, single-page websites that
+look and perform like $5K+ custom builds, but we deliver them in 36 hours
+for a fraction of the cost.
+
+
+WHAT WE SELL
+------------
+- One-time build fee: $999
+- Monthly hosting & maintenance: $75/mo
+- Each client gets: a fully custom, mobile-first, SEO-optimized website on
+  their own domain with schema markup, Google review integration, and a
+  QR code review automation system included as a value-add.
+
+
+WHO WE SERVE
+------------
+Blue-collar service contractors who:
+- Need a real website but don't have $3K-$10K for a traditional agency
+- Are tired of cookie-cutter Wix/GoDaddy sites that don't rank
+- Want something that actually generates calls/leads, not just "looks nice"
+- Operate in a local service area (city + surrounding areas)
+
+Target niches (current and planned):
+- Junk removal (live — template built, first client completed)
+- Tree service (planned)
+- Fencing (planned)
+- Concrete (planned)
+- General contracting, pressure washing, landscaping, etc. (future)
+
+
+HOW IT WORKS — THE PROCESS
+---------------------------
+1. SALES CALL (5 min callback)
+   - Collect: business name, city, phone, services offered, years in
+     business, crew size, brand colors/preferences
+   - Pull their Google Business Profile for real reviews, rating, review count
+
+2. BUILD (3-4 hours actual work)
+   - Copy the master template for their niche
+   - Swap in their brand colors (CSS variable swap)
+   - Replace all placeholder content with their real info
+   - Add their real Google reviews
+   - Set their service areas, pricing, FAQ answers
+   - Swap stock photos for client photos (or better-matching stock)
+   - Update all Schema.org structured data
+   - Test mobile, test links, test everything
+
+3. DELIVER (within 36 hours of callback)
+   - Send preview link to client
+   - Handle revisions
+   - Deploy to static hosting (Cloudflare Pages or Netlify)
+   - Point their domain, set up SSL
+   - Submit to Google Search Console
+   - Generate QR code for their review link
+   - Train client on QR review system
+
+WHY 36 HOURS AND NOT INSTANT:
+A site delivered in 20 minutes feels automated and cheap. 36 hours feels
+hand-crafted and premium. The actual build is 3-4 hours — the rest is
+perceived value and scheduling buffer.
+
+
+THE TECH — HOW WE BUILD
+-------------------------
+- Pure HTML/CSS/JS — single self-contained .html file per client
+- Zero dependencies, zero frameworks, zero build steps
+- CSS custom properties for instant color/brand theming
+- Static hosting (fast, cheap, secure, zero maintenance for clients)
+- Claude Code (AI) is the build tool — we use it to personalize each site
+  from the master template rapidly
+
+Why this stack:
+- Loads instantly (no JavaScript framework bloat)
+- Ranks well (clean HTML, proper schema, fast load times)
+- Costs almost nothing to host
+- No CMS to maintain, no plugins to update, no security patches
+- Each site is completely independent — one client's site can never
+  break another's
+
+
+WHAT EACH CLIENT SITE INCLUDES
+-------------------------------
+Every site ships with all of these out of the box:
+
+LAYOUT & UX:
+- Sticky header with phone CTA always visible
+- Hero section with trust badge, stats, and dual CTAs (call + text)
+- Trust bar (licensed, insured, rated, same-day, pricing, eco-friendly)
+- Services grid with images (6 service cards)
+- How-it-works 3-step process flow
+- Pricing visualization (truck-based: 1/4, 1/2, full load)
+- Before/after comparison section
+- Why-choose-us feature grid
+- Contact form with honeypot spam protection
+- Mobile sticky CTA bar (call, text, get quote)
+
+SOCIAL PROOF & REVIEWS:
+- Google reviews section with real reviews and aggregate rating
+- QR code review automation showcase (the differentiator)
+- Social proof notification popups (timed)
+- Animated stat counters (jobs completed, 5-star reviews, etc.)
+
+LOCAL SEO:
+- Full Schema.org markup (LocalBusiness, FAQPage, BreadcrumbList)
+- Service area section with city pills + Google Maps embed
+- Proper meta tags, canonical URLs, OG tags for social sharing
+- FAQ accordion (schema-enabled — can appear in Google results)
+
+PERFORMANCE & ACCESSIBILITY:
+- Mobile-first responsive design
+- Scroll reveal animations
+- Reduced-motion support
+- Focus-visible states, ARIA labels, landmark roles
+- Skip-nav ready, screen-reader-only labels
+
+
+THE QR REVIEW SYSTEM — OUR DIFFERENTIATOR
+-------------------------------------------
+Every site includes a section showcasing a QR code review automation
+system. This is the value-add that separates us from competitors like
+generic website builders. The contractor prints the QR code, hands it to
+customers after a job, and it takes them directly to leave a Google review.
+More reviews = better local rankings = more calls. It's a tangible,
+physical tool the contractor can use every single day, not just a website
+feature they forget about.
+
+
+THE DEMO SYSTEM
+----------------
+Our templates support URL parameters for instant sales demos:
+  ?name=Big+Tex+Junk+Hauling&city=Arlington&phone=4695550187
+
+This lets us show a prospect "their" website during the sales call without
+building anything yet. We just plug their name, city, and phone into the
+URL and they see a fully functional site with their info. This closes deals.
+
+For production (paying client) sites, all content is hardcoded directly
+into the HTML — no URL params.
+
+
+COMPETITIVE POSITIONING
+------------------------
+vs. DIY builders (Wix, Squarespace, GoDaddy):
+  - We're done-for-you, not DIY
+  - Our sites are hand-built and SEO-optimized, not drag-and-drop templates
+  - No monthly builder fees eating into their budget
+  - Sites actually rank and generate calls
+
+vs. Traditional agencies ($3K-$10K+):
+  - We're 1/3 to 1/10 the cost
+  - Delivered in 36 hours, not 4-8 weeks
+  - Same quality output for a local service business
+  - No scope creep, no revision hell — it's a defined product
+
+vs. Cheap freelancers ($200-$500):
+  - Production quality, not amateur hour
+  - SEO baked in from the start, not bolted on
+  - Includes the QR review system as a value-add
+  - Ongoing hosting relationship ($75/mo recurring revenue)
+
+
+BUSINESS MODEL & UNIT ECONOMICS
+---------------------------------
+Revenue per client:
+  - $999 one-time build fee
+  - $75/month recurring hosting (=$900/year)
+  - Year 1 total: ~$1,899 per client
+  - Year 2+: $900/year passive recurring
+
+Cost per client:
+  - 3-4 hours build time (using Claude Code for speed)
+  - ~$10-15/year hosting cost (static sites are cheap)
+  - Domain cost (passed to client or included)
+
+The recurring hosting revenue is the real business. Every client we close
+adds $75/mo to the base. 20 clients = $1,500/mo recurring. 50 clients =
+$3,750/mo recurring. The one-time fees cover acquisition cost and build time.
+
+
+CURRENT STATUS
+---------------
+- Master junk removal template: BUILT (fully featured, production-ready)
+- First client build (Thompson's Junk Haulers): COMPLETED
+- Project structure and documentation: DONE
+- Additional niche templates: NOT YET STARTED
+- LaunchedOps marketing/company website: NEEDS REBUILD
+- Deployment pipeline: DOCUMENTED
+- Ad campaigns for lead gen: IN PROGRESS (troubleshooting delivery)
+
+
+FILE STRUCTURE
+---------------
+launchedops/
+├── templates/          Master templates by niche (starting point)
+│   └── junk-removal/   Junk removal master template
+├── clients/            One folder per paying client
+│   ├── _example/       Example client brief
+│   └── thompsons-junk-haulers/  First completed client
+├── docs/               All documentation
+├── assets/             Shared stock images
+└── scripts/            Utility scripts (future automation)

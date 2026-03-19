@@ -58,5 +58,24 @@ export default function sitemap() {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
+    // Legal & utility pages
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date("2026-03-16"),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date("2026-03-16"),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/thank-you`,
+      lastModified: new Date("2026-03-16"),
+      changeFrequency: "yearly" as const,
+      priority: 0.2,
+    },
   ];
 }

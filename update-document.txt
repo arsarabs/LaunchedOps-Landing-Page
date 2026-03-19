@@ -1,0 +1,617 @@
+# LaunchedOps — "The Site IS a Rocket" Update Document
+# What was implemented and where everything lives
+# Date: 2026-02-27
+
+---
+
+## CONCEPT
+
+The LaunchedOps homepage now feels like you're navigating through a rocket ship. Each section maps to a part of the vessel. A side rocket nav lets you click between sections. The background shifts color as you scroll (cool blue at top → warm orange at bottom). Metallic dividers separate hull segments. Mobile-first throughout.
+
+Section → Rocket Part mapping:
+- Hero → Nose Cone ("Launch")
+- Problem → Cockpit ("The Problem")
+- What You Get → Cargo Bay ("Cargo Bay")
+- Portfolio/Examples → Observation Deck ("Our Work")
+- How It Works → Engine Room ("Engine Room")
+- Final CTA → Exhaust / Launchpad ("Ignition")
+
+---
+
+## FILES CREATED
+
+### css/pages/rocket-theme.css
+Brand new file. Contains ALL rocket experience CSS:
+- Scroll snap: `html:has(.rocket-hull)` scopes snap to homepage only. `mandatory` on desktop, `proximity` on mobile (<=768px) to avoid trapping.
+- `scroll-padding-top: var(--nav-height)` accounts for fixed navbar.
+- `.rocket-section` class: `scroll-snap-align: start`, `min-height: 100dvh`.
+- `.rocket-ambient` div: fixed, z-index -1, holds the scroll-linked gradient (JS overrides the static fallback).
+- `.rocket-hull::before`: fixed hull panel texture — repeating linear gradients making 200x150px panels at 2% white opacity.
+- Section dividers: `box-shadow: inset` on `.rocket-section + .rocket-section` for metallic joint line. `::after` pseudo for rivet dot pattern every 80px. Uses box-shadow instead of ::before to avoid conflict with `.cta-section::before` (which has its own radial glow).
+- `.rocket-nav`: fixed right side, vertically centered. SVG rocket silhouette at 20% opacity (desktop only). 6 `<button>` dots with `data-section` attributes.
+- `.rocket-nav-dot.active`: orange glow + pulse animation (`navDotPulse` keyframes).
+- `.rocket-nav-label`: tooltip that slides in from right on hover. Uses backdrop-filter blur.
+- Mobile (<=1024px): SVG silhouette hidden, dots shrink to 8px, active = 10px. No labels.
+- Very small (<=380px): dots shrink further to 6px.
+- `.cursor-glow`: 400px fixed radial gradient, `will-change: transform`, hidden by default (opacity 0), shown via `.visible` class. Hidden on `hover: none` (touch devices).
+- `.rocket-ambient-static`: static version of the gradient for non-homepage pages.
+- `prefers-reduced-motion`: disables snap, forces static gradient, hides cursor glow, kills pulse animation.
+
+### js/rocket-experience.js
+Brand new file. Contains ALL rocket experience JavaScript:
+- Homepage-only guard: checks `window.location.pathname` and exits early on other pages.
+- Checks `prefers-reduced-motion` before enabling animations.
+- Scroll-linked ambient gradient: `requestAnimationFrame` throttled scroll listener. Interpolates between 6 color stops (one per section) using lerp. Updates `.rocket-ambient` background style directly.
+- Section observer: `IntersectionObserver` with `rootMargin` offset for navbar height and `threshold: 0.3`. When a section enters view, it updates the active nav dot (adds/removes `.active` class) and sets `--navbar-accent` CSS variable on the navbar element.
+- Nav click handlers: each `.rocket-nav-dot` button calls `scrollIntoView({ behavior: 'smooth' })` on its target section.
+- Cursor glow: `mousemove` listener updates transform position. `mouseleave` hides it. Separate `IntersectionObserver` at `threshold: 0.5` updates the glow color per section. Disabled on touch devices (`'ontouchstart' in window`).
+
+---
+
+## FILES MODIFIED
+
+### index.html
+- Added `<link rel="stylesheet" href="css/pages/rocket-theme.css">` after home.css.
+- Added `<script src="js/rocket-experience.js"></script>` after rocket.js.
+- Added `<div class="rocket-ambient" aria-hidden="true"></div>` between mobile menu and main.
+- Added `<div class="cursor-glow" aria-hidden="true"></div>` after ambient div.
+- Added full `<nav class="rocket-nav">` with SVG silhouette and 6 button dots (hero, problem, cargo, examples, engine, ignition). Each button has `data-section`, `aria-label`, and a `<span class="rocket-nav-label">` for the tooltip.
+- Changed `<main id="main">` to `<main id="main" class="rocket-hull">`.
+- Added `id` and `rocket-section` class to all 6 sections:
+  - `<section id="hero" class="hero section rocket-section">`
+  - `<section id="problem" class="section problem-section rocket-section">`
+  - `<section id="cargo" class="section rocket-section">`
+  - `<section id="examples" class="section rocket-section" style="background: var(--bg-secondary);">`
+  - `<section id="engine" class="section rocket-section">`
+  - `<section id="ignition" class="section cta-section rocket-section">`
+
+### css/components.css
+- Enhanced `.navbar.scrolled`:
+  - Changed background opacity from 0.9 to 0.85.
+  - Added `saturate(180%)` to backdrop-filter.
+  - Added `box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3)`.
+- Added `.navbar.scrolled::after` pseudo-element: thin 1px gradient accent line at bottom of navbar. Color driven by `var(--navbar-accent)` CSS variable (defaults to orange at 30% opacity). JS updates this variable per-section on the homepage.
+
+### css/pages/home.css
+- Replaced the `@media (max-width: 480px) .rocket-scene { display: none; }` rule.
+- Now shows rocket at 60px width, repositioned above the mockup (relative positioning, centered with `margin: 0 auto`).
+- All rocket sub-elements scaled down proportionally (22px ship width, 11px nose, 22px fuselage, 7px window, etc).
+
+### about.html, how-it-works.html, examples.html, get-started.html
+- Added `<link rel="stylesheet" href="css/pages/rocket-theme.css">` to each page's `<head>`.
+- Added `<div class="rocket-ambient-static" aria-hidden="true"></div>` right before `<main>` on each page. This gives every page the static blue-to-orange gradient background.
+- These pages do NOT get the rocket nav, cursor glow, scroll snap, or hull texture — only the ambient gradient and the enhanced navbar (via shared components.css).
+
+### js/main.js
+- No changes needed. The `--navbar-accent` variable is set by `rocket-experience.js` via the section observer, and it only runs on the homepage. The navbar accent line in components.css has a fallback default.
+
+---
+
+## HOW IT ALL CONNECTS
+
+1. User loads homepage → `rocket-theme.css` enables scroll snap on `html` (via `:has(.rocket-hull)`).
+2. Each `.rocket-section` snaps into place as user scrolls.
+3. `rocket-experience.js` runs scroll listener → interpolates ambient gradient colors → updates `.rocket-ambient` background.
+4. Same JS file runs `IntersectionObserver` → detects which section is visible → lights up the corresponding `.rocket-nav-dot` → sets `--navbar-accent` on the navbar.
+5. Navbar's `::after` accent line picks up the color change via the CSS variable.
+6. On desktop, cursor glow follows mouse and shifts color per section.
+7. On other pages, only the static ambient gradient and enhanced navbar apply.
+
+---
+
+## IMPORTANT IMPLEMENTATION DETAILS
+
+- Section dividers use `box-shadow: inset` instead of `::before` pseudo-elements because `.cta-section::before` already has a radial glow effect. Using box-shadow avoids the conflict.
+- Scroll snap is scoped via `html:has(.rocket-hull)` — only index.html has `class="rocket-hull"` on its `<main>` element, so other pages are unaffected even though they load the same CSS.
+- The JS file has an early return guard checking the page pathname, so it does nothing on non-homepage pages.
+- The `IntersectionObserver` rootMargin reads `--nav-height` from CSS custom properties (fallback 72px) to offset the observation area below the fixed navbar.
+- Cursor glow checks for `'ontouchstart' in window` AND uses `@media (hover: none)` in CSS as a double guard against showing on touch devices.
+
+---
+
+## WHAT WAS ALREADY IN PLACE BEFORE THIS UPDATE
+(this is our current design)
+
+- CSS rocket ship in hero section (rocket-scene, rocket-ship, rocket-body, etc.) with launch animation, bobbing, and flame flicker — in home.css
+- Particle canvas behind the rocket — handled by js/rocket.js
+- Scroll parallax on the rocket — handled by js/rocket.js
+- Navbar scroll detection (adds .scrolled class) — in js/main.js
+- Mobile hamburger menu — in js/main.js
+- Reveal/stagger scroll animations — in js/animations.js
+- Hero mockup parallax — in js/interactions.js
+- All existing section content, cards, grids, typography — unchanged
+
+
+BELOW IS THE NEW DESIGN I WANT
+
+# LaunchedOps — "The Rocket IS The Website" Upgrade Prompt
+
+## READ FIRST
+
+This prompt builds ON TOP of the existing LaunchedOps site. Do NOT rebuild or delete existing pages, content, CSS, or JS. The current site already has:
+- 5 pages (index.html, how-it-works.html, about.html, examples.html, get-started.html)
+- A rocket theme with scroll-linked ambient gradient, rocket side nav dots, cursor glow, scroll snap sections, hull texture, metallic dividers
+- A CSS rocket ship in the hero with particles, launch animation, parallax
+- All section content, cards, grids, typography already in place
+- Shared nav, footer, global CSS, component CSS, animation JS, interaction JS
+
+Read the existing codebase thoroughly before making any changes. Understand what exists, what each file does, and how they connect. Then layer this new experience on top.
+
+---
+
+## THE CONCEPT
+
+Transform the homepage from a "themed scrolling page" into an **interactive rocket exploration experience**. The user doesn't just scroll a webpage — they navigate through a rocket ship. A large, detailed, always-visible rocket illustration serves as both the primary visual AND the navigation system. Each physical segment of the rocket maps to a content section. Clicking a segment flies you into that part of the ship, revealing the content.
+
+**The rocket is not decoration. The rocket IS the website.**
+
+This should feel like the creative agency portfolio sites that make you go "holy shit" — the ones where the entire page is an experience, not just text on a dark background. But it still needs to convert. Contractors still need to understand what LaunchedOps does, find the CTA, and take action. The experience enhances the message — it doesn't bury it.
+
+---
+
+## THE ROCKET — VISUAL DESIGN
+
+### What It Looks Like
+Build a detailed, stylized rocket illustration using **pure SVG** (inline in the HTML, not an image file). This is not the small CSS rocket currently in the hero — this is a large, detailed, interactive rocket that serves as the site's central visual element.
+
+**Rocket style:**
+- Sleek, modern, slightly stylized — think technical blueprint meets premium illustration
+- NOT cartoonish, NOT clipart, NOT realistic 3D — clean vector art with personality
+- Dark metallic body with subtle gradients (dark grays, charcoal)
+- Orange accent lines along segment borders and panel details
+- Blue subtle glow effects on windows, engines, accent lights
+- Each segment has visual details that hint at its content purpose:
+  - **Nose Cone** (Hero/Launch): Pointed tip with a glowing orange tip, antenna array, "LaunchedOps" etched small on the hull
+  - **Cockpit** (The Problem): Windshield/viewport windows with a subtle blue glow inside, instrument panel silhouette visible
+  - **Cargo Bay** (What You Get): Large hull doors with panel lines, cargo indicator lights, wider body section
+  - **Observation Deck** (Our Work/Portfolio): Row of illuminated windows showing faint screen-like glows inside, like you can see the work happening
+  - **Engine Room** (How It Works): Exposed mechanical details, pipes, conduits, orange warning stripes, access panels
+  - **Exhaust/Launchpad** (Final CTA): Rocket nozzles, exhaust ports, flame/thrust visual at the bottom — this section should feel like ignition
+
+**Rocket dimensions:**
+- Desktop: The rocket sits on the **left side** of the viewport, roughly 35-40% width, vertically spanning most of the visible screen height. Content sections appear on the **right side** (55-60% width).
+- The rocket should be tall enough that all 6 segments are clearly visible and clickable without being cramped.
+- On scroll/navigation, the rocket stays fixed in position. The highlighted segment glows or animates to show where you are.
+
+### Segment Interaction States
+Each rocket segment has 3 visual states:
+
+1. **Default:** Muted, darker tone. Subtle panel lines visible. Segment label faintly visible.
+2. **Hover:** Segment brightens slightly. Orange accent lines glow. A tooltip/label appears showing the section name ("The Problem", "Cargo Bay", etc.). Cursor changes to pointer.
+3. **Active (current section):** Segment fully illuminated. Orange border glow pulses subtly. Internal details light up (windows glow brighter, engine parts animate, etc.). The segment looks "powered on."
+
+### Segment Labels
+Each segment should have a small label that appears on hover:
+- Nose Cone → "Launch"
+- Cockpit → "The Problem"
+- Cargo Bay → "What You Get"
+- Observation Deck → "Our Work"
+- Engine Room → "How It Works"
+- Exhaust → "Ignition"
+
+Labels should appear as sleek tooltips — dark background, white text, slight backdrop blur, positioned just to the right of the rocket (or above on mobile). Animate in with a subtle fade + slide.
+
+---
+
+## THE NAVIGATION EXPERIENCE
+
+### How It Works — Desktop
+
+**Layout:** Split-screen. Rocket fixed on the left (~35-40% viewport width). Content panels on the right (~55-60% viewport width). The content area is the scrollable/navigable zone.
+
+**Two ways to navigate:**
+
+1. **Click a rocket segment** → The content panel smoothly transitions to that section. The clicked segment lights up. Other segments dim. The transition should feel like you're "entering" that part of the rocket — maybe the content slides in from the right, or fades in with a slight zoom, or the rocket segment visually "opens" to reveal the content.
+
+2. **Scroll normally** → As the user scrolls through the content on the right side, the rocket on the left tracks their position. The corresponding segment lights up as each section enters the viewport. This is the fallback for people who just want to scroll like a normal website.
+
+**Content transitions:**
+When clicking a rocket segment (not scrolling), the transition between sections should feel intentional and designed:
+- The current content fades out slightly (opacity drop + subtle scale down)
+- A brief transition moment (150-250ms)
+- The new content fades in (opacity up + subtle slide from bottom or right)
+- The rocket segment animates to its "active" state simultaneously
+- Keep it fast — this should feel snappy, not slow. If the animations feel sluggish, the experience is ruined.
+
+**Scroll behavior:**
+When scrolling (not clicking), use scroll snap on the content sections so they settle cleanly into view. The rocket segment highlight follows via IntersectionObserver (similar to what's already implemented, but now updating the SVG rocket segments instead of just dots).
+
+### How It Works — Tablet (769-1024px)
+
+**Layout:** The rocket moves to a **horizontal orientation across the top** of the page, below the fixed navbar. It becomes a horizontal bar/strip showing the rocket from nose (left) to exhaust (right). Each segment is still clickable and shows hover states. Think of it like a visual progress bar shaped like a rocket.
+
+Content sections stack below and scroll normally. The horizontal rocket bar stays fixed and highlights the current segment as you scroll.
+
+**Dimensions:** The horizontal rocket strip should be roughly 60-70px tall, spanning the full viewport width. Segments are evenly distributed.
+
+### How It Works — Mobile (0-768px)
+
+**Layout:** The full interactive rocket is **not shown on mobile**. Instead, use a compact **rocket segment indicator** — a small vertical or horizontal strip of 6 dots/segments (similar to the existing rocket-nav dots but with more visual identity). Each dot is shaped like a mini section of a rocket (pointed top dot, wider middle dots, nozzle-shaped bottom dot) rather than plain circles.
+
+Content sections stack and scroll normally (proximity scroll snap, not mandatory — don't trap users). The mini rocket nav sits fixed on the right edge of the screen.
+
+Alternatively: show a simplified mini rocket silhouette (much smaller, ~40-50px tall) fixed on the right side, with each segment still tappable. Keep it subtle enough to not block content.
+
+**CRITICAL:** Mobile must still be fully functional and look great even without the big interactive rocket. The content and CTAs are the priority on mobile. The rocket experience is a desktop/tablet enhancement.
+
+---
+
+## CONTENT SECTIONS — WHAT APPEARS IN EACH SEGMENT
+
+The content for each section already exists on the current homepage. Do NOT rewrite the content — just restructure how it's presented to work within this rocket segment navigation system. Each section should feel like you're "inside" that part of the rocket.
+
+### Nose Cone → Hero ("Launch")
+- All existing hero content: headline, subheadline, CTAs, trust line
+- The hero mockup (laptop/phone) can stay but may need repositioning since the rocket now takes up the left side
+- Consider: the mockup could appear to be displayed ON a screen inside the nose cone, like a mission control display
+- Ambient feel: expansive, forward-looking, the tip of the journey
+
+### Cockpit → The Problem
+- All existing problem cards/content
+- Ambient feel: warning lights, alert status — this section should feel urgent
+- Maybe subtle red/amber accent instead of pure orange for this section specifically
+- The segment's "windows" on the rocket should glow amber when this section is active
+
+### Cargo Bay → What You Get
+- All existing outcomes/benefits content
+- Ambient feel: packed with value, opening the bay doors to reveal what's inside
+- The rocket's cargo bay doors could have a subtle "opening" animation when this section becomes active
+- Green/teal accent could work here — "loaded and ready"
+
+### Observation Deck → Portfolio/Our Work
+- All existing portfolio preview content
+- Ambient feel: looking out the windows at the work, observation and proof
+- The observation windows on the rocket glow when this section is active
+- Clean, gallery-like presentation
+
+### Engine Room → How It Works
+- All existing process steps content
+- Ambient feel: mechanical, systematic, the guts of the operation
+- Orange warning stripe accents, industrial feel
+- The engine details on the rocket could subtly animate (pistons, gears) when active
+
+### Exhaust/Launchpad → Final CTA ("Ignition")
+- All existing final CTA content
+- Ambient feel: IGNITION — this is the launch moment, the most energetic section
+- Flame/thrust animation at the bottom of the rocket when this section is active
+- The biggest, boldest CTA treatment. The entire section should feel like "press this button and things happen"
+- Orange is dominant here — bright, warm, action-oriented
+
+---
+
+## AMBIENT ENHANCEMENTS PER SECTION
+
+Each section should have a subtle ambient shift — not just the background gradient (which already exists) but also:
+
+- **Particle density/color:** If using the existing particle canvas, shift particle color and behavior per section (sparse + white in hero, amber + slightly more in problem, etc.)
+- **Cursor glow color:** Already implemented — make sure it matches the new segment accents
+- **Navbar accent line:** Already implemented via `--navbar-accent` — make sure it updates per segment
+- **Sound?** NO. Do not add sound. Contractors will be browsing on their phones at job sites. No audio.
+
+---
+
+## THE SVG ROCKET — TECHNICAL SPECS
+
+### Building the SVG
+- Build the entire rocket as a single inline `<svg>` element with clearly defined `<g>` groups for each segment
+- Each segment group should have an `id` and a `data-section` attribute matching the content section id:
+  ```svg
+  <g id="rocket-seg-hero" data-section="hero" class="rocket-segment">
+    <!-- nose cone paths, shapes, details -->
+  </g>
+  <g id="rocket-seg-problem" data-section="problem" class="rocket-segment">
+    <!-- cockpit paths, shapes, details -->
+  </g>
+  ```
+  ...and so on for all 6 segments
+- Use CSS classes to control states: `.rocket-segment`, `.rocket-segment--hover`, `.rocket-segment--active`
+- All colors should use CSS custom properties so the theme can be adjusted globally
+- Include subtle SVG animations for active states (use `<animate>` or CSS animations on SVG elements):
+  - Nose cone: tip glow pulses
+  - Cockpit: window light flickers subtly
+  - Cargo bay: door lines shift slightly (as if doors are opening)
+  - Observation deck: window screens flicker/cycle
+  - Engine room: mechanical elements pulse
+  - Exhaust: flame shapes animate (wave/flicker)
+
+### SVG Responsiveness
+- Use `viewBox` for proper scaling
+- Desktop: full detailed rocket
+- Tablet (horizontal): simplified version optimized for horizontal layout, less detail, cleaner silhouette
+- Mobile: even more simplified — just the outline silhouette with segment divisions
+
+### Performance
+- Keep the SVG optimized. Remove unnecessary paths, merge where possible
+- Use CSS for animations rather than SMIL (`<animate>`) where possible for better performance
+- The rocket should not cause jank or layout shifts
+- Test: the rocket + content transitions should run at 60fps
+
+---
+
+## JAVASCRIPT ARCHITECTURE
+
+### New File: js/rocket-nav.js
+This file handles the new rocket navigation experience. It should REPLACE the functionality in `js/rocket-experience.js` (the dot nav, ambient gradient, cursor glow section tracking) but reuse the same patterns and concepts. Don't delete rocket-experience.js — keep it as a fallback or reference — but the new file takes over.
+
+**What this file does:**
+
+1. **Homepage detection:** Early return if not on homepage (same pattern as existing)
+2. **Reduced motion check:** If user prefers reduced motion, fall back to simple scroll behavior with no transitions — just highlight the active segment
+3. **Segment click handlers:**
+   - Listen for clicks on `.rocket-segment` groups in the SVG
+   - On click: determine target section from `data-section` attribute
+   - Animate content transition (fade out current → fade in target)
+   - Scroll content panel to target section
+   - Update rocket: remove `--active` from all segments, add to clicked segment
+   - Update ambient gradient to target section's color
+   - Update navbar accent
+4. **Scroll tracking:**
+   - IntersectionObserver on content sections (same pattern as existing)
+   - When a section enters the viewport via scrolling, update the active rocket segment
+   - Update ambient gradient, cursor glow, navbar accent (same as existing but targeting SVG segments instead of dots)
+5. **Hover handlers:**
+   - Mouseenter on a segment: add `--hover` class, show label tooltip
+   - Mouseleave: remove `--hover` class, hide label
+6. **Ambient gradient:** Port the existing scroll-linked gradient interpolation from rocket-experience.js
+7. **Cursor glow:** Port the existing cursor glow tracking from rocket-experience.js
+8. **Resize handler:** Debounced resize listener that adjusts rocket layout if needed (desktop ↔ tablet ↔ mobile breakpoints)
+
+### Content Transition Logic
+```
+function navigateToSection(targetId) {
+  const currentSection = getCurrentActiveSection()
+  const targetSection = document.getElementById(targetId)
+  
+  // 1. Fade out current content
+  currentSection.classList.add('section-exiting')
+  
+  // 2. After short delay, scroll to target
+  setTimeout(() => {
+    targetSection.scrollIntoView({ behavior: 'smooth' })
+    currentSection.classList.remove('section-exiting')
+    targetSection.classList.add('section-entering')
+    
+    // 3. Remove entering class after animation completes
+    setTimeout(() => {
+      targetSection.classList.remove('section-entering')
+    }, 300)
+  }, 150)
+  
+  // 4. Update rocket segment states
+  updateActiveSegment(targetId)
+}
+```
+
+This is pseudocode — implement the actual version with proper timing, easing, and edge case handling. The key is: it should feel smooth and intentional, not janky.
+
+---
+
+## CSS CHANGES
+
+### New File: css/pages/rocket-interactive.css
+This file contains all styles for the new interactive rocket experience. It builds on top of (and may override some rules in) `rocket-theme.css`.
+
+**Key styles:**
+
+```css
+/* Split layout — desktop */
+@media (min-width: 1025px) {
+  .rocket-hull {
+    display: grid;
+    grid-template-columns: minmax(300px, 38%) 1fr;
+    min-height: 100vh;
+  }
+  
+  .rocket-visual-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .rocket-content-container {
+    /* This wraps all the content sections */
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+  }
+}
+
+/* Tablet — horizontal rocket */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .rocket-visual-container {
+    position: sticky;
+    top: var(--nav-height);
+    height: 65px;
+    z-index: 10;
+  }
+  
+  .rocket-svg-horizontal {
+    /* Horizontal rocket version */
+  }
+}
+
+/* Mobile — mini nav, no big rocket */
+@media (max-width: 768px) {
+  .rocket-visual-container {
+    display: none; /* Hide the big rocket */
+  }
+  
+  .rocket-mini-nav {
+    /* Small fixed right-side rocket silhouette nav */
+    position: fixed;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+  }
+}
+
+/* Segment states */
+.rocket-segment { cursor: pointer; transition: all 0.3s ease; }
+.rocket-segment--hover { filter: brightness(1.3); }
+.rocket-segment--active { filter: brightness(1.5); }
+
+/* Content transitions */
+.section-exiting { 
+  opacity: 0.3; 
+  transform: scale(0.98); 
+  transition: all 0.15s ease-out; 
+}
+.section-entering { 
+  animation: sectionEnter 0.3s ease-out forwards; 
+}
+@keyframes sectionEnter {
+  from { opacity: 0.5; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Segment label tooltips */
+.rocket-segment-label {
+  position: absolute;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+.rocket-segment:hover + .rocket-segment-label,
+.rocket-segment--hover ~ .rocket-segment-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+```
+
+This is direction, not final code — implement properly with all the responsive details, edge cases, and the actual segment glow/active animations on the SVG elements.
+
+### Modifications to existing CSS
+- `rocket-theme.css`: The existing `.rocket-nav` (dot navigation) should be hidden on desktop when the new interactive rocket is present. Keep it as the mobile fallback or replace with the mini rocket nav.
+- `home.css`: The existing CSS rocket in the hero (`.rocket-scene`) should be REMOVED or hidden — the new SVG rocket replaces it as the primary visual. The hero section content (headline, subheadline, CTAs, mockup) remains but repositions to the right side in the split layout.
+- `global.css`: May need to adjust the main content container to account for the split layout grid.
+
+---
+
+## HTML CHANGES TO index.html
+
+### New structure (desktop concept):
+```html
+<main id="main" class="rocket-hull">
+  
+  <!-- LEFT SIDE: Interactive Rocket -->
+  <div class="rocket-visual-container">
+    <svg class="rocket-svg" viewBox="0 0 400 900" xmlns="http://www.w3.org/2000/svg">
+      <!-- 6 segment groups with all visual details -->
+      <g id="rocket-seg-hero" data-section="hero" class="rocket-segment">...</g>
+      <g id="rocket-seg-problem" data-section="problem" class="rocket-segment">...</g>
+      <g id="rocket-seg-cargo" data-section="cargo" class="rocket-segment">...</g>
+      <g id="rocket-seg-examples" data-section="examples" class="rocket-segment">...</g>
+      <g id="rocket-seg-engine" data-section="engine" class="rocket-segment">...</g>
+      <g id="rocket-seg-ignition" data-section="ignition" class="rocket-segment">...</g>
+    </svg>
+    <!-- Segment label tooltips positioned via JS -->
+  </div>
+  
+  <!-- RIGHT SIDE: Content Sections -->
+  <div class="rocket-content-container">
+    <section id="hero" class="rocket-section">...</section>
+    <section id="problem" class="rocket-section">...</section>
+    <section id="cargo" class="rocket-section">...</section>
+    <section id="examples" class="rocket-section">...</section>
+    <section id="engine" class="rocket-section">...</section>
+    <section id="ignition" class="rocket-section">...</section>
+  </div>
+  
+</main>
+
+<!-- Mobile mini rocket nav (outside main, fixed position) -->
+<nav class="rocket-mini-nav" aria-label="Section navigation">
+  <!-- Simplified small rocket silhouette with tappable segments -->
+</nav>
+```
+
+The existing section content (headlines, cards, grids, CTAs) stays exactly as-is inside each section. Only the outer wrapper structure changes to enable the split layout.
+
+---
+
+## TRANSITION FROM OLD ROCKET NAV TO NEW
+
+- The existing `.rocket-nav` (6 dots + SVG silhouette on the right side) should be **replaced** by the new interactive rocket on desktop
+- On mobile, the existing dot nav concept is upgraded to the mini rocket silhouette nav
+- The existing ambient gradient system, cursor glow, and navbar accent should be **preserved and enhanced** — these work well, just need to update to respond to the new SVG segments instead of the old dot nav
+- The existing CSS rocket animation in the hero (`rocket-scene`, `rocket-ship`, etc.) should be **removed from the homepage** since the interactive SVG rocket takes over as the main visual. Keep the CSS for those classes in case they're used elsewhere but hide/remove them from index.html
+- `rocket-experience.js` should be **disabled/removed from index.html** once `rocket-nav.js` is working — the new file takes over all its responsibilities
+
+---
+
+## PERFORMANCE & ACCESSIBILITY
+
+### Performance
+- The SVG rocket must be optimized — no bloated paths, no unnecessary groups
+- All animations use `transform` and `opacity` only (GPU-accelerated, no layout thrashing)
+- Content transitions should be fast (under 300ms total) — snappy, not sluggish
+- The split layout should not cause Content Layout Shift (CLS)
+- Lazy load any heavy elements below the fold
+- Test: everything should run at 60fps on a mid-range phone
+
+### Accessibility
+- Every rocket segment must have `role="button"`, `tabindex="0"`, and descriptive `aria-label`
+- Keyboard navigation: Tab through segments, Enter/Space to activate
+- Screen readers should announce: "Navigate to [section name]" on each segment
+- `prefers-reduced-motion`: disable all animations, transitions, and fancy effects. Fall back to instant section jumps with no animation. The rocket still shows and segments still highlight, but nothing moves.
+- The content must be fully accessible without JavaScript — if JS fails, the page should still be a normal scrollable page with all content visible
+- Color contrast: all text must meet WCAG AA (4.5:1 for body, 3:1 for large text)
+- Focus indicators: visible focus ring on all interactive elements including rocket segments
+
+### Fallback / Progressive Enhancement
+- **No JS:** Page renders as a normal scrollable page. Rocket SVG shows as a static illustration. All content is visible and accessible.
+- **Reduced motion:** No animations, instant transitions, static highlights
+- **Small screens:** Simplified nav, no split layout, scroll-based experience
+- **Old browsers:** If CSS grid or IntersectionObserver aren't supported, fall back to a simple stacked layout
+
+---
+
+## WHAT NOT TO CHANGE
+
+- Do NOT modify the content/copy inside any section — headlines, descriptions, cards, CTAs all stay as-is
+- Do NOT touch how-it-works.html, about.html, examples.html, or get-started.html — this upgrade is homepage-only
+- Do NOT change the navbar structure or footer — only the accent line behavior (already CSS-variable driven)
+- Do NOT add any external libraries, frameworks, or dependencies
+- Do NOT add sound, video autoplay, or anything that loads heavy media
+- Do NOT change the color palette — keep the existing dark theme with orange/blue accents
+- Keep all existing meta tags, schema markup, OG tags, canonical URLs intact
+
+---
+
+## BUILD ORDER
+
+1. **First:** Read all existing files. Understand the current structure completely.
+2. **Second:** Build the SVG rocket with all 6 segments. Get it looking right as a static visual first.
+3. **Third:** Implement the split layout (rocket left, content right) on desktop only. Make sure existing content still looks good in the narrower right column.
+4. **Fourth:** Add segment click navigation with content transitions.
+5. **Fifth:** Add scroll tracking (IntersectionObserver) so scrolling also updates the active segment.
+6. **Sixth:** Add hover states, tooltips, segment animations (glow, active states).
+7. **Seventh:** Port ambient gradient, cursor glow, navbar accent from existing rocket-experience.js into new rocket-nav.js.
+8. **Eighth:** Build tablet layout (horizontal rocket strip).
+9. **Ninth:** Build mobile layout (mini rocket nav).
+10. **Tenth:** Test accessibility, performance, fallbacks, reduced motion.
+
+Take it step by step. Test after each step. Don't try to build everything at once.
+
+---
+
+## THE GOAL
+
+When a contractor lands on launchedops.com, they should think: "I've never seen a website like this before. Whoever built this clearly knows what they're doing. I want MY website to look this impressive."
+
+The rocket experience is your portfolio in action. You're not just telling contractors you build great websites — you're proving it with every interaction on YOUR website. The medium is the message.
+
+Make it unforgettable.

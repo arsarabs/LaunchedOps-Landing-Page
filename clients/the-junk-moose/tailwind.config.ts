@@ -21,6 +21,10 @@ const config: Config = {
         gold: "#C8A44E",
         "gold-light": "#E8D5A0",
         "gold-dim": "rgba(200,164,78,0.08)",
+        "gold-muted": "rgba(200,164,78,0.25)",
+      },
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
       },
       animation: {
         marquee: "marquee var(--duration) linear infinite",
@@ -29,6 +33,10 @@ const config: Config = {
         "fade-up": "fadeUp 0.8s ease-out forwards",
         "slide-in": "slideIn 1s ease-out forwards",
         "spin-slow": "spin 20s linear infinite",
+        "clip-reveal": "clipReveal 1s cubic-bezier(0.16, 1, 0.3, 1) both",
+        "blur-in": "blurIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
+        "scale-up": "scaleUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both",
+        "slide-right": "slideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
       },
       keyframes: {
         marquee: {
@@ -45,6 +53,22 @@ const config: Config = {
         },
         slideIn: {
           from: { opacity: "0", transform: "translateX(-40px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        clipReveal: {
+          from: { clipPath: "inset(0 100% 0 0)" },
+          to: { clipPath: "inset(0 0% 0 0)" },
+        },
+        blurIn: {
+          from: { opacity: "0", filter: "blur(12px)" },
+          to: { opacity: "1", filter: "blur(0)" },
+        },
+        scaleUp: {
+          from: { opacity: "0", transform: "scale(0.92)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        slideRight: {
+          from: { opacity: "0", transform: "translateX(-30px)" },
           to: { opacity: "1", transform: "translateX(0)" },
         },
       },

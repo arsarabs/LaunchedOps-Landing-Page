@@ -78,7 +78,7 @@ body {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.015;
+  opacity: 0.018;
   will-change: transform;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
@@ -137,16 +137,24 @@ body {
   color: #A8A29E;
 }
 
-/* Magnetic button hover effect */
+/* ═══════════════════════════════════════════════════════════════
+   BUTTON EFFECTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Magnetic button — gradient sweep on hover */
 .btn-magnetic {
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-magnetic:hover {
+  transform: scale(1.02);
 }
 .btn-magnetic::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(200, 164, 78, 0.15) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -154,7 +162,147 @@ body {
   opacity: 1;
 }
 
-/* Line reveal animation */
+/* Border draw — animated border on hover */
+.border-draw {
+  position: relative;
+}
+.border-draw::before,
+.border-draw::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(200, 164, 78, 0.3);
+  pointer-events: none;
+  transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.border-draw::before {
+  clip-path: inset(0 100% 100% 0);
+}
+.border-draw::after {
+  clip-path: inset(100% 0 0 100%);
+}
+.border-draw:hover::before {
+  clip-path: inset(0 0 0 0);
+}
+.border-draw:hover::after {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LINK UNDERLINE — slide in from left
+   ═══════════════════════════════════════════════════════════════ */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION REVEAL SYSTEM — multiple reveal types
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Default reveal — fade up */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Blur reveal */
+[data-reveal="blur"] {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(0);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal="blur"].visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Clip reveal — from left */
+[data-reveal="clip"] {
+  clip-path: inset(0 100% 0 0);
+  opacity: 1;
+  transform: none;
+  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal="clip"].visible {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* Scale reveal */
+[data-reveal="scale"] {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal="scale"].visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered children — each child gets a progressive delay */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 80ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 160ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 240ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 320ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(6) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(7) { transition-delay: 480ms; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(8) { transition-delay: 560ms; opacity: 1; transform: translateY(0); }
+
+/* Marquee edge fade masks */
+.marquee-fade {
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DIAGONAL SWEEP — card hover accent
+   ═══════════════════════════════════════════════════════════════ */
+.card-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.card-sweep::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,164,78,0.06) 0%, transparent 50%);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-sweep:hover::before {
+  transform: translateX(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CSS ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
 @keyframes lineReveal {
   from { transform: scaleX(0); }
   to { transform: scaleX(1); }
@@ -163,19 +311,6 @@ body {
   animation: lineReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: left;
 }
-
-/* Pulse glow for CTA */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 164, 78, 0); }
-  50% { box-shadow: 0 0 40px 4px rgba(200, 164, 78, 0.1); }
-}
-.pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   CSS-only animation replacements (framer-motion removal)
-   ═══════════════════════════════════════════════════════════════ */
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -249,15 +384,9 @@ body {
   animation: zoomFadeIn 0.25s ease both;
 }
 
-/* Section reveal on scroll via Intersection Observer */
-.section-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.section-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Safe area for sticky mobile CTA on iOS */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -269,5 +398,15 @@ body {
   }
   .grain::before {
     display: none !important;
+  }
+  .section-reveal,
+  [data-reveal="blur"],
+  [data-reveal="clip"],
+  [data-reveal="scale"],
+  .stagger-children > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
   }
 }

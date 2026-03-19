@@ -1,15 +1,21 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { usePersonalization } from "@/lib/personalization";
 
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
   const biz = usePersonalization();
+  const router = useRouter();
   const [submitted, setSubmitted] = useState(false);
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    // Honeypot check — if filled, it's a bot
+    if (honeypotRef.current?.value) return;
     setSubmitted(true);
+    router.push("/thank-you");
   };
 
   return (
@@ -19,6 +25,19 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
           onSubmit={handleSubmit}
           className={`bg-dark border border-white/[0.04] ${compact ? "p-6" : "p-8 lg:p-12"}`}
         >
+          {/* Honeypot — hidden from real users, catches bots */}
+          <div className="absolute -left-[9999px]" aria-hidden="true">
+            <label htmlFor="form-website">Website</label>
+            <input
+              id="form-website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              ref={honeypotRef}
+            />
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
             <div>
               <label htmlFor="form-name" className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] block mb-2">
