@@ -58,7 +58,26 @@
       "Bash(cp -r /tmp/ai-marketing-claude-code-skills/ai-discoverability-audit /c/Users/acade/Downloads/LaunchedOps/.claude/skills/)",
       "Bash(cp -r /tmp/marketingskills/skills/cold-email /c/Users/acade/Downloads/LaunchedOps/.claude/skills/)",
       "Bash(cp -r /tmp/marketingskills/skills/competitor-alternatives /c/Users/acade/Downloads/LaunchedOps/.claude/skills/)",
-      "Bash(cp -r /tmp/marketingskills/skills/page-cro /c/Users/acade/Downloads/LaunchedOps/.claude/skills/)"
+      "Bash(cp -r /tmp/marketingskills/skills/page-cro /c/Users/acade/Downloads/LaunchedOps/.claude/skills/)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(git fetch:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(# Copy fixed file to sales-demo clone and push\ncp /c/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose/src/app/page.tsx /tmp/sales-demo-deploy/clients/the-junk-moose/src/app/page.tsx\n\ncd /tmp/sales-demo-deploy && git add -A && git commit -m \"$\\(cat <<'EOF'\nFix mobile overflow: scale down stats, quotes, and process indent for 375px\n\n- Stats: 6rem→4.5rem and 5rem→3.5rem on mobile\n- Testimonial quotation mark: 10rem→6rem on mobile\n- Process staircase: 3% indent→2% to prevent cramping on small screens\n\nCo-Authored-By: Claude Opus 4.6 \\(1M context\\) <noreply@anthropic.com>\nEOF\n\\)\" && git push origin main)",
+      "Bash(# Push to sales-demo\ncp /c/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose/src/app/page.tsx /tmp/sales-demo-deploy/clients/the-junk-moose/src/app/page.tsx\n\ncd /tmp/sales-demo-deploy && git add -A && git commit -m \"$\\(cat <<'EOF'\nBring back crew photo section, tone down hero headline size\n\n- Restored full-bleed crew photo with overlay text \\(\"Real people. Real work.\"\\)\n- Hero text: clamp\\(3.5rem,9vw,8rem\\) instead of clamp\\(4rem,13vw,12rem\\)\n- Back to \"Your junk. / Gone today.\" two-line headline with social proof badge\n- Removed staircase indent on hero text\n\nCo-Authored-By: Claude Opus 4.6 \\(1M context\\) <noreply@anthropic.com>\nEOF\n\\)\" && git push origin main)",
+      "Bash(# Push to both\ncp /c/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose/src/app/page.tsx /tmp/sales-demo-deploy/clients/the-junk-moose/src/app/page.tsx\ncd /tmp/sales-demo-deploy && git add -A && git commit -m \"Remove min-h-screen from hero — eliminate dead space above headline\" && git push origin main\n\ncd /c/Users/acade/Downloads/LaunchedOps && git add clients/the-junk-moose/src/app/page.tsx && git commit -m \"Remove min-h-screen from hero — eliminate dead space above headline\" && git push origin master)",
+      "WebFetch(domain:demo.launchedops.com)",
+      "Skill(humanizer)",
+      "Bash(# Push to both\ncp /c/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose/src/app/page.tsx /tmp/sales-demo-deploy/clients/the-junk-moose/src/app/page.tsx\ncd /tmp/sales-demo-deploy && git add -A && git commit -m \"$\\(cat <<'EOF'\nHumanize all homepage copy — remove AI writing patterns\n\nRewrote every section's copy to sound like a person talking:\n- Hero: removed poetic closer\n- Process: varied sentence rhythm, less declarative\n- Services: broke the list-then-dash-then-tag formula, added personality\n- Crew photo: dropped \"Real people. Real work.\" parallelism\n- MeetTheOwner: specific origin story instead of rule-of-three\n- Review routing: removed \"more X, higher Y, more Z\" triple\n- FAQ: conversational answers instead of formal copy\n- Quote: softer urgency\n\nCo-Authored-By: Claude Opus 4.6 \\(1M context\\) <noreply@anthropic.com>\nEOF\n\\)\" && git push origin main\n\ncd /c/Users/acade/Downloads/LaunchedOps && git add clients/the-junk-moose/src/app/page.tsx && git commit -m \"$\\(cat <<'EOF'\nHumanize all homepage copy — remove AI writing patterns\n\nCo-Authored-By: Claude Opus 4.6 \\(1M context\\) <noreply@anthropic.com>\nEOF\n\\)\" && git push origin master)",
+      "Bash(do sed:*)",
+      "Bash(sed -i 's/stroke=\"\"#C8A44E\"\"/stroke=\"\"#E8620A\"\"/g' \"$f\")",
+      "Bash(sed -i 's/fill=\"\"#C8A44E\"\"/fill=\"\"#E8620A\"\"/g' \"$f\")",
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=4096\" npm run build)",
+      "Bash(MONO=\"/c/Users/acade/Downloads/LaunchedOps/clients/the-junk-moose\")",
+      "Bash(DEMO=\"/tmp/sales-demo-deploy/clients/the-junk-moose\")",
+      "Bash(mkdir -p \"$DEMO/src/app/thank-you\" \"$DEMO/src/app/privacy\")",
+      "Bash(cp \"$MONO/src/app/thank-you/page.tsx\" \"$DEMO/src/app/thank-you/page.tsx\")",
+      "Bash(cp \"$MONO/src/app/privacy/page.tsx\" \"$DEMO/src/app/privacy/page.tsx\")"
     ]
   }
 }

@@ -8,7 +8,7 @@ export function Footer() {
   const biz = usePersonalization();
   const initials = biz.name.split(" ").filter(w => !["the","a","an"].includes(w.toLowerCase())).slice(0, 2).map(w => w[0]).join("").toUpperCase();
   return (
-    <footer className="bg-dark border-t border-white/[0.03] py-12 pb-24 lg:pb-12 px-6 lg:px-10">
+    <footer className="bg-dark border-t border-black/[0.06] py-12 pb-24 lg:pb-12 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Top section: Brand + Service Links + Location Links + Contact */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
@@ -132,7 +132,7 @@ export function Footer() {
           Proudly serving {biz.city} and the surrounding metro area.
         </p>
 
-        <div className="h-px bg-white/[0.03] mb-6" />
+        <div className="h-px bg-black/[0.02] mb-6" />
 
         {/* Legal row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">

@@ -33,7 +33,7 @@ export default function ThankYouPage() {
 
         <a
           href={`tel:${biz.phoneRaw}`}
-          className="inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300 mb-6"
+          className="inline-block bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300 mb-6"
         >
           Call {biz.phone}
         </a>

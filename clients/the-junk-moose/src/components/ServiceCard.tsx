@@ -14,7 +14,7 @@ export function ServiceCard({
   return (
     <Link
       href={`/services/${slug}`}
-      className="bg-dark p-8 lg:p-10 group hover:bg-warm-gray transition-all duration-500 relative overflow-hidden block border border-white/[0.03]"
+      className="bg-dark p-8 lg:p-10 group hover:bg-warm-gray transition-all duration-500 relative overflow-hidden block border border-black/[0.06]"
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gold/0 group-hover:bg-gold/30 transition-colors duration-500" />
       <div className="flex items-start justify-between mb-8">

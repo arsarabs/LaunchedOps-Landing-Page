@@ -35,7 +35,7 @@ export function Nav() {
       >
         Skip to main content
       </a>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-white/[0.03]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-black/[0.06]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
           {/* Brand */}
           <Link href="/" className="flex items-center gap-3 group">
@@ -65,7 +65,7 @@ export function Nav() {
                 </svg>
               </Link>
               <div
-                className={`absolute top-full left-0 mt-2 w-64 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl transition-all duration-200 ${activeDropdown === "services" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+                className={`absolute top-full left-0 mt-2 w-64 bg-dark/95 backdrop-blur-xl border border-black/[0.08] shadow-xl transition-all duration-200 ${activeDropdown === "services" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
               >
                 <div className="py-2">
                   <Link
@@ -112,7 +112,7 @@ export function Nav() {
                   </svg>
                 </Link>
                 <div
-                  className={`absolute top-full left-0 mt-2 w-56 bg-dark/95 backdrop-blur-xl border border-white/[0.06] shadow-xl transition-all duration-200 ${activeDropdown === "locations" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+                  className={`absolute top-full left-0 mt-2 w-56 bg-dark/95 backdrop-blur-xl border border-black/[0.08] shadow-xl transition-all duration-200 ${activeDropdown === "locations" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
                 >
                   <div className="py-2">
                     <Link
@@ -161,7 +161,7 @@ export function Nav() {
             </a>
             <Link
               href="/contact"
-              className="btn-magnetic bg-gold text-dark font-satoshi font-bold text-[11px] uppercase tracking-[0.18em] px-6 py-2.5 hover:bg-gold-light transition-colors duration-300"
+              className="btn-magnetic bg-gold text-white font-satoshi font-bold text-[11px] uppercase tracking-[0.18em] px-6 py-2.5 hover:bg-gold-light transition-colors duration-300"
             >
               Free Quote
             </Link>

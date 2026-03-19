@@ -78,7 +78,7 @@ export default function LocationsPage() {
           {biz.isDemo ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {[`Downtown ${biz.city}`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`, `Greater ${biz.city}`, `${biz.city} Metro`, `${biz.city} Suburbs`].map((area) => (
-                <div key={area} className="bg-warm-gray border border-white/[0.04] px-5 py-4 font-satoshi text-stone-dim text-sm">
+                <div key={area} className="bg-warm-gray border border-black/[0.06] px-5 py-4 font-satoshi text-stone-dim text-sm">
                   {area}
                 </div>
               ))}
@@ -99,7 +99,7 @@ export default function LocationsPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28 border-t border-white/[0.03]">
+      <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
             Serving the entire metro area
@@ -119,7 +119,7 @@ export default function LocationsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
+            className="inline-block bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
           >
             Contact Us for a Free Quote
           </Link>

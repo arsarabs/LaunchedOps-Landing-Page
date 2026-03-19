@@ -142,7 +142,7 @@ export default function TermsPage() {
             </p>
           </section>
 
-          <div className="pt-6 border-t border-white/[0.04]">
+          <div className="pt-6 border-t border-black/[0.06]">
             <Link
               href="/"
               className="text-gold hover:text-gold-light transition-colors text-sm"

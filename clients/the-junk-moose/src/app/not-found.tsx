@@ -33,7 +33,7 @@ export default function NotFound() {
         <nav aria-label="Helpful links" className="flex flex-wrap justify-center gap-4">
           <Link
             href="/"
-            className="font-satoshi text-sm px-6 py-3 bg-gold text-dark font-semibold hover:bg-gold-light transition-colors min-h-[44px] flex items-center"
+            className="font-satoshi text-sm px-6 py-3 bg-gold text-white font-semibold hover:bg-gold-light transition-colors min-h-[44px] flex items-center"
           >
             Home
           </Link>

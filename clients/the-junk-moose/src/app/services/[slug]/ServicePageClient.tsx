@@ -70,7 +70,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
       />
 
       {/* Hero */}
-      <section className="bg-dark pt-28 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10 border-b border-white/[0.03]">
+      <section className="bg-dark pt-28 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10 border-b border-black/[0.06]">
         <div className="max-w-7xl mx-auto">
           <Breadcrumb items={crumbs} />
 
@@ -86,7 +86,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
+            className="inline-block bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
           >
             Get a Free Quote
           </Link>
@@ -108,7 +108,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
             </p>
 
             {/* Link to locations */}
-            <div className="mt-10 pt-8 border-t border-white/[0.04]">
+            <div className="mt-10 pt-8 border-t border-black/[0.06]">
               <p className="font-satoshi text-stone-dim/60 text-sm mb-3">
                 We offer {service.name.toLowerCase()} across the {biz.city} metro area.
               </p>
@@ -150,7 +150,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
       </section>
 
       {/* FAQ section */}
-      <section className="bg-dark px-6 lg:px-10 py-20 lg:py-28 border-t border-white/[0.03]">
+      <section className="bg-dark px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
         <div className="max-w-3xl mx-auto">
           <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
             Common questions
@@ -163,7 +163,7 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
       </section>
 
       {/* Other Services */}
-      <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28 border-t border-white/[0.03]">
+      <section className="bg-warm-gray px-6 lg:px-10 py-20 lg:py-28 border-t border-black/[0.06]">
         <div className="max-w-7xl mx-auto">
           <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
             More from {biz.name}
@@ -171,12 +171,12 @@ export function ServicePageClient({ service }: { service: ServiceData }) {
           <h2 className="font-clash font-bold text-stone text-2xl sm:text-3xl mb-12">
             Other Services
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.03]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.02]">
             {otherServices.map((s, i) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="bg-dark p-8 lg:p-10 group hover:bg-warm-gray transition-all duration-500 relative overflow-hidden block border border-white/[0.03]"
+                className="bg-dark p-8 lg:p-10 group hover:bg-warm-gray transition-all duration-500 relative overflow-hidden block border border-black/[0.06]"
               >
                 <div className="absolute top-0 left-0 right-0 h-px bg-gold/0 group-hover:bg-gold/30 transition-colors duration-500" />
                 <div className="flex items-start justify-between mb-6">

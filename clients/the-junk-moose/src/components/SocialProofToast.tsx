@@ -54,9 +54,9 @@ export function SocialProofToast() {
 
   return (
     <div className="fixed bottom-20 lg:bottom-6 left-4 lg:left-6 z-30 animate-fadeInUp max-w-xs">
-      <div className="bg-dark/95 backdrop-blur-xl border border-white/[0.06] p-4 shadow-xl flex items-start gap-3">
+      <div className="bg-dark/95 backdrop-blur-xl border border-black/[0.08] p-4 shadow-xl flex items-start gap-3">
         <div className="w-8 h-8 bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0 mt-0.5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8620A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>

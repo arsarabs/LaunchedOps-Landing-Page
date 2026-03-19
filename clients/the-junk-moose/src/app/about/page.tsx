@@ -122,7 +122,7 @@ export default function AboutPage() {
 
           {/* ── Our Crew ── */}
           <section className="mb-20 lg:mb-28">
-            <div className="border border-white/[0.04] bg-warm-gray p-8 lg:p-12">
+            <div className="border border-black/[0.06] bg-warm-gray p-8 lg:p-12">
               <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
                 Our Crew
               </p>
@@ -215,7 +215,7 @@ export default function AboutPage() {
 
           {/* ── Stats Bar ── */}
           <section className="mb-20 lg:mb-28">
-            <div className="border-y border-white/[0.04] py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="border-y border-black/[0.06] py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
                 { value: biz.jobsCompleted, label: "Jobs Completed" },
                 { value: `${BUSINESS.yearsServing}+`, label: `Years in ${biz.city}` },
@@ -256,13 +256,13 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
+                className="inline-block bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
               >
                 Get a Free Quote
               </Link>
               <Link
                 href="/services"
-                className="inline-block border border-white/[0.08] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-colors duration-300"
+                className="inline-block border border-black/[0.1] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-colors duration-300"
               >
                 View Services
               </Link>

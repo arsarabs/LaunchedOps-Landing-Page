@@ -12,7 +12,7 @@ export function LocationCard({
   return (
     <Link
       href={`/locations/${slug}`}
-      className="bg-dark border border-white/[0.04] p-6 lg:p-8 group hover:border-gold/10 transition-colors duration-500 block"
+      className="bg-dark border border-black/[0.06] p-6 lg:p-8 group hover:border-gold/10 transition-colors duration-500 block"
     >
       <div className="flex items-center justify-between">
         <div>

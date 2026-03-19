@@ -176,7 +176,7 @@ export default function ContactPage() {
                   Business Hours
                 </p>
                 <div className="space-y-2 font-satoshi text-stone-dim text-base">
-                  <div className="flex justify-between border-b border-white/[0.04] pb-2">
+                  <div className="flex justify-between border-b border-black/[0.06] pb-2">
                     <span>Monday &ndash; Saturday</span>
                     <span className="text-stone">7am &ndash; 7pm</span>
                   </div>
@@ -196,7 +196,7 @@ export default function ContactPage() {
                   {LOCATIONS.map((loc) => (
                     <span
                       key={loc.slug}
-                      className="font-satoshi text-stone-dim/60 text-xs border border-white/[0.04] px-3 py-1.5"
+                      className="font-satoshi text-stone-dim/60 text-xs border border-black/[0.06] px-3 py-1.5"
                     >
                       {loc.city}, {loc.state}
                     </span>
@@ -217,7 +217,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps Embed */}
-              <div className="border border-white/[0.04] bg-warm-gray overflow-hidden">
+              <div className="border border-black/[0.06] bg-warm-gray overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178840.29886498798!2d-122.7964858!3d45.5428372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
                   width="100%"
@@ -233,7 +233,7 @@ export default function ContactPage() {
           </div>
 
           {/* ── Quick Contact Options ── */}
-          <section className="mt-20 lg:mt-28 border-t border-white/[0.04] pt-16">
+          <section className="mt-20 lg:mt-28 border-t border-black/[0.06] pt-16">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
               {[
                 {
@@ -257,7 +257,7 @@ export default function ContactPage() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="border border-white/[0.04] bg-warm-gray p-6 text-center"
+                  className="border border-black/[0.06] bg-warm-gray p-6 text-center"
                 >
                   <p className="font-satoshi text-stone-dim/50 text-[11px] uppercase tracking-[0.15em] mb-2">
                     {item.label}
@@ -287,13 +287,13 @@ export default function ContactPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/"
-                className="inline-block border border-white/[0.08] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-colors duration-300"
+                className="inline-block border border-black/[0.1] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-colors duration-300"
               >
                 Back to Home
               </Link>
               <Link
                 href="/services"
-                className="inline-block border border-white/[0.08] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-colors duration-300"
+                className="inline-block border border-black/[0.1] text-stone font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:border-gold/30 hover:text-gold transition-colors duration-300"
               >
                 View Services
               </Link>

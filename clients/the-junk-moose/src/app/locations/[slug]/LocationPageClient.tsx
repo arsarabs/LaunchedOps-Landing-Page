@@ -126,7 +126,7 @@ export function LocationPageClient({ location }: { location: LocationData }) {
               {location.neighborhoods.split(", ").map((hood) => (
                 <span
                   key={hood}
-                  className="font-satoshi text-stone-dim text-sm bg-white/[0.03] border border-white/[0.06] px-4 py-2"
+                  className="font-satoshi text-stone-dim text-sm bg-black/[0.02] border border-black/[0.08] px-4 py-2"
                 >
                   {hood}
                 </span>
@@ -152,7 +152,7 @@ export function LocationPageClient({ location }: { location: LocationData }) {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="bg-dark border border-white/[0.04] p-6 group hover:border-gold/10 transition-colors duration-500 block"
+                  className="bg-dark border border-black/[0.06] p-6 group hover:border-gold/10 transition-colors duration-500 block"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-clash font-bold text-stone text-base group-hover:text-gold transition-colors duration-300">
@@ -192,7 +192,7 @@ export function LocationPageClient({ location }: { location: LocationData }) {
           </div>
 
           {/* ── Navigation links ── */}
-          <div className="flex flex-wrap items-center gap-6 pt-10 border-t border-white/[0.04]">
+          <div className="flex flex-wrap items-center gap-6 pt-10 border-t border-black/[0.06]">
             <Link
               href="/"
               className="font-satoshi text-gold/60 text-sm hover:text-gold transition-colors duration-300"

@@ -101,7 +101,7 @@ export default function ReviewsPage() {
 
           {/* ── Aggregate Rating Summary ── */}
           <section className="mb-16 lg:mb-20 text-center">
-            <div className="border border-white/[0.04] bg-warm-gray p-8 lg:p-12 inline-block w-full max-w-md mx-auto">
+            <div className="border border-black/[0.06] bg-warm-gray p-8 lg:p-12 inline-block w-full max-w-md mx-auto">
               <p className="font-clash font-bold text-gold text-5xl sm:text-6xl mb-2">
                 {biz.rating}
               </p>
@@ -161,13 +161,13 @@ export default function ReviewsPage() {
               {testimonials.map((review) => (
                 <div
                   key={review.name}
-                  className="border border-white/[0.04] bg-warm-gray p-6 lg:p-8"
+                  className="border border-black/[0.06] bg-warm-gray p-6 lg:p-8"
                 >
                   <Stars count={review.rating} />
                   <p className="font-satoshi text-stone text-base leading-relaxed mt-4 mb-6">
                     &ldquo;{review.text}&rdquo;
                   </p>
-                  <div className="border-t border-white/[0.04] pt-4">
+                  <div className="border-t border-black/[0.06] pt-4">
                     <p className="font-clash font-bold text-stone text-sm">
                       {review.name}
                     </p>
@@ -222,7 +222,7 @@ export default function ReviewsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
+              className="inline-block bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
             >
               Get a Free Quote
             </Link>

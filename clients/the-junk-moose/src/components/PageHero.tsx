@@ -14,7 +14,7 @@ export function PageHero({
   ctaHref?: string;
 }) {
   return (
-    <section className="bg-dark pt-28 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10 border-b border-white/[0.03]">
+    <section className="bg-dark pt-28 pb-16 sm:pb-20 lg:pb-24 px-6 lg:px-10 border-b border-black/[0.06]">
       <div className="max-w-7xl mx-auto">
         <p className="font-satoshi text-gold/60 uppercase tracking-[0.25em] text-[11px] mb-4">
           {label}
@@ -29,7 +29,7 @@ export function PageHero({
         )}
         <Link
           href={ctaHref}
-          className="inline-block bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
+          className="inline-block bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-10 py-4 hover:bg-gold-light transition-colors duration-300"
         >
           {ctaText}
         </Link>

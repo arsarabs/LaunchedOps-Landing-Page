@@ -8,7 +8,7 @@ export function FAQAccordion({ faqs }: { faqs: { q: string; a: string }[] }) {
   return (
     <div>
       {faqs.map((faq, i) => (
-        <div key={i} className="border-b border-white/[0.04]">
+        <div key={i} className="border-b border-black/[0.06]">
           <button
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             className="w-full flex items-center justify-between py-7 text-left group"

@@ -27,9 +27,9 @@ function Hero() {
           priority
           sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center 30%" }}
-          className="opacity-[0.07]"
+          className="opacity-[0.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/95 to-dark/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/90 to-transparent" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
@@ -39,7 +39,7 @@ function Hero() {
             <div className="inline-flex items-center gap-4 mb-10 animate-fadeInLeft">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#C8A44E" aria-hidden="true">
+                  <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#E8620A" aria-hidden="true">
                     <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z"/>
                   </svg>
                 ))}
@@ -81,13 +81,13 @@ function Hero() {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="#quote"
-                className="btn-magnetic border-draw bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 hover:bg-gold-light transition-colors duration-300 text-center"
+                className="btn-magnetic border-draw bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 hover:bg-gold-light transition-colors duration-300 text-center"
               >
                 Get My Free Quote
               </a>
               <a
                 href={`tel:${biz.phoneRaw}`}
-                className="group border border-white/[0.08] text-stone font-satoshi font-medium text-sm uppercase tracking-[0.12em] px-8 py-4 hover:border-gold/30 hover:text-gold transition-all duration-500 text-center flex items-center justify-center gap-3"
+                className="group border border-black/[0.1] text-stone font-satoshi font-medium text-sm uppercase tracking-[0.12em] px-8 py-4 hover:border-gold/30 hover:text-gold transition-all duration-500 text-center flex items-center justify-center gap-3"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
                 {biz.phone}
@@ -117,7 +117,7 @@ function ServiceAreas() {
     ? defaultAreas
     : [`${biz.city}`, `North ${biz.city}`, `South ${biz.city}`, `East ${biz.city}`, `West ${biz.city}`, `Downtown ${biz.city}`, `Greater ${biz.city}`, `${biz.city} Metro`];
   return (
-    <section className="bg-dark border-b border-white/[0.03]">
+    <section className="bg-dark border-b border-black/[0.06]">
       <div className="marquee-fade">
         <Marquee className="py-5">
           {areas.map((area) => (
@@ -163,14 +163,14 @@ const processSteps = [
 
 function Process() {
   return (
-    <SectionWrapper reveal="up" stagger className="bg-dark py-16 sm:py-20 lg:py-28 border-b border-white/[0.03]">
+    <SectionWrapper reveal="up" stagger className="bg-dark py-16 sm:py-20 lg:py-28 border-b border-black/[0.06]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* No label — let the content speak */}
         <div className="space-y-0">
           {processSteps.map((step, i) => (
             <div
               key={step.num}
-              className="group grid grid-cols-12 items-baseline border-b border-white/[0.03] last:border-b-0 py-8 lg:py-10"
+              className="group grid grid-cols-12 items-baseline border-b border-black/[0.06] last:border-b-0 py-8 lg:py-10"
               style={{ paddingLeft: `${i * 2}%` }}
             >
               <div className="col-span-2 sm:col-span-1">
@@ -224,7 +224,7 @@ function Services() {
         </div>
 
         {/* Asymmetric grid: first item spans 2 cols */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.03]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/[0.02]">
           {services.map((service, i) => {
             const serviceData = SERVICES[i];
             const isFeatured = i === 0;
@@ -310,7 +310,7 @@ function BeforeAfter() {
             {beforeAfterPhotos.map((photo, i) => (
               <div
                 key={photo.src}
-                className={`overflow-hidden border border-white/[0.04] group hover:border-gold/10 transition-colors duration-500 cursor-pointer ${
+                className={`overflow-hidden border border-black/[0.06] group hover:border-gold/10 transition-colors duration-500 cursor-pointer ${
                   i === 0 ? "lg:col-span-7" : "lg:col-span-5"
                 }`}
                 onClick={() => setLightboxSrc(photo.src)}
@@ -328,10 +328,10 @@ function BeforeAfter() {
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                   <div className="absolute top-4 left-4 flex gap-2">
-                    <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
-                      <span className="font-satoshi text-[10px] font-medium tracking-widest uppercase text-stone-dim">Before</span>
+                    <div className="bg-black/70 backdrop-blur-sm px-3 py-1">
+                      <span className="font-satoshi text-[10px] font-medium tracking-widest uppercase text-white/70">Before</span>
                     </div>
-                    <div className="bg-dark/80 backdrop-blur-sm px-3 py-1">
+                    <div className="bg-black/70 backdrop-blur-sm px-3 py-1">
                       <span className="font-satoshi text-[10px] font-medium tracking-widest uppercase text-gold">After</span>
                     </div>
                   </div>
@@ -355,7 +355,7 @@ function BeforeAfter() {
         >
           <button
             onClick={() => setLightboxSrc(null)}
-            className="absolute top-6 right-6 z-10 text-stone-dim hover:text-gold transition-colors"
+            className="absolute top-6 right-6 z-10 text-white/60 hover:text-white transition-colors"
             aria-label="Close"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
@@ -363,7 +363,7 @@ function BeforeAfter() {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-satoshi text-stone-dim/30 text-xs uppercase tracking-[0.15em]">
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-satoshi text-white/30 text-xs uppercase tracking-[0.15em]">
             Tap anywhere to close
           </p>
           <div
@@ -389,7 +389,7 @@ function BeforeAfter() {
 function Stats() {
   const biz = usePersonalization();
   return (
-    <SectionWrapper reveal="blur" className="bg-dark py-32 sm:py-40 lg:py-56 px-6 lg:px-10 border-y border-white/[0.03] overflow-hidden">
+    <SectionWrapper reveal="blur" className="bg-dark py-32 sm:py-40 lg:py-56 px-6 lg:px-10 border-y border-black/[0.06] overflow-hidden">
       <div className="max-w-[90rem] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-20 sm:gap-10 lg:gap-0">
           <div className="lg:pr-20">
@@ -402,7 +402,7 @@ function Stats() {
             </div>
           </div>
 
-          <div className="lg:pl-20 lg:border-l lg:border-white/[0.04] flex flex-col justify-end">
+          <div className="lg:pl-20 lg:border-l lg:border-black/[0.06] flex flex-col justify-end">
             <p className="font-satoshi text-stone-dim/40 text-[11px] uppercase tracking-[0.25em] mb-4">
               Google Rating
             </p>
@@ -411,7 +411,7 @@ function Stats() {
             </div>
             <div className="flex gap-1 mt-4">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#C8A44E" aria-hidden="true">
+                <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#E8620A" aria-hidden="true">
                   <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z"/>
                 </svg>
               ))}
@@ -443,10 +443,10 @@ function CrewPhoto() {
         <span className="font-satoshi text-xs font-medium tracking-widest uppercase mb-4 text-gold">
           The Team
         </span>
-        <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold leading-none text-stone">
+        <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold leading-none text-white">
           Our crew. Our trucks.
         </h2>
-        <p className="font-satoshi mt-4 text-lg max-w-lg text-stone-dim">
+        <p className="font-satoshi mt-4 text-lg max-w-lg text-white/70">
           We don&apos;t hire subcontractors. The people on this page are the
           same people who show up at your door.
         </p>
@@ -473,7 +473,7 @@ function MeetTheOwner() {
                 alt="Founder of the junk removal company"
                 className="absolute inset-0 w-full h-full object-cover object-[center_top]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-warm-gray via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
             </div>
             <div className="relative -mt-16 pl-6">
               <p className="font-clash font-bold text-gold text-2xl">Marcus</p>
@@ -519,7 +519,7 @@ function MeetTheOwner() {
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
                 href="#quote"
-                className="btn-magnetic bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 hover:bg-gold-light transition-colors duration-300"
+                className="btn-magnetic bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 hover:bg-gold-light transition-colors duration-300"
               >
                 Get a Free Quote
               </a>
@@ -557,7 +557,7 @@ function Testimonials() {
     },
   ];
   return (
-    <SectionWrapper reveal="up" className="bg-dark py-28 sm:py-36 lg:py-52 px-6 lg:px-10 border-y border-white/[0.03]">
+    <SectionWrapper reveal="up" className="bg-dark py-28 sm:py-36 lg:py-52 px-6 lg:px-10 border-y border-black/[0.06]">
       <div className="max-w-7xl mx-auto">
         {/* No section label — the quotation mark IS the label */}
         <div className="space-y-20 lg:space-y-28">
@@ -565,7 +565,7 @@ function Testimonials() {
             <div key={t.name}>
               <span
                 className="font-clash font-bold text-gold/[0.04] text-[6rem] sm:text-[10rem] lg:text-[16rem] leading-none block -mb-12 sm:-mb-20 lg:-mb-32 select-none"
-                style={{ mixBlendMode: "screen" }}
+                style={{ mixBlendMode: "multiply" }}
               >
                 &ldquo;
               </span>
@@ -606,7 +606,7 @@ function ReviewRouting() {
     <SectionWrapper reveal="scale" className="bg-warm-gray py-16 sm:py-20 lg:py-28 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         {/* Full-width card layout — structurally different from other sections */}
-        <div className="bg-dark border border-white/[0.04] p-8 sm:p-12 lg:p-16">
+        <div className="bg-dark border border-black/[0.06] p-8 sm:p-12 lg:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7">
               <h2 className="font-clash font-bold text-3xl sm:text-4xl lg:text-5xl leading-[0.92] tracking-tight mb-6 text-stone">
@@ -627,7 +627,7 @@ function ReviewRouting() {
               </div>
             </div>
             <div className="lg:col-span-5 flex justify-center">
-              <div className="bg-warm-gray border border-white/[0.04] p-8 text-center">
+              <div className="bg-warm-gray border border-black/[0.06] p-8 text-center">
                 <div className="w-36 h-36 bg-white mx-auto mb-4 flex items-center justify-center">
                   <div className="w-28 h-28 bg-dark/10 flex items-center justify-center">
                     <span className="font-satoshi text-dark/30 text-xs uppercase tracking-widest">QR Code</span>
@@ -698,7 +698,7 @@ function FAQ() {
 
           <div className="lg:col-span-8">
             {faqs.map((faq, i) => (
-              <div key={i} className={`border-b border-white/[0.04] ${openIndex === i ? "border-l-2 border-l-gold/30 pl-4" : "border-l-2 border-l-transparent pl-4"} transition-all duration-300`}>
+              <div key={i} className={`border-b border-black/[0.06] ${openIndex === i ? "border-l-2 border-l-gold/30 pl-4" : "border-l-2 border-l-transparent pl-4"} transition-all duration-300`}>
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full flex items-center justify-between py-6 text-left group"
@@ -753,7 +753,7 @@ function QuoteSection() {
   };
 
   return (
-    <SectionWrapper id="quote" reveal="up" className="bg-warm-gray py-20 sm:py-28 lg:py-36 px-6 lg:px-10 border-t border-white/[0.03] relative overflow-hidden">
+    <SectionWrapper id="quote" reveal="up" className="bg-warm-gray py-20 sm:py-28 lg:py-36 px-6 lg:px-10 border-t border-black/[0.06] relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5 flex flex-col justify-between">
@@ -787,7 +787,7 @@ function QuoteSection() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="bg-dark border border-white/[0.04] p-8 lg:p-12"
+                className="bg-dark border border-black/[0.06] p-8 lg:p-12"
               >
                 <div className="absolute -left-[9999px]" aria-hidden="true">
                   <label htmlFor="hp-website">Website</label>
@@ -846,7 +846,7 @@ function QuoteSection() {
                   <textarea id="quote-message" name="message" placeholder="What do you need hauled? Any details help us quote faster." rows={4} className="form-input resize-none" />
                 </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-white/[0.04]">
+                <div className="flex flex-wrap items-center justify-center gap-6 mb-6 py-4 border-y border-black/[0.06]">
                   {["Licensed & Insured", "No Obligation", "Response in 15 min"].map((badge) => (
                     <div key={badge} className="flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full bg-gold/40" />
@@ -857,7 +857,7 @@ function QuoteSection() {
 
                 <button
                   type="submit"
-                  className="btn-magnetic w-full bg-gold text-dark font-satoshi font-bold text-sm uppercase tracking-[0.18em] py-4 hover:bg-gold-light transition-colors duration-300"
+                  className="btn-magnetic w-full bg-gold text-white font-satoshi font-bold text-sm uppercase tracking-[0.18em] py-4 hover:bg-gold-light transition-colors duration-300"
                 >
                   Get My Free Quote
                 </button>
@@ -869,7 +869,7 @@ function QuoteSection() {
             ) : (
               <div className="bg-dark border border-gold/20 p-12 lg:p-16 text-center animate-fadeInUp">
                 <div className="w-16 h-16 border border-gold/30 flex items-center justify-center mx-auto mb-8">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A44E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8620A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
