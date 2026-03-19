@@ -12,13 +12,13 @@ import { usePersonalization } from "@/lib/personalization";
 
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — massive type, L-shaped layout, background photo
+   HERO — editorial layout with background photo
    ═══════════════════════════════════════════════════════════════ */
 function Hero() {
   const biz = usePersonalization();
   return (
     <section className="relative min-h-screen flex flex-col justify-end bg-dark overflow-hidden pt-24 pb-0">
-      {/* Background photo — subtle, not stock-hero */}
+      {/* Background photo */}
       <div className="absolute inset-0">
         <Image
           src="/our-junk-removal-team.jpg"
@@ -32,32 +32,39 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/95 to-dark/70" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-8">
-            <h1 className="font-clash font-bold text-[clamp(4rem,13vw,12rem)] leading-[0.85] tracking-[-0.04em]">
+            {/* Social proof badge */}
+            <div className="inline-flex items-center gap-4 mb-10 animate-fadeInLeft">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#C8A44E" aria-hidden="true">
+                    <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z"/>
+                  </svg>
+                ))}
+              </div>
+              <div className="w-px h-4 bg-gold/20" />
+              <span className="font-satoshi text-stone-dim text-xs font-medium tracking-wide">
+                {biz.rating} rating · {biz.jobsCompleted} jobs completed
+              </span>
+            </div>
+
+            <h1 className="font-clash font-bold text-[clamp(3.5rem,9vw,8rem)] leading-[0.88] tracking-[-0.03em] mb-10">
               <span className="block overflow-hidden">
                 <span
                   className="block text-gold animate-heroText"
-                  style={{ animationDelay: "0.1s" }}
+                  style={{ animationDelay: "0.15s" }}
                 >
-                  Your
+                  Your junk.
                 </span>
               </span>
               <span className="block overflow-hidden">
                 <span
-                  className="block text-stone/70 animate-heroText pl-[8%]"
-                  style={{ animationDelay: "0.2s" }}
+                  className="block text-stone/80 animate-heroText"
+                  style={{ animationDelay: "0.25s" }}
                 >
-                  junk.
-                </span>
-              </span>
-              <span className="block overflow-hidden">
-                <span
-                  className="block text-stone/30 animate-heroText pl-[16%]"
-                  style={{ animationDelay: "0.3s" }}
-                >
-                  Gone.
+                  Gone today.
                 </span>
               </span>
             </h1>
@@ -90,28 +97,8 @@ function Hero() {
         </div>
       </div>
 
-      {/* Stats strip */}
-      <div
-        className="relative z-10 mt-16 border-t border-white/[0.04] animate-fadeIn"
-        style={{ animationDelay: "0.8s" }}
-      >
-        <div className="max-w-[90rem] mx-auto px-6 lg:px-10 py-5 flex items-center justify-between sm:justify-start sm:gap-12">
-          <div className="flex items-center gap-1.5">
-            {[...Array(5)].map((_, i) => (
-              <svg key={i} width="10" height="10" viewBox="0 0 20 20" fill="#C8A44E" aria-hidden="true">
-                <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z"/>
-              </svg>
-            ))}
-            <span className="font-satoshi text-stone-dim/60 text-xs ml-2">{biz.rating}</span>
-          </div>
-          <span className="text-white/[0.08]">|</span>
-          <span className="font-satoshi text-stone-dim/50 text-xs tracking-wide">{biz.jobsCompleted} jobs</span>
-          <span className="text-white/[0.08] hidden sm:inline">|</span>
-          <span className="font-satoshi text-stone-dim/50 text-xs tracking-wide hidden sm:inline">Same-day available</span>
-          <span className="text-white/[0.08] hidden sm:inline">|</span>
-          <span className="font-satoshi text-stone-dim/50 text-xs tracking-wide hidden sm:inline">Licensed &amp; insured</span>
-        </div>
-      </div>
+      {/* Bottom gradient line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
     </section>
   );
 }
@@ -436,6 +423,35 @@ function Stats() {
         </div>
       </div>
     </SectionWrapper>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CREW PHOTO — full-bleed team shot
+   ═══════════════════════════════════════════════════════════════ */
+function CrewPhoto() {
+  return (
+    <section className="relative w-full overflow-hidden">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/our-junk-removal-team.jpg"
+        alt="Junk removal crew in front of truck"
+        className="w-full h-auto block"
+      />
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
+        <span className="font-satoshi text-xs font-medium tracking-widest uppercase mb-4 text-gold">
+          The Team
+        </span>
+        <h2 className="font-clash text-3xl sm:text-5xl md:text-6xl font-bold leading-none text-stone">
+          Real people. Real work.
+        </h2>
+        <p className="font-satoshi mt-4 text-lg max-w-lg text-stone-dim">
+          Every job is handled by our own crew — not subcontractors, not day labor.
+          We show up on time and we don&apos;t leave until it&apos;s clean.
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -887,6 +903,7 @@ export default function Home() {
       <Services />
       <BeforeAfter />
       <Stats />
+      <CrewPhoto />
       <MeetTheOwner />
       <Testimonials />
       <ReviewRouting />
