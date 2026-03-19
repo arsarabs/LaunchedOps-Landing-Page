@@ -1,0 +1,96 @@
+Last Update: March 19, 2026
+=============================
+
+SESSION SUMMARY
+---------------
+Major redesign of the Junk Moose demo site + massive skills install.
+
+
+WHAT WE DID
+------------
+
+1. HOMEPAGE REDESIGN (anti-AI-slop pass)
+   - Consolidated 15 sections down to 12 (removed CrewStatement, Promise, merged QuoteForm+FinalCTA)
+   - Brought back CrewPhoto section (user liked it)
+   - Hero: toned-down headline (clamp 3.5rem-8rem), background crew photo at 7% opacity, social proof badge
+   - Process: staircase/stepped table layout instead of card grid
+   - Services: asymmetric bento grid, first card spans 2 cols, card-sweep hover effect
+   - Stats: two numbers at dramatically different scales, blur reveal animation
+   - MeetTheOwner: magazine spread with founder photo overlay, all-stone headline (broke gold/stone formula)
+   - Testimonials: massive pull-quotes, no section label, giant quotation mark with mix-blend-mode
+   - ReviewRouting: full-width card container (structurally different from other sections)
+   - FAQ: single-word headline "Questions?", chevron toggle, gold left-border accent
+   - Varied section padding throughout for visual rhythm
+   - New CSS system: border-draw, card-sweep, link-underline, marquee-fade, stagger-children, multiple reveal types (blur/clip/scale)
+   - Removed pulse-glow animation
+
+2. SKILLS INSTALLED (56 total)
+   Priority 1 — Design:
+     - Impeccable by Paul Bakaus (16 sub-skills: /audit, /polish, /typeset, /animate, /bolder, /critique, /overdrive, etc.)
+     - Vercel Web Design Guidelines
+     - Vercel React Best Practices
+     - UI/UX Pro Max (67 styles, 96 palettes, 57 font pairings, Python search engine)
+
+   Priority 2 — Copy Quality:
+     - Humanizer (detects/fixes AI writing patterns)
+     - Beautiful Prose (hard-edged writing style contract)
+
+   Priority 3 — SEO (12 sub-skills):
+     - /seo-audit, /seo-page, /seo-schema, /seo-geo, /seo-technical, /seo-content
+     - /seo-images, /seo-sitemap, /seo-plan, /seo-programmatic, /seo-competitor-pages, /seo-hreflang
+
+   Priority 4 — Marketing:
+     - Cold Outreach Sequence, Testimonial Collector, Homepage Audit
+     - Case Study Builder, AI Discoverability Audit, Content Idea Generator
+     - Cold Email, Competitor Alternatives, Page CRO
+
+   Priority 5 — QA:
+     - Webapp Testing (Playwright)
+
+3. DEPLOYMENT FIX
+   - sales-demo repo (arsarabs/sales-demo-final) deploys to demo.launchedops.com via Netlify
+   - Synced all redesigned files + Portland-fix files from monorepo to sales-demo repo
+   - Fixed beautiful_prose submodule issue that broke Netlify build
+   - All personalization files synced — magic demo links work across every page
+
+4. PORTLAND HARDCODING CLEANUP
+   - Synced 13 files from monorepo that had Portland→dynamic personalization fixes
+   - Footer, Nav, locations, services, about, contact, reviews all use usePersonalization()
+   - Demo mode (isDemo) hides Portland-specific locations, shows generic service area content
+   - Only remaining Portland refs are in layout.tsx <head> metadata (invisible to users)
+
+5. 21ST.DEV RECOMMENDATIONS
+   - Created 21st-dev-recommendations.txt with prioritized component categories to browse
+   - Highest priority: Heroes, Testimonials, CTAs, Scroll Areas, Backgrounds
+   - User will browse 21st.dev, copy component code, and send it for adaptation
+
+
+DEPLOYMENT ARCHITECTURE
+------------------------
+- launchedops.com = Main LaunchedOps business site (selling the service)
+- demo.launchedops.com = Junk Moose client demo site (showing contractors what they'd get)
+  - Repo: arsarabs/sales-demo-final (git remote: sales-demo)
+  - Branch: main
+  - Hosted: Netlify
+  - netlify.toml base: clients/the-junk-moose
+  - IMPORTANT: Never push the full monorepo to sales-demo. Only sync individual files.
+- Monorepo: arsarabs/LaunchedOps-Landing-Page (git remote: origin)
+  - Branch: master
+
+
+STILL TODO
+-----------
+- [ ] Build custom /launchedops-design skill (from spec.md TODO section)
+- [ ] Run /teach-impeccable to save LaunchedOps design context
+- [ ] Browse 21st.dev components and swap in better Heroes, Testimonials, CTAs
+- [ ] Run /humanizer on all site copy
+- [ ] Run /qa before any client delivery
+- [ ] First real client build (Big Tex Junk Hauling - Arlington, TX)
+- [ ] Layout.tsx metadata still hardcoded to Portland (only matters for SEO on the demo domain, not for client demos)
+
+
+MAGIC DEMO LINK FORMAT
+-----------------------
+https://demo.launchedops.com/?name=Big%20Tex%20Junk%20Hauling&city=Arlington&state=TX&phone=8175551234&rating=4.8&reviews=215&jobs=3500%2B
+
+Params: name, city, state, phone (10 digits), rating, reviews, jobs (encode + as %2B)
