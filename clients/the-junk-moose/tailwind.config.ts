@@ -13,17 +13,17 @@ const config: Config = {
         satoshi: ["Satoshi", "sans-serif"],
       },
       colors: {
-        // Light palette — "Work Truck"
-        dark: "#FAFAF8",          // main background (off-white)
-        "warm-gray": "#FFFFFF",   // alternate section bg (white)
-        elevated: "#F3F3F0",      // raised surfaces / cards
-        stone: "#1C1C1A",         // primary text (near-black)
-        "stone-dim": "#6B6B63",   // muted text (warm gray)
-        gold: "#E8620A",          // accent / CTA (safety orange)
-        "gold-light": "#C44E00",  // accent hover (darker orange)
-        "gold-dim": "rgba(232, 98, 10, 0.06)",
-        "gold-muted": "rgba(232, 98, 10, 0.2)",
-        slate: "#334155",         // secondary / headings
+        // Dark palette — "Night Haul"
+        dark: "#111110",          // main background (near-black)
+        "warm-gray": "#1A1A18",   // alternate section bg (dark charcoal)
+        elevated: "#242422",      // raised surfaces / cards
+        stone: "#F0EDE6",         // primary text (warm white)
+        "stone-dim": "#8A8A80",   // muted text
+        gold: "#D4930D",          // accent / CTA (rich amber gold)
+        "gold-light": "#EBA61A",  // accent hover (brighter gold)
+        "gold-dim": "rgba(212, 147, 13, 0.08)",
+        "gold-muted": "rgba(212, 147, 13, 0.25)",
+        slate: "#94A3B8",         // secondary / headings
       },
       transitionTimingFunction: {
         "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",

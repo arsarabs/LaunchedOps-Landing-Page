@@ -40,16 +40,16 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark: #FAFAF8;
-  --bg-warm-gray: #FFFFFF;
-  --bg-elevated: #F3F3F0;
-  --accent-gold: #E8620A;
-  --accent-gold-light: #C44E00;
-  --accent-gold-dim: rgba(232, 98, 10, 0.06);
-  --text-primary: #1C1C1A;
-  --text-muted: #6B6B63;
-  --border-subtle: rgba(232, 98, 10, 0.12);
-  --border-dark: rgba(0, 0, 0, 0.06);
+  --bg-dark: #111110;
+  --bg-warm-gray: #1A1A18;
+  --bg-elevated: #242422;
+  --accent-gold: #D4930D;
+  --accent-gold-light: #EBA61A;
+  --accent-gold-dim: rgba(212, 147, 13, 0.08);
+  --text-primary: #F0EDE6;
+  --text-muted: #8A8A80;
+  --border-subtle: rgba(212, 147, 13, 0.15);
+  --border-dark: rgba(255, 255, 255, 0.06);
 }
 
 html {
@@ -98,11 +98,11 @@ body {
   display: none;
 }
 
-/* Form input styles — light theme */
+/* Form input styles — dark theme */
 .form-input {
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #1C1C1A;
+  background: #1A1A18;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #F0EDE6;
   font-family: "Satoshi", sans-serif;
   font-size: 15px;
   padding: 14px 18px;
@@ -111,15 +111,15 @@ body {
   outline: none;
 }
 .form-input:focus {
-  border-color: rgba(232, 98, 10, 0.5);
-  background: rgba(232, 98, 10, 0.02);
+  border-color: rgba(212, 147, 13, 0.5);
+  background: rgba(212, 147, 13, 0.04);
 }
 .form-input::placeholder {
-  color: rgba(107, 107, 99, 0.5);
+  color: rgba(138, 138, 128, 0.5);
 }
 .form-input option {
-  background: #FFFFFF;
-  color: #1C1C1A;
+  background: #1A1A18;
+  color: #F0EDE6;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -155,7 +155,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(232, 98, 10, 0.3);
+  border: 1px solid rgba(212, 147, 13, 0.3);
   pointer-events: none;
   transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -270,7 +270,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(232,98,10,0.04) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(212,147,13,0.06) 0%, transparent 50%);
   transform: translateX(-100%);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }

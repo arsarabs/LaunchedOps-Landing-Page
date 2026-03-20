@@ -39,7 +39,7 @@ function Hero() {
             <div className="inline-flex items-center gap-4 mb-10 animate-fadeInLeft">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#E8620A" aria-hidden="true">
+                  <svg key={i} width="11" height="11" viewBox="0 0 20 20" fill="#D4930D" aria-hidden="true">
                     <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z"/>
                   </svg>
                 ))}
@@ -411,7 +411,7 @@ function Stats() {
             </div>
             <div className="flex gap-1 mt-4">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#E8620A" aria-hidden="true">
+                <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#D4930D" aria-hidden="true">
                   <path d="M10 1l2.39 4.84L17.3 6.7l-3.65 3.56.86 5.02L10 13.01l-4.51 2.37.86-5.02L2.7 6.8l4.91-.86L10 1z"/>
                 </svg>
               ))}
@@ -869,7 +869,7 @@ function QuoteSection() {
             ) : (
               <div className="bg-dark border border-gold/20 p-12 lg:p-16 text-center animate-fadeInUp">
                 <div className="w-16 h-16 border border-gold/30 flex items-center justify-center mx-auto mb-8">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8620A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4930D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
