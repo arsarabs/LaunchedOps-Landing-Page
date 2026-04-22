@@ -1,6 +1,6 @@
-# LaunchedOps — Company Website
+# AscendedOps — Company Website
 
-Production website for LaunchedOps, a premium website design service for home service contractors.
+Production website for AscendedOps, a premium website design service for home service contractors.
 
 ## Structure
 

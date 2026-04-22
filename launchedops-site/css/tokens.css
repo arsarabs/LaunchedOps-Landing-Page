@@ -1,0 +1,114 @@
+/* ==========================================================================
+   AscendedOps — Design Tokens
+   Industrial warm dark. No hex values outside this file.
+   ========================================================================== */
+
+:root {
+  /* --- Color: base surfaces -------------------------------------------- */
+  --bg-0: #0A0A0A;          /* page background */
+  --bg-1: #141210;          /* raised surface, subtle warm tint */
+  --bg-2: #1C1A17;          /* card / panel, deeper warm */
+
+  /* --- Color: text ----------------------------------------------------- */
+  --text-primary:   #F5F1EA;   /* warm off-white */
+  --text-secondary: #A7A19A;   /* warm mid-gray */
+  --text-muted:     #6F6A63;   /* warm deep-gray, labels */
+  --text-inverse:   #0A0A0A;   /* on-accent text */
+
+  /* --- Color: rules & borders ------------------------------------------ */
+  --rule:         #25221F;     /* hairline */
+  --rule-heavy:   #3A342E;     /* emphasized */
+
+  /* --- Color: accents -------------------------------------------------- */
+  --accent:        #D97706;    /* amber-600 — primary accent */
+  --accent-hover:  #B45309;    /* amber-700 — darker on hover */
+  --accent-soft:   #F59E0B;    /* amber-500 — active/focus */
+  --accent-mute:   rgba(217, 119, 6, 0.12);
+
+  --tile-red:      #B8443E;    /* roof-tile red — reserved for emphasis */
+
+  /* --- Typography ------------------------------------------------------ */
+  --font-display: 'Clash Display', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body:    'Satoshi', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --weight-body:    400;
+  --weight-medium:  500;
+  --weight-heading: 600;
+
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   22px;
+  --text-xl:   28px;
+  --text-2xl:  40px;
+  --text-3xl:  56px;
+  --text-4xl:  72px;
+
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  --track-tight:   -0.02em;
+  --track-normal:  0em;
+  --track-wide:    0.08em;   /* eyebrows, mono labels */
+
+  /* --- Spacing scale (4/8 base) --------------------------------------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* --- Radii ----------------------------------------------------------- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* --- Layout ---------------------------------------------------------- */
+  --container-max: 1200px;
+  --container-narrow: 760px;
+  --container-pad: 24px;
+  --container-pad-lg: 40px;
+
+  --nav-height: 64px;
+
+  /* --- Motion ---------------------------------------------------------- */
+  --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in:    cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --duration-fast:   120ms;
+  --duration-base:   200ms;
+  --duration-slow:   320ms;
+
+  /* --- Z-index --------------------------------------------------------- */
+  --z-base:   1;
+  --z-sticky: 40;
+  --z-nav:    50;
+  --z-modal:  100;
+}
+
+/* Respect reduced motion globally. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast:  0ms;
+    --duration-base:  0ms;
+    --duration-slow:  0ms;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

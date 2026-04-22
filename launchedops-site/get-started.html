@@ -2,303 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Started — LaunchedOps</title>
-  <meta name="description" content="Get a free website preview for your contracting business. Tell us about your trade and we'll have a custom preview ready in 36 hours. No commitment, no upfront cost.">
-  <meta property="og:title" content="Get Started — LaunchedOps">
-  <meta property="og:description" content="Get a free website preview for your contracting business. 36-hour delivery. You love it or you don't pay.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get started — AscendedOps</title>
+  <meta name="description" content="Tell us about your trade. We'll have a working site preview ready in 36 hours. You don't pay unless it's live and you love it.">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <meta property="og:title" content="Get started — AscendedOps">
+  <meta property="og:description" content="Tell us about your trade. We'll have a working site preview ready in 36 hours.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://launchedops.com/get-started">
-  <link rel="canonical" href="https://launchedops.com/get-started">
+  <meta property="og:url" content="https://ascendedops.com/get-started">
+  <link rel="canonical" href="https://ascendedops.com/get-started">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://launchedops.com" },
-      { "@type": "ListItem", "position": 2, "name": "Get Started", "item": "https://launchedops.com/get-started" }
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/chat.css">
 
   <style>
-    :root {
-      --bg: #060606;
-      --bg-raised: #0e0e0e;
-      --bg-card: #111111;
-      --surface: #1a1a1a;
-      --border: #1e1e1e;
-      --border-light: #2a2a2a;
-      --text: #f5f5f5;
-      --text-secondary: #999999;
-      --text-muted: #5a5a5a;
-      --accent: #FF6B2B;
-      --accent-hover: #FF8347;
-      --accent-glow: rgba(255, 107, 43, 0.15);
-      --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      --font-mono: 'Space Mono', monospace;
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-      --nav-h: 72px;
-      --max-w: 1140px;
+    .form-wrap {
+      padding-block: var(--space-8) var(--space-9);
     }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      font-family: var(--font-display);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
+    .form-wrap__head {
+      margin-bottom: var(--space-7);
+      max-width: 680px;
     }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-    ::selection { background: var(--accent); color: #fff; }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-    .skip-link {
-      position: absolute; top: -100%; left: 16px;
-      background: var(--accent); color: #fff;
-      padding: 8px 16px; border-radius: 6px;
-      font-weight: 600; font-size: 0.875rem; z-index: 10000;
+    .form-wrap__title {
+      margin-top: var(--space-4);
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
     }
-    .skip-link:focus { top: 16px; }
-
-    .wrap {
-      width: 100%; max-width: var(--max-w);
-      margin: 0 auto; padding: 0 24px;
+    .form-wrap__sub {
+      margin-top: var(--space-4);
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+      color: var(--text-secondary);
+      max-width: 56ch;
     }
-
-    /* Nav (mirrors index) */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-h); z-index: 1000;
-      background: rgba(6, 6, 6, 0.8);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border-bottom: 1px solid var(--border);
+    .typeform-embed {
+      width: 100%;
+      min-height: 640px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-lg);
+      background: var(--bg-1);
+      overflow: hidden;
     }
-    .nav .wrap {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 100%;
+    .typeform-embed iframe {
+      display: block;
+      width: 100%;
+      height: 640px;
+      border: 0;
     }
-    .nav-logo {
-      font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em;
+    @media (min-width: 900px) {
+      .typeform-embed, .typeform-embed iframe { height: 720px; min-height: 720px; }
     }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 36px; align-items: center; }
-    .nav-links a {
-      font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
-      transition: color 0.2s ease;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta-btn {
-      font-size: 0.875rem; font-weight: 600;
-      padding: 10px 22px; border-radius: 8px;
-      background: var(--accent); color: #fff;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .nav-cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
-
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      padding: 8px; cursor: pointer;
-    }
-    .hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--text); border-radius: 2px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-    .mobile-menu {
-      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
-      background: var(--bg); z-index: 999;
-      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-    }
-    .mobile-menu.open { opacity: 1; pointer-events: auto; }
-    .mobile-menu a {
-      font-size: 1.25rem; font-weight: 600; color: var(--text-secondary);
-      transition: color 0.2s ease;
-    }
-    .mobile-menu a:hover { color: var(--text); }
-
-    @media (max-width: 768px) {
-      .nav-links, .nav > .wrap > .nav-cta-btn { display: none; }
-      .hamburger { display: flex; }
-      .mobile-menu { display: flex; }
-    }
-
-    /* Page content */
-    .page-hero {
-      padding: calc(var(--nav-h) + 80px) 0 40px;
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: ''; position: absolute;
-      top: 10%; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 400px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .page-hero .wrap { position: relative; z-index: 1; }
-
-    .label {
-      font-family: var(--font-mono); font-size: 0.75rem;
-      font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 16px; display: inline-block;
-    }
-    .page-hero h1 {
-      font-size: clamp(2rem, 4.5vw, 3.2rem);
-      font-weight: 900; line-height: 1.1;
-      letter-spacing: -0.03em; margin-bottom: 16px;
-    }
-    .page-hero .sub {
-      font-size: 1.1rem; color: var(--text-secondary);
-      line-height: 1.7; max-width: 540px; margin: 0 auto;
-    }
-
-    .typeform-section { padding: 0 0 80px; }
-    .typeform-wrapper {
-      max-width: 720px; margin: 0 auto;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-      min-height: 600px;
-    }
-    .typeform-wrapper > div { min-height: 600px; }
-
-    /* Reveal */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* Footer */
-    footer { padding: 48px 0 32px; text-align: center; }
-    .footer-logo { font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.03em; }
-    .footer-logo span { color: var(--accent); }
-    .footer-nav { display: flex; justify-content: center; gap: 28px; margin-bottom: 16px; flex-wrap: wrap; }
-    .footer-nav a { font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s ease; }
-    .footer-nav a:hover { color: var(--text); }
-    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
-    .footer-copy { font-size: 0.75rem; color: var(--text-muted); opacity: 0.6; }
-
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #333; }
   </style>
 </head>
 <body>
-
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="wrap">
-      <a href="index.html" class="nav-logo" aria-label="LaunchedOps Home">Launched<span>Ops</span></a>
-      <div class="nav-links">
-        <a href="index.html#problem">Why You Need This</a>
-        <a href="index.html#examples">Examples</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#faq">FAQ</a>
-      </div>
-      <a href="https://form.typeform.com/to/xveu1l1q" class="nav-cta-btn">Get a Free Preview</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="AscendedOps home">
+        Launched<span class="brand__ops">Ops</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a class="nav__link" href="index.html#work">Work</a>
+        <a class="nav__link" href="index.html#process">Process</a>
+        <a class="nav__link" href="index.html#guarantee">Guarantee</a>
+        <a class="nav__link" href="index.html#faq">FAQ</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
-    <a href="index.html#examples">Examples</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="index.html#faq">FAQ</a>
-  </div>
+  <main>
+    <section class="form-wrap">
+      <div class="container container--narrow">
+        <header class="form-wrap__head">
+          <span class="eyebrow">Step one</span>
+          <h1 class="form-wrap__title">Tell us about your trade.</h1>
+          <p class="form-wrap__sub">
+            Three minutes. We&rsquo;ll call you back within one business day, then build your site preview over the next thirty-six hours. You don&rsquo;t pay unless it&rsquo;s live and you love it.
+          </p>
+        </header>
 
-  <main id="main">
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="reveal">
-          <p class="label">Get Started</p>
-          <h1>Let's Build Your Website</h1>
-          <p class="sub">Tell us about your business and we'll have a custom preview ready within 36 hours. No commitment. No upfront cost.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="typeform-section">
-      <div class="wrap">
-        <div class="typeform-wrapper reveal">
-          <div data-tf-live="xveu1l1q" style="width:100%;height:600px;"></div>
+        <div class="typeform-embed">
+          <iframe
+            src="https://form.typeform.com/to/xveu1l1q"
+            title="AscendedOps intake form"
+            allow="camera; microphone; autoplay; encrypted-media; fullscreen;"
+          ></iframe>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div class="footer-logo">Launched<span>Ops</span></div>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="index.html#problem">Why You Need This</a>
-        <a href="index.html#examples">Examples</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#faq">FAQ</a>
-      </nav>
-      <p class="footer-tagline">Built for contractors who want to win online.</p>
-      <p class="footer-copy">&copy; 2026 LaunchedOps. All rights reserved.</p>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">Launched<span class="brand__ops">Ops</span></div>
+      <div class="footer__contact">
+        <a href="mailto:hello@ascendedops.com">hello@ascendedops.com</a>
+      </div>
+      <div class="footer__legal">&copy; 2026 AscendedOps</div>
     </div>
   </footer>
 
-  <script src="//embed.typeform.com/next/embed.js"></script>
-  <script>
-    (function() {
-      'use strict';
-      var hamburger = document.getElementById('hamburger');
-      var mobileMenu = document.getElementById('mobileMenu');
-      hamburger.addEventListener('click', function() {
-        var isOpen = mobileMenu.classList.toggle('open');
-        hamburger.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', String(isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-      mobileMenu.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-          hamburger.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
-      });
+  <script src="js/chat.js" defer></script>
 
-      var reveals = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        reveals.forEach(function(el) { observer.observe(el); });
-      } else {
-        reveals.forEach(function(el) { el.classList.add('visible'); });
-      }
-    })();
-  </script>
+  <!-- Chat widget -->
+  <div id="chat-widget" aria-label="AscendedOps chat assistant">
+    <button id="chat-bubble" aria-label="Open chat" aria-expanded="false">
+      <svg class="icon-chat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
 
+    <div id="chat-panel" role="dialog" aria-label="AscendedOps assistant" hidden>
+      <div class="chat-panel__header">
+        <div class="chat-panel__title">Launched<span class="brand__ops">Ops</span></div>
+        <p class="chat-panel__sub">Ask anything</p>
+        <button class="chat-panel__close" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chat-panel__messages" id="chat-messages" aria-live="polite" aria-atomic="false"></div>
+      <div class="chat-panel__input-row">
+        <textarea id="chat-input" placeholder="Type a question…" rows="1" aria-label="Message"></textarea>
+        <button id="chat-send" aria-label="Send message">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

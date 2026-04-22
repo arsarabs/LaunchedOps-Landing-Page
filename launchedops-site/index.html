@@ -2,1668 +2,463 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LaunchedOps — Websites That Make Contractors Money</title>
-  <meta name="description" content="LaunchedOps builds premium, SEO-optimized websites for home service contractors. We build your site first — you only pay if you love it. 36-hour delivery. $999.">
-  <meta property="og:title" content="LaunchedOps — Websites That Make Contractors Money">
-  <meta property="og:description" content="We build your contractor website first — you only pay if you love it. Custom design, SEO, 36-hour delivery. $999.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AscendedOps — Websites and automations for residential contractors</title>
+  <meta name="description" content="We rebuild contractor websites in 36 hours and wire up the automations that recover missed leads. You don't pay until it's live and you love it.">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <meta property="og:title" content="AscendedOps — Websites and automations for residential contractors">
+  <meta property="og:description" content="We rebuild contractor websites in 36 hours and wire up the automations that recover missed leads. You don't pay until it's live.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://launchedops.com">
-  <link rel="canonical" href="https://launchedops.com">
+  <meta property="og:url" content="https://ascendedops.com">
+  <link rel="canonical" href="https://ascendedops.com">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Schema: ProfessionalService -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/chat.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "LaunchedOps",
-    "description": "Premium website design and SEO for home service contractors. Custom-built sites delivered in 36 hours for $999.",
-    "url": "https://launchedops.com",
-    "founder": { "@type": "Person", "name": "Anthony" },
-    "serviceType": ["Web Design", "SEO", "Website Development"],
-    "areaServed": { "@type": "Country", "name": "United States" },
-    "priceRange": "$999 + $75/mo"
+    "name": "AscendedOps",
+    "description": "Websites and lead-recovery automations for residential contractors. Built in 36 hours. Paid only when live.",
+    "url": "https://ascendedops.com",
+    "serviceType": ["Web Design", "SEO", "Marketing Automation"],
+    "areaServed": { "@type": "Country", "name": "United States" }
   }
   </script>
-
-  <!-- Schema: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does a LaunchedOps website cost?",
-        "acceptedAnswer": { "@type": "Answer", "text": "$999 one-time build fee + $75/month for hosting, maintenance, and unlimited updates. No hidden fees. No contracts." }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to build my website?",
-        "acceptedAnswer": { "@type": "Answer", "text": "36 hours from our first conversation to your live preview link." }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I don't like the website?",
-        "acceptedAnswer": { "@type": "Answer", "text": "You don't pay a dime. We build your entire site before you spend anything. If you don't love it, we part ways — no charge, no hard feelings." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need to provide anything?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Just your business info — name, services, service area. We handle everything else. Photos of your work are welcome but not required." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I make changes after the site is live?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Unlimited revisions are included in your monthly plan. Need something changed? We usually turn updates around within 24 hours." }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I already have a website?",
-        "acceptedAnswer": { "@type": "Answer", "text": "We'll build you a better one. Compare them side by side — if you prefer what you have, no hard feelings." }
-      }
-    ]
-  }
-  </script>
-
-  <!-- Schema: BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://launchedops.com"
-    }]
-  }
-  </script>
-
-  <style>
-    /* ==============================================
-       CSS VARIABLES & RESET
-       ============================================== */
-    :root {
-      --bg: #060606;
-      --bg-raised: #0e0e0e;
-      --bg-card: #111111;
-      --bg-card-hover: #161616;
-      --surface: #1a1a1a;
-      --border: #1e1e1e;
-      --border-light: #2a2a2a;
-      --text: #f5f5f5;
-      --text-secondary: #999999;
-      --text-muted: #5a5a5a;
-      --accent: #FF6B2B;
-      --accent-hover: #FF8347;
-      --accent-glow: rgba(255, 107, 43, 0.15);
-      --accent-dim: rgba(255, 107, 43, 0.06);
-      --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      --font-mono: 'Space Mono', monospace;
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-      --nav-h: 72px;
-      --max-w: 1140px;
-      --radius: 12px;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      font-family: var(--font-display);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-    ul, ol { list-style: none; }
-    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-    ::selection { background: var(--accent); color: #fff; }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-    /* Skip Link */
-    .skip-link {
-      position: absolute; top: -100%; left: 16px;
-      background: var(--accent); color: #fff;
-      padding: 8px 16px; border-radius: 6px;
-      font-weight: 600; font-size: 0.875rem; z-index: 10000;
-    }
-    .skip-link:focus { top: 16px; }
-
-    /* ==============================================
-       LAYOUT
-       ============================================== */
-    .wrap {
-      width: 100%; max-width: var(--max-w);
-      margin: 0 auto; padding: 0 24px;
-    }
-
-    section { padding: 100px 0; position: relative; }
-
-    @media (max-width: 768px) {
-      section { padding: 72px 0; }
-    }
-
-    /* ==============================================
-       NAVIGATION
-       ============================================== */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-h); z-index: 1000;
-      background: rgba(6, 6, 6, 0.8);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease, background 0.3s ease;
-    }
-    .nav.scrolled { border-bottom-color: var(--border); }
-
-    .nav .wrap {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 100%;
-    }
-
-    .nav-logo {
-      font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em;
-      display: flex; align-items: center; gap: 0;
-    }
-    .nav-logo span { color: var(--accent); }
-
-    .nav-links {
-      display: flex; gap: 36px; align-items: center;
-    }
-    .nav-links a {
-      font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
-      transition: color 0.2s ease; position: relative;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--accent);
-      transition: width 0.3s var(--ease);
-    }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta-btn {
-      font-size: 0.875rem; font-weight: 600;
-      padding: 10px 22px; border-radius: 8px;
-      background: var(--accent); color: #fff;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .nav-cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
-
-    /* Hamburger */
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      padding: 8px; cursor: pointer;
-    }
-    .hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--text); border-radius: 2px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-    /* Mobile Menu */
-    .mobile-menu {
-      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
-      background: var(--bg); z-index: 999;
-      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-    }
-    .mobile-menu.open { opacity: 1; pointer-events: auto; }
-    .mobile-menu a {
-      font-size: 1.25rem; font-weight: 600; color: var(--text-secondary);
-      transition: color 0.2s ease;
-    }
-    .mobile-menu a:hover { color: var(--text); }
-
-    @media (max-width: 768px) {
-      .nav-links, .nav > .wrap > .nav-cta-btn { display: none; }
-      .hamburger { display: flex; }
-      .mobile-menu { display: flex; }
-    }
-
-    /* ==============================================
-       BUTTONS
-       ============================================== */
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-weight: 700; font-size: 1rem;
-      border-radius: 10px; padding: 16px 32px;
-      transition: all 0.25s var(--ease);
-      cursor: pointer; text-decoration: none;
-    }
-    .btn-primary {
-      background: var(--accent); color: #fff;
-      box-shadow: 0 0 0 0 var(--accent-glow);
-    }
-    .btn-primary:hover {
-      background: var(--accent-hover); transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--accent-glow);
-    }
-    .btn-secondary {
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border-light);
-    }
-    .btn-secondary:hover {
-      border-color: var(--text-muted); transform: translateY(-2px);
-    }
-
-    /* ==============================================
-       SECTION LABELS
-       ============================================== */
-    .label {
-      font-family: var(--font-mono); font-size: 0.75rem;
-      font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 16px; display: inline-block;
-    }
-
-    .section-heading {
-      font-size: clamp(2rem, 4.5vw, 3.2rem);
-      font-weight: 900; line-height: 1.1;
-      letter-spacing: -0.03em; margin-bottom: 20px;
-    }
-
-    .section-sub {
-      font-size: 1.125rem; color: var(--text-secondary);
-      line-height: 1.7; max-width: 560px;
-    }
-
-    .section-header { margin-bottom: 60px; }
-    .section-header.center { text-align: center; }
-    .section-header.center .section-sub { margin: 0 auto; }
-
-    /* ==============================================
-       REVEAL ANIMATIONS
-       ============================================== */
-    .reveal {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-    }
-    .reveal.visible {
-      opacity: 1; transform: translateY(0);
-    }
-    .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.2s; }
-    .reveal-d3 { transition-delay: 0.3s; }
-    .reveal-d4 { transition-delay: 0.4s; }
-    .reveal-d5 { transition-delay: 0.5s; }
-
-    /* ==============================================
-       HERO
-       ============================================== */
-    .hero {
-      padding-top: calc(var(--nav-h) + 80px);
-      padding-bottom: 60px;
-      position: relative; overflow: hidden;
-      min-height: 100vh; display: flex; align-items: center;
-    }
-
-    /* Subtle gradient orb behind hero */
-    .hero::before {
-      content: ''; position: absolute;
-      top: 10%; right: -10%;
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(255,107,43,0.07) 0%, transparent 70%);
-      pointer-events: none; z-index: 0;
-    }
-
-    .hero .wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center;
-      position: relative; z-index: 1;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2.5rem, 5.5vw, 4rem);
-      font-weight: 900; line-height: 1.05;
-      letter-spacing: -0.04em; margin-bottom: 24px;
-    }
-    .hero-text h1 .accent { color: var(--accent); }
-
-    .hero-text .subtitle {
-      font-size: 1.15rem; color: var(--text-secondary);
-      line-height: 1.75; margin-bottom: 36px; max-width: 480px;
-    }
-
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
-
-    .trust-line {
-      font-size: 0.875rem; color: var(--text-muted);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .trust-line svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
-
-    /* Hero Mockup */
-    .hero-mockup {
-      position: relative;
-      perspective: 1200px;
-    }
-    .mockup-wrapper {
-      position: relative;
-      transform: rotateY(-4deg) rotateX(2deg);
-      transition: transform 0.6s var(--ease);
-    }
-    .hero-mockup:hover .mockup-wrapper {
-      transform: rotateY(0deg) rotateX(0deg);
-    }
-
-    /* Laptop */
-    .laptop {
-      background: #1a1a1a; border-radius: 12px 12px 0 0;
-      border: 1px solid #2a2a2a; overflow: hidden;
-      box-shadow: 0 25px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03);
-    }
-    .laptop-bar {
-      display: flex; align-items: center; gap: 6px;
-      padding: 10px 14px; background: #111;
-      border-bottom: 1px solid #222;
-    }
-    .laptop-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .laptop-dot.r { background: #ff5f57; }
-    .laptop-dot.y { background: #febc2e; }
-    .laptop-dot.g { background: #28c840; }
-    .laptop-url {
-      font-family: var(--font-mono); font-size: 0.65rem;
-      color: var(--text-muted); margin-left: 10px;
-      background: #0a0a0a; padding: 3px 10px;
-      border-radius: 4px; flex: 1;
-    }
-
-    .laptop-screen {
-      background: #0d1117;
-      padding: 16px; min-height: 280px;
-      position: relative; overflow: hidden;
-    }
-
-    /* Mini contractor site inside mockup */
-    .mini-hero-bar {
-      background: linear-gradient(135deg, #1a3a2e, #0d1f17);
-      border-radius: 6px; padding: 20px;
-      margin-bottom: 12px; position: relative;
-    }
-    .mini-hero-bar::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, rgba(46,204,113,0.15), transparent);
-      border-radius: 6px;
-    }
-    .mini-badge {
-      display: inline-block; font-size: 0.4rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: #2ECC71; background: rgba(46,204,113,0.12);
-      padding: 2px 8px; border-radius: 3px;
-      margin-bottom: 8px; border: 1px solid rgba(46,204,113,0.2);
-    }
-    .mini-h1 {
-      font-size: 0.85rem; font-weight: 800; color: #fff;
-      line-height: 1.2; margin-bottom: 6px;
-    }
-    .mini-sub {
-      font-size: 0.48rem; color: rgba(255,255,255,0.6);
-      margin-bottom: 10px;
-    }
-    .mini-cta-btn {
-      display: inline-block; font-size: 0.45rem; font-weight: 700;
-      background: #2ECC71; color: #fff; padding: 5px 14px;
-      border-radius: 4px;
-    }
-    .mini-cards-row {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 6px; margin-bottom: 12px;
-    }
-    .mini-card {
-      background: #151b22; border-radius: 4px;
-      padding: 10px 6px; text-align: center;
-      border: 1px solid #1e2832;
-    }
-    .mini-card-dot {
-      width: 14px; height: 14px; border-radius: 50%;
-      background: rgba(46,204,113,0.15); margin: 0 auto 4px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .mini-card-dot::after {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: #2ECC71;
-    }
-    .mini-card-label { font-size: 0.38rem; color: rgba(255,255,255,0.5); }
-    .mini-stars {
-      display: flex; align-items: center; gap: 6px;
-      padding: 6px 10px; background: #151b22;
-      border-radius: 4px; border: 1px solid #1e2832;
-    }
-    .mini-stars-icons { color: #f59e0b; font-size: 0.5rem; letter-spacing: 1px; }
-    .mini-stars-text { font-size: 0.4rem; color: rgba(255,255,255,0.5); }
-
-    .laptop-base {
-      width: 110%; margin-left: -5%;
-      height: 12px; background: linear-gradient(180deg, #1a1a1a, #111);
-      border-radius: 0 0 4px 4px;
-      border-top: 1px solid #2a2a2a;
-    }
-    .laptop-base::after {
-      content: ''; display: block;
-      width: 60px; height: 4px;
-      background: #222; border-radius: 0 0 3px 3px;
-      margin: 0 auto;
-    }
-
-    /* Phone mockup floating beside laptop */
-    .phone-mockup {
-      position: absolute; right: -30px; bottom: 20px;
-      width: 100px; z-index: 10;
-      background: #1a1a1a; border-radius: 14px;
-      border: 1px solid #2a2a2a; overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.5);
-      transform: rotate(2deg);
-    }
-    .phone-notch {
-      width: 40px; height: 4px; background: #0a0a0a;
-      border-radius: 0 0 4px 4px; margin: 4px auto 0;
-    }
-    .phone-screen {
-      padding: 6px; min-height: 170px;
-      background: #0d1117;
-      margin: 4px;
-      border-radius: 8px;
-    }
-    .phone-screen .p-bar {
-      height: 6px; border-radius: 2px;
-      margin-bottom: 4px;
-    }
-    .phone-screen .p-bar-accent { background: #2ECC71; width: 60%; }
-    .phone-screen .p-bar-text { background: #1e2832; }
-    .phone-screen .p-bar-text.w80 { width: 80%; }
-    .phone-screen .p-bar-text.w65 { width: 65%; }
-    .phone-screen .p-bar-text.w75 { width: 75%; }
-    .phone-screen .p-cta {
-      background: #2ECC71; height: 14px;
-      border-radius: 4px; margin-top: 8px;
-    }
-    .phone-screen .p-card-row {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 3px; margin: 6px 0;
-    }
-    .phone-screen .p-card-item {
-      background: #151b22; height: 24px;
-      border-radius: 3px; border: 1px solid #1e2832;
-    }
-
-    @media (max-width: 960px) {
-      .hero .wrap { grid-template-columns: 1fr; text-align: center; }
-      .hero-text .subtitle { margin-left: auto; margin-right: auto; }
-      .hero-btns { justify-content: center; }
-      .trust-line { justify-content: center; }
-      .hero-mockup { max-width: 500px; margin: 0 auto; }
-      .phone-mockup { right: -10px; bottom: 10px; width: 80px; }
-      /* Kill line breaks in headings on tablet/mobile */
-      .section-heading br { display: none; }
-    }
-
-    @media (max-width: 768px) {
-      .hero { min-height: auto; padding-top: calc(var(--nav-h) + 40px); padding-bottom: 32px; }
-      .hero .wrap { gap: 40px; }
-      .hero-text h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
-      .hero-text .subtitle { font-size: 1rem; }
-      .hero-mockup { max-width: 400px; }
-      .mockup-wrapper { transform: none; }
-      .hero-mockup:hover .mockup-wrapper { transform: none; }
-      .phone-mockup { width: 70px; right: -8px; bottom: 8px; }
-      /* Ensure all buttons/links meet 44px min tap target */
-      .btn { min-height: 48px; padding: 14px 28px; }
-      .faq-q { min-height: 48px; padding: 18px 0; gap: 16px; }
-      .nav-cta-btn { min-height: 44px; display: flex; align-items: center; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-btns { flex-direction: column; }
-      .hero-btns .btn { width: 100%; justify-content: center; }
-      .phone-mockup { display: none; }
-      .hero-mockup { max-width: 100%; }
-      .laptop-screen { min-height: 220px; padding: 12px; }
-      .mini-h1 { font-size: 0.75rem; }
-      .section-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-      .section-sub { font-size: 1rem; }
-      .problem-card { padding: 28px 22px; }
-      .benefit-card { padding: 24px 20px; }
-      .step-card p { font-size: 0.875rem; }
-      .about-highlight { padding: 20px 22px; }
-      .faq-q { font-size: 0.95rem; }
-    }
-
-    /* Sticky mobile CTA — persistent bottom bar on phones */
-    .mobile-sticky-cta {
-      display: none;
-      position: fixed; bottom: 0; left: 0; right: 0;
-      z-index: 999; padding: 12px 16px;
-      background: rgba(6, 6, 6, 0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-top: 1px solid var(--border);
-    }
-    .mobile-sticky-cta a {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; min-height: 48px;
-      background: var(--accent); color: #fff;
-      font-weight: 700; font-size: 1rem;
-      border-radius: 10px; gap: 8px;
-    }
-    .mobile-sticky-cta svg { width: 18px; height: 18px; }
-    @media (max-width: 768px) {
-      .mobile-sticky-cta { display: block; }
-      /* Add bottom padding to body so sticky CTA doesn't cover footer */
-      body { padding-bottom: 72px; }
-      footer { padding-bottom: 80px; }
-    }
-
-    /* ==============================================
-       STATS BAR
-       ============================================== */
-    .stats { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .stats .wrap {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 32px; text-align: center;
-    }
-    .stat-val {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 900; letter-spacing: -0.03em;
-      margin-bottom: 4px;
-    }
-    .stat-val .orange { color: var(--accent); }
-    .stat-label {
-      font-size: 0.8rem; color: var(--text-muted);
-      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;
-    }
-
-    @media (max-width: 640px) {
-      .stats .wrap { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    }
-
-    /* ==============================================
-       PROBLEM SECTION
-       ============================================== */
-    .problem-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-    .problem-card {
-      padding: 36px 28px; border-radius: var(--radius);
-      background: var(--bg-card); border: 1px solid var(--border);
-      position: relative; overflow: hidden;
-      transition: border-color 0.3s ease, transform 0.3s var(--ease);
-    }
-    .problem-card:hover {
-      border-color: #333; transform: translateY(-4px);
-    }
-    .problem-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 3px; background: var(--accent); opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .problem-card:hover::before { opacity: 1; }
-
-    .problem-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: var(--accent-dim); display: flex;
-      align-items: center; justify-content: center;
-      margin-bottom: 20px;
-    }
-    .problem-icon svg { width: 22px; height: 22px; color: var(--accent); }
-
-    .problem-card h3 {
-      font-size: 1.15rem; font-weight: 700;
-      margin-bottom: 10px; line-height: 1.3;
-    }
-    .problem-card p { font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; }
-
-    @media (max-width: 768px) {
-      .problem-grid { grid-template-columns: 1fr; gap: 16px; }
-    }
-
-    /* ==============================================
-       BENEFITS SECTION
-       ============================================== */
-    .benefits-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-    }
-    .benefit-card {
-      padding: 32px 24px; border-radius: var(--radius);
-      background: var(--bg-card); border: 1px solid var(--border);
-      transition: border-color 0.3s ease, transform 0.3s var(--ease);
-    }
-    .benefit-card:hover {
-      border-color: #333; transform: translateY(-3px);
-    }
-    .benefit-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--accent-dim);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-    }
-    .benefit-icon svg { width: 20px; height: 20px; color: var(--accent); }
-    .benefit-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
-    .benefit-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; }
-
-    @media (max-width: 768px) {
-      .benefits-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ==============================================
-       EXAMPLES / PORTFOLIO
-       ============================================== */
-    .portfolio-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-    }
-    .port-card {
-      border-radius: var(--radius); overflow: hidden;
-      background: var(--bg-card); border: 1px solid var(--border);
-      transition: border-color 0.3s ease, transform 0.3s var(--ease);
-    }
-    .port-card:hover { border-color: #333; transform: translateY(-4px); }
-
-    .port-mockup {
-      background: #0a0c10; padding: 16px 16px 0;
-      position: relative; overflow: hidden; min-height: 200px;
-    }
-    .port-browser {
-      background: #111; border-radius: 8px 8px 0 0;
-      overflow: hidden; border: 1px solid #1e1e1e;
-    }
-    .port-browser-bar {
-      display: flex; align-items: center; gap: 5px;
-      padding: 8px 12px; background: #0a0a0a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    .port-browser-dot { width: 6px; height: 6px; border-radius: 50%; background: #333; }
-    .port-browser-url {
-      font-family: var(--font-mono); font-size: 0.55rem;
-      color: var(--text-muted); margin-left: 8px;
-    }
-    .port-site {
-      padding: 12px; min-height: 140px; position: relative;
-    }
-    .port-site-bar {
-      height: 8px; border-radius: 3px;
-      margin-bottom: 8px;
-    }
-    .port-site-heading {
-      height: 10px; border-radius: 2px;
-      width: 75%; margin-bottom: 4px; background: rgba(255,255,255,0.12);
-    }
-    .port-site-heading.sub { width: 55%; height: 6px; background: rgba(255,255,255,0.06); margin-bottom: 10px; }
-    .port-site-cta-bar {
-      height: 16px; width: 40%; border-radius: 4px;
-      margin-bottom: 12px;
-    }
-    .port-site-cols {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
-    }
-    .port-site-col {
-      height: 40px; border-radius: 4px;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .port-info {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 20px;
-    }
-    .port-name { font-size: 1rem; font-weight: 700; }
-    .port-trade { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
-    .port-score {
-      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700;
-      color: #2ECC71; background: rgba(46,204,113,0.1);
-      padding: 4px 10px; border-radius: 6px;
-      border: 1px solid rgba(46,204,113,0.15);
-    }
-
-    @media (max-width: 640px) {
-      .portfolio-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ==============================================
-       HOW IT WORKS
-       ============================================== */
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-      position: relative;
-    }
-    /* Connecting line */
-    .steps-grid::before {
-      content: ''; position: absolute;
-      top: 36px; left: 15%; right: 15%;
-      height: 1px; background: var(--border-light);
-    }
-    .step-card { text-align: center; position: relative; z-index: 1; }
-    .step-num {
-      width: 56px; height: 56px; border-radius: 50%;
-      border: 2px solid var(--accent);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700;
-      color: var(--accent); margin: 0 auto 24px;
-      background: var(--bg);
-    }
-    .step-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
-    .step-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; max-width: 300px; margin: 0 auto; }
-
-    @media (max-width: 768px) {
-      .steps-grid { grid-template-columns: 1fr; gap: 48px; }
-      .steps-grid::before { display: none; }
-    }
-
-    /* ==============================================
-       PRICING
-       ============================================== */
-    .pricing-box {
-      max-width: 560px; margin: 0 auto;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-      position: relative;
-    }
-    .pricing-box::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 4px; background: linear-gradient(90deg, var(--accent), #ff9a5c);
-    }
-    .pricing-top {
-      text-align: center; padding: 48px 40px 32px;
-      border-bottom: 1px solid var(--border);
-    }
-    .price-main {
-      font-size: clamp(3rem, 6vw, 4rem); font-weight: 900;
-      letter-spacing: -0.04em; margin-bottom: 4px;
-    }
-    .price-main .dollar { font-size: 0.5em; vertical-align: top; color: var(--accent); position: relative; top: 0.15em; }
-    .price-sub {
-      font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 8px;
-    }
-    .price-monthly {
-      font-size: 0.85rem; color: var(--text-muted);
-    }
-    .price-monthly strong { color: var(--text-secondary); font-weight: 600; }
-
-    .pricing-features {
-      padding: 32px 40px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px;
-    }
-    .pricing-feature {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.875rem; color: var(--text-secondary);
-    }
-    .pricing-feature svg {
-      width: 16px; height: 16px; color: var(--accent); flex-shrink: 0;
-    }
-
-    .pricing-bottom {
-      padding: 24px 40px 40px; text-align: center;
-    }
-    .pricing-bottom .btn { width: 100%; justify-content: center; }
-    .pricing-guarantee {
-      margin-top: 14px; font-size: 0.8rem; color: var(--text-muted);
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-    }
-    .pricing-guarantee svg { width: 14px; height: 14px; }
-
-    @media (max-width: 540px) {
-      .pricing-features { grid-template-columns: 1fr; }
-      .pricing-top, .pricing-features, .pricing-bottom { padding-left: 24px; padding-right: 24px; }
-    }
-
-    /* ==============================================
-       ABOUT SECTION
-       ============================================== */
-    .about-content {
-      max-width: 680px; margin: 0 auto; text-align: center;
-    }
-    .about-avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #ff9a5c);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; font-weight: 800; color: #fff;
-      margin: 0 auto 24px;
-    }
-    .about-content p {
-      font-size: 1.05rem; color: var(--text-secondary);
-      line-height: 1.8; margin-bottom: 16px;
-    }
-    .about-content p strong { color: var(--text); font-weight: 700; }
-    .about-highlight {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px 32px;
-      margin: 28px 0; font-style: italic;
-      border-left: 3px solid var(--accent);
-    }
-    .about-highlight p { margin: 0; }
-
-    /* ==============================================
-       FAQ
-       ============================================== */
-    .faq-list { max-width: 700px; margin: 0 auto; }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-q {
-      width: 100%; text-align: left;
-      padding: 22px 0; display: flex;
-      justify-content: space-between; align-items: center;
-      font-size: 1.05rem; font-weight: 600;
-      color: var(--text); cursor: pointer;
-      background: none; border: none;
-      transition: color 0.2s ease;
-    }
-    .faq-q:hover { color: var(--accent); }
-    .faq-q svg {
-      width: 20px; height: 20px; flex-shrink: 0;
-      transition: transform 0.3s var(--ease);
-      color: var(--text-muted);
-    }
-    .faq-item.open .faq-q svg { transform: rotate(45deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s var(--ease), padding 0.4s var(--ease);
-    }
-    .faq-item.open .faq-a { max-height: 300px; }
-    .faq-a-inner {
-      padding-bottom: 22px;
-      font-size: 0.95rem; color: var(--text-secondary);
-      line-height: 1.7;
-    }
-
-    /* ==============================================
-       FINAL CTA
-       ============================================== */
-    .final-cta {
-      text-align: center; position: relative; overflow: hidden;
-      background: var(--bg-raised);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    }
-    .final-cta::before {
-      content: ''; position: absolute;
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 600px; height: 400px;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .final-cta .wrap { position: relative; z-index: 1; }
-    .final-cta .section-heading { max-width: 600px; margin: 0 auto 16px; }
-    .final-cta .section-sub { margin: 0 auto 36px; }
-    .final-cta .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .final-cta .cta-secondary {
-      display: block; margin-top: 18px;
-      font-size: 0.875rem; color: var(--text-muted);
-      transition: color 0.2s ease;
-    }
-    .final-cta .cta-secondary:hover { color: var(--text-secondary); }
-
-    /* ==============================================
-       FOOTER
-       ============================================== */
-    footer {
-      padding: 48px 0 32px; text-align: center;
-    }
-    .footer-logo {
-      font-size: 1.2rem; font-weight: 800;
-      margin-bottom: 16px; letter-spacing: -0.03em;
-    }
-    .footer-logo span { color: var(--accent); }
-    .footer-nav {
-      display: flex; justify-content: center; gap: 28px;
-      margin-bottom: 16px; flex-wrap: wrap;
-    }
-    .footer-nav a {
-      font-size: 0.85rem; color: var(--text-muted);
-      transition: color 0.2s ease;
-    }
-    .footer-nav a:hover { color: var(--text); }
-    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
-    .footer-copy { font-size: 0.75rem; color: var(--text-muted); opacity: 0.6; }
-
-    /* Touch devices: disable hover transforms that cause sticky-hover */
-    @media (hover: none) {
-      .problem-card:hover,
-      .benefit-card:hover,
-      .port-card:hover { transform: none; border-color: var(--border); }
-      .problem-card:hover::before { opacity: 0; }
-      .btn-primary:hover { transform: none; }
-      .btn-secondary:hover { transform: none; }
-    }
-
-    /* Mobile menu link tap targets */
-    @media (max-width: 768px) {
-      .mobile-menu a { padding: 12px 24px; min-height: 48px; display: flex; align-items: center; }
-      .footer-nav a { padding: 8px 4px; min-height: 44px; display: inline-flex; align-items: center; }
-    }
-
-    /* ==============================================
-       SCROLLBAR
-       ============================================== */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #333; }
-
-    /* ==============================================
-       COUNTER ANIMATION
-       ============================================== */
-    .count-up { display: inline-block; }
-
-    /* Divider line accent */
-    .divider {
-      width: 48px; height: 3px; background: var(--accent);
-      border-radius: 2px; margin: 0 auto 20px;
-    }
-  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;">Skip to main content</a>
 
-  <a href="#main" class="skip-link">Skip to content</a>
+  <!-- ============================================================ Nav -->
+  <header class="nav" id="site-nav">
+    <div class="container nav__inner">
+      <a href="#top" class="brand" aria-label="AscendedOps home">
+        Launched<span class="brand__ops">Ops</span>
+      </a>
 
-  <!-- ===== NAVIGATION ===== -->
-  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-    <div class="wrap">
-      <a href="index.html" class="nav-logo" aria-label="LaunchedOps Home">Launched<span>Ops</span></a>
-      <div class="nav-links" role="menubar">
-        <a href="#problem" role="menuitem">Why You Need This</a>
-        <a href="#examples" role="menuitem">Examples</a>
-        <a href="#pricing" role="menuitem">Pricing</a>
-        <a href="#faq" role="menuitem">FAQ</a>
-      </div>
-      <a href="https://form.typeform.com/to/xveu1l1q" class="nav-cta-btn">See Your Site First</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <nav class="nav__links" aria-label="Primary">
+        <a class="nav__link" href="#work">Work</a>
+        <a class="nav__link" href="#process">Process</a>
+        <a class="nav__link" href="#guarantee">Guarantee</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+      </nav>
+
+      <a class="btn btn--primary nav__cta" href="https://form.typeform.com/to/xveu1l1q">
+        See your site first <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <button class="nav__burger" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
+        <span class="nav__burger-bars" aria-hidden="true"></span>
       </button>
     </div>
-  </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-    <a href="#problem">Why You Need This</a>
-    <a href="#examples">Examples</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
-    <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary" style="margin-top: 12px; font-size: 0.95rem;">See Your Site First</a>
-  </div>
+    <div class="nav__drawer" id="nav-drawer">
+      <div class="container">
+        <ul class="nav__drawer-links">
+          <li><a class="nav__drawer-link" href="#work">Work</a></li>
+          <li><a class="nav__drawer-link" href="#process">Process</a></li>
+          <li><a class="nav__drawer-link" href="#guarantee">Guarantee</a></li>
+          <li><a class="nav__drawer-link" href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn--primary" href="https://form.typeform.com/to/xveu1l1q" style="width:100%;">
+          See your site first <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
   <main id="main">
-
-    <!-- ===== HERO ===== -->
-    <section class="hero" id="hero">
-      <div class="wrap">
-        <div class="hero-text">
-          <div class="reveal">
-            <p class="label">For Contractors Who Want to Win Online</p>
-            <h1>Websites That Make<br>Contractors <span class="accent">Money.</span></h1>
-          </div>
-          <p class="subtitle reveal reveal-d1">Most contractor websites look like they were built in 2012. Yours doesn't have to. We build sites that show up on Google, look professional, and make your phone ring.</p>
-          <div class="hero-btns reveal reveal-d2">
-            <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary">We'll Build It First — Free</a>
-            <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-secondary">Book a Call</a>
-          </div>
-          <p class="trust-line reveal reveal-d3">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            We build your entire website before you pay a dime.
-          </p>
+    <!-- ============================================================ Hero -->
+    <section class="hero" id="top">
+      <div class="container">
+        <span class="eyebrow hero__eyebrow reveal">Websites &amp; automations for residential contractors</span>
+        <h1 class="hero__title reveal reveal--delay-1">
+          The websites most contractors paid for are quietly losing them money.
+        </h1>
+        <p class="hero__subtitle reveal reveal--delay-2">
+          We rebuild them in 36 hours and wire up the automations that recover the missed leads. You don&rsquo;t pay until it&rsquo;s live and you love it.
+        </p>
+        <div class="hero__cta reveal reveal--delay-3">
+          <a class="btn btn--primary" href="https://form.typeform.com/to/xveu1l1q">
+            See your site first <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn--secondary" href="https://form.typeform.com/to/xveu1l1q">
+            Book a 15-min call
+          </a>
         </div>
-
-        <!-- Hero Mockup: Realistic contractor site -->
-        <div class="hero-mockup reveal reveal-d2">
-          <div class="mockup-wrapper">
-            <div class="laptop">
-              <div class="laptop-bar">
-                <span class="laptop-dot r"></span>
-                <span class="laptop-dot y"></span>
-                <span class="laptop-dot g"></span>
-                <span class="laptop-url">bayareajunkpros.com</span>
-              </div>
-              <div class="laptop-screen">
-                <div class="mini-hero-bar">
-                  <div class="mini-badge">Licensed &amp; Insured</div>
-                  <div class="mini-h1">Bay Area's #1 Junk<br>Removal Service</div>
-                  <div class="mini-sub">Fast, affordable, eco-friendly junk hauling for the Bay Area</div>
-                  <span class="mini-cta-btn">Call Now — Free Estimate</span>
-                </div>
-                <div class="mini-cards-row">
-                  <div class="mini-card">
-                    <div class="mini-card-dot"></div>
-                    <div class="mini-card-label">Residential</div>
-                  </div>
-                  <div class="mini-card">
-                    <div class="mini-card-dot"></div>
-                    <div class="mini-card-label">Commercial</div>
-                  </div>
-                  <div class="mini-card">
-                    <div class="mini-card-dot"></div>
-                    <div class="mini-card-label">Construction</div>
-                  </div>
-                </div>
-                <div class="mini-stars">
-                  <span class="mini-stars-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                  <span class="mini-stars-text">4.9 from 200+ reviews</span>
-                </div>
-              </div>
-            </div>
-            <div class="laptop-base"></div>
-
-            <!-- Floating phone -->
-            <div class="phone-mockup" aria-hidden="true">
-              <div class="phone-notch"></div>
-              <div class="phone-screen">
-                <div class="p-bar p-bar-accent"></div>
-                <div class="p-bar p-bar-text w80"></div>
-                <div class="p-bar p-bar-text w65"></div>
-                <div class="p-card-row">
-                  <div class="p-card-item"></div>
-                  <div class="p-card-item"></div>
-                </div>
-                <div class="p-bar p-bar-text w75"></div>
-                <div class="p-bar p-bar-text w80"></div>
-                <div class="p-cta"></div>
-                <div class="p-bar p-bar-text w65" style="margin-top:8px;"></div>
-                <div class="p-bar p-bar-text w75"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===== STATS BAR ===== -->
-    <section class="stats" aria-label="Key statistics">
-      <div class="wrap">
-        <div class="reveal">
-          <div class="stat-val"><span class="count-up" data-target="98">0</span><span class="orange">+</span></div>
-          <div class="stat-label">PageSpeed Score</div>
-        </div>
-        <div class="reveal reveal-d1">
-          <div class="stat-val"><span class="count-up" data-target="36">0</span>h</div>
-          <div class="stat-label">Delivery</div>
-        </div>
-        <div class="reveal reveal-d2">
-          <div class="stat-val"><span class="orange">$</span>0</div>
-          <div class="stat-label">Pay Before It's Built</div>
-        </div>
-        <div class="reveal reveal-d3">
-          <div class="stat-val">&infin;</div>
-          <div class="stat-label">Revisions</div>
+        <div class="hero__meta reveal reveal--delay-4">
+          <span class="hero__meta-item"><span class="hero__meta-dot" aria-hidden="true"></span>36-hour build</span>
+          <span class="hero__meta-item"><span class="hero__meta-dot" aria-hidden="true"></span>$0 until live</span>
+          <span class="hero__meta-item"><span class="hero__meta-dot" aria-hidden="true"></span>Month-to-month</span>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROBLEM ===== -->
+    <!-- ============================================================ Problem -->
     <section id="problem">
-      <div class="wrap">
-        <div class="section-header reveal">
-          <p class="label">The Problem</p>
-          <h2 class="section-heading">Here's Why You're Losing<br>Jobs Right Now</h2>
-        </div>
-        <div class="problem-grid">
-          <div class="problem-card reveal">
-            <div class="problem-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            </div>
-            <h3>You're Invisible on Google</h3>
-            <p>When someone searches "junk removal near me" or "best fencing company," your competitors show up. You don't. That's money walking out the door every single day.</p>
-          </div>
-          <div class="problem-card reveal reveal-d1">
-            <div class="problem-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <h3>Your Site Looks Like 2012</h3>
-            <p>Customers judge your business in 3 seconds. An outdated site — or no site at all — tells them you don't care about quality. They're calling someone else.</p>
-          </div>
-          <div class="problem-card reveal reveal-d2">
-            <div class="problem-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <h3>No Reviews, No Trust</h3>
-            <p>90% of customers check reviews before calling. Without a system collecting 5-star reviews automatically, you're losing to contractors who have one.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">The quiet leak</span>
+          <h2>Three ways your current site is losing you jobs.</h2>
+        </header>
 
-    <!-- ===== WHAT YOU GET ===== -->
-    <section id="benefits">
-      <div class="wrap">
-        <div class="section-header center reveal">
-          <p class="label">What You Get</p>
-          <h2 class="section-heading">Everything Your Business<br>Needs to Win Online</h2>
-          <p class="section-sub">Every site we build comes loaded. This isn't a template with your logo on it — it's a custom-built machine designed to get your phone ringing.</p>
-        </div>
-        <div class="benefits-grid">
-          <div class="benefit-card reveal">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-            <h3>Show Up on Google</h3>
-            <p>Built-in SEO, schema markup, and local search optimization so customers in your area actually find you.</p>
-          </div>
-          <div class="benefit-card reveal reveal-d1">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-            </div>
-            <h3>Look Like a $10K Operation</h3>
-            <p>Professional design that makes customers assume you're the biggest company in town. First impressions win jobs.</p>
-          </div>
-          <div class="benefit-card reveal reveal-d2">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <h3>5-Star Reviews on Autopilot</h3>
-            <p>Built-in QR code review system. Happy customers leave reviews with one tap. More reviews = more trust = more calls.</p>
-          </div>
-          <div class="benefit-card reveal">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <h3>Click-to-Call Everywhere</h3>
-            <p>Your phone number front and center on every section. Sticky call button on mobile. We make it embarrassingly easy to reach you.</p>
-          </div>
-          <div class="benefit-card reveal reveal-d1">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-            <h3>Lightning Fast</h3>
-            <p>Your site loads in under 2 seconds on any device. 98+ PageSpeed scores. Slow sites lose customers — yours won't be slow.</p>
-          </div>
-          <div class="benefit-card reveal reveal-d2">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
-            </div>
-            <h3>Perfect on Every Device</h3>
-            <p>Looks flawless on phones, tablets, and desktops. 60%+ of your customers will find you on their phone first.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== EXAMPLES ===== -->
-    <section id="examples">
-      <div class="wrap">
-        <div class="section-header center reveal">
-          <p class="label">Our Work</p>
-          <h2 class="section-heading">See What's Possible</h2>
-          <p class="section-sub">Every site is custom-built for the business. Different trades, different cities, same quality.</p>
-        </div>
-
-        <div class="portfolio-grid">
-          <!-- Bay Area Junk Pros -->
-          <div class="port-card reveal">
-            <div class="port-mockup">
-              <div class="port-browser">
-                <div class="port-browser-bar">
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-url">bayareajunkpros.com</span>
-                </div>
-                <div class="port-site">
-                  <div class="port-site-bar" style="background: linear-gradient(90deg, #FF6B2B, rgba(255,107,43,0.3));"></div>
-                  <div class="port-site-heading"></div>
-                  <div class="port-site-heading sub"></div>
-                  <div class="port-site-cta-bar" style="background: #FF6B2B;"></div>
-                  <div class="port-site-cols">
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="port-info">
-              <div>
-                <div class="port-name">Bay Area Junk Pros</div>
-                <div class="port-trade">Junk Removal — San Francisco, CA</div>
-              </div>
-              <span class="port-score">99</span>
-            </div>
-          </div>
-
-          <!-- Thompson's Tree Service -->
-          <div class="port-card reveal reveal-d1">
-            <div class="port-mockup">
-              <div class="port-browser">
-                <div class="port-browser-bar">
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-url">thompsonstreeservice.com</span>
-                </div>
-                <div class="port-site">
-                  <div class="port-site-bar" style="background: linear-gradient(90deg, #2ECC71, rgba(46,204,113,0.3));"></div>
-                  <div class="port-site-heading"></div>
-                  <div class="port-site-heading sub"></div>
-                  <div class="port-site-cta-bar" style="background: #2ECC71;"></div>
-                  <div class="port-site-cols">
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="port-info">
-              <div>
-                <div class="port-name">Thompson's Tree Service</div>
-                <div class="port-trade">Tree Service — Portland, OR</div>
-              </div>
-              <span class="port-score">98</span>
-            </div>
-          </div>
-
-          <!-- Ironside Fencing -->
-          <div class="port-card reveal">
-            <div class="port-mockup">
-              <div class="port-browser">
-                <div class="port-browser-bar">
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-url">ironsidefencing.com</span>
-                </div>
-                <div class="port-site">
-                  <div class="port-site-bar" style="background: linear-gradient(90deg, #3B82F6, rgba(59,130,246,0.3));"></div>
-                  <div class="port-site-heading"></div>
-                  <div class="port-site-heading sub"></div>
-                  <div class="port-site-cta-bar" style="background: #3B82F6;"></div>
-                  <div class="port-site-cols">
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="port-info">
-              <div>
-                <div class="port-name">Ironside Fencing Co.</div>
-                <div class="port-trade">Fencing — Austin, TX</div>
-              </div>
-              <span class="port-score">97</span>
-            </div>
-          </div>
-
-          <!-- Mike's Concrete -->
-          <div class="port-card reveal reveal-d1">
-            <div class="port-mockup">
-              <div class="port-browser">
-                <div class="port-browser-bar">
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-dot"></span>
-                  <span class="port-browser-url">mikesconcrete.com</span>
-                </div>
-                <div class="port-site">
-                  <div class="port-site-bar" style="background: linear-gradient(90deg, #F59E0B, rgba(245,158,11,0.3));"></div>
-                  <div class="port-site-heading"></div>
-                  <div class="port-site-heading sub"></div>
-                  <div class="port-site-cta-bar" style="background: #F59E0B;"></div>
-                  <div class="port-site-cols">
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                    <div class="port-site-col"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="port-info">
-              <div>
-                <div class="port-name">Mike's Concrete &amp; Masonry</div>
-                <div class="port-trade">Concrete — Denver, CO</div>
-              </div>
-              <span class="port-score">98</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== HOW IT WORKS ===== -->
-    <section id="process">
-      <div class="wrap">
-        <div class="section-header center reveal">
-          <p class="label">How It Works</p>
-          <h2 class="section-heading">Three Steps. That's It.</h2>
-        </div>
-        <div class="steps-grid">
-          <div class="step-card reveal">
-            <div class="step-num">1</div>
-            <h3>Tell Us About Your Business</h3>
-            <p>Fill out a quick form or hop on a 15-minute call. Your trade, your city, what makes you different. No sales pitch.</p>
-          </div>
-          <div class="step-card reveal reveal-d1">
-            <div class="step-num">2</div>
-            <h3>We Build It in 36 Hours</h3>
-            <p>Not a template. A custom site built for your business — your name, your services, your area. Design, copy, SEO, everything.</p>
-          </div>
-          <div class="step-card reveal reveal-d2">
-            <div class="step-num">3</div>
-            <h3>See It Before You Spend a Dime</h3>
-            <p>We send you the finished site. Not a mockup — a real, working website. Show your wife, your crew, whoever. Love it? It's yours. Don't? You owe us nothing.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PRICING ===== -->
-    <section id="pricing">
-      <div class="wrap">
-        <div class="section-header center reveal">
-          <p class="label">Pricing</p>
-          <h2 class="section-heading">Simple, Transparent Pricing</h2>
-          <p class="section-sub">No hidden fees. No contracts. No surprises. Just a great website that pays for itself.</p>
-        </div>
-
-        <div class="pricing-box reveal">
-          <div class="pricing-top">
-            <div class="price-main"><span class="dollar">$</span>999</div>
-            <div class="price-sub">One-time build fee</div>
-            <div class="price-monthly">Then <strong>$75/month</strong> for hosting, maintenance &amp; unlimited updates</div>
-          </div>
-          <div class="pricing-features">
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Custom design &amp; branding</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>SEO &amp; Google optimization</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Mobile-first responsive</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>98+ PageSpeed score</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Review collection system</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Click-to-call buttons</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Your own domain name</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Unlimited revisions</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Contact forms that text you</span>
-            </div>
-            <div class="pricing-feature">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>36-hour turnaround</span>
-            </div>
-          </div>
-          <div class="pricing-bottom">
-            <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary">We'll Build Yours First</a>
-            <p class="pricing-guarantee">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Your site gets built before you pay anything. No risk.
+        <div class="problem__grid">
+          <article class="problem__item">
+            <span class="problem__num">01</span>
+            <h3 class="problem__title">The first thirty seconds</h3>
+            <p class="problem__body">
+              A homeowner opens your site from Google, waits three seconds, sees a 2014 design, and closes the tab. The website is the interview. Most contractor sites fail it before the visitor reads a word.
             </p>
+          </article>
+
+          <article class="problem__item">
+            <span class="problem__num">02</span>
+            <h3 class="problem__title">The missed calls</h3>
+            <p class="problem__body">
+              Crews are working. Phones ring through to voicemail. Voicemail doesn&rsquo;t get returned for hours. Every missed call is a homeowner who calls the next name on their list.
+            </p>
+          </article>
+
+          <article class="problem__item">
+            <span class="problem__num">03</span>
+            <h3 class="problem__title">After five o&rsquo;clock</h3>
+            <p class="problem__body">
+              Most homeowners search for contractors in the evening. If there&rsquo;s no way to book, no way to get a price range, and no reply until Monday morning, the job is sold by sunrise.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ What you get -->
+    <section id="build">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">The build</span>
+          <h2>What&rsquo;s actually inside a AscendedOps build.</h2>
+        </header>
+
+        <div class="deliverables">
+          <article class="deliverables__item">
+            <span class="deliverables__num">01</span>
+            <h3 class="deliverables__title">The website</h3>
+            <p class="deliverables__body">
+              Custom-coded from scratch. On-page SEO built in &mdash; schema, meta, internal links, fast mobile load. Your content, your photos, your service area. You own the domain and the files.
+            </p>
+          </article>
+
+          <article class="deliverables__item">
+            <span class="deliverables__num">02</span>
+            <h3 class="deliverables__title">Missed-call textback</h3>
+            <p class="deliverables__body">
+              If a lead calls while you&rsquo;re on a roof, they get a text back in under a minute. They reply. You respond when you&rsquo;re down. You don&rsquo;t lose the job.
+            </p>
+          </article>
+
+          <article class="deliverables__item">
+            <span class="deliverables__num">03</span>
+            <h3 class="deliverables__title">Speed-to-lead</h3>
+            <p class="deliverables__body">
+              Form fills, chat requests, and booking inquiries route to your phone the moment they happen. The first contractor to respond wins. You&rsquo;re always first.
+            </p>
+          </article>
+
+          <article class="deliverables__item">
+            <span class="deliverables__num">04</span>
+            <h3 class="deliverables__title">After-hours &amp; online booking</h3>
+            <p class="deliverables__body">
+              Automated replies for evenings and weekends. An embedded scheduler for estimates &mdash; homeowners pick a time, the calendar invite hits your phone.
+            </p>
+          </article>
+
+          <article class="deliverables__item">
+            <span class="deliverables__num">05</span>
+            <h3 class="deliverables__title">Review collection</h3>
+            <p class="deliverables__body">
+              After every completed job, a text goes out asking for a Google review. One tap, they&rsquo;re on the page. Reviews compound over months.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ Work -->
+    <section id="work">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">Live sites</span>
+          <h2>See a real site we built.</h2>
+          <p class="lead">Click through. Try the booking form. Use the chat. This is what yours would look like, built for your trade.</p>
+        </header>
+
+        <div class="work__grid">
+          <!-- TODO: replace data-url with real live URLs once confirmed -->
+          <a class="work__card" href="#" data-work="the-junk-moose" target="_blank" rel="noopener">
+            <div class="work__shot" aria-hidden="true">
+              <!-- TODO: add real screenshot at assets/work/the-junk-moose.webp (1440x900 @ 2x) -->
+            </div>
+            <div class="work__meta">
+              <div>
+                <div class="work__label">Junk removal</div>
+                <div class="work__name">The Junk Moose</div>
+              </div>
+              <span class="work__link">Open live site <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+
+          <a class="work__card" href="#" data-work="lone-star-tree-pros" target="_blank" rel="noopener">
+            <div class="work__shot" aria-hidden="true">
+              <!-- TODO: add real screenshot at assets/work/lone-star-tree-pros.webp (1440x900 @ 2x) -->
+            </div>
+            <div class="work__meta">
+              <div>
+                <div class="work__label">Tree service</div>
+                <div class="work__name">Lone Star Tree Pros</div>
+              </div>
+              <span class="work__link">Open live site <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ Process -->
+    <section id="process">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">The build, hour by hour</span>
+          <h2>Thirty-six hours, end to end.</h2>
+        </header>
+
+        <div class="process__steps">
+          <article class="process__step">
+            <span class="process__time">Hour 0</span>
+            <h3 class="process__name">Discovery</h3>
+            <p class="process__body">
+              Fifteen minutes on the phone. You tell us what you do, where you work, and the two or three things that make you different. We pull your existing reviews, photos, and current site if you have one.
+            </p>
+          </article>
+
+          <article class="process__step">
+            <span class="process__time">Hours 1&ndash;36</span>
+            <h3 class="process__name">We build</h3>
+            <p class="process__body">
+              Your site goes live on a staging URL. You watch it come together in real time. If something feels off, you text us and it&rsquo;s fixed by the next check-in. No week-long email threads.
+            </p>
+          </article>
+
+          <article class="process__step">
+            <span class="process__time">Hour 36+</span>
+            <h3 class="process__name">Approve and ship</h3>
+            <p class="process__body">
+              You review the finished site and the automation setup. If you love it, we point the domain and turn on the phone forwarding. If you don&rsquo;t, we take it down and you owe nothing.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ Guarantee -->
+    <section id="guarantee" class="guarantee">
+      <div class="container guarantee__inner">
+        <div>
+          <span class="guarantee__label"><span class="guarantee__label-dot" aria-hidden="true"></span>The guarantee</span>
+          <h2 class="guarantee__title">You don&rsquo;t pay until it&rsquo;s live &mdash; and you love it.</h2>
+        </div>
+
+        <div class="guarantee__clauses">
+          <div class="guarantee__clause">
+            <span class="guarantee__num">01</span>
+            <div>
+              <h3 class="guarantee__clause-title">Zero dollars upfront</h3>
+              <p class="guarantee__clause-body">
+                We build the entire site and wire the automations before you pay anything. No deposit, no retainer, no &ldquo;we&rsquo;ll start once we receive payment.&rdquo; The risk sits with us.
+              </p>
+            </div>
+          </div>
+
+          <div class="guarantee__clause">
+            <span class="guarantee__num">02</span>
+            <div>
+              <h3 class="guarantee__clause-title">Thirty-six hours, not six weeks</h3>
+              <p class="guarantee__clause-body">
+                From the discovery call to a working preview you can click through in thirty-six hours. Not &ldquo;depends on revisions,&rdquo; not &ldquo;once we get the content,&rdquo; not &ldquo;by end of next month.&rdquo; If we&rsquo;re late, that&rsquo;s on us.
+              </p>
+            </div>
+          </div>
+
+          <div class="guarantee__clause">
+            <span class="guarantee__num">03</span>
+            <div>
+              <h3 class="guarantee__clause-title">Fire us anytime</h3>
+              <p class="guarantee__clause-body">
+                Month-to-month. No contract, no cancellation fee, no clawback. You own the domain, the content, and the source files. If we aren&rsquo;t earning our keep, you leave &mdash; and the site stays up.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about">
-      <div class="wrap">
-        <div class="about-content reveal">
-          <div class="about-avatar" aria-hidden="true">A</div>
-          <p class="label">About</p>
-          <h2 class="section-heading">Built by Anthony</h2>
-          <p><strong>I'm a computer science student</strong> who spent three years working in restaurants while building this on the side. I started LaunchedOps because I kept seeing the same thing — contractors doing incredible work but losing jobs because their online presence was terrible.</p>
-          <div class="about-highlight">
-            <p>I build every site myself. Not a big agency with 50 employees. One person who obsesses over every detail — the speed, the SEO, the design, the conversion.</p>
-          </div>
-          <p>Every site I build is something I'd put my name on. I write the code, set up the SEO, and make sure it actually does its job: <strong>making your phone ring.</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== FAQ ===== -->
+    <!-- ============================================================ FAQ -->
     <section id="faq">
-      <div class="wrap">
-        <div class="section-header center reveal">
-          <p class="label">FAQ</p>
-          <h2 class="section-heading">Questions? Answers.</h2>
-        </div>
-        <div class="faq-list">
-          <div class="faq-item reveal">
-            <button class="faq-q" aria-expanded="false">
-              How much does it cost?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner">$999 one-time build fee + $75/month for hosting, maintenance, and unlimited updates. No hidden fees. No contracts. Cancel anytime.</div></div>
-          </div>
-          <div class="faq-item reveal reveal-d1">
-            <button class="faq-q" aria-expanded="false">
-              How long does it take?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner">36 hours from our first conversation to your live preview link. Not 36 days. 36 hours.</div></div>
-          </div>
-          <div class="faq-item reveal reveal-d1">
-            <button class="faq-q" aria-expanded="false">
-              What if I don't like it?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner">You don't pay a dime. We build your entire site before you spend anything — that's how confident we are. If it's not what you want, we walk away. No charge, no pressure.</div></div>
-          </div>
-          <div class="faq-item reveal reveal-d2">
-            <button class="faq-q" aria-expanded="false">
-              Do I need to provide anything?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner">Just your business info — name, services, city. We handle design, copy, and everything technical. If you have photos of your work, send them over — but it's not required.</div></div>
-          </div>
-          <div class="faq-item reveal reveal-d2">
-            <button class="faq-q" aria-expanded="false">
-              Can I make changes later?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner">Unlimited revisions are included in your monthly plan. Need a new photo? Different wording? We usually turn around updates within 24 hours.</div></div>
-          </div>
-          <div class="faq-item reveal reveal-d3">
-            <button class="faq-q" aria-expanded="false">
-              What if I already have a website?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner">We'll build you a better one. Compare them side by side. If you prefer what you already have, no hard feelings.</div></div>
-          </div>
+      <div class="container container--narrow">
+        <header class="section__head">
+          <span class="eyebrow">Questions</span>
+          <h2>What most contractors ask before booking a call.</h2>
+        </header>
+
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary class="faq__question">
+              What if I hate it?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              You don&rsquo;t pay. We take the staging site down and that&rsquo;s the end of it. No &ldquo;we worked 36 hours, you owe us 50%.&rdquo; Zero dollars changes hands unless the site is live on your domain and you&rsquo;re happy with it.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              I already have a website. Do I need a new one?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Not always. If yours is newer, fast, and the content is doing work, keep it &mdash; we can add the automations and the review flow on top. Book a call and we&rsquo;ll tell you honestly whether a rebuild is worth it.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              Who owns the site?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              You do. It&rsquo;s on your domain, on hosting in your name, with the source files delivered to you any time you ask. No lock-in. If you fire us tomorrow, the site stays up and keeps working.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              How do the automations actually work?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              We wire your existing business number into a system that texts callers back when you miss, routes form fills to your phone in under a minute, sends calendar invites for booked appointments, and asks for Google reviews after each job. It runs in the background. You don&rsquo;t log into anything.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              Why only thirty-six hours?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Because building a contractor website isn&rsquo;t a six-week project. We&rsquo;ve built these before. The shape is known. The only variable is your content and your photos. We can build it in 36 hours, so you can get back to work while leads come in.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              What&rsquo;s the catch on &ldquo;free until live&rdquo;?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              There isn&rsquo;t one. We charge for the work once the site is up and you&rsquo;ve approved it. Month-to-month after that. We earn our keep over time by being worth keeping around. If we&rsquo;re not, you leave.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">
+              Where do you work?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              Anywhere in the United States. Everything &mdash; the discovery call, the build, the revisions, the handoff &mdash; happens over phone, text, and screen share. No in-person meetings required.
+            </div>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- ===== FINAL CTA ===== -->
-    <section class="final-cta" id="cta">
-      <div class="wrap">
-        <div class="reveal">
-          <p class="label">Let's Go</p>
-          <h2 class="section-heading">Ready to See What Your Business Looks Like Online?</h2>
-          <p class="section-sub">We'll build the whole thing first. You only pay if you love it.</p>
+    <!-- ============================================================ Final CTA -->
+    <section class="cta" id="final-cta">
+      <div class="container cta__inner">
+        <div>
+          <span class="eyebrow">Next step</span>
+          <h2 class="cta__title" style="margin-top:var(--space-4);">See your site before you pay a dollar.</h2>
         </div>
-        <div class="cta-btns reveal reveal-d1">
-          <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-primary">Get Your Site Built Free</a>
-          <a href="https://form.typeform.com/to/xveu1l1q" class="btn btn-secondary">Book a 15-Min Call</a>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="https://form.typeform.com/to/xveu1l1q">
+            See your site first <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn--ghost" href="https://form.typeform.com/to/xveu1l1q">
+            Or book a 15-min call
+          </a>
+          <span class="cta__note">Fifteen minutes · 36-hour build · $0 until live</span>
         </div>
-        <a href="https://form.typeform.com/to/xveu1l1q" class="cta-secondary reveal reveal-d2">Tell us about your business. We'll build it and show you.</a>
       </div>
     </section>
-
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-logo">Launched<span>Ops</span></div>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#hero">Home</a>
-        <a href="#problem">Why You Need This</a>
-        <a href="#examples">Examples</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="get-started.html">Get Started</a>
-      </nav>
-      <p class="footer-tagline">Built for contractors who want to win online.</p>
-      <p class="footer-copy">&copy; 2026 LaunchedOps. All rights reserved.</p>
+  <!-- ============================================================ Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">Launched<span class="brand__ops">Ops</span></div>
+      <div class="footer__contact">
+        <a href="mailto:hello@ascendedops.com">hello@ascendedops.com</a>
+      </div>
+      <div class="footer__legal">&copy; 2026 AscendedOps</div>
     </div>
   </footer>
 
-  <!-- Sticky Mobile CTA -->
-  <div class="mobile-sticky-cta" id="mobileCta" aria-label="Get started">
-    <a href="https://form.typeform.com/to/xveu1l1q">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      We'll Build It First — Free
+  <!-- Mobile sticky CTA -->
+  <div class="sticky-cta">
+    <a class="btn btn--primary" href="https://form.typeform.com/to/xveu1l1q">
+      See your site first <span class="btn__arrow" aria-hidden="true">→</span>
     </a>
   </div>
 
-  <script>
-    /* ==============================================
-       JAVASCRIPT — Minimal, purposeful
-       ============================================== */
-    (function() {
-      'use strict';
+  <script src="js/site.js" defer></script>
+  <script src="js/chat.js" defer></script>
 
-      /* --- Navbar scroll state --- */
-      var nav = document.getElementById('nav');
-      var scrolled = false;
-      window.addEventListener('scroll', function() {
-        var shouldBeScrolled = window.scrollY > 40;
-        if (shouldBeScrolled !== scrolled) {
-          scrolled = shouldBeScrolled;
-          nav.classList.toggle('scrolled', scrolled);
-        }
-      }, { passive: true });
+  <!-- Chat widget -->
+  <div id="chat-widget" aria-label="AscendedOps chat assistant">
+    <button id="chat-bubble" aria-label="Open chat" aria-expanded="false">
+      <!-- chat icon -->
+      <svg class="icon-chat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <!-- close icon -->
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
 
-      /* --- Hamburger / Mobile menu --- */
-      var hamburger = document.getElementById('hamburger');
-      var mobileMenu = document.getElementById('mobileMenu');
-      hamburger.addEventListener('click', function() {
-        var isOpen = mobileMenu.classList.toggle('open');
-        hamburger.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', String(isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-      // Close on link click
-      mobileMenu.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-          hamburger.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
-      });
-
-      /* --- Intersection Observer: reveal on scroll --- */
-      var reveals = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        reveals.forEach(function(el) { observer.observe(el); });
-      } else {
-        reveals.forEach(function(el) { el.classList.add('visible'); });
-      }
-
-      /* --- Count-up animation --- */
-      var counters = document.querySelectorAll('.count-up');
-      if ('IntersectionObserver' in window) {
-        var counterObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              var el = entry.target;
-              var target = parseInt(el.getAttribute('data-target'));
-              var duration = 1200;
-              var start = performance.now();
-              function tick(now) {
-                var elapsed = now - start;
-                var progress = Math.min(elapsed / duration, 1);
-                var ease = 1 - Math.pow(1 - progress, 3);
-                el.textContent = Math.round(target * ease);
-                if (progress < 1) requestAnimationFrame(tick);
-              }
-              requestAnimationFrame(tick);
-              counterObserver.unobserve(el);
-            }
-          });
-        }, { threshold: 0.5 });
-
-        counters.forEach(function(el) { counterObserver.observe(el); });
-      }
-
-      /* --- FAQ Accordion --- */
-      document.querySelectorAll('.faq-q').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var item = this.closest('.faq-item');
-          var wasOpen = item.classList.contains('open');
-
-          // Close all
-          document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
-            openItem.classList.remove('open');
-            openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-          });
-
-          // Toggle clicked
-          if (!wasOpen) {
-            item.classList.add('open');
-            this.setAttribute('aria-expanded', 'true');
-          }
-        });
-      });
-
-      /* --- Sticky mobile CTA: show after scrolling past hero --- */
-      var mobileCta = document.getElementById('mobileCta');
-      if (mobileCta && window.innerWidth <= 768) {
-        mobileCta.style.transform = 'translateY(100%)';
-        mobileCta.style.transition = 'transform 0.3s ease';
-        window.addEventListener('scroll', function() {
-          if (window.scrollY > 400) {
-            mobileCta.style.transform = 'translateY(0)';
-          } else {
-            mobileCta.style.transform = 'translateY(100%)';
-          }
-        }, { passive: true });
-      }
-
-      /* --- Smooth scroll for anchor links --- */
-      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-        a.addEventListener('click', function(e) {
-          var target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            var offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-            var top = target.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top: top, behavior: 'smooth' });
-          }
-        });
-      });
-
-    })();
-  </script>
-
+    <div id="chat-panel" role="dialog" aria-label="AscendedOps assistant" hidden>
+      <div class="chat-panel__header">
+        <div class="chat-panel__title">Launched<span class="brand__ops">Ops</span></div>
+        <p class="chat-panel__sub">Ask anything</p>
+        <button class="chat-panel__close" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chat-panel__messages" id="chat-messages" aria-live="polite" aria-atomic="false"></div>
+      <div class="chat-panel__input-row">
+        <textarea id="chat-input" placeholder="Type a question…" rows="1" aria-label="Message"></textarea>
+        <button id="chat-send" aria-label="Send message">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
